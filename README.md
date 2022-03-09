@@ -1,3 +1,3 @@
-# ComposePlayground
+# AndroidPlayground
 
-Jetpack Compose Playground
+Android Playground
