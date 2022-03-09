@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
                 text = stringResource(R.string.app_name),
                 style = LocalTextStyle.current.copy(
                     fontSize = 20.sp,
-                    color = Color.Cyan
+                    color = Color.White
                 )
             )
         }
