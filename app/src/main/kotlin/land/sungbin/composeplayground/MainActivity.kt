@@ -3,39 +3,31 @@ package land.sungbin.composeplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import land.sungbin.composeplayground.ui.theme.ComposePlaygroundTheme
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposePlaygroundTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background) {
-                    Greeting("Android")
-                }
-            }
+            Text(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .wrapContentSize()
+                    .background(color = Color.Blue),
+                text = stringResource(R.string.app_name),
+                style = LocalTextStyle.current.copy(
+                    fontSize = 20.sp,
+                    color = Color.Cyan
+                )
+            )
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ComposePlaygroundTheme {
-        Greeting("Android")
     }
 }
