@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
             }
             launch {
                 vm.channelFlow.collect {
-                    println("ChannelFlow: $it")
+                    println("ChannelFlow: $it\n")
                 }
             }
         }
