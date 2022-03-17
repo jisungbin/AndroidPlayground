@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "land.sungbin.composeplayground"
+        applicationId "land.sungbin.androidplayground"
         minSdk 23
         targetSdk 31
         versionCode 1
@@ -24,6 +24,7 @@ android {
     }
 
     buildFeatures {
+        dataBinding true
         compose true
     }
 
@@ -38,6 +39,7 @@ android {
 
 dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'com.google.android.material:material:1.5.0'
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'

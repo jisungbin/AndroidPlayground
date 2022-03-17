@@ -1,4 +1,4 @@
-package land.sungbin.composeplayground
+package land.sungbin.androidplayground
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

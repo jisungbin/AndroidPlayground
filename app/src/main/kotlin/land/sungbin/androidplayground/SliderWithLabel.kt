@@ -1,4 +1,4 @@
-package land.sungbin.composeplayground
+package land.sungbin.androidplayground
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -23,7 +23,7 @@ fun SliderWithLabel(
     valueRange: ClosedFloatingPointRange<Float>,
     finiteEnd: Boolean,
     labelMinWidth: Dp = 24.dp,
-    onValueChanged: (value: Float) -> Unit,
+    onValueChange: (value: Float) -> Unit,
 ) {
     Column {
         BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
@@ -40,11 +40,6 @@ fun SliderWithLabel(
                 value.toInt().toString()
             }
 
-            SliderLabel(
-                label = valueRange.start.toInt().toString(),
-                minWidth = labelMinWidth
-            )
-
             if (value > valueRange.start) {
                 SliderLabel(
                     label = endValueText, minWidth = labelMinWidth,
@@ -56,7 +51,7 @@ fun SliderWithLabel(
         Slider(
             value = value,
             onValueChange = { value ->
-                onValueChanged(value)
+                onValueChange(value)
             },
             valueRange = valueRange,
             modifier = Modifier.fillMaxWidth()
