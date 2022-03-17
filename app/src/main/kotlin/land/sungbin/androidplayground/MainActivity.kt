@@ -14,6 +14,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.rangeSlider.setValues(50f, 80f)
+        binding.rangeSlider.setValues(20f, 50f)
     }
 }
