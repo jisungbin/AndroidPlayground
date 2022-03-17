@@ -4,15 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.LocalTextStyle
-import androidx.compose.material.Text
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -38,17 +33,19 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
-            Text(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .wrapContentSize()
-                    .background(color = Color.Blue),
-                text = stringResource(R.string.app_name),
-                style = LocalTextStyle.current.copy(
-                    fontSize = 20.sp,
-                    color = Color.White
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                SliderWithLabel(
+                    value = 10f,
+                    valueRange = 1f..100f,
+                    finiteEnd = false,
+                    onValueChanged = { value ->
+                        println(value)
+                    }
                 )
-            )
+            }
         }
     }
 }
