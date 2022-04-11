@@ -1,31 +1,40 @@
 package land.sungbin.androidplayground
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.animation.OvershootInterpolator
 import androidx.activity.ComponentActivity
-import androidx.databinding.DataBindingUtil
-import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        binding.tvToast.text = getString(R.string.app_name)
-        binding.tvToast.setTextColor(Color.YELLOW)
-
-        binding.btnAnimate.setOnClickListener {
-            binding.bvSnackbarContainer.animate().run {
-                translationY(-300f)
-                interpolator = OvershootInterpolator()
-                duration = 1000L
-                withLayer()
-                start()
+        setContent {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Foo().also { println("Recompose: Foo") }
             }
         }
+    }
+
+    @Composable
+    fun Foo() {
+        var text by remember { mutableStateOf("") }.also { println("Recomposed: text state") }
+
+        Button(onClick = { text = "$text\n$text" }) {
+            Text(text).also { println("Recomposed: Text") }
+        }.also { println("Recomposed: Button") }
     }
 }
