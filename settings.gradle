@@ -5,6 +5,14 @@ pluginManagement {
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
+
+    resolutionStrategy {
+        eachPlugin {
+            if(requested.id.toString() == "com.github.takahirom.decomposer"){
+                useModule("com.github.takahirom:decomposer:main-SNAPSHOT")
+            }
+        }
+    }
 }
 
 dependencyResolutionManagement {
