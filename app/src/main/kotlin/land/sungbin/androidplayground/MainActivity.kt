@@ -4,6 +4,7 @@ package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
@@ -14,11 +15,13 @@ import kotlin.system.measureNanoTime
 class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val vm: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        vm.printCurrentThreadName()
         binding.btnTest.setOnClickListener {
             measureNanoTime {
                 lifecycleScope.launchWhenCreated {
