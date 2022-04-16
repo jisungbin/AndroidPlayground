@@ -1,59 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/cl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_purple"
+        android:orientation="vertical"
         tools:ignore="HardcodedText">
 
-        <Button
-            android:id="@+id/btn_animate"
+        <TextView
+            android:id="@+id/tv_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="animate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Hello, world!" />
 
-        <com.github.mmin18.widget.RealtimeBlurView
-            android:id="@+id/bv_snackbar_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:realtimeBlurRadius="20dp"
-            app:realtimeOverlayColor="@android:color/darker_gray"
-            tools:translationY="-100dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_snackbar_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                app:cardCornerRadius="10dp"
-                app:contentPaddingBottom="20dp"
-                app:contentPaddingLeft="30dp"
-                app:contentPaddingRight="30dp"
-                app:contentPaddingTop="20dp">
-
-                <TextView
-                    android:id="@+id/tv_toast"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Toss-style snackbar" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </com.github.mmin18.widget.RealtimeBlurView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </layout>
