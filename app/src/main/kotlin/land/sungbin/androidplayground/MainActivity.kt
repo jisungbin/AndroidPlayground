@@ -5,22 +5,14 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.graphics.Color
-import land.sungbin.androidplayground.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private val vm: MainViewModel by viewModels()
+    /*private lateinit var binding: ActivityMainBinding
+     private val vm: MainViewModel by viewModels()*/
+
+    private val someValue = 1
 
     // @OptIn(InternalComposeApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,14 +20,23 @@ class MainActivity : ComponentActivity() {
 
         // enableLiveLiterals()
         setContent {
-            Test(
+            LambdaOptimizedTest(
+                nonComposableLambdaExpression = {
+                    println(someValue)
+                },
+                composableLambdaExpression = {
+                    Text(text = someValue.toString())
+                }
+            )
+
+            /*Test(
                 nonComposableLambdaExpression = {
                     println("nonComposableLambdaExpression")
                 },
                 composableLambdaExpression = {
                     Text(text = "composableLambdaExpression")
                 }
-            )
+            )*/
         }
 
         /*binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -66,7 +67,7 @@ class MainActivity : ComponentActivity() {
         }*/
     }
 
-    // @Preview
+    /*// @Preview
     @Composable
     fun Test(
         nonComposableLambdaExpression: () -> Unit,
@@ -87,7 +88,7 @@ class MainActivity : ComponentActivity() {
         ) {
             Text(text = "Test enableLiveLiterals() enabled")
         }
-    }
+    }*/
 }
 
 /*
