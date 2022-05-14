@@ -4,13 +4,18 @@ package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import kotlin.system.measureNanoTime
 
 class MainActivity : ComponentActivity() {
 
@@ -19,7 +24,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        setContent {
+            Test()
+        }
+
+        /*binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         vm.printCurrentThreadName()
         binding.btnTest.setOnClickListener {
@@ -44,6 +54,19 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }.also(::println)
+        }*/
+    }
+
+    @Preview
+    @Composable
+    fun Test() {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .drawBehind { drawRect(color = Color.Magenta) },
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text = "Bye, world!")
         }
     }
 }
