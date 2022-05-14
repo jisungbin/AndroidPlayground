@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 
@@ -60,15 +62,22 @@ class MainActivity : ComponentActivity() {
     @Preview
     @Composable
     fun Test() {
+        println(string(R.string.app_name) @Composable { stringResource(it) })
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .drawBehind {
                     drawRect(color = Color.Magenta)
                 },
-            contentAlignment = Alignment.BottomCenter
+            contentAlignment = Alignment.Center
         ) {
             Text(text = "Bye, world!")
         }
     }
 }
+
+@Target(AnnotationTarget.FUNCTION)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class FunAnn
+
+inline fun string(@StringRes resId: Int, builder: (resId: Int) -> String) = builder(resId)
