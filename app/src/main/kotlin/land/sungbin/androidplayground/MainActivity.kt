@@ -1,4 +1,4 @@
-@file:Suppress("SetTextI18n", "unused")
+@file:Suppress("SetTextI18n", "unused", "OPT_IN_IS_NOT_ENABLED")
 
 package land.sungbin.androidplayground
 
@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
@@ -24,9 +25,11 @@ class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
     private val vm: MainViewModel by viewModels()
 
+    @OptIn(InternalComposeApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // enableLiveLiterals()
         setContent {
             Test()
         }
@@ -71,7 +74,7 @@ class MainActivity : ComponentActivity() {
                 },
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Bye, world!")
+            Text(text = "Test enableLiveLiterals()")
         }
     }
 }
