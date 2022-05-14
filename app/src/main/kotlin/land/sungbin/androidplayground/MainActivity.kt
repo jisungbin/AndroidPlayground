@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
 
         // Both recomposition RecompositionGenerator function and Text scope.
         // --- result ---
-        // [first composition]
+        // [first-composition]
         // Composition: RecompositionGenerator function
         // Composition: Text function
         // [re-composition]
@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
 
         // Only recomposition Button scope.
         // --- result ---
-        // [first composition]
+        // [first-composition]
         // Composition: RecompositionGenerator function
         // Composition: Button scope
         // Composition: Text function
@@ -82,4 +82,27 @@ class MainActivity : ComponentActivity() {
         }
         Text(modifier = modifier, text = text)
     }
+}
+
+@Composable
+private fun RecompositionGenerator() {
+    SideEffect {
+        println("Composition: RecompositionGenerator function")
+    }
+
+    var number by remember { mutableStateOf(0) }
+
+    LoggingText(
+        modifier = Modifier.clickable { number++ },
+        text = number.toString(),
+        logMessage = "Composition: Text function"
+    )
+}
+
+@Composable
+private fun LoggingText(modifier: Modifier = Modifier, text: String, logMessage: String) {
+    SideEffect {
+        println(logMessage)
+    }
+    Text(modifier = modifier, text = text)
 }
