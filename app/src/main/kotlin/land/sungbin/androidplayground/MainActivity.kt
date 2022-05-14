@@ -6,18 +6,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.InternalComposeApi
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
@@ -25,13 +22,20 @@ class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
     private val vm: MainViewModel by viewModels()
 
-    @OptIn(InternalComposeApi::class)
+    // @OptIn(InternalComposeApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // enableLiveLiterals()
         setContent {
-            Test()
+            Test(
+                nonComposableLambdaExpression = {
+                    println("nonComposableLambdaExpression")
+                },
+                composableLambdaExpression = {
+                    Text(text = "composableLambdaExpression")
+                }
+            )
         }
 
         /*binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -62,23 +66,31 @@ class MainActivity : ComponentActivity() {
         }*/
     }
 
-    @Preview
+    // @Preview
     @Composable
-    fun Test() {
-        println(string(R.string.app_name) @Composable { stringResource(it) })
+    fun Test(
+        nonComposableLambdaExpression: () -> Unit,
+        composableLambdaExpression: @Composable () -> Unit,
+    ) {
+        SideEffect {
+            nonComposableLambdaExpression()
+        }
+        composableLambdaExpression()
+        // println(string(R.string.app_name) @Composable { stringResource(it) })
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .drawBehind {
-                    drawRect(color = Color.Magenta)
+                    drawRect(color = Color.Cyan)
                 },
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Test enableLiveLiterals()")
+            Text(text = "Test enableLiveLiterals() enabled")
         }
     }
 }
 
+/*
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class FunAnn
@@ -89,3 +101,4 @@ inline fun string(@StringRes resId: Int, builder: (resId: Int) -> String) = buil
 fun Test(content: @Composable (int: Int, argument: Any) -> Unit) {
     content(argument = "path", int = 1) // named-arguments in Lambda expression.
 }
+*/
