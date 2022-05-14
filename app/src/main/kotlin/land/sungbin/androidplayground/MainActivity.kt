@@ -81,3 +81,8 @@ class MainActivity : ComponentActivity() {
 annotation class FunAnn
 
 inline fun string(@StringRes resId: Int, builder: (resId: Int) -> String) = builder(resId)
+
+@Composable
+fun Test(content: @Composable (argument: Any) -> Unit) {
+    content(argument = "path")
+}
