@@ -84,5 +84,5 @@ inline fun string(@StringRes resId: Int, builder: (resId: Int) -> String) = buil
 
 @Composable
 fun Test(content: @Composable (int: Int, argument: Any) -> Unit) {
-    content(argument = "path", int = 1)
+    content(argument = "path", int = 1) // named-arguments in Lambda expression.
 }
