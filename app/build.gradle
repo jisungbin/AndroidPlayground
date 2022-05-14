@@ -23,12 +23,13 @@ android {
 
     kotlinOptions {
         jvmTarget = '11'
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
 
     buildFeatures {
         dataBinding true
         compose true
-        // liveLiteralsEnabled true
+        // liveLiteralsEnabled true; fail
     }
 
     sourceSets {
@@ -36,7 +37,7 @@ android {
     }
 
     composeOptions {
-        // liveLiteralsEnabled true
+        // liveLiteralsEnabled true; fail
         kotlinCompilerExtensionVersion compose_version
     }
 }
