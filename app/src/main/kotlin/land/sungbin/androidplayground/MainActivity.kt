@@ -7,12 +7,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 
+class A(var b: A?)
+
 class MainActivity : ComponentActivity() {
 
     /*private lateinit var binding: ActivityMainBinding
      private val vm: MainViewModel by viewModels()*/
 
-    private val someValue = 1
+    private val someValue = A(null)
 
     // @OptIn(InternalComposeApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
