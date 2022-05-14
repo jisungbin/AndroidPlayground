@@ -1,4 +1,4 @@
-@file:Suppress("SetTextI18n", "unused", "OPT_IN_IS_NOT_ENABLED")
+@file:Suppress("SetTextI18n", "unused", "OPT_IN_IS_NOT_ENABLED", "SameParameterValue")
 
 package land.sungbin.androidplayground
 
@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
@@ -22,7 +23,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            RecompositionGenerator()
+            Box( // inline function
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                RecompositionGenerator()
+            }
         }
     }
 
@@ -34,16 +40,46 @@ class MainActivity : ComponentActivity() {
 
         var number by remember { mutableStateOf(0) }
 
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .clickable { number++ },
-            contentAlignment = Alignment.Center
-        ) {
+        // Both recomposition RecompositionGenerator function and Text scope.
+        // --- result ---
+        // [first composition]
+        // Composition: RecompositionGenerator function
+        // Composition: Text function
+        // [re-composition]
+        // Composition: RecompositionGenerator function
+        // Composition: Text function
+        LoggingText(
+            modifier = Modifier.clickable { number++ },
+            text = number.toString(),
+            logMessage = "Composition: Text function"
+        )
+
+        // Only recomposition Button scope.
+        // --- result ---
+        // [first composition]
+        // Composition: RecompositionGenerator function
+        // Composition: Button scope
+        // Composition: Text function
+        // [re-composition]
+        // Composition: Button scope
+        // Composition: Text function
+        Button(onClick = { number++ }) {
             SideEffect {
-                println("Composition: Box Scope")
+                println("Composition: Button scope")
             }
-            Text(text = number.toString())
+            LoggingText(
+                modifier = Modifier.clickable { number++ },
+                text = number.toString(),
+                logMessage = "Composition: Text function"
+            )
         }
+    }
+
+    @Composable
+    private fun LoggingText(modifier: Modifier = Modifier, text: String, logMessage: String) {
+        SideEffect {
+            println(logMessage)
+        }
+        Text(modifier = modifier, text = text)
     }
 }
