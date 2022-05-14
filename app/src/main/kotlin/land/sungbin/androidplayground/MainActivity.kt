@@ -5,7 +5,6 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Button
@@ -48,11 +47,11 @@ class MainActivity : ComponentActivity() {
         // [re-composition]
         // Composition: RecompositionGenerator function
         // Composition: Text function
-        LoggingText(
+        /*LoggingText(
             modifier = Modifier.clickable { number++ },
             text = number.toString(),
             logMessage = "Composition: Text function"
-        )
+        )*/
 
         // Only recomposition Button scope.
         // --- result ---
@@ -68,7 +67,6 @@ class MainActivity : ComponentActivity() {
                 println("Composition: Button scope")
             }
             LoggingText(
-                modifier = Modifier.clickable { number++ },
                 text = number.toString(),
                 logMessage = "Composition: Text function"
             )
@@ -85,18 +83,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun RecompositionGenerator() {
+fun RecompositionGenerator() {
     SideEffect {
         println("Composition: RecompositionGenerator function")
     }
 
     var number by remember { mutableStateOf(0) }
 
-    LoggingText(
-        modifier = Modifier.clickable { number++ },
-        text = number.toString(),
-        logMessage = "Composition: Text function"
-    )
+    Button(onClick = { number++ }) {
+        SideEffect {
+            println("Composition: Button scope")
+        }
+        LoggingText(
+            text = number.toString(),
+            logMessage = "Composition: Text function"
+        )
+    }
 }
 
 @Composable
