@@ -1,4 +1,4 @@
-@file:Suppress("SetTextI18n")
+@file:Suppress("SetTextI18n", "unused")
 
 package land.sungbin.androidplayground
 
@@ -63,10 +63,13 @@ class MainActivity : ComponentActivity() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .drawBehind { drawRect(color = Color.Magenta) },
+                .drawBehind {
+                    drawRect(color = Color.Cyan)
+                },
             contentAlignment = Alignment.Center
         ) {
             Text(text = "Bye, world!")
+            Text(text = "")
         }
     }
 }
