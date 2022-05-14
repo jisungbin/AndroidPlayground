@@ -64,12 +64,11 @@ class MainActivity : ComponentActivity() {
             modifier = Modifier
                 .fillMaxSize()
                 .drawBehind {
-                    drawRect(color = Color.Cyan)
+                    drawRect(color = Color.Magenta)
                 },
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.BottomCenter
         ) {
             Text(text = "Bye, world!")
-            Text(text = "")
         }
     }
 }
