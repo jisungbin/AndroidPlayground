@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,7 +32,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    @NonRestartableComposable
+//    @NonRestartableComposable
     private fun RecompositionGenerator() {
         SideEffect {
             println("Composition: RecompositionGenerator function")
@@ -52,7 +51,7 @@ class MainActivity : ComponentActivity() {
         LoggingText(
             modifier = Modifier.clickable { number++ },
             text = number.toString(),
-            logMessage = "Composition: Text function"
+            // logMessage = "Composition: Text function"
         )
 
         // Only recomposition Button scope.
@@ -76,8 +75,12 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    @NonRestartableComposable
-    private fun LoggingText(modifier: Modifier = Modifier, text: String, logMessage: String) {
+//    @NonRestartableComposable
+    private fun LoggingText(
+        modifier: Modifier = Modifier,
+        text: String,
+        logMessage: String = "This is Awesome Logging Message.",
+    ) {
         SideEffect {
             println(logMessage)
         }
