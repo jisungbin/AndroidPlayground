@@ -5,11 +5,12 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,6 +33,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
+    @NonRestartableComposable
     private fun RecompositionGenerator() {
         SideEffect {
             println("Composition: RecompositionGenerator function")
@@ -47,11 +49,11 @@ class MainActivity : ComponentActivity() {
         // [re-composition]
         // Composition: RecompositionGenerator function
         // Composition: Text function
-        /*LoggingText(
+        LoggingText(
             modifier = Modifier.clickable { number++ },
             text = number.toString(),
             logMessage = "Composition: Text function"
-        )*/
+        )
 
         // Only recomposition Button scope.
         // --- result ---
@@ -62,7 +64,7 @@ class MainActivity : ComponentActivity() {
         // [re-composition]
         // Composition: Button scope
         // Composition: Text function
-        Button(onClick = { number++ }) {
+        /*Button(onClick = { number++ }) {
             SideEffect {
                 println("Composition: Button scope")
             }
@@ -70,10 +72,11 @@ class MainActivity : ComponentActivity() {
                 text = number.toString(),
                 logMessage = "Composition: Text function"
             )
-        }
+        }*/
     }
 
     @Composable
+    @NonRestartableComposable
     private fun LoggingText(modifier: Modifier = Modifier, text: String, logMessage: String) {
         SideEffect {
             println(logMessage)
@@ -82,6 +85,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/*
 @Composable
 fun RecompositionGenerator() {
     SideEffect {
@@ -108,3 +112,4 @@ private fun LoggingText(modifier: Modifier = Modifier, text: String, logMessage:
     }
     Text(modifier = modifier, text = text)
 }
+*/
