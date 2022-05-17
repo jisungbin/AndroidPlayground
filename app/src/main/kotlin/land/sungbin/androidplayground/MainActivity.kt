@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 
 class MainActivity : ComponentActivity() {
@@ -19,8 +20,11 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun Test() {
+        LaunchedEffect(Unit) {
+            println("LaunchedEffect")
+        }
         SideEffect {
-            println("AA")
+            println("SideEffect")
         }
         Text("")
     }
