@@ -18,21 +18,16 @@
             android:id="@+id/tv_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello, world!" />
+            android:text="Hello, world!"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="change text" />
-
-        <Button
-            android:id="@+id/btn_test_immediate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="change text with immediate" />
+            android:text="change state"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 
