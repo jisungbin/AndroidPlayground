@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.ui.Modifier
 import androidx.databinding.DataBindingUtil
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -28,7 +29,9 @@ class MainActivity : ComponentActivity() {
 
         binding.tvLabel.text = "State: $state"
         binding.btnTest.setOnClickListener {
-            state++
+            Snapshot.withMutableSnapshot {
+                state++
+            }
         }
 
         /*setContent {
