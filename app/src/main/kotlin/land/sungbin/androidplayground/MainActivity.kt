@@ -4,6 +4,7 @@ package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.Button
 import androidx.compose.material.Text
@@ -13,7 +14,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.ui.Modifier
 import androidx.databinding.DataBindingUtil
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -22,16 +22,20 @@ class MainActivity : ComponentActivity() {
 
     private var state by mutableStateOf(1)
     private lateinit var binding: ActivityMainBinding
+    private val vm: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.tvLabel.text = "State: $state"
+        vm.collect { value, type ->
+            println("Collected $value from $type")
+        }
+
+        updateState()
         binding.btnTest.setOnClickListener {
-            Snapshot.withMutableSnapshot {
-                state++
-            }
+            vm.emit(state++)
+            updateState()
         }
 
         /*setContent {
@@ -42,6 +46,10 @@ class MainActivity : ComponentActivity() {
                 Test()
             }
         }*/
+    }
+
+    private fun updateState() {
+        binding.tvLabel.text = "State: $state"
     }
 
     @Composable
