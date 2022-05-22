@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.Snapshot
 
-
 class Dog {
     var name by mutableStateOf("", policy = object : SnapshotMutationPolicy<String> {
         // equivalent: previous 랑 current 랑 값이 같은지 체크
