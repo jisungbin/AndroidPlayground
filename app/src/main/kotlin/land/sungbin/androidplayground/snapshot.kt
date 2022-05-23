@@ -36,6 +36,8 @@ fun main() {
 
     val snapshot1 = Snapshot.takeMutableSnapshot()
     val snapshot2 = Snapshot.takeMutableSnapshot()
+    Snapshot.current
+    Snapshot.observe { }
 
     println(dog.name)
     snapshot1.enter {
