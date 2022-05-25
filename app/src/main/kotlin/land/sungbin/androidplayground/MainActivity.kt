@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,7 +17,6 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun Test() {
         val recomposeScope = currentRecomposeScope
-        val int = remember { IntHolder() }.also {
+        /*val int = remember { IntHolder() }.also {
             it.value++
             println(it.value)
         }
@@ -76,7 +76,8 @@ class MainActivity : ComponentActivity() {
         }
         LoggingButton(onClick = { recomposeScope.invalidate() }) {
             LoggingText(text = "Hi: ${int.value}")
-        }
+        }*/
+        Box(modifier = Modifier.clickable { recomposeScope.invalidate() })
     }
 
     @Composable
