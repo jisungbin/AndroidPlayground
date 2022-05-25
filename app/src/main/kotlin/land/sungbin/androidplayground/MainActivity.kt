@@ -67,17 +67,10 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun Test() {
         val recomposeScope = currentRecomposeScope
-        /*val int = remember { IntHolder() }.also {
-            it.value++
-            println(it.value)
-        }
         SideEffect {
             println("Recomposed Test")
         }
-        LoggingButton(onClick = { recomposeScope.invalidate() }) {
-            LoggingText(text = "Hi: ${int.value}")
-        }*/
-        Box(modifier = Modifier.clickable { recomposeScope.invalidate() })
+        Box(modifier = Modifier.clickable { recomposeScope.invalidate(); println("Invalidate!") })
     }
 
     @Composable
