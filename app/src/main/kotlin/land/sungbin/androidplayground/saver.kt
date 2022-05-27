@@ -5,9 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.mapSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 
-data class City(val name: String = "", val country: String = "")
+private data class City(val name: String = "", val country: String = "")
 
-val CitySaver = run {
+private val CitySaver = run {
     val nameKey = "Name"
     val countryKey = "Country"
     mapSaver( // listSaver
@@ -21,7 +21,7 @@ val CitySaver = run {
 }
 
 @Composable
-fun CityScreen() {
+fun SaverTest() {
     var selectedCity = rememberSaveable(stateSaver = CitySaver) {
         mutableStateOf(City("Madrid", "Spain"))
     }
