@@ -75,17 +75,19 @@ class MainActivity : ComponentActivity() {
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            Text("This is normal text.")
+            Text("This is normal text")
             SelectionContainer {
-                Text("This text is selectable")
-                Text("This one too")
-                Text("This one as well")
-                DisableSelection {
-                    Text("But not this one")
-                    Text("Neither this one")
+                Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text("This text is selectable")
+                    Text("This one too")
+                    Text("This one as well")
+                    DisableSelection {
+                        Text("But not this one")
+                        Text("Neither this one")
+                    }
+                    Text("But again, you can select this one")
+                    Text("And this one too")
                 }
-                Text("But again, you can select this one")
-                Text("And this one too")
             }
         }
     }
