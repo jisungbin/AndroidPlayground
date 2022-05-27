@@ -7,18 +7,24 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.text.selection.DisableSelection
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ExplicitGroupsComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 
 class IntHolder {
@@ -35,7 +41,6 @@ class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
     private val vm: MainViewModel by viewModels()
 
-    @ExplicitGroupsComposable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /*binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -51,13 +56,12 @@ class MainActivity : ComponentActivity() {
         }*/
 
         setContent {
-            /*Box(
+            Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
-                Test()
-            }*/
-            println(currentRecomposeScope)
+                SelectableTextTest()
+            }
         }
     }
 
@@ -66,7 +70,28 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun Test() {
+    fun SelectableTextTest() {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Text("This is normal text.")
+            SelectionContainer {
+                Text("This text is selectable")
+                Text("This one too")
+                Text("This one as well")
+                DisableSelection {
+                    Text("But not this one")
+                    Text("Neither this one")
+                }
+                Text("But again, you can select this one")
+                Text("And this one too")
+            }
+        }
+    }
+
+    @Composable
+    private fun RecomposeScopeTest() {
         val recomposeScope = currentRecomposeScope
         SideEffect {
             println("Recomposed Test")
