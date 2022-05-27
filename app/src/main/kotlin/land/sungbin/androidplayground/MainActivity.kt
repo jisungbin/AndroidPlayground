@@ -6,20 +6,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
@@ -43,14 +32,15 @@ class MainActivity : ComponentActivity() {
         }*/
 
         setContent {
-            Box(
+            /*Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp),
+                    .padding(PaddingValues(16.dp)),
                 contentAlignment = Alignment.Center,
             ) {
                 ClickableTextTest()
-            }
+            }*/
+            TopWithFooterTest()
         }
     }
 
