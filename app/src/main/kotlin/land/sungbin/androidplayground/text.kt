@@ -12,9 +12,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withAnnotation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 
@@ -45,6 +47,7 @@ fun SelectableTextTest() {
     }
 }
 
+@OptIn(ExperimentalTextApi::class)
 @Composable
 fun ClickableTextTest() {
     val annotatedText = remember {
@@ -53,19 +56,33 @@ fun ClickableTextTest() {
 
             // We attach this *URL* annotation to the following content
             // until `pop()` is called
-            pushStringAnnotation(
+            /*pushStringAnnotation(
                 tag = "URL",
                 annotation = "https://developer.android.com"
             )
-            withStyle(
+            pushStyle(
                 style = SpanStyle(
                     color = Color.Blue,
                     fontWeight = FontWeight.Bold
                 )
-            ) {
-                append("here")
-            }
+            )
+            append("here")
             pop()
+            pop()*/
+
+            withAnnotation(
+                tag = "URL",
+                annotation = "https://developer.android.com"
+            ) {
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Blue,
+                        fontWeight = FontWeight.Bold
+                    )
+                ) {
+                    append("here")
+                }
+            }
         }
     }
 
@@ -81,6 +98,7 @@ fun ClickableTextTest() {
             ).firstOrNull()?.let { annotation ->
                 // If yes, we log its value
                 println("Clicked URL: ${annotation.item}")
+                println("Clicked offset: $offset")
             }
         }
     )
