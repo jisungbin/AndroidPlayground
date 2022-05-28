@@ -8,8 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 
-class ToastWrapper(private val context: Context) {
-    private val instance by lazy { Toast(context) }
+class ToastWrapper(context: Context) {
+    private val instance = Toast(context)
 
     operator fun invoke(
         message: String,
