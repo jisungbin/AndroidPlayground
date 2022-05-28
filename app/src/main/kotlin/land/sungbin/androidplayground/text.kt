@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -19,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withAnnotation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun SelectableTextTest() {
@@ -26,22 +29,46 @@ fun SelectableTextTest() {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(
-            space = 4.dp,
+            space = 30.dp,
             alignment = Alignment.CenterVertically
         )
     ) {
-        Text("This is normal text")
+        Text("선택 불가능한 Text")
         SelectionContainer {
-            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text("This text is selectable")
-                Text("This one too")
-                Text("This one as well")
+            Column(verticalArrangement = Arrangement.spacedBy(30.dp)) {
+                Text("선택 가능한 Text - 1")
+                Text("선택 가능한 Text - 2")
+            }
+        }
+    }
+}
+
+@Composable
+fun SelectableWithDisableSelectionTextTest() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(
+            space = 30.dp,
+            alignment = Alignment.CenterVertically
+        )
+    ) {
+        Text("선택 불가능한 Text")
+        SelectionContainer {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(30.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text("선택 가능한 Text - 1")
+                Text("선택 가능한 Text - 2")
                 DisableSelection {
-                    Text("But not this one")
-                    Text("Neither this one")
+                    ProvideTextStyle(LocalTextStyle.current.copy(fontSize = 25.sp)) {
+                        Text("다시 선택 불가능한 Text - 1")
+                        Text("다시 선택 불가능한 Text - 2")
+                    }
                 }
-                Text("But again, you can select this one")
-                Text("And this one too")
+                Text("선택 가능한 Text - 3")
+                Text("선택 가능한 Text - 4")
             }
         }
     }
@@ -54,8 +81,6 @@ fun ClickableTextTest() {
         buildAnnotatedString {
             append("Click ")
 
-            // We attach this *URL* annotation to the following content
-            // until `pop()` is called
             /*pushStringAnnotation(
                 tag = "URL",
                 annotation = "https://developer.android.com"
@@ -89,14 +114,11 @@ fun ClickableTextTest() {
     ClickableText(
         text = annotatedText,
         onClick = { offset ->
-            // We check if there is an *URL* annotation attached to the text
-            // at the clicked position
             annotatedText.getStringAnnotations(
                 tag = "URL",
                 start = offset,
                 end = offset
             ).firstOrNull()?.let { annotation ->
-                // If yes, we log its value
                 println("Clicked URL: ${annotation.item}")
                 println("Clicked offset: $offset")
             }
