@@ -1,4 +1,4 @@
-package land.sungbin.androidplayground
+package land.sungbin.androidplayground.test
 
 import androidx.compose.runtime.SnapshotMutationPolicy
 import androidx.compose.runtime.getValue

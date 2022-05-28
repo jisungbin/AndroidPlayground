@@ -1,4 +1,4 @@
-package land.sungbin.androidplayground
+package land.sungbin.androidplayground.test
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
