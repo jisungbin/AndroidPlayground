@@ -77,6 +77,7 @@ fun SelectableWithDisableSelectionTextTest() {
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun ClickableTextTest() {
+    val toast = rememberToast()
     val annotatedText = remember {
         buildAnnotatedString {
             append("Click ")
@@ -97,7 +98,7 @@ fun ClickableTextTest() {
 
             withAnnotation(
                 tag = "URL",
-                annotation = "https://developer.android.com"
+                annotation = "https://sungbin.land"
             ) {
                 withStyle(
                     style = SpanStyle(
@@ -119,8 +120,11 @@ fun ClickableTextTest() {
                 start = offset,
                 end = offset
             ).firstOrNull()?.let { annotation ->
-                println("Clicked URL: ${annotation.item}")
-                println("Clicked offset: $offset")
+                val message = """
+                    클릭된 URL: ${annotation.item}"
+                    클릭된 오프셋: $offset"
+                """.trimIndent()
+                toast(message)
             }
         }
     )
