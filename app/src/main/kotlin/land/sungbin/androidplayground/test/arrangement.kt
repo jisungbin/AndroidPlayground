@@ -1,14 +1,25 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package land.sungbin.androidplayground.test
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 private object TopWithFooter : Arrangement.Vertical {
@@ -50,6 +61,26 @@ fun CustomArrangementTest() {
                 text = "Index: $index",
                 style = LocalTextStyle.current.copy(fontSize = 20.sp)
             )
+        }
+    }
+}
+
+@Composable
+fun BasicArrangementTest() {
+    Card(
+        modifier = Modifier.size(width = 300.dp, height = 200.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            ProvideTextStyle(LocalTextStyle.current.copy(fontSize = 20.sp)) {
+                Text(text = "가운데 배치되는 텍스트 - 1")
+                Spacer(modifier = Modifier.height(30.dp))
+                Text(text = "가운데 배치되는 텍스트 - 2")
+            }
         }
     }
 }
