@@ -32,6 +32,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        @Suppress("UNCHECKED_CAST")
         (arrayListOf(1) as ArrayList<Parcelable?>).also(::println)
 
         /*binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
