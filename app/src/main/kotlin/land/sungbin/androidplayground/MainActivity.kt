@@ -3,6 +3,7 @@
 package land.sungbin.androidplayground
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -30,6 +31,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        (arrayListOf(1) as ArrayList<Parcelable?>).also(::println)
+
         /*binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         vm.collect { value, type ->
