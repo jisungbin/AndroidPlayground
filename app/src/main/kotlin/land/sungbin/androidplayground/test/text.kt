@@ -1,4 +1,6 @@
-package land.sungbin.androidplayground
+@file:OptIn(ExperimentalTextApi::class)
+
+package land.sungbin.androidplayground.test
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,13 +17,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withAnnotation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import land.sungbin.androidplayground.rememberToast
 
 @Composable
 fun SelectableTextTest() {
@@ -74,14 +76,32 @@ fun SelectableWithDisableSelectionTextTest() {
     }
 }
 
-@OptIn(ExperimentalTextApi::class)
 @Composable
 fun ClickableTextTest() {
     val toast = rememberToast()
+    val localTextStyle = LocalTextStyle.current
     val annotatedText = remember {
         buildAnnotatedString {
-            append("Click ")
+            withStyle(style = localTextStyle.toSpanStyle()) {
+                append("클릭 가능한 Text")
+            }
+        }
+    }
 
+    ClickableText(
+        text = annotatedText,
+        onClick = { offset ->
+            toast("클릭된 오프셋: $offset")
+        }
+    )
+}
+
+@Composable
+fun ClickableTextWithAnnotatedTest() {
+    val toast = rememberToast()
+    val localTextStyle = LocalTextStyle.current
+    val annotatedText = remember {
+        buildAnnotatedString {
             /*pushStringAnnotation(
                 tag = "URL",
                 annotation = "https://developer.android.com"
@@ -101,13 +121,17 @@ fun ClickableTextTest() {
                 annotation = "https://sungbin.land"
             ) {
                 withStyle(
-                    style = SpanStyle(
-                        color = Color.Blue,
+                    style = localTextStyle.copy(
+                        color = Color.Green,
                         fontWeight = FontWeight.Bold
-                    )
+                    ).toSpanStyle()
                 ) {
-                    append("here")
+                    append("성빈랜드")
                 }
+            }
+
+            withStyle(localTextStyle.toSpanStyle()) {
+                append(" 바로가기")
             }
         }
     }
@@ -121,8 +145,8 @@ fun ClickableTextTest() {
                 end = offset
             ).firstOrNull()?.let { annotation ->
                 val message = """
-                    클릭된 URL: ${annotation.item}"
-                    클릭된 오프셋: $offset"
+                    클릭된 URL: ${annotation.item}
+                    클릭된 오프셋: $offset
                 """.trimIndent()
                 toast(message)
             }
