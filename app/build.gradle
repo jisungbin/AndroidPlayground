@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 32
     namespace 'land.sungbin.androidplayground'
 
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
         minSdk 23
-        targetSdk 31
+        targetSdk 32
         versionCode 1
         versionName "1.0"
     }
@@ -29,7 +29,6 @@ android {
     buildFeatures {
         dataBinding true
         compose true
-        // liveLiteralsEnabled true; fail
     }
 
     sourceSets {
@@ -37,8 +36,21 @@ android {
     }
 
     composeOptions {
-        // liveLiteralsEnabled true; fail
         kotlinCompilerExtensionVersion compose_version
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable true
+        }
+
+        benchmark {
+            debuggable = true
+            signingConfig = debug.signingConfig
+            matchingFallbacks = ["release"]
+        }
     }
 }
 
