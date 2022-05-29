@@ -2,6 +2,7 @@
 
 package land.sungbin.androidplayground.test
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,6 +11,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,17 +23,21 @@ private val awesomeTexts = listOf("성빈랜드", "찰스의 안드로이드", "
 @Composable
 fun MenuColumnTest() {
     Card(
-        modifier = Modifier.width(IntrinsicSize.Min),
+        modifier = Modifier.width(IntrinsicSize.Max),
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)
     ) {
-        awesomeTexts.forEach { text ->
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-                text = text,
-                style = LocalTextStyle.current.copy(fontSize = 25.sp)
-            )
+        ProvideTextStyle(LocalTextStyle.current.copy(fontSize = 20.sp)) {
+            awesomeTexts.forEach { text ->
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            vertical = 16.dp,
+                            horizontal = 20.dp
+                        ),
+                    text = text,
+                )
+            }
         }
     }
 }
@@ -40,7 +46,7 @@ fun MenuColumnTest() {
 @Composable
 private fun DummyMenuColumnWithMax() {
 
-    Card(Modifier.width(IntrinsicSize.Max)) {
+    Column(Modifier.width(IntrinsicSize.Max)) {
         awesomeTexts.forEach { text ->
             Text(
                 modifier = Modifier.fillMaxWidth(),
@@ -54,7 +60,7 @@ private fun DummyMenuColumnWithMax() {
 @Composable
 private fun DummyMenuColumnWithMin() {
 
-    Card(Modifier.width(IntrinsicSize.Min)) {
+    Column(Modifier.width(IntrinsicSize.Min)) {
         awesomeTexts.forEach { text ->
             Text(
                 modifier = Modifier.fillMaxWidth(),

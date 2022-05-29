@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import land.sungbin.androidplayground.test.MenuColumnTest
+import land.sungbin.androidplayground.test.BackHandlerTest
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 
 class MainActivity : ComponentActivity() {
@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
                         .padding(16.dp),
                     contentAlignment = Alignment.Center,
                 ) {
-                    MenuColumnTest()
+                    BackHandlerTest()
                 }
             }
         }

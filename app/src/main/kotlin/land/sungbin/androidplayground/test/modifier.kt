@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package land.sungbin.androidplayground.test
 
 import androidx.compose.foundation.background
@@ -17,18 +19,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.unit.dp
 
-private object InvisibleModifier : DrawModifier {
+private object RealInvisibleModifier : DrawModifier {
     override fun ContentDrawScope.draw() {}
 }
 
 // Standard Modifier
-private fun Modifier.invisible(isHide: Boolean) = when (isHide) {
-    true -> then(InvisibleModifier)
+private fun Modifier.realInvisible(isHide: Boolean) = when (isHide) {
+    true -> then(RealInvisibleModifier)
     else -> this
 }
 
 // Composed Modifier
-private inline fun Modifier.noRippleClickable(crossinline onClick: () -> Unit) = composed {
+private inline fun Modifier.realNoRippleClickable(crossinline onClick: () -> Unit) = composed {
     clickable(
         indication = null,
         interactionSource = remember { MutableInteractionSource() },
@@ -43,8 +45,39 @@ fun CustomModifierTest() {
     Box(
         modifier = Modifier
             .size(250.dp)
-            .noRippleClickable { isHideState = !isHideState }
-            .invisible(isHideState)
+            .realNoRippleClickable { isHideState = !isHideState }
+            .realInvisible(isHideState)
             .background(color = Color.Green)
     )
 }
+
+@Composable
+private fun DummyCustomModifier() {
+
+    var isInvisibleState by remember { mutableStateOf(false) }
+
+    Box(
+        modifier = Modifier
+            .realNoRippleClickable { isInvisibleState = !isInvisibleState }
+            .realInvisible(isInvisibleState)
+            .background(color = Color.Green)
+    )
+
+}
+
+    fun Modifier.invisible(isInvisible: Boolean) = when (isInvisible) {
+        true -> then(RealInvisibleModifier)
+        else -> this
+    }
+
+    inline fun Modifier.noRippleClickable(crossinline onClick: () -> Unit) = composed {
+        clickable(
+            indication = null,
+            interactionSource = remember { MutableInteractionSource() },
+            onClick = { onClick() }
+        )
+    }
+
+    object InvisibleModifier : DrawModifier {
+        override fun ContentDrawScope.draw() {}
+    }

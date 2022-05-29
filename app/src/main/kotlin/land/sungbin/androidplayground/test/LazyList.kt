@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,7 +28,7 @@ fun LazyListKeyTest() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         items(
-            items = List(50) { it },
+            count = 50,
             key = { number -> number }
         ) { number ->
             Text(text = "내 번호: $number")
@@ -67,7 +66,7 @@ fun ColumnSpacedByTest() {
 private fun DummyLazyListWithoutKey() {
 
     LazyColumn {
-        items(List(50) { it }) { number ->
+        items(count = 50) { number ->
             Text(
                 modifier = Modifier.padding(vertical = 30.dp),
                 text = "내 번호: $number"
@@ -82,7 +81,7 @@ private fun DummyLazyListWithKey() {
 
     LazyColumn {
         items(
-            items = List(50) { it },
+            count = 50,
             key = { number -> number }
         ) { number ->
             Text(
@@ -101,7 +100,7 @@ private fun DummyLazyListSpacedBy() {
         verticalArrangement = Arrangement.spacedBy(30.dp),
     ) {
         items(
-            items = List(50) { it },
+            count = 50,
             key = { number -> number }
         ) { number ->
             Text(text = "내 번호: $number")
@@ -114,7 +113,10 @@ private fun DummyLazyListSpacedBy() {
 private fun DummyColumnSpacedBy() {
 
     Column(
-        verticalArrangement = Arrangement.spacedBy(30.dp),
+        verticalArrangement = Arrangement.spacedBy(
+            space = 30.dp,
+            alignment = Alignment.CenterVertically
+        ),
     ) {
         repeat(50) { number ->
             Text(text = "내 번호: $number")
@@ -130,7 +132,7 @@ private fun DummyLazyListContentPadding() {
         contentPadding = PaddingValues(vertical = 30.dp),
     ) {
         items(
-            items = List(50) { it },
+            count = 50,
             key = { number -> number }
         ) { number ->
             Text(text = "내 번호: $number")
