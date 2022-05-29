@@ -1,43 +1,22 @@
-@file:Suppress("UNUSED_VARIABLE", "SpellCheckingInspection", "unused")
+@file:Suppress("UNUSED_VARIABLE", "SpellCheckingInspection", "unused", "UNCHECKED_CAST")
 
 package land.sungbin.androidplayground.test
 
+import android.os.Binder
+import android.os.Parcelable
+import android.util.Size
+import android.util.SizeF
+import android.util.SparseArray
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.currentCompositeKeyHash
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.neverEqualPolicy
+import androidx.compose.runtime.referentialEqualityPolicy
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.autoSaver
 import androidx.compose.runtime.saveable.mapSaver
-import androidx.compose.runtime.saveable.rememberSaveable
-
-private data class RealPeople(val name: String = "Ji Sungbin", val gender: String = "Male")
-
-private val RealPeopleSaver = run {
-    val nameKey = "Name"
-    val countryKey = "Country"
-    mapSaver( // listSaver
-        save = {
-            mapOf(nameKey to it.name, countryKey to it.gender)
-        },
-        restore = {
-            RealPeople(it[nameKey] as String, it[countryKey] as String)
-        }
-    )
-}
-
-@Composable
-fun RememberTest() {
-    val value = remember { 0 }
-    val valueSaveable = rememberSaveable { 0 }
-}
-
-@Composable
-fun SaverTest() {
-    var selectedRealPeople = rememberSaveable(stateSaver = RealPeopleSaver) {
-        mutableStateOf(RealPeople("Madrid", "Spain"))
-    }
-}
+import androidx.compose.runtime.snapshots.SnapshotMutableState
+import androidx.compose.runtime.structuralEqualityPolicy
+import java.io.Serializable
 
 @Composable
 fun <T> fakeRemember(
@@ -63,17 +42,49 @@ fun <T : Any> fakeRememberSaveable(
     return init()
 }
 
-data class People(val name: String = "Ji Sungbin", val gender: String = "Male")
+interface Saver<Original, Saveable> {
+    // 값을 저장 가능한 값으로 변환
+    fun save(value: Original): Saveable?
 
-val PeopleSaver = run {
-    val nameKey = "Name"
-    val countryKey = "Country"
-    mapSaver( // listSaver
-        save = {
-            mapOf(nameKey to it.name, countryKey to it.gender)
-        },
-        restore = {
-            People(it[nameKey] as String, it[countryKey] as String)
-        }
-    )
+    // 저장한 값을 원래의 값으로 변환
+    fun restore(value: Saveable): Original?
 }
+
+private val AutoSaver = Saver<Any, Any>(
+    save = { it },
+    restore = { it }
+)
+
+fun <T> autoSaver() = AutoSaver as Saver<T, Any>
+
+val AcceptableClasses = listOf(
+    Serializable::class.java,
+    Parcelable::class.java,
+    String::class.java,
+    SparseArray::class.java,
+    Binder::class.java,
+    Size::class.java,
+    SizeF::class.java
+)
+
+fun canBeSavedToBundle(value: Any): Boolean {
+    if (value is SnapshotMutableState<*>) {
+        return if (value.policy === neverEqualPolicy<Any?>() ||
+            value.policy === structuralEqualityPolicy<Any?>() ||
+            value.policy === referentialEqualityPolicy<Any?>()
+        ) {
+            val stateValue = value.value
+            if (stateValue == null) true
+            else canBeSavedToBundle(stateValue)
+        } else {
+            false
+        }
+    }
+    for (cl in AcceptableClasses) {
+        if (cl.isInstance(value)) {
+            return true
+        }
+    }
+    return false
+}
+

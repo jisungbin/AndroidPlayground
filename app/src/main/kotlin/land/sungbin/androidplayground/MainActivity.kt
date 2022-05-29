@@ -3,13 +3,17 @@
     "unused",
     "OPT_IN_IS_NOT_ENABLED",
     "SameParameterValue",
-    "UNCHECKED_CAST"
+    "UNCHECKED_CAST",
+    "LocalVariableName",
+    "RemoveExplicitTypeArguments"
 )
 
 package land.sungbin.androidplayground
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Parcelable
+import android.provider.Contacts
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,9 +34,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import kotlinx.parcelize.Parcelize
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.test.BackHandlerTest
 import land.sungbin.androidplayground.theme.DefaultTextStyle
+
+@Parcelize
+data class People(val name: String, val age: Int) : Parcelable
 
 class MainActivity : ComponentActivity() {
 
@@ -57,17 +65,9 @@ class MainActivity : ComponentActivity() {
         }*/
 
         setContent {
-            val intHolder = IntHolder(1)
-            val saver = Saver<IntHolder, List<IntHolder>>(
-                save = { holder ->
-                    listOf(holder)
-                },
-                restore = { holderList ->
-                    holderList.first()
-                }
-            )
-            rememberSaveable(saver = saver) {
-                intHolder
+
+            rememberSaveable {
+                People(name = "Ji Sungbin", age = 21)
             }
 
             LaunchedEffect(Unit) {
