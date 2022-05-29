@@ -32,4 +32,6 @@ class MainViewModel : ViewModel() {
             }
         }
     }
+
+    companion object
 }
