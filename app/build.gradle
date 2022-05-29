@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id "com.github.takahirom.decomposer"
+    id 'kotlin-parcelize'
 }
 
 android {
