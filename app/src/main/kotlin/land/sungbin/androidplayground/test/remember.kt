@@ -13,7 +13,6 @@ import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.referentialEqualityPolicy
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.autoSaver
-import androidx.compose.runtime.saveable.mapSaver
 import androidx.compose.runtime.snapshots.SnapshotMutableState
 import androidx.compose.runtime.structuralEqualityPolicy
 import java.io.Serializable
@@ -21,7 +20,7 @@ import java.io.Serializable
 @Composable
 fun <T> fakeRemember(
     vararg keys: Any?,
-    calculation: () -> T
+    calculation: () -> T,
 ): T = calculation()
 
 @Composable
@@ -29,7 +28,7 @@ fun <T : Any> fakeRememberSaveable(
     vararg inputs: Any?,
     saver: Saver<T, out Any> = autoSaver(),
     key: String? = null,
-    init: () -> T
+    init: () -> T,
 ): T {
 
     val finalKey: String = if (!key.isNullOrEmpty()) {
@@ -87,4 +86,3 @@ fun canBeSavedToBundle(value: Any): Boolean {
     }
     return false
 }
-

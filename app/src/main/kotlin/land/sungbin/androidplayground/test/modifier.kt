@@ -62,22 +62,21 @@ private fun DummyCustomModifier() {
             .realInvisible(isInvisibleState)
             .background(color = Color.Green)
     )
-
 }
 
-    fun Modifier.invisible(isInvisible: Boolean) = when (isInvisible) {
-        true -> then(RealInvisibleModifier)
-        else -> this
-    }
+fun Modifier.invisible(isInvisible: Boolean) = when (isInvisible) {
+    true -> then(RealInvisibleModifier)
+    else -> this
+}
 
-    inline fun Modifier.noRippleClickable(crossinline onClick: () -> Unit) = composed {
-        clickable(
-            indication = null,
-            interactionSource = remember { MutableInteractionSource() },
-            onClick = { onClick() }
-        )
-    }
+inline fun Modifier.noRippleClickable(crossinline onClick: () -> Unit) = composed {
+    clickable(
+        indication = null,
+        interactionSource = remember { MutableInteractionSource() },
+        onClick = { onClick() }
+    )
+}
 
-    object InvisibleModifier : DrawModifier {
-        override fun ContentDrawScope.draw() {}
-    }
+object InvisibleModifier : DrawModifier {
+    override fun ContentDrawScope.draw() {}
+}

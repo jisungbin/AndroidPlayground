@@ -42,7 +42,6 @@ fun MenuColumnTest() {
     }
 }
 
-
 @Composable
 private fun DummyMenuColumnWithMax() {
 
@@ -54,7 +53,6 @@ private fun DummyMenuColumnWithMax() {
             )
         }
     }
-
 }
 
 @Composable
@@ -68,5 +66,4 @@ private fun DummyMenuColumnWithMin() {
             )
         }
     }
-
 }

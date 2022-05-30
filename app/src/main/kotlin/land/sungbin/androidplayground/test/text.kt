@@ -169,7 +169,6 @@ private fun DummyClickableText() {
             toast("클릭된 오프셋: $offset")
         }
     )
-
 }
 
 @Composable

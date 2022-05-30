@@ -35,7 +35,7 @@ private object RealTopWithFooter : Arrangement.Vertical {
     override fun Density.arrange(
         totalSize: Int,
         sizes: IntArray,
-        outPositions: IntArray
+        outPositions: IntArray,
     ) {
         var y = 0 // 아이템 y 위치
         sizes.forEachIndexed { index, size ->
@@ -104,7 +104,6 @@ private fun DummyBasicArrangement() {
         Text(text = "가운데 배치되는 텍스트 - 1")
         Text(text = "가운데 배치되는 텍스트 - 2")
     }
-
 }
 
 @Composable
@@ -118,24 +117,23 @@ private fun DummyCustomArrangementTest() {
             Text(text = "© 성빈랜드")
         }
     }
-
 }
 
-    object TopWithFooter : Arrangement.Vertical {
-        override fun Density.arrange(
-            totalSize: Int, // 배치 가능한 공간
-            sizes: IntArray, // 아이템들의 높이 배열
-            outPositions: IntArray // 배치될 위치가 담길 배열
-        ) {
-            var y = 0 // 아이템 y 위치
-            sizes.forEachIndexed { index, size ->
-                outPositions[index] = y // 아이템 배치
-                y += size // y 에 배치된 아이템 높이 만큼 추가
-            }
-            if (y < totalSize) { // 만약 배치 가능한 공간이 남았다면
-                // 전체 공간에서 마지막 아이템의 높이 만큼 빼서
-                // 마지막 아이템을 배치
-                outPositions[outPositions.lastIndex] = totalSize - sizes.last()
-            }
+object TopWithFooter : Arrangement.Vertical {
+    override fun Density.arrange(
+        totalSize: Int, // 배치 가능한 공간
+        sizes: IntArray, // 아이템들의 높이 배열
+        outPositions: IntArray, // 배치될 위치가 담길 배열
+    ) {
+        var y = 0 // 아이템 y 위치
+        sizes.forEachIndexed { index, size ->
+            outPositions[index] = y // 아이템 배치
+            y += size // y 에 배치된 아이템 높이 만큼 추가
+        }
+        if (y < totalSize) { // 만약 배치 가능한 공간이 남았다면
+            // 전체 공간에서 마지막 아이템의 높이 만큼 빼서
+            // 마지막 아이템을 배치
+            outPositions[outPositions.lastIndex] = totalSize - sizes.last()
         }
     }
+}

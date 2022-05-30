@@ -13,7 +13,7 @@ class ToastWrapper(context: Context) {
 
     operator fun invoke(
         message: String,
-        length: Int = Toast.LENGTH_SHORT
+        length: Int = Toast.LENGTH_SHORT,
     ) {
         show(
             message = message,
@@ -23,7 +23,7 @@ class ToastWrapper(context: Context) {
 
     fun show(
         message: String,
-        length: Int = Toast.LENGTH_SHORT
+        length: Int = Toast.LENGTH_SHORT,
     ) {
         instance.run {
             setText(message)

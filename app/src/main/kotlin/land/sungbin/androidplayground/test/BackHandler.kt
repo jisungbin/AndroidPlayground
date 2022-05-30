@@ -22,12 +22,11 @@ fun BackHandlerTest() {
 @Composable
 private fun DummyBackHandler() {
 
-        var isBackPressed by remember { mutableStateOf(false) }
+    var isBackPressed by remember { mutableStateOf(false) }
 
-        BackHandler(enabled = !isBackPressed) {
-            isBackPressed = true
-        }
+    BackHandler(enabled = !isBackPressed) {
+        isBackPressed = true
+    }
 
-        Text("뒤로가기 눌림: $isBackPressed")
-
+    Text("뒤로가기 눌림: $isBackPressed")
 }

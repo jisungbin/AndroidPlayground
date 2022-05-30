@@ -73,7 +73,6 @@ private fun DummyLazyListWithoutKey() {
             )
         }
     }
-
 }
 
 @Composable
@@ -90,7 +89,6 @@ private fun DummyLazyListWithKey() {
             )
         }
     }
-
 }
 
 @Composable
@@ -106,7 +104,6 @@ private fun DummyLazyListSpacedBy() {
             Text(text = "내 번호: $number")
         }
     }
-
 }
 
 @Composable
@@ -122,7 +119,6 @@ private fun DummyColumnSpacedBy() {
             Text(text = "내 번호: $number")
         }
     }
-
 }
 
 @Composable
@@ -138,5 +134,4 @@ private fun DummyLazyListContentPadding() {
             Text(text = "내 번호: $number")
         }
     }
-
 }
