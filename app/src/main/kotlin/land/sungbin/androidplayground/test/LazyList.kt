@@ -126,6 +126,7 @@ private fun DummyLazyListContentPadding() {
 
     LazyColumn(
         contentPadding = PaddingValues(vertical = 30.dp),
+        verticalArrangement = Arrangement.spacedBy(30.dp)
     ) {
         items(
             count = 50,
@@ -134,4 +135,5 @@ private fun DummyLazyListContentPadding() {
             Text(text = "내 번호: $number")
         }
     }
+
 }
