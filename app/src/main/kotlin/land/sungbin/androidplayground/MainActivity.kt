@@ -26,6 +26,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
+import androidx.compose.material.Text
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -41,9 +42,7 @@ import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.delay
 import kotlinx.parcelize.Parcelize
-import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import land.sungbin.androidplayground.test.ShowValue
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 
 @Parcelize
@@ -86,6 +85,8 @@ class MainActivity : ComponentActivity() {
                 delay(6000)
 //                println("1000 slept with $state")
                 state = '나'
+
+                println("LaunchedEffect thread: ${Thread.currentThread().id}")
             }
 
             /*DisposableEffect(Unit) {
@@ -118,10 +119,12 @@ class MainActivity : ComponentActivity() {
                 contentAlignment = Alignment.Center,
             ) {
                 ProvideTextStyle(DefaultTextStyle.copy(fontSize = 50.sp)) {
-                    SortedColumn {
+                    /*SortedColumn {
 //                        DerivedStateTest(state)
-                        ShowValue(state)
-                    }
+                        // ShowValue(state)
+                    }*/
+                    Text(text = "Bye, world!")
+                    println("Bye, world thread: ${Thread.currentThread().id}")
                 }
             }
 
