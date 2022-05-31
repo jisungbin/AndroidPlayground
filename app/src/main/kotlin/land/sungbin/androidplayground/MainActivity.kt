@@ -36,12 +36,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.delay
 import kotlinx.parcelize.Parcelize
+import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import land.sungbin.androidplayground.test.StateQuiz
+import land.sungbin.androidplayground.test.ShowValue
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 
 @Parcelize
@@ -70,7 +72,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val systemUiController = rememberSystemUiController()
-            var state by remember { mutableStateOf(1) }
+            var state by remember { mutableStateOf('가') }
 
             LaunchedEffect(Unit) {
                 window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
@@ -81,10 +83,19 @@ class MainActivity : ComponentActivity() {
                 systemUiController.setSystemBarsColor(color = Color.White)
 
 //                println("sleeping with $state")
-                delay(100)
+                delay(6000)
 //                println("1000 slept with $state")
-                state++
+                state = '나'
             }
+
+            /*DisposableEffect(Unit) {
+                println("Enter Composition")
+
+                onDispose {
+                    println("Out Composition")
+                }
+            }*/
+
 /*
             SideEffect {
                 lifecycleScope.launchWhenCreated {
@@ -106,8 +117,11 @@ class MainActivity : ComponentActivity() {
                     .padding(16.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                ProvideTextStyle(DefaultTextStyle) {
-                    StateQuiz(state)
+                ProvideTextStyle(DefaultTextStyle.copy(fontSize = 50.sp)) {
+                    SortedColumn {
+//                        DerivedStateTest(state)
+                        ShowValue(state)
+                    }
                 }
             }
 
