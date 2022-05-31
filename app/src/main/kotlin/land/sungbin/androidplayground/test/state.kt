@@ -134,10 +134,10 @@ fun <T> createSnapshotMutableState(
     policy: Any,
 ) = object : MutableState<T> {}
 
-fun <T> mutableStateOf(
-    value: T,
-    policy: SnapshotMutationPolicy<T> = structuralEqualityPolicy(),
-): MutableState<T> = createSnapshotMutableState(value, policy)
+    fun <T> mutableStateOf(
+        value: T,
+        policy: SnapshotMutationPolicy<T> = structuralEqualityPolicy()
+    ): MutableState<T> = createSnapshotMutableState(value, policy)
 
 @Composable
 fun <T> rememberUpdatedState(newValue: T): State<T> = remember {
