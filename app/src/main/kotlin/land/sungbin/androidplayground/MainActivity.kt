@@ -6,7 +6,8 @@
     "UNCHECKED_CAST",
     "LocalVariableName",
     "RemoveExplicitTypeArguments",
-    "UnnecessaryOptInAnnotation"
+    "UnnecessaryOptInAnnotation",
+    "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE"
 )
 @file:OptIn(
     ExperimentalMaterialApi::class,
@@ -74,6 +75,7 @@ class MainActivity : ComponentActivity() {
             var state by remember { mutableStateOf('가') }
 
             LaunchedEffect(Unit) {
+                println("LaunchedEffect thread: ${Thread.currentThread().id}")
                 window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
@@ -85,8 +87,6 @@ class MainActivity : ComponentActivity() {
                 delay(6000)
 //                println("1000 slept with $state")
                 state = '나'
-
-                println("LaunchedEffect thread: ${Thread.currentThread().id}")
             }
 
             /*DisposableEffect(Unit) {
