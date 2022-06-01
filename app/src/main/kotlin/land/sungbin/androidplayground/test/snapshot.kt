@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.Snapshot
 
-private var name by mutableStateOf(
+private var value by mutableStateOf(
     value = "",
     policy = object : SnapshotMutationPolicy<String> {
         // a: previous
@@ -14,7 +14,7 @@ private var name by mutableStateOf(
         // previous 랑 current 랑 값이 같은지 체크
         // 값이 달라야 스냅샷 업데이트를 진행함
         override fun equivalent(a: String, b: String): Boolean {
-            println("equivalent: a: $a, b: $b")
+            // println("equivalent: a: $a, b: $b")
             return a == b
         }
 
@@ -30,28 +30,25 @@ private var name by mutableStateOf(
 )
 
 fun main() {
-    name = "Spot"
+    value = "GlobalSnapshot value"
 
-    val snapshot1 = Snapshot.takeMutableSnapshot()
+    val snapshot = Snapshot.takeMutableSnapshot()
     val snapshot2 = Snapshot.takeMutableSnapshot()
-    Snapshot.current
-    Snapshot.observe { }
 
-    println(name)
-    snapshot1.enter {
-        name = "Fido"
-        println("in snapshot1: $name")
-    }
-
-    println(name)
     snapshot2.enter {
-        name = "Fluffy"
-        println("in snapshot2: $name")
+        value = "snapshot2 applied"
+        snapshot.enter {
+            value = "snapshot applied"
+        }
     }
 
-    println("before applying: $name")
-    snapshot1.apply()
-    println("after applying 1: $name")
+    value()
     snapshot2.apply()
-    println("after applying 2: $name")
+    value()
+    snapshot.apply()
+    value()
+}
+
+private operator fun Any.invoke() {
+    println(toString())
 }
