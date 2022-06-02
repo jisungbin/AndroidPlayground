@@ -18,9 +18,5 @@ private val AcceptableClasses = listOf(
 )
 
 fun main() {
-    val intHolder = listOf(IntHolder(1))
-    AcceptableClasses.forEach { instance ->
-        println("${instance.simpleName}: ${instance.isInstance(null)}")
-    }
-    // println(ArrayList(listOf(1)))
+    // TODO
 }

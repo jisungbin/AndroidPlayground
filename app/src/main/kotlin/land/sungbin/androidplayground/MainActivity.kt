@@ -30,10 +30,8 @@ import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -72,7 +70,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val systemUiController = rememberSystemUiController()
-            var state by remember { mutableStateOf('가') }
+            val state = remember { mutableStateOf(1) }
 
             LaunchedEffect(Unit) {
                 println("LaunchedEffect thread: ${Thread.currentThread().id}")
@@ -82,12 +80,15 @@ class MainActivity : ComponentActivity() {
                 )
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setSystemBarsColor(color = Color.White)
+                state.value = 2
 
 //                println("sleeping with $state")
                 delay(6000)
 //                println("1000 slept with $state")
-                state = '나'
+                // state = '나'
             }
+
+            println("Recomposed.")
 
             /*DisposableEffect(Unit) {
                 println("Enter Composition")
@@ -112,6 +113,8 @@ class MainActivity : ComponentActivity() {
                 }
             }*/
 
+            println("Composite")
+
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -122,9 +125,10 @@ class MainActivity : ComponentActivity() {
                     /*SortedColumn {
 //                        DerivedStateTest(state)
                         // ShowValue(state)
-                    }*/
+                    }*//*
                     Text(text = "Bye, world!")
-                    println("Bye, world thread: ${Thread.currentThread().id}")
+                    println("Bye, world thread: ${Thread.currentThread().id}")*/
+                    Text(text = "Bye, world!")
                 }
             }
 

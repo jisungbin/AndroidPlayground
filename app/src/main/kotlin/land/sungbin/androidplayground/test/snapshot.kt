@@ -1,3 +1,10 @@
+@file:Suppress(
+    "UNUSED_VARIABLE",
+    "LocalVariableName",
+    "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE",
+    "UNUSED_VALUE"
+)
+
 package land.sungbin.androidplayground.test
 
 import androidx.compose.runtime.SnapshotMutationPolicy
@@ -30,25 +37,15 @@ private var value by mutableStateOf(
 )
 
 fun main() {
-    value = "GlobalSnapshot value"
-
-    val snapshot = Snapshot.takeMutableSnapshot()
-    val snapshot2 = Snapshot.takeMutableSnapshot()
-
-    snapshot2.enter {
-        value = "snapshot2 applied"
-        snapshot.enter {
-            value = "snapshot applied"
-        }
-    }
-
-    value()
-    snapshot2.apply()
-    value()
-    snapshot.apply()
-    value()
+    var Z by mutableStateOf(1)
+    Z = 20
+    Snapshot.registerGlobalWriteObserver {  }
 }
 
 private operator fun Any.invoke() {
     println(toString())
+}
+
+fun assert(boolean: Boolean) {
+    if (!boolean) throw AssertionError("Assertion failed.")
 }
