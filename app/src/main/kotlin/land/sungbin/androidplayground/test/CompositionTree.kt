@@ -14,7 +14,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 
-    val LocalNumber = compositionLocalOf { 0 }
+val LocalNumber = compositionLocalOf { 0 }
 
 private val LocalNormalText = compositionLocalOf { "TEST" }
 private val LocalStaticText = staticCompositionLocalOf { "TEST2" }

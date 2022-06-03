@@ -108,7 +108,6 @@ private fun DummyBasicArrangement() {
 
 @Composable
 private fun DummyCustomArrangementTest() {
-
     LazyColumn(verticalArrangement = RealTopWithFooter) {
         items(count = 5) { index ->
             Text(text = "${index}번째 항목")

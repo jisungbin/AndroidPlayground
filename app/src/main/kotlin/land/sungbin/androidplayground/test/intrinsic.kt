@@ -44,7 +44,6 @@ fun MenuColumnTest() {
 
 @Composable
 private fun DummyMenuColumnWithMax() {
-
     Column(Modifier.width(IntrinsicSize.Max)) {
         awesomeTexts.forEach { text ->
             Text(
@@ -57,7 +56,6 @@ private fun DummyMenuColumnWithMax() {
 
 @Composable
 private fun DummyMenuColumnWithMin() {
-
     Column(Modifier.width(IntrinsicSize.Min)) {
         awesomeTexts.forEach { text ->
             Text(

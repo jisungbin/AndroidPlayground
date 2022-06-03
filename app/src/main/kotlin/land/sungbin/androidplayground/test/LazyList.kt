@@ -64,7 +64,6 @@ fun ColumnSpacedByTest() {
 
 @Composable
 private fun DummyLazyListWithoutKey() {
-
     LazyColumn {
         items(count = 50) { number ->
             Text(
@@ -77,7 +76,6 @@ private fun DummyLazyListWithoutKey() {
 
 @Composable
 private fun DummyLazyListWithKey() {
-
     LazyColumn {
         items(
             count = 50,
@@ -93,7 +91,6 @@ private fun DummyLazyListWithKey() {
 
 @Composable
 private fun DummyLazyListSpacedBy() {
-
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(30.dp),
     ) {
@@ -108,7 +105,6 @@ private fun DummyLazyListSpacedBy() {
 
 @Composable
 private fun DummyColumnSpacedBy() {
-
     Column(
         verticalArrangement = Arrangement.spacedBy(
             space = 30.dp,
@@ -123,7 +119,6 @@ private fun DummyColumnSpacedBy() {
 
 @Composable
 private fun DummyLazyListContentPadding() {
-
     LazyColumn(
         contentPadding = PaddingValues(vertical = 30.dp),
         verticalArrangement = Arrangement.spacedBy(30.dp)

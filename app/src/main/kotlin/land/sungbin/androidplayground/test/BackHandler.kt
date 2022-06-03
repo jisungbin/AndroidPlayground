@@ -41,28 +41,28 @@ private fun DummyBackHandler() {
     Text("뒤로가기 눌림: $isBackPressed")
 }
 
-    class MainActivity : ComponentActivity() {
-        private lateinit var onBackPressedAction: () -> Unit
+class MainActivity : ComponentActivity() {
+    private lateinit var onBackPressedAction: () -> Unit
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            setContent {
-                val bottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Expanded)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setContent {
+            val bottomSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Expanded)
 
-                onBackPressedAction = {
-                    lifecycleScope.launchWhenCreated {
-                        bottomSheetState.hide()
-                    }
+            onBackPressedAction = {
+                lifecycleScope.launchWhenCreated {
+                    bottomSheetState.hide()
                 }
-
-                ModalBottomSheetLayout(
-                    sheetState = bottomSheetState,
-                    sheetContent = { Text("Bye, world!") },
-                    content = {}
-                )
             }
-        }
 
-        override fun onBackPressed() {
-            onBackPressedAction()
+            ModalBottomSheetLayout(
+                sheetState = bottomSheetState,
+                sheetContent = { Text("Bye, world!") },
+                content = {}
+            )
         }
     }
+
+    override fun onBackPressed() {
+        onBackPressedAction()
+    }
+}

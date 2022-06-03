@@ -68,26 +68,26 @@ fun RememberUpdateStateTest(value: Any) {
     Text(text = state.toString())
 }
 
-    fun main() {
-        setContent {
-            var wantChar by remember { mutableStateOf('가') }
-            LaunchedEffect(Unit) {
-                delay(1000)
-                wantChar = '나'
-            }
-            ShowWantChar(wantChar)
+fun main() {
+    setContent {
+        var wantChar by remember { mutableStateOf('가') }
+        LaunchedEffect(Unit) {
+            delay(1000)
+            wantChar = '나'
         }
+        ShowWantChar(wantChar)
     }
+}
 
-    @Composable
-    fun ShowWantChar(wantChar: Char) {
-        val items = remember { '가'..'힣' }
-        val wantCharState by rememberUpdatedState(wantChar)
-        val foundChar by remember(items) {
-            derivedStateOf { items.find { it == wantCharState } }
-        }
-        Text(foundChar.toString())
+@Composable
+fun ShowWantChar(wantChar: Char) {
+    val items = remember { '가'..'힣' }
+    val wantCharState by rememberUpdatedState(wantChar)
+    val foundChar by remember(items) {
+        derivedStateOf { items.find { it == wantCharState } }
     }
+    Text(foundChar.toString())
+}
 
 /*@Composable
 fun ShowWantChar(wantChar: Char) {
@@ -134,10 +134,10 @@ fun <T> createSnapshotMutableState(
     policy: Any,
 ) = object : MutableState<T> {}
 
-    fun <T> mutableStateOf(
-        value: T,
-        policy: SnapshotMutationPolicy<T> = structuralEqualityPolicy()
-    ): MutableState<T> = createSnapshotMutableState(value, policy)
+fun <T> mutableStateOf(
+    value: T,
+    policy: SnapshotMutationPolicy<T> = structuralEqualityPolicy(),
+): MutableState<T> = createSnapshotMutableState(value, policy)
 
 @Composable
 fun <T> rememberUpdatedState(newValue: T): State<T> = remember {

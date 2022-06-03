@@ -53,7 +53,6 @@ fun CustomModifierTest() {
 
 @Composable
 private fun DummyCustomModifier() {
-
     var isInvisibleState by remember { mutableStateOf(false) }
 
     Box(
