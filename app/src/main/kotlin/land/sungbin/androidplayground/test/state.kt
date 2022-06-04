@@ -1,6 +1,11 @@
 @file:Suppress(
     "unused",
-    "UNUSED_PARAMETER"
+    "UNUSED_PARAMETER",
+    "FunctionName",
+    "UnrememberedMutableState",
+    "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE",
+    "LocalVariableName",
+    "UNUSED_VALUE"
 )
 
 package land.sungbin.androidplayground.test
@@ -68,16 +73,14 @@ fun RememberUpdateStateTest(value: Any) {
     Text(text = state.toString())
 }
 
-fun main() {
-    setContent {
-        var wantChar by remember { mutableStateOf('가') }
-        LaunchedEffect(Unit) {
-            delay(1000)
-            wantChar = '나'
-        }
-        ShowWantChar(wantChar)
+    fun main() {
+        var Z by mutableStateOf(1)
+        Z = 20
     }
-}
+
+fun ShowValue(value: Any) {}
+
+//fun ShowWantChar(wantChar: Char) {}
 
 @Composable
 fun ShowWantChar(wantChar: Char) {
@@ -113,19 +116,6 @@ fun StateTest(value: Any) {
     }
     Text(text = state.toString())
 }
-
-/*fun main() {
-    setContent {
-        var state by remember { mutableStateOf(1) }
-
-        LaunchedEffect(Unit) {
-            delay(100)
-            state++
-        }
-
-        StateQuiz(value = state)
-    }
-}*/
 
 interface MutableState<T>
 
