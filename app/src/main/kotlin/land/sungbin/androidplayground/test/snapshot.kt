@@ -112,17 +112,17 @@ interface SnapshotMutationPolicy<T> {
     fun merge(previous: T, current: T, applied: T): T? = null
 }
 
-private object ReferentialEqualityPolicy : SnapshotMutationPolicy<Any?> {
-    override fun equivalent(a: Any?, b: Any?) = a === b
-}
+    object ReferentialEqualityPolicy : SnapshotMutationPolicy<Any?> {
+        override fun equivalent(a: Any?, b: Any?) = a === b
+    }
 
-private object StructuralEqualityPolicy : SnapshotMutationPolicy<Any?> {
-    override fun equivalent(a: Any?, b: Any?) = a == b
-}
+    object StructuralEqualityPolicy : SnapshotMutationPolicy<Any?> {
+        override fun equivalent(a: Any?, b: Any?) = a == b
+    }
 
-private object NeverEqualPolicy : SnapshotMutationPolicy<Any?> {
-    override fun equivalent(a: Any?, b: Any?) = false
-}
+    object NeverEqualPolicy : SnapshotMutationPolicy<Any?> {
+        override fun equivalent(a: Any?, b: Any?) = false
+    }
 
 internal object GlobalSnapshotManager {
     private val started = AtomicBoolean(false)
@@ -168,28 +168,28 @@ internal object GlobalSnapshotManager {
     println(Z) // 104060
 }*/
 
-    /*fun main() {
-        var age by mutableStateOf(
-            value = 1,
-            policy = object : SnapshotMutationPolicy<Int> {
-                override fun equivalent(a: Int, b: Int) = a == b
-                override fun merge(previous: Int, current: Int, applied: Int) =
-                    "$previous$current$applied".toInt()
-            }
-        )
-        val snap1 = Snapshot.takeMutableSnapshot()
-        val snap2 = Snapshot.takeMutableSnapshot()
-        snap1.enter {
-            age = 10
-            age = 12
+/*fun main() {
+    var age by mutableStateOf(
+        value = 1,
+        policy = object : SnapshotMutationPolicy<Int> {
+            override fun equivalent(a: Int, b: Int) = a == b
+            override fun merge(previous: Int, current: Int, applied: Int) =
+                "$previous$current$applied".toInt()
         }
-        snap1.apply()
-        snap2.enter {
-            age = 20
-        }
-        snap2.apply()
-        println(age) // 11220 (previous: 1, current: 12, applied: 20)
-    }*/
+    )
+    val snap1 = Snapshot.takeMutableSnapshot()
+    val snap2 = Snapshot.takeMutableSnapshot()
+    snap1.enter {
+        age = 10
+        age = 12
+    }
+    snap1.apply()
+    snap2.enter {
+        age = 20
+    }
+    snap2.apply()
+    println(age) // 11220 (previous: 1, current: 12, applied: 20)
+}*/
 
 private inline fun <T> composing(
     composition: ControlledComposition,
@@ -207,10 +207,10 @@ private inline fun <T> composing(
 }
 
 
-    fun main() {
-        var age by mutableStateOf(1)
-        age = 21
-    }
+fun main() {
+    var age by mutableStateOf(1)
+    age = 21
+}
 
 fun applyAndCheck(snapshot: MutableSnapshot) {
     TODO("Not yet implemented")

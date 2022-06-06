@@ -42,6 +42,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.coroutines.delay
 import kotlinx.parcelize.Parcelize
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import land.sungbin.androidplayground.test.CustomArrangementTest
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 
 @Parcelize
@@ -121,14 +122,14 @@ class MainActivity : ComponentActivity() {
                     .padding(16.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                ProvideTextStyle(DefaultTextStyle.copy(fontSize = 50.sp)) {
+                ProvideTextStyle(DefaultTextStyle.copy(fontSize = 30.sp)) {
                     /*SortedColumn {
 //                        DerivedStateTest(state)
                         // ShowValue(state)
                     }*//*
                     Text(text = "Bye, world!")
                     println("Bye, world thread: ${Thread.currentThread().id}")*/
-                    Text(text = "Bye, world!")
+                    CustomArrangementTest()
                 }
             }
 
