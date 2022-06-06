@@ -97,27 +97,22 @@ fun ClickableTextTest() {
     )
 }
 
-@Composable
-fun ClickableTextWithAnnotatedTest() {
-    val toast = rememberToast()
-    val localTextStyle = LocalTextStyle.current
-    val annotatedText = remember {
-        buildAnnotatedString {
-            /*pushStringAnnotation(
-                tag = "URL",
-                annotation = "https://developer.android.com"
-            )
-            pushStyle(
-                style = SpanStyle(
-                    color = Color.Blue,
-                    fontWeight = FontWeight.Bold
-                )
-            )
-            append("here")
-            pop()
-            pop()*/
+/*pushStringAnnotation(
+         tag = "URL",
+         annotation = "https://sungbin.land"
+     )
+     pushStyle(
+         style = SpanStyle(
+             color = Color.Blue,
+             fontWeight = FontWeight.Bold
+         )
+     )
+     append("here")
+     pop()
+     pop()*/
 
-            withAnnotation(
+/*
+ withAnnotation(
                 tag = "URL",
                 annotation = "https://sungbin.land"
             ) {
@@ -134,7 +129,27 @@ fun ClickableTextWithAnnotatedTest() {
             withStyle(localTextStyle.toSpanStyle()) {
                 append(" 바로가기")
             }
+ */
+
+@Composable
+fun ClickableTextWithAnnotatedTest() {
+    val toast = rememberToast()
+    val localTextStyle = LocalTextStyle.current
+    val annotatedText = buildAnnotatedString {
+        withAnnotation(
+            tag = "URL",
+            annotation = "https://sungbin.land"
+        ) {
+            withStyle(
+                style = localTextStyle.copy(
+                    color = Color.Green,
+                    fontWeight = FontWeight.Bold
+                ).toSpanStyle()
+            ) {
+                append("성빈랜드")
+            }
         }
+        append(" 바로가기")
     }
 
     ClickableText(

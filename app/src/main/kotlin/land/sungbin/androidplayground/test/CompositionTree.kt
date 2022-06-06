@@ -6,7 +6,9 @@
 
 package land.sungbin.androidplayground.test
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
@@ -45,9 +47,20 @@ fun main() {
     }
 }
 
-fun FirstComposable() {}
-fun SecondComposable() {}
-fun ThirdComposable() {}
+@Composable
+fun FirstComposable() {
+    // ...
+}
+
+@Composable
+fun SecondComposable() {
+    // ...
+}
+
+@Composable
+fun ThirdComposable() {
+    // ...
+}
 
 internal class LazyValueHolder<T>(valueProducer: () -> T) : State<T> {
     private val current by lazy(valueProducer)

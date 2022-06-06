@@ -40,14 +40,6 @@ fun <T : Any> fakeRememberSaveable(
     return init()
 }
 
-interface Saver<Original, Saveable> {
-    // 값을 저장 가능한 값으로 변환
-    fun save(value: Original): Saveable?
-
-    // 저장한 값을 원래의 값으로 변환
-    fun restore(value: Saveable): Original?
-}
-
 private val AutoSaver = Saver<Any, Any>(
     save = { it },
     restore = { it }

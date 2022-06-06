@@ -19,18 +19,12 @@ import androidx.core.graphics.red
 
 private typealias NativeColor = android.graphics.Color
 
+//    key = { number -> number }
+
 @Composable
 fun LazyListKeyTest() {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(vertical = 30.dp),
-        verticalArrangement = Arrangement.spacedBy(30.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        items(
-            count = 50,
-            key = { number -> number }
-        ) { number ->
+    LazyColumn {
+        items(count = 50) { number ->
             Text(text = "내 번호: $number")
         }
     }
@@ -65,7 +59,10 @@ fun ColumnSpacedByTest() {
 @Composable
 private fun DummyLazyListWithoutKey() {
     LazyColumn {
-        items(count = 50) { number ->
+        items(
+            count = 50,
+            key = { number -> number }
+        ) { number ->
             Text(
                 modifier = Modifier.padding(vertical = 30.dp),
                 text = "내 번호: $number"
@@ -91,9 +88,7 @@ private fun DummyLazyListWithKey() {
 
 @Composable
 private fun DummyLazyListSpacedBy() {
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(30.dp),
-    ) {
+    LazyColumn(verticalArrangement = Arrangement.spacedBy(30.dp)) {
         items(
             count = 50,
             key = { number -> number }
@@ -109,7 +104,7 @@ private fun DummyColumnSpacedBy() {
         verticalArrangement = Arrangement.spacedBy(
             space = 30.dp,
             alignment = Alignment.CenterVertically
-        ),
+        )
     ) {
         repeat(50) { number ->
             Text(text = "내 번호: $number")

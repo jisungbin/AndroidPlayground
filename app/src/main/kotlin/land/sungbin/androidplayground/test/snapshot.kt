@@ -112,17 +112,17 @@ interface SnapshotMutationPolicy<T> {
     fun merge(previous: T, current: T, applied: T): T? = null
 }
 
-    object ReferentialEqualityPolicy : SnapshotMutationPolicy<Any?> {
-        override fun equivalent(a: Any?, b: Any?) = a === b
-    }
+object ReferentialEqualityPolicy : SnapshotMutationPolicy<Any?> {
+    override fun equivalent(a: Any?, b: Any?) = a === b
+}
 
-    object StructuralEqualityPolicy : SnapshotMutationPolicy<Any?> {
-        override fun equivalent(a: Any?, b: Any?) = a == b
-    }
+object StructuralEqualityPolicy : SnapshotMutationPolicy<Any?> {
+    override fun equivalent(a: Any?, b: Any?) = a == b
+}
 
-    object NeverEqualPolicy : SnapshotMutationPolicy<Any?> {
-        override fun equivalent(a: Any?, b: Any?) = false
-    }
+object NeverEqualPolicy : SnapshotMutationPolicy<Any?> {
+    override fun equivalent(a: Any?, b: Any?) = false
+}
 
 internal object GlobalSnapshotManager {
     private val started = AtomicBoolean(false)
@@ -141,32 +141,6 @@ internal object GlobalSnapshotManager {
         }
     }
 }
-
-
-/*fun main() {
-    var Z by mutableStateOf(
-        value = 10,
-        policy = object : SnapshotMutationPolicy<Int> {
-            override fun equivalent(a: Int, b: Int) = a == b
-            override fun merge(previous: Int, current: Int, applied: Int) =
-                "$previous$current$applied".toInt()
-        }
-    )
-    val A = Snapshot.takeMutableSnapshot()
-    val B = Snapshot.takeMutableSnapshot()
-    A.enter {
-        Z = 20
-        Z = 30
-        Z = 40
-    }
-    A.apply()
-    B.enter {
-        Z = 50
-        Z = 60
-    }
-    B.apply()
-    println(Z) // 104060
-}*/
 
 /*fun main() {
     var age by mutableStateOf(
@@ -191,6 +165,11 @@ internal object GlobalSnapshotManager {
     println(age) // 11220 (previous: 1, current: 12, applied: 20)
 }*/
 
+fun main() {
+    var age by mutableStateOf(1)
+    age = 21
+}
+
 private inline fun <T> composing(
     composition: ControlledComposition,
     modifiedValues: IdentityArraySet<Any>?,
@@ -207,10 +186,20 @@ private inline fun <T> composing(
 }
 
 
-fun main() {
+/*fun main() {
     var age by mutableStateOf(1)
-    age = 21
-}
+    val snap1 = Snapshot.takeMutableSnapshot()
+    val snap2 = Snapshot.takeMutableSnapshot()
+    println(age) // 1
+    // ..
+    snap2.enter {
+        age = 20
+        println(age) // 20
+    }
+    snap2.apply()
+    snap2.dispose()
+    println(age) // 12
+}*/
 
 fun applyAndCheck(snapshot: MutableSnapshot) {
     TODO("Not yet implemented")

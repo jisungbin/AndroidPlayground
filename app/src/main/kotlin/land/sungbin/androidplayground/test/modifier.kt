@@ -40,31 +40,19 @@ private inline fun Modifier.realNoRippleClickable(crossinline onClick: () -> Uni
 
 @Composable
 fun CustomModifierTest() {
-    var isHideState by remember { mutableStateOf(false) }
-
-    Box(
-        modifier = Modifier
-            .size(250.dp)
-            .realNoRippleClickable { isHideState = !isHideState }
-            .realInvisible(isHideState)
-            .background(color = Color.Green)
-    )
-}
-
-@Composable
-private fun DummyCustomModifier() {
     var isInvisibleState by remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
-            .realNoRippleClickable { isInvisibleState = !isInvisibleState }
-            .realInvisible(isInvisibleState)
+            .size(250.dp)
+            .noRippleClickable { isInvisibleState = !isInvisibleState }
+            .invisible(isInvisibleState)
             .background(color = Color.Green)
     )
 }
 
 fun Modifier.invisible(isInvisible: Boolean) = when (isInvisible) {
-    true -> then(RealInvisibleModifier)
+    true -> then(InvisibleModifier)
     else -> this
 }
 

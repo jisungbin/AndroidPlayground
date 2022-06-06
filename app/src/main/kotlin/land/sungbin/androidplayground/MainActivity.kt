@@ -7,7 +7,8 @@
     "LocalVariableName",
     "RemoveExplicitTypeArguments",
     "UnnecessaryOptInAnnotation",
-    "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE"
+    "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE",
+    "UNUSED_VARIABLE"
 )
 @file:OptIn(
     ExperimentalMaterialApi::class,
@@ -27,14 +28,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material.Text
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
@@ -72,6 +74,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             val systemUiController = rememberSystemUiController()
             val state = remember { mutableStateOf(1) }
+
+            rememberSaveable {
+                IntHolder(1)
+            }
+
+            val context = LocalContext.current
 
             LaunchedEffect(Unit) {
                 println("LaunchedEffect thread: ${Thread.currentThread().id}")
