@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-import androidx.compose.material3.Text
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
@@ -17,23 +17,32 @@ import land.sungbin.androidplayground.test.setContent
 
 fun main() {
     setContent {
-        var wantChar by remember { mutableStateOf('가') }
+        var isEven by remember {
+            mutableStateOf(false)
+        }
         LaunchedEffect(Unit) {
             delay(1000)
-            wantChar = '나'
+            isEven = true
         }
-        ShowWantChar(wantChar)
+        NumberFilter(isEven)
     }
 }
 
 @Composable
-fun ShowWantChar(wantChar: Char) {
-    val chars = remember { '가'..'힣' }
-    val wantCharState by rememberUpdatedState(wantChar)
-    val foundChar by remember(chars) {
-        derivedStateOf { chars.find { it == wantCharState } }
+fun NumberFilter(isEven: Boolean) {
+    val number = remember { 1..10 }
+    val isEvenState by rememberUpdatedState(isEven)
+    val filteredNumber by remember(number) {
+        derivedStateOf {
+            number.filter {
+                it % 2 == when (isEvenState) {
+                    true -> 0
+                    else -> 1
+                }
+            }
+        }
     }
-    Text(foundChar.toString())
+    Text(filteredNumber.joinToString(", "))
 }
 
 @Composable
