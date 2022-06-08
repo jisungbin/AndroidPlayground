@@ -71,7 +71,7 @@ class MainActivity : ComponentActivity() {
                     .padding(16.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                ProvideTextStyle(DefaultTextStyle.copy(fontSize = 20.sp)) {
+                ProvideTextStyle(DefaultTextStyle.copy()) {
                     LazyListWithKeyAndContentType()
                 }
             }

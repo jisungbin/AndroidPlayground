@@ -142,7 +142,7 @@ internal object GlobalSnapshotManager {
     }
 }
 
-/*fun main() {
+/*fun land.sungbin.androidplayground.main() {
     var age by mutableStateOf(
         value = 1,
         policy = object : SnapshotMutationPolicy<Int> {
@@ -186,7 +186,7 @@ private inline fun <T> composing(
 }
 
 
-/*fun main() {
+/*fun land.sungbin.androidplayground.main() {
     var age by mutableStateOf(1)
     val snap1 = Snapshot.takeMutableSnapshot()
     val snap2 = Snapshot.takeMutableSnapshot()
@@ -216,9 +216,7 @@ fun readObserverOf(composition: ControlledComposition): ((Any) -> Unit)? {
     TODO("Not yet implemented")
 }
 
-class IdentityArraySet<T> {
-
-}
+class IdentityArraySet<T>
 
 private operator fun Any.invoke() {
     println(toString())

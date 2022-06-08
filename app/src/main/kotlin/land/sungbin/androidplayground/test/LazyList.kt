@@ -3,7 +3,6 @@ package land.sungbin.androidplayground.test
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -113,8 +112,12 @@ private fun DummyColumnSpacedBy() {
 @Composable
 fun LazyListWithKeyAndContentType() {
     LazyColumn(
-        contentPadding = PaddingValues(vertical = 30.dp),
-        verticalArrangement = Arrangement.spacedBy(30.dp)
+        // contentPadding = PaddingValues(vertical = 30.dp),
+        verticalArrangement = Arrangement.spacedBy(
+            space = 30.dp,
+            alignment = Alignment.CenterVertically
+        ),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         items(
             count = 50,
