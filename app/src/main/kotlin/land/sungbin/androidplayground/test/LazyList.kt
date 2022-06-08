@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Text
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,8 +18,6 @@ import androidx.core.graphics.green
 import androidx.core.graphics.red
 
 private typealias NativeColor = android.graphics.Color
-
-//    key = { number -> number }
 
 @Composable
 fun LazyListKeyTest() {
@@ -113,17 +111,17 @@ private fun DummyColumnSpacedBy() {
 }
 
 @Composable
-private fun DummyLazyListContentPadding() {
+fun LazyListWithKeyAndContentType() {
     LazyColumn(
         contentPadding = PaddingValues(vertical = 30.dp),
         verticalArrangement = Arrangement.spacedBy(30.dp)
     ) {
         items(
             count = 50,
-            key = { number -> number }
+            key = { number -> number },
+            contentType = { 0 }
         ) { number ->
             Text(text = "내 번호: $number")
         }
     }
-
 }

@@ -17,7 +17,6 @@
 
 package land.sungbin.androidplayground
 
-import NumberFilter
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.WindowManager
@@ -31,10 +30,6 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -42,9 +37,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import kotlinx.coroutines.delay
 import kotlinx.parcelize.Parcelize
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import land.sungbin.androidplayground.test.LazyListWithKeyAndContentType
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 
 @Parcelize
@@ -54,18 +49,12 @@ class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val vm: MainViewModel by viewModels()
-    private lateinit var onBackPressedAction: () -> Unit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             val systemUiController = rememberSystemUiController()
-            var numberFilter by remember {
-                mutableStateOf<(number: Int) -> Boolean>({ number ->
-                    number % 2 == 0
-                })
-            }
 
             LaunchedEffect(Unit) {
                 window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
@@ -74,10 +63,6 @@ class MainActivity : ComponentActivity() {
                 )
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setSystemBarsColor(color = Color.White)
-                delay(3000)
-                numberFilter = { number ->
-                    number % 2 == 1
-                }
             }
 
             Box(
@@ -86,8 +71,8 @@ class MainActivity : ComponentActivity() {
                     .padding(16.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                ProvideTextStyle(DefaultTextStyle.copy(fontSize = 30.sp)) {
-                    NumberFilter(numberFilter)
+                ProvideTextStyle(DefaultTextStyle.copy(fontSize = 20.sp)) {
+                    LazyListWithKeyAndContentType()
                 }
             }
         }
