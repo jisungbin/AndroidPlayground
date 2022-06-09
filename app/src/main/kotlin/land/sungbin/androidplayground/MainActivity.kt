@@ -20,6 +20,7 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.WindowManager
+import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -36,6 +37,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
+import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import kotlinx.parcelize.Parcelize
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -52,6 +54,8 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.activity_main, LinearLayout(this), false)
+        (binding.root.context as MainActivity).also(::println)
 
         setContent {
             val systemUiController = rememberSystemUiController()
