@@ -41,9 +41,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.lifecycleScope
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.composable.LoggingButton
 import land.sungbin.androidplayground.composable.LoggingText
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -62,10 +60,6 @@ class MainActivity : ComponentActivity() {
             LinearLayout(this),
             false
         )
-
-        lifecycleScope.launchWhenCreated {
-
-        }
 
         setContent {
             val systemUiController = rememberSystemUiController()
