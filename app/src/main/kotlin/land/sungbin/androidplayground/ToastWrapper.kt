@@ -1,10 +1,12 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground
 
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 

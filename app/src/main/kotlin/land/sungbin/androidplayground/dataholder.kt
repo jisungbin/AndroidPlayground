@@ -1,4 +1,5 @@
 @file:Suppress("unused")
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground
 
