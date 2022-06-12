@@ -1,6 +1,9 @@
 @file:Suppress("unused")
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.test
+
+import androidx.compose.runtime.NoLiveLiterals
 
 // 컴포저블 트리를 횡단하며 모든 노드를 해석하고 실제 UI 로 그림
 interface Applier<N> {

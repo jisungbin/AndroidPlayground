@@ -1,5 +1,6 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 @file:Suppress("MissingSuperCall")
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.test
 
@@ -12,6 +13,7 @@ import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember

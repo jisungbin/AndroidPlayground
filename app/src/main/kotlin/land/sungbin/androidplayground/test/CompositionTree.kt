@@ -3,12 +3,14 @@
     "UNUSED_VARIABLE",
     "UNUSED_PARAMETER", "FunctionName"
 )
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.test
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf

@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_VARIABLE", "SpellCheckingInspection", "unused", "UNCHECKED_CAST")
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.test
 
@@ -8,6 +9,7 @@ import android.util.Size
 import android.util.SizeF
 import android.util.SparseArray
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.currentCompositeKeyHash
 import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.referentialEqualityPolicy

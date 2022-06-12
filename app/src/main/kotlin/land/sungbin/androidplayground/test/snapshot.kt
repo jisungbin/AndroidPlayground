@@ -7,10 +7,12 @@
     "UNCHECKED_CAST",
     "UNUSED_PARAMETER"
 )
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.test
 
 import androidx.compose.runtime.ControlledComposition
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.SnapshotMutationPolicy
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -1,5 +1,8 @@
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground
 
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.delay
 

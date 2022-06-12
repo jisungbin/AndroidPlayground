@@ -1,9 +1,12 @@
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground.composable
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 

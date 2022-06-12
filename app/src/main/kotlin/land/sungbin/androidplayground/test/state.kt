@@ -1,8 +1,10 @@
 @file:Suppress("PackageDirectoryMismatch")
+@file:NoLiveLiterals
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

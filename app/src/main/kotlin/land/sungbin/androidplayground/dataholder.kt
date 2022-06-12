@@ -3,6 +3,7 @@
 package land.sungbin.androidplayground
 
 import android.os.Parcelable
+import androidx.compose.runtime.NoLiveLiterals
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
