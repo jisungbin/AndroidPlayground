@@ -45,6 +45,8 @@ android {
             minifyEnabled true
             shrinkResources true
             debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
         }
 
         benchmark {
