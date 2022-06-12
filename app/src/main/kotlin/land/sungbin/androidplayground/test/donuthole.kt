@@ -16,32 +16,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 
-@Composable
-fun DonutholeSkippingTest() {
-    SideEffect {
-        println("main 함수 컴포지션됨")
-    }
-
-    var number by remember { mutableStateOf(0) }
-
-    /*LoggingButton(
-        logMessage = "Button 컴포지션됨",
-        onClick = { number++ }
-    ) {
+fun main() {
+    setContent {
         SideEffect {
-            println("Button content 컴포지션됨")
+            println("main 컴포지션됨")
         }
-        LoggingText(
-            text = number.toString(),
-            logMessage = "Text 컴포지션됨"
-        )
-    }*/
 
-    DonutTextWithLogging(
-        modifier = Modifier.clickable { number++ },
-        logMessage = "Text 컴포지션됨",
-        textLambda = { number.toString() }
-    )
+        var number by remember { mutableStateOf(0) }
+
+        DonutTextWithLogging(
+            modifier = Modifier.clickable { number++ },
+            logMessage = "Text 컴포지션됨",
+            textLambda = { number.toString() }
+        )
+    }
 }
 
 @Composable
