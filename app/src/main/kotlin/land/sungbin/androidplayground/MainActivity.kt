@@ -45,6 +45,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import land.sungbin.androidplayground.composable.LoggingButton
 import land.sungbin.androidplayground.composable.LoggingText
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import land.sungbin.androidplayground.test.DonutholeSkippingTest
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 
 class MainActivity : ComponentActivity() {
@@ -80,7 +81,7 @@ class MainActivity : ComponentActivity() {
                 contentAlignment = Alignment.Center,
             ) {
                 ProvideTextStyle(DefaultTextStyle.copy()) {
-                    CompositionTest()
+                    DonutholeSkippingTest()
                 }
             }
         }
