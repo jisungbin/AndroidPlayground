@@ -13,8 +13,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.delay
-import land.sungbin.androidplayground.LoadState
-import land.sungbin.androidplayground.MainViewModel
+import land.sungbin.androidplayground.state.LoadState
+import land.sungbin.androidplayground.viewmodel.MainViewModel
 import land.sungbin.androidplayground.test.setContent
 
 fun main() {

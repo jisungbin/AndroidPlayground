@@ -1,7 +1,7 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground
+package land.sungbin.androidplayground.wrapper
 
 import android.content.Context
 import android.widget.Toast
