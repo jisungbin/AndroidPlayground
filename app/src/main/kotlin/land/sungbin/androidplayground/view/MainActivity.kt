@@ -16,7 +16,7 @@
 )
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground
+package land.sungbin.androidplayground.view
 
 import NumberFilter
 import android.os.Bundle
@@ -40,9 +40,13 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import dagger.hilt.android.AndroidEntryPoint
+import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.DefaultTextStyle
+import land.sungbin.androidplayground.viewmodel.MainViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding

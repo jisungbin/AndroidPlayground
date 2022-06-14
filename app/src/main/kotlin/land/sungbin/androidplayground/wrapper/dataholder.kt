@@ -1,7 +1,7 @@
 @file:Suppress("unused")
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground
+package land.sungbin.androidplayground.wrapper
 
 import android.os.Parcelable
 import androidx.compose.runtime.NoLiveLiterals

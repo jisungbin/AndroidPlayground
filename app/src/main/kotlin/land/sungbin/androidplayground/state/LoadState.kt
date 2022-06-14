@@ -1,6 +1,6 @@
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground
+package land.sungbin.androidplayground.state
 
 import androidx.compose.runtime.NoLiveLiterals
 

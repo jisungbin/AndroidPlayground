@@ -1,7 +1,7 @@
 @file:Suppress("UselessCallOnNotNull", "RedundantOverride")
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground
+package land.sungbin.androidplayground.view
 
 import android.os.Bundle
 import android.view.View
