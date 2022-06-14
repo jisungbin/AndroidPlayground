@@ -8,4 +8,3 @@ import androidx.compose.runtime.NoLiveLiterals
 data class People(val name: String, val age: Int)
 
 // val PeopleSaver = mapSaver<People>
-

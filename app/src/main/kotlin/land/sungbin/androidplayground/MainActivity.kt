@@ -18,6 +18,7 @@
 
 package land.sungbin.androidplayground
 
+import NumberFilter
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.LinearLayout
@@ -29,15 +30,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,8 +40,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import land.sungbin.androidplayground.composable.LoggingButton
-import land.sungbin.androidplayground.composable.LoggingText
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 
@@ -83,18 +76,9 @@ class MainActivity : ComponentActivity() {
                 contentAlignment = Alignment.Center,
             ) {
                 ProvideTextStyle(DefaultTextStyle.copy()) {
-                    Text("TEST")
+                    NumberFilter(isEven = false)
                 }
             }
-        }
-    }
-
-    @Composable
-    private fun CompositionTest() {
-        var text by remember { mutableStateOf("") }
-
-        LoggingButton(onClick = { text = "$text\n$text" }) {
-            LoggingText(text = text) // only composited here.
         }
     }
 }
