@@ -1,5 +1,6 @@
 @file:OptIn(ExperimentalTextApi::class)
 @file:NoLiveLiterals
+@file:Suppress("unused")
 
 package land.sungbin.androidplayground.test
 
@@ -9,9 +10,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material.Text
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.ProvideTextStyle
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.remember
@@ -26,7 +27,7 @@ import androidx.compose.ui.text.withAnnotation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import land.sungbin.androidplayground.rememberToast
+import land.sungbin.androidplayground.wrapper.rememberToast
 
 @Composable
 fun SelectableTextTest() {
@@ -137,21 +138,23 @@ fun ClickableTextTest() {
 fun ClickableTextWithAnnotatedTest() {
     val toast = rememberToast()
     val localTextStyle = LocalTextStyle.current
-    val annotatedText = buildAnnotatedString {
-        withAnnotation(
-            tag = "URL",
-            annotation = "https://sungbin.land"
-        ) {
-            withStyle(
-                style = localTextStyle.copy(
-                    color = Color.Green,
-                    fontWeight = FontWeight.Bold
-                ).toSpanStyle()
+    val annotatedText = remember {
+        buildAnnotatedString {
+            withAnnotation(
+                tag = "URL",
+                annotation = "https://sungbin.land"
             ) {
-                append("성빈랜드")
+                withStyle(
+                    style = localTextStyle.copy(
+                        color = Color.Green,
+                        fontWeight = FontWeight.Bold
+                    ).toSpanStyle()
+                ) {
+                    append("성빈랜드")
+                }
             }
+            append(" 바로가기")
         }
-        append(" 바로가기")
     }
 
     ClickableText(
@@ -176,8 +179,10 @@ fun ClickableTextWithAnnotatedTest() {
 private fun DummyClickableText() {
     val toast = rememberToast()
 
-    val annotatedText = buildAnnotatedString {
-        append("클릭 가능한 Text")
+    val annotatedText = remember {
+        buildAnnotatedString {
+            append("클릭 가능한 Text")
+        }
     }
 
     ClickableText(
@@ -192,21 +197,23 @@ private fun DummyClickableText() {
 private fun DummyClickableTextWithAnnotated() {
     val toast = rememberToast()
 
-    val annotatedText = buildAnnotatedString {
-        pushStringAnnotation(
-            tag = "URL",
-            annotation = "https://sungbin.land"
-        )
-        pushStyle(
-            style = SpanStyle(
-                color = Color.Green,
-                fontWeight = FontWeight.Bold
+    val annotatedText = remember {
+        buildAnnotatedString {
+            pushStringAnnotation(
+                tag = "URL",
+                annotation = "https://sungbin.land"
             )
-        )
-        append("성빈랜드")
-        pop()
-        pop()
-        append(" 바로가기")
+            pushStyle(
+                style = SpanStyle(
+                    color = Color.Green,
+                    fontWeight = FontWeight.Bold
+                )
+            )
+            append("성빈랜드")
+            pop()
+            pop()
+            append(" 바로가기")
+        }
     }
 
     ClickableText(
@@ -231,26 +238,27 @@ private fun DummyClickableTextWithAnnotated() {
 private fun DummyClickableTextWithAnnotated2() {
     val toast = rememberToast()
 
-    val annotatedText = buildAnnotatedString {
-        withAnnotation(
-            tag = "URL",
-            annotation = "https://sungbin.land"
-        ) {
-            withStyle(
-                style = SpanStyle(
-                    color = Color.Green,
-                    fontWeight = FontWeight.Bold
-                )
+    val annotatedText = remember {
+        buildAnnotatedString {
+            withAnnotation(
+                tag = "URL",
+                annotation = "https://sungbin.land"
             ) {
-                append("성빈랜드")
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Green,
+                        fontWeight = FontWeight.Bold
+                    )
+                ) {
+                    append("성빈랜드")
+                }
             }
+            append(" 바로가기")
         }
-        append(" 바로가기")
     }
 
     ClickableText(
         text = annotatedText,
-
         onClick = { offset ->
             annotatedText.getStringAnnotations(
                 tag = "URL",

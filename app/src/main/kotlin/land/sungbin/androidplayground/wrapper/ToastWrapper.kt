@@ -33,8 +33,6 @@ class ToastWrapper(context: Context) {
             show()
         }
     }
-
-    companion object
 }
 
 @Composable
