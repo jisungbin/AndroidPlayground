@@ -3,10 +3,10 @@
 
 package land.sungbin.androidplayground.test
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -29,16 +29,13 @@ fun MenuColumnTest() {
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)
     ) {
         ProvideTextStyle(LocalTextStyle.current.copy(fontSize = 20.sp)) {
-            awesomeTexts.forEach { text ->
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(
-                            vertical = 16.dp,
-                            horizontal = 20.dp
-                        ),
-                    text = text,
-                )
+            Column(verticalArrangement = Arrangement.spacedBy(20.dp)) {
+                awesomeTexts.forEach { text ->
+                    Text(
+                        modifier = Modifier.fillMaxWidth(),
+                        text = text,
+                    )
+                }
             }
         }
     }

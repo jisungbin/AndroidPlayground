@@ -43,6 +43,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import land.sungbin.androidplayground.test.MenuColumnTest
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -79,8 +80,8 @@ class MainActivity : ComponentActivity() {
                     .padding(16.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                ProvideTextStyle(DefaultTextStyle.copy()) {
-                    NumberFilter(isEven = false)
+                ProvideTextStyle(DefaultTextStyle) {
+                    MenuColumnTest()
                 }
             }
         }
