@@ -41,12 +41,73 @@ internal class StaticProvidableCompositionLocal<T>(defaultFactory: () -> T) :
 fun <T> staticCompositionLocalOf(defaultFactory: () -> T): ProvidableCompositionLocal<T> =
     StaticProvidableCompositionLocal(defaultFactory)*/
 
-fun main() {
+/*fun main() {
     setContent {
         FirstComposable()
         SecondComposable()
         ThirdComposable()
     }
+}*/
+
+fun main() {
+    for (i in 1..10) {
+        for (j in 1..10) {
+            val product = i * j
+            print("$product ")
+        }
+        println()
+    }
+}
+
+class GuGuClass {
+    fun gugu(num: Int): Int {
+        return when (num) {
+            in 1..9 -> num * num
+            else -> num
+        }
+    }
+
+    fun test() {
+        for (i in 1..10) {
+            println(gugu(i))
+        }
+    }
+
+    fun assert() {
+        assert(gugu(1) == 1)
+        assert(gugu(2) == 4)
+        assert(gugu(3) == 9)
+        assert(gugu(4) == 16)
+        assert(gugu(5) == 25)
+        assert(gugu(6) == 36)
+        assert(gugu(7) == 49)
+        assert(gugu(8) == 64)
+        assert(gugu(9) == 81)
+        assert(gugu(10) == 100)
+    }
+
+    fun print() {
+        for (i in 1..10) {
+            println(gugu(i))
+        }
+    }
+
+    fun box() {
+        test()
+        assert()
+        print()
+    }
+
+    fun star() {
+        for (i in 1..10) {
+            println(gugu(i))
+        }
+    }
+}
+
+@Composable
+fun Triangle() {
+    Text("▲")
 }
 
 @Composable
