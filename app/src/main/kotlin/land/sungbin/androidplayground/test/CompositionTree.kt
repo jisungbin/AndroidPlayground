@@ -50,19 +50,13 @@ fun main() {
 }
 
 @Composable
-fun FirstComposable() {
-    // ...
-}
+fun FirstComposable() {}
 
 @Composable
-fun SecondComposable() {
-    // ...
-}
+fun SecondComposable() {}
 
 @Composable
-fun ThirdComposable() {
-    // ...
-}
+fun ThirdComposable() {}
 
 internal class LazyValueHolder<T>(valueProducer: () -> T) : State<T> {
     private val current by lazy(valueProducer)
