@@ -9,7 +9,8 @@
     "UnnecessaryOptInAnnotation",
     "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE",
     "UNUSED_VARIABLE",
-    "UnusedImport"
+    "UnusedImport",
+    "CanBeVal"
 )
 @file:OptIn(
     ExperimentalMaterialApi::class,
@@ -35,6 +36,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.runtime.getValue
@@ -50,6 +52,7 @@ import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
+import land.sungbin.androidplayground.composable.NonRestartableText
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 import land.sungbin.androidplayground.viewmodel.MainViewModel
@@ -88,8 +91,8 @@ class MainActivity : ComponentActivity() {
                 contentAlignment = Alignment.Center,
             ) {
                 ProvideTextStyle(DefaultTextStyle) {
-                    Button(onClick = { counter++ }) {
-                        Text(text = "Recompose!")
+                    NonRestartableText().also {
+                        println(currentRecomposeScope)
                     }
                 }
             }
