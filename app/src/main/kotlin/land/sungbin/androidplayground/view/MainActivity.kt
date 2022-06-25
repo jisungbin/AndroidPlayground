@@ -18,7 +18,6 @@
 
 package land.sungbin.androidplayground.view
 
-import NumberFilter
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.LinearLayout
@@ -28,11 +27,14 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
+import androidx.compose.material.Text
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,7 +45,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import land.sungbin.androidplayground.test.MenuColumnTest
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -64,6 +65,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val systemUiController = rememberSystemUiController()
+            val recomposer = currentRecomposeScope
 
             LaunchedEffect(Unit) {
                 window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
@@ -81,7 +83,9 @@ class MainActivity : ComponentActivity() {
                 contentAlignment = Alignment.Center,
             ) {
                 ProvideTextStyle(DefaultTextStyle) {
-                    MenuColumnTest()
+                    Button(onClick = { recomposer.invalidate() }) {
+                        Text(text = "Recompose!")
+                    }
                 }
             }
         }
