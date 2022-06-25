@@ -8,7 +8,8 @@
     "RemoveExplicitTypeArguments",
     "UnnecessaryOptInAnnotation",
     "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE",
-    "UNUSED_VARIABLE"
+    "UNUSED_VARIABLE",
+    "UnusedImport"
 )
 @file:OptIn(
     ExperimentalMaterialApi::class,
@@ -76,10 +77,6 @@ class MainActivity : ComponentActivity() {
             println("Recomposed: $counter")
 
             LaunchedEffect(Unit) {
-                window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-                )
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setSystemBarsColor(color = Color.White)
             }
