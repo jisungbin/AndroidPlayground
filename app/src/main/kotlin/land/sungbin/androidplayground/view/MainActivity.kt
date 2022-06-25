@@ -30,11 +30,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.currentRecomposeScope
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -66,6 +71,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             val systemUiController = rememberSystemUiController()
             val recomposer = currentRecomposeScope
+            var counter by remember { mutableStateOf(1) }
+
+            println("Recomposed: $counter")
 
             LaunchedEffect(Unit) {
                 window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
@@ -83,7 +91,7 @@ class MainActivity : ComponentActivity() {
                 contentAlignment = Alignment.Center,
             ) {
                 ProvideTextStyle(DefaultTextStyle) {
-                    Button(onClick = { recomposer.invalidate() }) {
+                    Button(onClick = { counter++ }) {
                         Text(text = "Recompose!")
                     }
                 }
