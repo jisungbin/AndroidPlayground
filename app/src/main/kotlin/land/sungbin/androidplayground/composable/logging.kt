@@ -34,7 +34,7 @@ fun LoggingText(
     text: String
 ) {
     SideEffect {
-        println("Text composition.")
+        println(log)
     }
     Text(
         modifier = modifier,

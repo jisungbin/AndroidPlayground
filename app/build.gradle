@@ -26,7 +26,11 @@ android {
 
     kotlinOptions {
         jvmTarget = '11'
-        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn"]
+        freeCompilerArgs += ["-P",
+                             "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${rootProject.file(".").absolutePath}/report/compose-metrics"]
+        freeCompilerArgs += ["-P",
+                             "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"]
     }
 
     buildFeatures {
@@ -67,11 +71,12 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'androidx.constraintlayout:constraintlayout-compose:1.0.1'
     implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.accompanist:accompanist-systemuicontroller:0.24.9-beta'
+    implementation 'com.google.accompanist:accompanist-systemuicontroller:0.24.11-rc'
     implementation "com.google.dagger:hilt-android:2.42"
 
+
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     kapt "com.google.dagger:hilt-compiler:2.42"
 }
