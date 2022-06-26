@@ -42,6 +42,9 @@ import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.delay
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.CapturedComposableLambda
 import land.sungbin.androidplayground.composable.SingletonComposableLambda
@@ -71,6 +74,13 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(Unit) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setSystemBarsColor(color = Color.White)
+                delay(1000)
+                try {
+                    println("Started.")
+                    awaitCancellation()
+                } finally {
+                    println("Canceled.")
+                }
             }
 
             Box(
@@ -89,5 +99,10 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("onPause")
     }
 }
