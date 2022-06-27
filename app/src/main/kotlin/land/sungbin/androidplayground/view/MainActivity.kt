@@ -70,63 +70,53 @@ class MainActivity : ComponentActivity() {
             var count by remember { mutableStateOf(0) }
 
             val unwrappedState = mutableStateOf(1)
+            // 글로벌 스냅샷 아이디: 1 (가정)
 
             Snapshot.withMutableSnapshot {
+                // 중첩 스냅샷 아이디: 2 (가정)
                 Snapshot.withMutableSnapshot {
+                    // 중첩 스냅샷 아이디: 3 (가정)
                     Snapshot.withMutableSnapshot {
+                        // 중첩 스냅샷 아이디: 4 (가정)
                         Snapshot.withMutableSnapshot {
+                            // 중첩 스냅샷 아이디: 5 (가정)
+
                             // 여기에서 unwrappedState 에 대해 valid 가 실행된다면
-                            // candidateSnapshot 의 아이디는 unwrappedState 가 생성된
-                            // 글로벌 스냅샷의 아이디일 것이다.
-                            // 하지만 이 곳의 currentSnapshot().id 의 값은
-                            // 중첩된 만큼 id++ 가 된 값 이다.
+                            // candidateSnapshot 의 아이디는 레코드가 생성되는
+                            // 스냅샷의 아이디일 것이다.
+                            // 즉, 1~5 의 아이디를 가질 수 있다.
+
+                            // 이 곳의 currentSnapshot().id 의 값은
+                            // 중첩된 아이디만큼 5 가 된다.
+
+                            // 따라서 candidateSnapshot <= currentSnapshot 가
+                            // 항상 성립해야 한다.
                         }
                     }
                 }
             }
 
-            Snapshot.current.id.also(::println) // 5
-            Snapshot.takeMutableSnapshot().also {
-                it.id.also(::println) // 7
-                it.enter {
-                    Snapshot.current.id.also(::println) // 7
-                }
-                it.takeNestedMutableSnapshot().also { nestedIt ->
-                    nestedIt.id.also(::println) // 9
-                    nestedIt.enter {
-                        Snapshot.current.id.also(::println) // 9
+            SideEffect {
+                val snap1 = Snapshot.takeMutableSnapshot()
+                snap1.enter {
+                    count = 2
+                    Snapshot.withMutableSnapshot {
+                        count = 3
                     }
-                    nestedIt.apply()
                 }
-                it.apply()
+                count.also(::println)
             }
 
             LaunchedEffect(Unit) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setSystemBarsColor(color = Color.White)
-                while (true) {
-                    delay(1000)
-                    count++
-                }
-            }
-
-            val countAtRecomposition = Snapshot.withoutReadObservation {
-                "Count: $count"
             }
 
             SortedColumn {
                 ProvideTextStyle(DefaultTextStyle) {
-                    Text(text = countAtRecomposition)
-                    SideEffect {
-                        println("Recomposed.")
-                    }
+                    Text(text = "Count: $count")
                 }
             }
         }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        println("onPause")
     }
 }
