@@ -68,9 +68,38 @@ class MainActivity : ComponentActivity() {
         setContent {
             val systemUiController = rememberSystemUiController()
             var count by remember { mutableStateOf(0) }
+
             val unwrappedState = mutableStateOf(1)
-            unwrappedState.value
-            unwrappedState.value = 2
+
+            Snapshot.withMutableSnapshot {
+                Snapshot.withMutableSnapshot {
+                    Snapshot.withMutableSnapshot {
+                        Snapshot.withMutableSnapshot {
+                            // 여기에서 unwrappedState 에 대해 valid 가 실행된다면
+                            // candidateSnapshot 의 아이디는 unwrappedState 가 생성된
+                            // 글로벌 스냅샷의 아이디일 것이다.
+                            // 하지만 이 곳의 currentSnapshot().id 의 값은
+                            // 중첩된 만큼 id++ 가 된 값 이다.
+                        }
+                    }
+                }
+            }
+
+            Snapshot.current.id.also(::println) // 5
+            Snapshot.takeMutableSnapshot().also {
+                it.id.also(::println) // 7
+                it.enter {
+                    Snapshot.current.id.also(::println) // 7
+                }
+                it.takeNestedMutableSnapshot().also { nestedIt ->
+                    nestedIt.id.also(::println) // 9
+                    nestedIt.enter {
+                        Snapshot.current.id.also(::println) // 9
+                    }
+                    nestedIt.apply()
+                }
+                it.apply()
+            }
 
             LaunchedEffect(Unit) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
