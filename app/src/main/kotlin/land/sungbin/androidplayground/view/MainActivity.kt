@@ -100,9 +100,11 @@ class MainActivity : ComponentActivity() {
                 val snap1 = Snapshot.takeMutableSnapshot()
                 snap1.enter {
                     count = 2
+                    count.also(::println)
                     Snapshot.withMutableSnapshot {
                         count = 3
                     }
+                    count.also(::println)
                 }
                 count.also(::println)
             }
