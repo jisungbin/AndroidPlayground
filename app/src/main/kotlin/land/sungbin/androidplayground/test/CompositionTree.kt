@@ -111,13 +111,16 @@ fun Triangle() {
 }
 
 @Composable
-fun FirstComposable() {}
+fun FirstComposable() {
+}
 
 @Composable
-fun SecondComposable() {}
+fun SecondComposable() {
+}
 
 @Composable
-fun ThirdComposable() {}
+fun ThirdComposable() {
+}
 
 internal class LazyValueHolder<T>(valueProducer: () -> T) : State<T> {
     private val current by lazy(valueProducer)
@@ -155,21 +158,3 @@ abstract class ProvidableCompositionLocal<T>(defaultFactory: () -> T) :
         canOverride = false
     )
 }
-
-internal class SlotTable {
-    var groups = IntArray(0)
-        private set
-
-    var groupsSize = 0
-        private set
-
-    var slots = Array<Any?>(0) { null }
-        private set
-
-    var slotsSize = 0
-        private set
-
-    // more...
-}
-
-
