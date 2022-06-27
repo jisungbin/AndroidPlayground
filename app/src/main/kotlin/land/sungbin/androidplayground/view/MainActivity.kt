@@ -25,33 +25,28 @@ import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.delay
 import land.sungbin.androidplayground.R
-import land.sungbin.androidplayground.composable.CapturedComposableLambda
-import land.sungbin.androidplayground.composable.SingletonComposableLambda
+import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 import land.sungbin.androidplayground.viewmodel.MainViewModel
@@ -73,32 +68,26 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val systemUiController = rememberSystemUiController()
-            var ByeWorld by remember { mutableStateOf("Bye, world!") }
+            var count by remember { mutableStateOf(0) }
 
             LaunchedEffect(Unit) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setSystemBarsColor(color = Color.White)
-                delay(1000)
-                try {
-                    println("Started.")
-                    awaitCancellation()
-                } finally {
-                    println("Canceled.")
+                while (true) {
+                    delay(1000)
+                    count++
                 }
             }
 
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
-                contentAlignment = Alignment.Center,
-            ) {
+            val countAtRecomposition = Snapshot.withoutReadObservation {
+                "Count: $count"
+            }
+
+            SortedColumn {
                 ProvideTextStyle(DefaultTextStyle) {
-                    SingletonComposableLambda {
-                        Text(text = "Hi, world!")
-                    }
-                    CapturedComposableLambda {
-                        Text(text = ByeWorld)
+                    Text(text = countAtRecomposition)
+                    SideEffect {
+                        println("Recomposed.")
                     }
                 }
             }
