@@ -10,7 +10,8 @@
     "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE",
     "UNUSED_VARIABLE",
     "UnusedImport",
-    "CanBeVal"
+    "CanBeVal",
+    "UnrememberedMutableState"
 )
 @file:OptIn(
     ExperimentalMaterialApi::class,
@@ -25,7 +26,6 @@ import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material3.Text
@@ -43,7 +43,6 @@ import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.delay
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
@@ -69,6 +68,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             val systemUiController = rememberSystemUiController()
             var count by remember { mutableStateOf(0) }
+            val unwrappedState = mutableStateOf(1)
+            unwrappedState.value
+            unwrappedState.value = 2
 
             LaunchedEffect(Unit) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
