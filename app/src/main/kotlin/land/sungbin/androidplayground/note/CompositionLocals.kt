@@ -76,7 +76,7 @@ fun main() = setContent {
     LocalMinimumTouchTargetEnforcement // 최소 터치 영역 조정
     LocalDensity // Density 제공, 단 중요하게 쓰임
     LocalFocusManager // FocusManager 제공, 단 중요하게 쓰임
-    LocalFontFamilyResolver // FontFamily.Resolver 제공, 파악 필요
+    LocalFontFamilyResolver // FontFamily.Resolver 제공, FontFamily 캐시 가능
     LocalInspectionMode // 안드로이드 스튜디오 Preview 로 보이고 있는지 Boolean 값 제공
     LocalTextToolbar // TextToolbar 제공, 유용하게 쓰일 수 있음
     LocalSoftwareKeyboardController // SoftwareKeyboardController 제공, 키보드 visible 컨트롤 가능
