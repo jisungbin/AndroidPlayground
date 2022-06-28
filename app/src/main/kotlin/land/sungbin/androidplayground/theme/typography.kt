@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import land.sungbin.androidplayground.R
 
@@ -17,5 +18,6 @@ val NanumGothicTextStyle
     @Composable
     get() = LocalTextStyle.current.copy(
         fontFamily = NanumGothic,
-        fontSize = 30.sp
+        fontSize = 13.sp,
+        textAlign = TextAlign.Start
     )

@@ -1,2 +1,3 @@
 package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
-land.sungbin.androidplayground.wrapper.rememberToast,rememberToast,1,0,0,0,0,0,0,0,1,2,
+land.sungbin.androidplayground.theme.PinkRippleTheme.<no name provided>.defaultColor,defaultColor,1,0,0,0,0,0,0,0,1,0,
+land.sungbin.androidplayground.theme.PinkRippleTheme.<no name provided>.rippleAlpha,rippleAlpha,1,0,0,0,0,0,0,0,1,0,

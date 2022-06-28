@@ -1,22 +1,5 @@
-unstable class FloatingTextActionModeCallback {
-  stable var clickedRect: Rect
-  unstable val toast: ToastWrapper
-  stable val onActionModeDestroy: Function0<Unit>
-  <runtime stability> = Unstable
-}
-unstable class SungbinLandTextToolbar {
-  unstable val view: View
-  unstable var actionMode: ActionMode?
-  unstable val callback: FloatingTextActionModeCallback
-  stable var status: TextToolbarStatus
-  <runtime stability> = Unstable
-}
 unstable class MainActivity {
   unstable var binding: ActivityMainBinding
   unstable val vm$delegate: Lazy<MainViewModel>
-  <runtime stability> = Unstable
-}
-unstable class ToastWrapper {
-  unstable val instance: @[FlexibleNullability] Toast?
   <runtime stability> = Unstable
 }

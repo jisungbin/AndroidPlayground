@@ -1,3 +1,4 @@
+@file:Suppress("ModifierParameter")
 @file:NoLiveLiterals
 
 package land.sungbin.androidplayground.composable
@@ -15,6 +16,7 @@ import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 private val DefaultPadding = 30.dp
@@ -22,14 +24,16 @@ private val DefaultPadding = 30.dp
 @Composable
 fun SortedColumn(
     backgroundColor: Color = Color.White,
+    modifier: Modifier = Modifier
+        .fillMaxSize()
+        .background(color = backgroundColor),
+    space: Dp = DefaultPadding,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = backgroundColor),
+        modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(
-            space = DefaultPadding,
+            space = space,
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -40,15 +44,18 @@ fun SortedColumn(
 @Composable
 fun SortedLazyColumn(
     backgroundColor: Color = Color.White,
+    modifier: Modifier = Modifier
+        .fillMaxSize()
+        .background(color = backgroundColor),
+    space: Dp = DefaultPadding,
+    paddingValues: PaddingValues = PaddingValues(vertical = space),
     content: LazyListScope.() -> Unit
 ) {
     LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = backgroundColor),
-        contentPadding = PaddingValues(vertical = DefaultPadding),
+        modifier = modifier,
+        contentPadding = paddingValues,
         verticalArrangement = Arrangement.spacedBy(
-            space = DefaultPadding,
+            space = space,
             alignment = Alignment.CenterVertically
         ),
         horizontalAlignment = Alignment.CenterHorizontally,

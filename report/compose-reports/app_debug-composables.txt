@@ -1,1 +1,6 @@
-fun rememberToast()
+fun defaultColor(
+  stable <this>: <no name provided>
+): Color
+fun rippleAlpha(
+  stable <this>: <no name provided>
+): RippleAlpha

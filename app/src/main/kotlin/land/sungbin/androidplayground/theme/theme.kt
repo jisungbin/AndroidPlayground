@@ -9,7 +9,7 @@ import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-val RedRippleTheme = object : RippleTheme {
+val PinkRippleTheme = object : RippleTheme {
     private val contentColor = Color.Red
 
     @Composable
@@ -25,11 +25,11 @@ val RedRippleTheme = object : RippleTheme {
     )
 }
 
-val RedOverscrollConfiguration = OverscrollConfiguration(
+val PinkOverscrollConfiguration = OverscrollConfiguration(
     glowColor = Color.Red
 )
 
-val RedTextSelectionColors = TextSelectionColors(
+val PinkTextSelectionColors = TextSelectionColors(
     handleColor = Color.Blue.copy(alpha = 0.2f),
-    backgroundColor = Color.Red.copy(alpha = 0.2f)
+    backgroundColor = Color.Pink
 )
