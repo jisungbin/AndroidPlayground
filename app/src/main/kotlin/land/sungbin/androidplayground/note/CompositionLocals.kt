@@ -1,11 +1,10 @@
-package land.sungbin.androidplayground.test
+package land.sungbin.androidplayground.note
 
 import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.LocalOverscrollConfiguration
-import androidx.compose.foundation.lazy.layout.ModifierLocalPinnableParent
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalAbsoluteElevation
@@ -39,6 +38,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.LocalViewConfiguration
 import androidx.compose.ui.platform.LocalWindowInfo
+import land.sungbin.androidplayground.setContent
 
 @OptIn(
     ExperimentalMaterialApi::class,
@@ -68,6 +68,8 @@ fun main() = setContent {
     LocalWindowInfo // 현재 컴포저블을 호스팅 하는 윈도우가 visible 상태인지 Boolean 값 제공, 쓸 일이 많지는 않을거 같음
     LocalIndication // 커스텀하기 너무 어려움
     LocalInspectionTables // 보통 개발 환경에선 쓸 일 없음
+    LocalOnBackPressedDispatcherOwner // BackHandler 로 사용함
+    LocalActivityResultRegistryOwner // registerForActivityResult 용도로만 사용함
 
     /** 잘 알려지지 않은 것들, 알아두면 좋을 것들, 중요한 것들 */
     LocalMinimumTouchTargetEnforcement // 최소 터치 영역 조정
@@ -78,14 +80,12 @@ fun main() = setContent {
     LocalInspectionMode // 안드로이드 스튜디오 Preview 로 보이고 있는지 Boolean 값 제공
     LocalTextToolbar // TextToolbar 제공, 유용하게 쓰일 수 있음
     LocalSoftwareKeyboardController // SoftwareKeyboardController 제공, 키보드 visible 컨트롤 가능
-    LocalOverscrollConfiguration // OverScroll Effect 커스텀에 쓰임
-    LocalRippleTheme
-    LocalTextSelectionColors
-    LocalActivityResultRegistryOwner
-    LocalOnBackPressedDispatcherOwner
+    LocalOverscrollConfiguration // OverScroll Effect 커스터마이징
+    LocalRippleTheme // Ripple Theme 커스터마이징
+    LocalTextSelectionColors // TextSelection color 커스터마이징
 
     /** 왜 존재하는지 모르겠는 것들 */
-    LocalUriHandler // 그냥 Action.VIEW 로 startActivity
+    LocalUriHandler // 그냥 Action.VIEW 로 startActivity 해줌
     /**
     class AndroidUriHandler(private val context: Context) : UriHandler {
     override fun openUri(uri: String) {
@@ -93,6 +93,4 @@ fun main() = setContent {
     }
     }
      */
-
-
 }

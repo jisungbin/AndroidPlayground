@@ -1,35 +1,5 @@
-stable class AndroidPlayground {
-  <runtime stability> = Stable
-}
-stable class HiltModule {
-  <runtime stability> = Stable
-}
-stable class Loading {
-  <runtime stability> = Stable
-}
-stable class Done {
-  <runtime stability> = Stable
-}
-stable class LoadState {
-  <runtime stability> = Stable
-}
 unstable class MainActivity {
   unstable var binding: ActivityMainBinding
   unstable val vm$delegate: Lazy<MainViewModel>
-  <runtime stability> = Unstable
-}
-stable class MainFragment {
-  <runtime stability> = Stable
-}
-stable class MainViewModel {
-  <runtime stability> = Stable
-}
-unstable class ToastWrapper {
-  unstable val instance: Toast
-  <runtime stability> = Unstable
-}
-unstable class IntHolder {
-  stable var value: Int
-  runtime var CREATOR: Creator<IntHolder>
   <runtime stability> = Unstable
 }

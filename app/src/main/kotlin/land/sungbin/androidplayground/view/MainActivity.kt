@@ -37,13 +37,24 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.text.selection.LocalTextSelectionColors
+import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonColors
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalMinimumTouchTargetEnforcement
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Switch
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
+import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
+import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
@@ -74,6 +85,7 @@ import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.composable.SortedLazyColumn
 import land.sungbin.androidplayground.composable.autofill
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -149,11 +161,39 @@ class MainActivity : ComponentActivity() {
                 CompositionLocalProvider(
                     LocalOverscrollConfiguration provides OverscrollConfiguration(
                         glowColor = Color.Red
-                    )
+                    ),
+                    LocalRippleTheme provides object : RippleTheme {
+                        private val contentColor = Color.Red
+
+                        @Composable
+                        override fun defaultColor() = RippleTheme.defaultRippleColor(
+                            contentColor = contentColor,
+                            lightTheme = true
+                        )
+
+                        @Composable
+                        override fun rippleAlpha() = RippleTheme.defaultRippleAlpha(
+                            contentColor = contentColor,
+                            lightTheme = true
+                        )
+                    },
+                    LocalTextSelectionColors provides TextSelectionColors(
+                        handleColor = Color.Blue.copy(alpha = 0.2f),
+                        backgroundColor = Color.Red.copy(alpha = 0.2f)
+                    ),
                 ) {
-                    SortedLazyColumn {
-                        items(count = 50) {
-                            Text(text = "Item $it")
+                    SortedLazyColumn(backgroundColor = Color.BackgroundWhite) {
+                        items(count = 50) { index ->
+                            Button(
+                                onClick = { },
+                                colors = ButtonDefaults.buttonColors(
+                                    backgroundColor = Color.White
+                                )
+                            ) {
+                                SelectionContainer {
+                                    Text(text = "This is awesome item in $index index.")
+                                }
+                            }
                         }
                     }
                 }

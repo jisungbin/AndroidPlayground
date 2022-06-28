@@ -1,7 +1,7 @@
 @file:NoLiveLiterals
 @file:Suppress("UNUSED_PARAMETER")
 
-package land.sungbin.androidplayground.test
+package land.sungbin.androidplayground
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
