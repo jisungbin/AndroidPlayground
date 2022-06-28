@@ -32,12 +32,24 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.paddingFrom
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -45,6 +57,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalMinimumTouchTargetEnforcement
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.ripple.LocalRippleTheme
@@ -52,14 +65,17 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.FirstBaseline
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalFontFamilyResolver
@@ -68,11 +84,14 @@ import androidx.compose.ui.platform.LocalTextToolbar
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.roundToInt
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
@@ -106,28 +125,11 @@ class MainActivity : ComponentActivity() {
         )
 
         setContent {
-            val toast = rememberToast()
             val systemUiController = rememberSystemUiController()
 
-            val view = LocalView.current
-            val density = LocalDensity.current
-            val uriHandler = LocalUriHandler.current
-            val textToolbar = LocalTextToolbar.current
-            val focusManager = LocalFocusManager.current
-            val fontFamilyResolver = LocalFontFamilyResolver.current
-            val softwareKeyboardController = LocalSoftwareKeyboardController.current
-
-            val focusRequesters = List(4) { FocusRequester() }
-
-            val fieldStates = List(4) {
-                remember { mutableStateOf(TextFieldValue()) }
-            }
+            var selectedColorState by remember { mutableStateOf(Color.Red) }
 
             LaunchedEffect(Unit) {
-                launch {
-                    fontFamilyResolver.preload(NanumGothic)
-                }
-
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setStatusBarColor(
                     color = Color.Transparent,
@@ -139,110 +141,32 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            CompositionLocalProvider(
-                LocalRippleTheme provides PinkRippleTheme,
-                LocalTextStyle provides NanumGothicTextStyle,
-                LocalMinimumTouchTargetEnforcement provides true,
-                LocalTextToolbar provides SungbinLandTextToolbar(view),
-                LocalTextSelectionColors provides PinkTextSelectionColors,
-                LocalOverscrollConfiguration provides PinkOverscrollConfiguration,
-            ) {
-                SortedLazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(color = Color.BackgroundWhite)
-                ) {
-                    items(
-                        count = 6,
-                        key = { index -> index }
-                    ) { index ->
-                        val displayFor = remember(index) {
-                            when (index) {
-                                0 -> DisplayFor.FocusManager // focusManager.moveFocus(Up and Down)
-                                in 1..3 -> DisplayFor.FocusRequester // focusRequesters[index].requestFocus()
-                                4 -> DisplayFor.OpenSungbinLand // uriHandler.openUri("https://sungbin.land")
-                                5 -> DisplayFor.Spacing // Make scrollable LazyColumn with spacing
-                                else -> throw IndexOutOfBoundsException(
-                                    "Max index is 5, but your index is $index"
-                                )
-                            }
-                        }
+            ProvideTextStyle(NanumGothicTextStyle) {
+                SortedColumn {
+                    val max = 300.dp
+                    val min = 0.dp
+                    val (minPx, maxPx) = with(LocalDensity.current) { min.toPx() to max.toPx() }
+                    val offsetPosition = remember { mutableStateOf(0f) }
 
-                        when (displayFor) {
-                            DisplayFor.FocusRequester -> {
-                                SortedColumn(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .wrapContentHeight(),
-                                    space = 4.dp
-                                ) {
-                                    Button(
-                                        onClick = {
-                                            focusRequesters[index].requestFocus()
-                                        },
-                                        colors = ButtonDefaults.buttonColors(
-                                            backgroundColor = Color.White
-                                        )
-                                    ) {
-                                        Text(text = "${index}번째 TextField 로 포커스 요청")
-                                    }
-                                    OutlinedTextField(
-                                        modifier = Modifier
-                                            .focusRequester(focusRequesters[index]),
-                                        value = fieldStates[index].value,
-                                        onValueChange = { field ->
-                                            fieldStates[index].value = field
-                                        },
-                                        placeholder = {
-                                            Text(text = "${index}번째 TextField")
-                                        },
-                                        singleLine = true,
-                                        maxLines = 1,
-                                        colors = TextFieldDefaults.outlinedTextFieldColors(
-                                            focusedBorderColor = Color.Pink,
-                                            cursorColor = Color.Pink
-                                        )
-                                    )
+                    Box(
+                        modifier = Modifier
+                            .draggable(
+                                orientation = Orientation.Horizontal,
+                                state = rememberDraggableState { delta ->
+                                    val newValue = offsetPosition.value + delta
+                                    offsetPosition.value = newValue.coerceIn(minPx, maxPx)
+                                    println("delta: $delta, newValue: $newValue, offsetPosition: ${offsetPosition.value}")
                                 }
-                            }
-                            DisplayFor.FocusManager -> {
-                                SortedColumn(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .wrapContentHeight(),
-                                    space = 4.dp
-                                ) {
-                                    listOf(
-                                        FocusDirection.Up to "위",
-                                        FocusDirection.Down to "아래"
-                                    ).forEach { (focusDirection, label) ->
-                                        Button(
-                                            onClick = {
-                                                focusManager.moveFocus(focusDirection)
-                                            },
-                                            colors = ButtonDefaults.buttonColors(
-                                                backgroundColor = Color.White
-                                            )
-                                        ) {
-                                            Text(text = "${label}에 있는 TextField 로 포커스 이동")
-                                        }
-                                    }
-                                }
-                            }
-                            DisplayFor.OpenSungbinLand -> {
-                                Button(
-                                    onClick = {
-                                        uriHandler.openUri("https://sungbin.land")
-                                    },
-                                    colors = ButtonDefaults.buttonColors(
-                                        backgroundColor = Color.White
-                                    )
-                                ) {
-                                    Text(text = "성빈랜드 방문")
-                                }
-                            }
-                            DisplayFor.Spacing -> Spacer(modifier = Modifier.height(500.dp))
-                        }
+                            )
+                            .width(max)
+                            .background(Color.Black)
+                    ) {
+                        Box(
+                            Modifier
+                                .offset { IntOffset(offsetPosition.value.roundToInt(), 0) }
+                                .size(50.dp)
+                                .background(Color.Red)
+                        )
                     }
                 }
             }
