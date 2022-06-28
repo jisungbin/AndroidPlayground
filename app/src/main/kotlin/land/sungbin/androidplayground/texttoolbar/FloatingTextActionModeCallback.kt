@@ -3,6 +3,7 @@
 package land.sungbin.androidplayground.texttoolbar
 
 import android.graphics.Rect
+import androidx.compose.ui.geometry.Rect as ComposeRect
 import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
@@ -15,6 +16,7 @@ private const val DefaultGroupId = 0
 private const val SungbinLandItemId = 0
 
 class FloatingTextActionModeCallback(
+    var clickedRect: ComposeRect = ComposeRect.Zero,
     private val toast: ToastWrapper,
     private val onActionModeDestroy: () -> Unit
 ) : ActionMode.Callback2() {
@@ -25,7 +27,7 @@ class FloatingTextActionModeCallback(
     ): Boolean {
         requireNotNull(item)
         when (item.itemId) {
-            SungbinLandItemId -> toast("SungbinLand clicked.")
+            SungbinLandItemId -> toast("SungbinLand")
         }
         mode?.finish()
         return true
@@ -56,7 +58,14 @@ class FloatingTextActionModeCallback(
         view: View?,
         outRect: Rect?
     ) {
-        outRect?.set(Rect(0, 0, 0, 0))
+        with(clickedRect) {
+            outRect?.set(
+                left.toInt(),
+                top.toInt(),
+                right.toInt(),
+                bottom.toInt()
+            )
+        }
     }
 }
 

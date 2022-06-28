@@ -73,6 +73,7 @@ import land.sungbin.androidplayground.theme.RedOverscrollConfiguration
 import land.sungbin.androidplayground.theme.RedRippleTheme
 import land.sungbin.androidplayground.theme.RedTextSelectionColors
 import land.sungbin.androidplayground.viewmodel.MainViewModel
+import land.sungbin.androidplayground.wrapper.rememberToast
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -90,6 +91,7 @@ class MainActivity : ComponentActivity() {
         )
 
         setContent {
+            val toast = rememberToast()
             val systemUiController = rememberSystemUiController()
 
             val view = LocalView.current

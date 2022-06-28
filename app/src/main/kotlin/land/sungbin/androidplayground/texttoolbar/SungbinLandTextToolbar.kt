@@ -9,6 +9,12 @@ import land.sungbin.androidplayground.wrapper.ToastWrapper
 
 class SungbinLandTextToolbar(private val view: View) : TextToolbar {
     private var actionMode: ActionMode? = null
+    private val callback = FloatingTextActionModeCallback(
+        toast = ToastWrapper(view.context.applicationContext),
+        onActionModeDestroy = {
+            actionMode = null
+        }
+    )
     override var status = TextToolbarStatus.Hidden
         private set
 
@@ -19,15 +25,11 @@ class SungbinLandTextToolbar(private val view: View) : TextToolbar {
         onCutRequested: (() -> Unit)?,
         onSelectAllRequested: (() -> Unit)?
     ) {
+        callback.clickedRect = rect
         if (actionMode == null) {
             status = TextToolbarStatus.Shown
             actionMode = view.startActionMode(
-                FloatingTextActionModeCallback(
-                    toast = ToastWrapper(context = view.context.applicationContext),
-                    onActionModeDestroy = {
-                        actionMode = null
-                    }
-                ),
+                callback,
                 ActionMode.TYPE_FLOATING
             )
         } else {

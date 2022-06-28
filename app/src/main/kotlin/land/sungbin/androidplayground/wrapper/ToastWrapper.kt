@@ -11,7 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 
 class ToastWrapper(context: Context) {
-    private val instance = Toast(context)
+    private val instance = Toast.makeText(context, "", Toast.LENGTH_SHORT)
 
     operator fun invoke(
         message: String,
