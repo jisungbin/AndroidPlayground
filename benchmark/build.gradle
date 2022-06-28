@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'land.sungbin.androidplayground.benchmark'
-    compileSdk 33
+    compileSdk 32
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         minSdk 23
-        targetSdk 33
+        targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

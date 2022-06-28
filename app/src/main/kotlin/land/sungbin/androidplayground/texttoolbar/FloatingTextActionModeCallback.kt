@@ -35,15 +35,15 @@ class FloatingTextActionModeCallback(
         mode: ActionMode?,
         menu: Menu?
     ): Boolean {
-        requireNotNull(mode)
         requireNotNull(menu)
         menu.addSungbinLandItem()
         return true
     }
 
     override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-        if (mode == null || menu == null) return false
+        if (/*mode == null || */menu == null) return false
         menu.addOrRemoveItem()
+//        menu.addSungbinLandItem()
         return true
     }
 
@@ -65,13 +65,8 @@ private fun Menu.addSungbinLandItem() {
         .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
 }
 
-private fun Menu.removeSungbinLandItem() {
-    removeItem(SungbinLandItemId)
-}
-
 private fun Menu.addOrRemoveItem() {
-    when (findItem(SungbinLandItemId) == null) {
-        true -> addSungbinLandItem()
-        else -> removeSungbinLandItem()
+    if (findItem(SungbinLandItemId) == null) {
+        addSungbinLandItem()
     }
 }

@@ -48,6 +48,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalFontFamilyResolver
@@ -129,7 +130,9 @@ class MainActivity : ComponentActivity() {
                         contentType = { true }
                     ) { index ->
                         Button(
-                            onClick = {},
+                            onClick = {
+                                textToolbar.showMenu(rect = Rect.Zero)
+                            },
                             colors = ButtonDefaults.buttonColors(
                                 backgroundColor = Color.White
                             )

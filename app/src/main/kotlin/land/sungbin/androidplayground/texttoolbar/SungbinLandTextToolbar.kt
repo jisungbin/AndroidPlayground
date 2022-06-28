@@ -23,7 +23,7 @@ class SungbinLandTextToolbar(private val view: View) : TextToolbar {
             status = TextToolbarStatus.Shown
             actionMode = view.startActionMode(
                 FloatingTextActionModeCallback(
-                    toast = ToastWrapper(context = view.context),
+                    toast = ToastWrapper(context = view.context.applicationContext),
                     onActionModeDestroy = {
                         actionMode = null
                     }
