@@ -1,3 +1,4 @@
+readonly fun <get-DefaultTextStyle>()
 fun defaultColor(
   stable <this>: <no name provided>
 ): Color

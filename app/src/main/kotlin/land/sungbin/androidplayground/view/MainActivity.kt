@@ -45,6 +45,7 @@ import androidx.compose.material.ButtonColors
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalMinimumTouchTargetEnforcement
+import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Switch
@@ -72,6 +73,7 @@ import androidx.compose.ui.autofill.AutofillType
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalFontFamilyResolver
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalTextToolbar
@@ -82,6 +84,7 @@ import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.composable.SortedLazyColumn
@@ -89,6 +92,7 @@ import land.sungbin.androidplayground.composable.autofill
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.DefaultTextStyle
+import land.sungbin.androidplayground.theme.NanumGothic
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
 @AndroidEntryPoint
@@ -108,68 +112,72 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val systemUiController = rememberSystemUiController()
+
             val textToolbar = LocalTextToolbar.current
-            val softwareKeyboardController = LocalSoftwareKeyboardController.current
             val hapticFeedback = LocalHapticFeedback.current
+            val fontFamilyResolver = LocalFontFamilyResolver.current
+            val softwareKeyboardController = LocalSoftwareKeyboardController.current
 
             var toggleState by remember { mutableStateOf(false) }
             var fieldState by remember { mutableStateOf(TextFieldValue()) }
 
             LaunchedEffect(Unit) {
+                launch {
+                    fontFamilyResolver.preload(NanumGothic)
+                }
+
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 systemUiController.setSystemBarsColor(
                     color = Color.Transparent,
                     darkIcons = true
                 )
-
                 window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
                 )
             }
 
-            ProvideTextStyle(DefaultTextStyle) {
-                CompositionLocalProvider(
-                    LocalOverscrollConfiguration provides OverscrollConfiguration(
-                        glowColor = Color.Red
-                    ),
-                    LocalRippleTheme provides object : RippleTheme {
-                        private val contentColor = Color.Red
+            CompositionLocalProvider(
+                LocalTextStyle provides DefaultTextStyle,
+                LocalOverscrollConfiguration provides OverscrollConfiguration(
+                    glowColor = Color.Red
+                ),
+                LocalRippleTheme provides object : RippleTheme {
+                    private val contentColor = Color.Red
 
-                        @Composable
-                        override fun defaultColor() = RippleTheme.defaultRippleColor(
-                            contentColor = contentColor,
-                            lightTheme = true
-                        )
+                    @Composable
+                    override fun defaultColor() = RippleTheme.defaultRippleColor(
+                        contentColor = contentColor,
+                        lightTheme = true
+                    )
 
-                        @Composable
-                        override fun rippleAlpha() = RippleTheme.defaultRippleAlpha(
-                            contentColor = contentColor,
-                            lightTheme = true
-                        )
-                    },
-                    LocalTextSelectionColors provides TextSelectionColors(
-                        handleColor = Color.Blue.copy(alpha = 0.2f),
-                        backgroundColor = Color.Red.copy(alpha = 0.2f)
-                    ),
-                ) {
-                    SortedLazyColumn(backgroundColor = Color.BackgroundWhite) {
-                        items(
-                            count = 50,
-                            key = { index -> index },
-                            contentType = { true }
-                        ) { index ->
-                            Button(
-                                onClick = {
-                                    hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-                                },
-                                colors = ButtonDefaults.buttonColors(
-                                    backgroundColor = Color.White
-                                )
-                            ) {
-                                SelectionContainer {
-                                    Text(text = "This is awesome item in $index index.")
-                                }
+                    @Composable
+                    override fun rippleAlpha() = RippleTheme.defaultRippleAlpha(
+                        contentColor = contentColor,
+                        lightTheme = true
+                    )
+                },
+                LocalTextSelectionColors provides TextSelectionColors(
+                    handleColor = Color.Blue.copy(alpha = 0.2f),
+                    backgroundColor = Color.Red.copy(alpha = 0.2f)
+                ),
+            ) {
+                SortedLazyColumn(backgroundColor = Color.BackgroundWhite) {
+                    items(
+                        count = 50,
+                        key = { index -> index },
+                        contentType = { true }
+                    ) { index ->
+                        Button(
+                            onClick = {
+                                hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                backgroundColor = Color.White
+                            )
+                        ) {
+                            SelectionContainer {
+                                Text(text = "This is awesome item in $index index.")
                             }
                         }
                     }
