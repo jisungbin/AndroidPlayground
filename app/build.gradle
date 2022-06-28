@@ -8,13 +8,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
     namespace 'land.sungbin.androidplayground'
 
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
     }

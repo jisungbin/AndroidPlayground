@@ -14,21 +14,37 @@
     "UnrememberedMutableState"
 )
 @file:OptIn(
+    InternalComposeApi::class,
     ExperimentalMaterialApi::class,
-    InternalComposeApi::class
+    ExperimentalComposeUiApi::class,
+    ExperimentalFoundationApi::class
 )
 @file:NoLiveLiterals
 
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.LocalOverscrollConfiguration
+import androidx.compose.foundation.OverscrollConfiguration
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.LocalMinimumTouchTargetEnforcement
 import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material3.Text
+import androidx.compose.material.Switch
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
@@ -38,7 +54,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.Snapshot
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.autofill.AutofillType
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.LocalTextToolbar
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -46,6 +71,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
+import land.sungbin.androidplayground.composable.SortedLazyColumn
+import land.sungbin.androidplayground.composable.autofill
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.DefaultTextStyle
 import land.sungbin.androidplayground.viewmodel.MainViewModel
@@ -67,56 +94,68 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val systemUiController = rememberSystemUiController()
-            var count by remember { mutableStateOf(0) }
+            val textToolbar = LocalTextToolbar.current
+            val softwareKeyboardController = LocalSoftwareKeyboardController.current
 
-            val unwrappedState = mutableStateOf(1)
-            // 글로벌 스냅샷 아이디: 1 (가정)
-
-            Snapshot.withMutableSnapshot {
-                // 중첩 스냅샷 아이디: 2 (가정)
-                Snapshot.withMutableSnapshot {
-                    // 중첩 스냅샷 아이디: 3 (가정)
-                    Snapshot.withMutableSnapshot {
-                        // 중첩 스냅샷 아이디: 4 (가정)
-                        Snapshot.withMutableSnapshot {
-                            // 중첩 스냅샷 아이디: 5 (가정)
-
-                            // 여기에서 unwrappedState 에 대해 valid 가 실행된다면
-                            // candidateSnapshot 의 아이디는 레코드가 생성되는
-                            // 스냅샷의 아이디일 것이다.
-                            // 즉, 1~5 의 아이디를 가질 수 있다.
-
-                            // 이 곳의 currentSnapshot().id 의 값은
-                            // 중첩된 아이디만큼 5 가 된다.
-
-                            // 따라서 candidateSnapshot <= currentSnapshot 가
-                            // 항상 성립해야 한다.
-                        }
-                    }
-                }
-            }
-
-            SideEffect {
-                val snap1 = Snapshot.takeMutableSnapshot()
-                snap1.enter {
-                    count = 2
-                    count.also(::println)
-                    Snapshot.withMutableSnapshot {
-                        count = 3
-                    }
-                    count.also(::println)
-                }
-                count.also(::println)
-            }
+            var toggleState by remember { mutableStateOf(false) }
+            var fieldState by remember { mutableStateOf(TextFieldValue()) }
 
             LaunchedEffect(Unit) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
-                systemUiController.setSystemBarsColor(color = Color.White)
+                systemUiController.setSystemBarsColor(
+                    color = Color.Transparent,
+                    darkIcons = true
+                )
+
+                window.setFlags( // 네비게이션바까지 영역 확장하려면 필요
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+                )
             }
 
-            SortedColumn {
+            /*SortedColumn {
                 ProvideTextStyle(DefaultTextStyle) {
-                    Text(text = "Count: $count")
+                    TextField(
+                        value = fieldState,
+                        onValueChange = { field ->
+                            fieldState = field
+                        }
+                    )
+                    Button(
+                        onClick = {
+                            *//*textToolbar.showMenu(
+                                rect = Rect.Zero,
+                                onCopyRequested = {
+                                    println("Copy requested.")
+                                },
+                                onPasteRequested = {
+                                    println("Paste requested.")
+                                },
+                                onCutRequested = {
+                                    println("Cut requested.")
+                                },
+                                onSelectAllRequested = {
+                                    println("Select all requested.")
+                                }
+                            )*//*
+                            softwareKeyboardController?.show()
+                        }
+                    ) {
+                        Text("Show something.")
+                    }
+                }
+            }*/
+            ProvideTextStyle(DefaultTextStyle) {
+                CompositionLocalProvider(
+                    LocalOverscrollConfiguration provides OverscrollConfiguration(
+                        glowColor = Color.Red
+                    )
+                ) {
+                    SortedLazyColumn {
+                        items(count = 50) {
+                            Text(text = "Item $it")
+                        }
+                    }
                 }
             }
         }
