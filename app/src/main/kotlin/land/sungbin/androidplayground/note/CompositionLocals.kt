@@ -68,6 +68,7 @@ fun main() = setContent {
     LocalWindowInfo // 현재 컴포저블을 호스팅 하는 윈도우가 visible 상태인지 Boolean 값 제공, 쓸 일이 많지는 않을거 같음
     LocalIndication // 커스텀하기 너무 어려움
     LocalInspectionTables // 보통 개발 환경에선 쓸 일 없음
+    LocalHapticFeedback // HapticFeedback 제공
     LocalOnBackPressedDispatcherOwner // BackHandler 로 사용함
     LocalActivityResultRegistryOwner // registerForActivityResult 용도로만 사용함
 
@@ -76,7 +77,6 @@ fun main() = setContent {
     LocalDensity // Density 제공, 단 중요하게 쓰임
     LocalFocusManager // FocusManager 제공, 단 중요하게 쓰임
     LocalFontFamilyResolver // FontFamily.Resolver 제공, 파악 필요
-    LocalHapticFeedback // HapticFeedback 제공, 단 중요하게 쓰임
     LocalInspectionMode // 안드로이드 스튜디오 Preview 로 보이고 있는지 Boolean 값 제공
     LocalTextToolbar // TextToolbar 제공, 유용하게 쓰일 수 있음
     LocalSoftwareKeyboardController // SoftwareKeyboardController 제공, 키보드 visible 컨트롤 가능

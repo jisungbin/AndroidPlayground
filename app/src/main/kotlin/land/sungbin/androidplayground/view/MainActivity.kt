@@ -71,6 +71,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.autofill.AutofillType
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.LocalTextToolbar
 import androidx.compose.ui.text.input.TextFieldValue
@@ -108,6 +110,7 @@ class MainActivity : ComponentActivity() {
             val systemUiController = rememberSystemUiController()
             val textToolbar = LocalTextToolbar.current
             val softwareKeyboardController = LocalSoftwareKeyboardController.current
+            val hapticFeedback = LocalHapticFeedback.current
 
             var toggleState by remember { mutableStateOf(false) }
             var fieldState by remember { mutableStateOf(TextFieldValue()) }
@@ -125,38 +128,6 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            /*SortedColumn {
-                ProvideTextStyle(DefaultTextStyle) {
-                    TextField(
-                        value = fieldState,
-                        onValueChange = { field ->
-                            fieldState = field
-                        }
-                    )
-                    Button(
-                        onClick = {
-                            *//*textToolbar.showMenu(
-                                rect = Rect.Zero,
-                                onCopyRequested = {
-                                    println("Copy requested.")
-                                },
-                                onPasteRequested = {
-                                    println("Paste requested.")
-                                },
-                                onCutRequested = {
-                                    println("Cut requested.")
-                                },
-                                onSelectAllRequested = {
-                                    println("Select all requested.")
-                                }
-                            )*//*
-                            softwareKeyboardController?.show()
-                        }
-                    ) {
-                        Text("Show something.")
-                    }
-                }
-            }*/
             ProvideTextStyle(DefaultTextStyle) {
                 CompositionLocalProvider(
                     LocalOverscrollConfiguration provides OverscrollConfiguration(
@@ -183,9 +154,15 @@ class MainActivity : ComponentActivity() {
                     ),
                 ) {
                     SortedLazyColumn(backgroundColor = Color.BackgroundWhite) {
-                        items(count = 50) { index ->
+                        items(
+                            count = 50,
+                            key = { index -> index },
+                            contentType = { true }
+                        ) { index ->
                             Button(
-                                onClick = { },
+                                onClick = {
+                                    hapticFeedback.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                                },
                                 colors = ButtonDefaults.buttonColors(
                                     backgroundColor = Color.White
                                 )

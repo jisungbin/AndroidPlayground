@@ -10,10 +10,12 @@ import land.sungbin.androidplayground.R
 
 private fun Int.toFontFamily() = FontFamily(Font(this))
 
+val NanumGothic = R.font.nanumgothic.toFontFamily()
+
 val DefaultTextStyle
     @ReadOnlyComposable
     @Composable
     get() = LocalTextStyle.current.copy(
-        fontFamily = R.font.nanumgothic.toFontFamily(),
+        fontFamily = NanumGothic,
         fontSize = 30.sp
     )
