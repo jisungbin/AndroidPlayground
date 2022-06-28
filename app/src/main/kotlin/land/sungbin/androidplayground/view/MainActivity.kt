@@ -159,7 +159,7 @@ class MainActivity : ComponentActivity() {
                                 0 -> DisplayFor.FocusManager // focusManager.moveFocus(Up and Down)
                                 in 1..3 -> DisplayFor.FocusRequester // focusRequesters[index].requestFocus()
                                 4 -> DisplayFor.OpenSungbinLand // uriHandler.openUri("https://sungbin.land")
-                                5 -> DisplayFor.Spacing // Make scrollable column with spacing
+                                5 -> DisplayFor.Spacing // Make scrollable LazyColumn with spacing
                                 else -> throw IndexOutOfBoundsException(
                                     "Max index is 5, but your index is $index"
                                 )
