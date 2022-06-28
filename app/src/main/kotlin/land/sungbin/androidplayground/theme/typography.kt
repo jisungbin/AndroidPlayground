@@ -12,7 +12,7 @@ private fun Int.toFontFamily() = FontFamily(Font(this))
 
 val NanumGothic = R.font.nanumgothic.toFontFamily()
 
-val DefaultTextStyle
+val NanumGothicTextStyle
     @ReadOnlyComposable
     @Composable
     get() = LocalTextStyle.current.copy(
