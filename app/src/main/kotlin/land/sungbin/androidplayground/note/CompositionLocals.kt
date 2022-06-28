@@ -130,13 +130,6 @@ fun LocalCompositionList() = setContent {
 
     /** 왜 존재하는지 모르겠는 것들 */
     LocalUriHandler // 그냥 Action.VIEW 로 startActivity 해줌
-    /**
-    class AndroidUriHandler(private val context: Context) : UriHandler {
-    override fun openUri(uri: String) {
-    context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(uri)))
-    }
-    }
-     */
 }
 
 fun ComponentActivity.onCreate() = setContent {
@@ -196,9 +189,7 @@ fun ComponentActivity.onCreate() = setContent {
                         in 1..3 -> DisplayFor.FocusRequester // focusRequesters[index].requestFocus()
                         4 -> DisplayFor.OpenSungbinLand // uriHandler.openUri("https://sungbin.land")
                         5 -> DisplayFor.Spacing // Make scrollable LazyColumn with spacing
-                        else -> throw IndexOutOfBoundsException(
-                            "Max index is 5, but your index is $index"
-                        )
+                        else -> throw IndexOutOfBoundsException("Max index is 5, but your index is $index")
                     }
                 }
 
