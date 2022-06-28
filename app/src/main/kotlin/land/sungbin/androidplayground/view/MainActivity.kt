@@ -42,6 +42,7 @@ import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.LocalMinimumTouchTargetEnforcement
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -141,6 +142,7 @@ class MainActivity : ComponentActivity() {
             CompositionLocalProvider(
                 LocalRippleTheme provides PinkRippleTheme,
                 LocalTextStyle provides NanumGothicTextStyle,
+                LocalMinimumTouchTargetEnforcement provides true,
                 LocalTextToolbar provides SungbinLandTextToolbar(view),
                 LocalTextSelectionColors provides PinkTextSelectionColors,
                 LocalOverscrollConfiguration provides PinkOverscrollConfiguration,

@@ -73,12 +73,12 @@ fun main() = setContent {
     LocalActivityResultRegistryOwner // registerForActivityResult 용도로만 사용함
 
     /** 잘 알려지지 않은 것들, 알아두면 좋을 것들, 중요한 것들 */
-    LocalMinimumTouchTargetEnforcement // 최소 터치 영역 조정
-    LocalDensity // Density 제공, 단 중요하게 쓰임
-    LocalFocusManager // FocusManager 제공, 단 중요하게 쓰임
+    LocalMinimumTouchTargetEnforcement // 최소 터치 영역 조정, 디자인에 영향 미칠 수 있음
+    LocalDensity // Density 제공, 단위 변환에 유용하게 쓰임
+    LocalFocusManager // FocusManager 제공, TextField 포커싱 제어에 유용하게 쓰임
     LocalFontFamilyResolver // FontFamily.Resolver 제공, FontFamily 캐시 가능
     LocalInspectionMode // 안드로이드 스튜디오 Preview 로 보이고 있는지 Boolean 값 제공
-    LocalTextToolbar // TextToolbar 제공, 유용하게 쓰일 수 있음
+    LocalTextToolbar // TextToolbar 제공, 기존 View 시스템에서 하던 ActionMode 를 제공함
     LocalSoftwareKeyboardController // SoftwareKeyboardController 제공, 키보드 visible 컨트롤 가능
     LocalOverscrollConfiguration // OverScroll Effect 커스터마이징
     LocalRippleTheme // Ripple Theme 커스터마이징
