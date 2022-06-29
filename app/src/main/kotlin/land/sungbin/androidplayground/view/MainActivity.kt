@@ -29,6 +29,13 @@ import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDp
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.foundation.background
@@ -61,6 +68,7 @@ import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.Card
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
@@ -76,6 +84,7 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.FirstBaseline
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
@@ -143,9 +152,46 @@ class MainActivity : ComponentActivity() {
             }
 
             ProvideTextStyle(NanumGothicTextStyle) {
-                SortedColumn {
-                    listOf(1)
+                // Creates a transition state with an initial state where visible = false
+                val visibleState = remember { MutableTransitionState(false) }
+                // Sets the target state of the transition state to true. As it's different than the initial
+                // state, a transition from not visible to visible will be triggered.
+                visibleState.targetState = true
+
+                // Creates a transition with the transition state created above.
+                val transition = updateTransition(visibleState, label = "")
+                // Adds a scale animation to the transition to scale the card up when transitioning in.
+                val scale by transition.animateFloat(
+                    // Uses a custom spring for the transition.
+                    transitionSpec = { spring(dampingRatio = Spring.DampingRatioMediumBouncy) },
+                    label = ""
+                ) { visible ->
+                    if (visible) 1f else 0.8f
                 }
+                // Adds an elevation animation that animates the dp value of the animation.
+                val elevation by transition.animateDp(
+                    // Uses a tween animation
+                    transitionSpec = {
+                        // Uses different animations for when animating from visible to not visible, and
+                        // the other way around
+                        if (false isTransitioningTo true) {
+                            tween(1000)
+                        } else {
+                            spring()
+                        }
+                    }, label = ""
+                ) { visible ->
+                    if (visible) 10.dp else 0.dp
+                }
+
+                Card(
+                    Modifier
+                        .graphicsLayer(scaleX = scale, scaleY = scale)
+                        .size(200.dp, 100.dp)
+                        .fillMaxWidth()
+                        .background(color = Color.Pink),
+                    elevation = elevation
+                ) {}
             }
         }
     }
