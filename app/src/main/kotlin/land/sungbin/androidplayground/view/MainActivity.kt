@@ -33,6 +33,7 @@ import androidx.activity.viewModels
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
@@ -49,6 +50,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -68,6 +70,7 @@ import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
+import land.sungbin.androidplayground.theme.Pink
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
 @AndroidEntryPoint
@@ -122,9 +125,9 @@ private fun Content() {
     var toggleState by remember { mutableStateOf(true) }
     var isFirstComposition by remember { mutableStateOf(true) }
 
-    var visibilityState by remember { mutableStateOf(VisibilityState.Hide) }
+    val visibilityState = remember { MutableTransitionState(VisibilityState.Hide) }
     val visibilityTransition = updateTransition(
-        targetState = visibilityState,
+        targetState = visibilityState.targetState,
         label = TransitionLabel
     )
     val visibilityTransitionColor by visibilityTransition.animateColor(
@@ -139,21 +142,18 @@ private fun Content() {
         label = TransitionLabel,
         targetValueByState = { targetVisibilityState ->
             when (targetVisibilityState) {
-                VisibilityState.Visible -> Color.Red
-                VisibilityState.Hide -> Color.Blue
+                VisibilityState.Visible -> Color.Pink
+                VisibilityState.Hide -> Color.LightGray
             }
         }
     )
 
+    LaunchedEffect(Unit) {
+        delay(1000)
+        visibilityState.targetState = VisibilityState.Visible
+    }
+
     SortedColumn {
-        /*val color = remember { Animatable(Color.Gray) }
-        LaunchedEffect(toggleState) {
-            if (isFirstComposition) {
-                isFirstComposition = false
-                delay(1000)
-            }
-            color.animateTo(if (toggleState) Color.Green else Color.Red)
-        }*/
         Box(
             modifier = Modifier
                 .size(500.dp)
@@ -162,7 +162,7 @@ private fun Content() {
 
         Button(
             onClick = {
-                visibilityState = when (visibilityState) {
+                visibilityState.targetState = when (visibilityState.targetState) {
                     VisibilityState.Visible -> VisibilityState.Hide
                     VisibilityState.Hide -> VisibilityState.Visible
                 }
