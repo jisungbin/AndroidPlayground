@@ -1,0 +1,2 @@
+applier inference MainActivity.kt:160:35: Type disagreement [Binding(83), [Binding(88)], [Binding(89)]] <=> [Binding(83), [Binding(83)]]
+applier inference MainActivity.kt:163:33: Type disagreement [Binding(83), [Binding(92)], [Binding(93)]] <=> [Binding(83), [Binding(83)]]
