@@ -66,6 +66,7 @@ import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -143,31 +144,7 @@ class MainActivity : ComponentActivity() {
 
             ProvideTextStyle(NanumGothicTextStyle) {
                 SortedColumn {
-                    val max = 300.dp
-                    val min = 0.dp
-                    val (minPx, maxPx) = with(LocalDensity.current) { min.toPx() to max.toPx() }
-                    val offsetPosition = remember { mutableStateOf(0f) }
-
-                    Box(
-                        modifier = Modifier
-                            .draggable(
-                                orientation = Orientation.Horizontal,
-                                state = rememberDraggableState { delta ->
-                                    val newValue = offsetPosition.value + delta
-                                    offsetPosition.value = newValue.coerceIn(minPx, maxPx)
-                                    println("delta: $delta, newValue: $newValue, offsetPosition: ${offsetPosition.value}")
-                                }
-                            )
-                            .width(max)
-                            .background(Color.Black)
-                    ) {
-                        Box(
-                            Modifier
-                                .offset { IntOffset(offsetPosition.value.roundToInt(), 0) }
-                                .size(50.dp)
-                                .background(Color.Red)
-                        )
-                    }
+                    listOf(1)
                 }
             }
         }
