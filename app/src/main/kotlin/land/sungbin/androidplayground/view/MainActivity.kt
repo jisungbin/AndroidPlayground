@@ -25,13 +25,16 @@
 
 package land.sungbin.androidplayground.view
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.EnterExitState
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColor
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
@@ -40,6 +43,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -48,6 +52,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
@@ -60,6 +65,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
@@ -107,36 +113,35 @@ class MainActivity : ComponentActivity() {
 
             ProvideTextStyle(NanumGothicTextStyle) {
                 SortedColumn {
-                    AnimatedVisibility(
-                        modifier = Modifier.size(300.dp),
-                        visible = visibilityState,
-                        enter = fadeIn(),
-                        exit = fadeOut()
-                    ) {
-                        // Fade in/out the background and the foreground.
-                        Box(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .background(Color.DarkGray)
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .align(Alignment.Center)
-                                    .animateEnterExit(
-                                        // Slide in/out the inner box.
-                                        enter = slideInVertically(),
-                                        exit = slideOutVertically()
-                                    )
-                                    .size(150.dp)
-                                    .background(Color.Red)
-                            )
-                        }
-                    }
-                    Button(onClick = { visibilityState = !visibilityState }) {
-                        Text(text = "Toggle visibilityState")
-                    }
+                    Content()
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun ColumnScope.Content() {
+    var visibilityState by remember { mutableStateOf(true) }
+
+    AnimatedVisibility(
+        visible = visibilityState,
+        enter = fadeIn(),
+        exit = fadeOut()
+    ) {
+        val background by transition.animateColor(label = "") { state ->
+            println(state)
+            if (state == EnterExitState.Visible) Color.Blue else Color.Gray
+        }
+        Box(
+            modifier = Modifier
+                .size(128.dp)
+                .background(background)
+        )
+    }
+
+    Button(onClick = { visibilityState = !visibilityState }) {
+        Text(text = "Toggle visibilityState")
     }
 }
