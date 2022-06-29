@@ -74,6 +74,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -110,15 +111,18 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.Transition
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.roundToInt
 import kotlin.random.Random
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import land.sungbin.androidplayground.Particles
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -160,8 +164,34 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            ProvideTextStyle(NanumGothicTextStyle) {
-                AnimatedContentSizeTransform()
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .navigationBarsPadding(),
+                contentAlignment = Alignment.BottomCenter
+            ) {
+                var showParticles by remember { mutableStateOf(false) }
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Particles(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(400.dp),
+                        quantity = 220,
+                        emoji = "\uD83D\uDD25",
+                        visible = showParticles
+                    )
+
+                    Spacer(modifier = Modifier.size(100.dp))
+
+                    Button(
+                        modifier = Modifier.animateContentSize(),
+                        onClick = { showParticles = !showParticles }) {
+                        Text(text = if (!showParticles) "start" else "reset")
+                    }
+                }
             }
         }
     }
