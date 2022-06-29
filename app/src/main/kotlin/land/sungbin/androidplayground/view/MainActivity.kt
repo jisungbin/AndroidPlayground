@@ -112,9 +112,7 @@ class MainActivity : ComponentActivity() {
             }
 
             ProvideTextStyle(NanumGothicTextStyle) {
-                SortedColumn {
-                    Content()
-                }
+                Content()
             }
         }
     }
@@ -122,26 +120,28 @@ class MainActivity : ComponentActivity() {
 
 @Preview
 @Composable
-fun ColumnScope.Content() {
+private fun Content() {
     var visibilityState by remember { mutableStateOf(true) }
 
-    AnimatedVisibility(
-        visible = visibilityState,
-        enter = fadeIn(),
-        exit = fadeOut()
-    ) {
-        val background by transition.animateColor(label = "") { state ->
-            println(state)
-            if (state == EnterExitState.Visible) Color.Blue else Color.Gray
+    SortedColumn {
+        AnimatedVisibility(
+            visible = visibilityState,
+            enter = fadeIn(),
+            exit = fadeOut()
+        ) {
+            val background by transition.animateColor(label = "") { state ->
+                if (state == EnterExitState.Visible) Color.Blue else Color.Gray
+            }
+            println(background)
+            Box(
+                modifier = Modifier
+                    .size(128.dp)
+                    .background(background)
+            )
         }
-        Box(
-            modifier = Modifier
-                .size(128.dp)
-                .background(background)
-        )
-    }
 
-    Button(onClick = { visibilityState = !visibilityState }) {
-        Text(text = "Toggle visibilityState")
+        Button(onClick = { visibilityState = !visibilityState }) {
+            Text(text = "Toggle visibilityState")
+        }
     }
 }
