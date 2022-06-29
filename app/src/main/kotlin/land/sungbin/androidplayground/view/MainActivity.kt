@@ -30,20 +30,18 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.animateColor
-import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.spring
-import androidx.compose.animation.core.updateTransition
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.AnimationVector2D
+import androidx.compose.animation.core.TwoWayConverter
+import androidx.compose.animation.core.animateValueAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
@@ -55,11 +53,15 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.random.Random
+import kotlinx.coroutines.delay
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -114,39 +116,40 @@ private enum class VisibilityState {
     Visible, Hide
 }
 
+private data class Size(val width: Dp, val height: Dp)
+
+
 @Preview
 @Composable
 private fun Content() {
     SortedColumn {
-        var toggleState = remember { MutableTransitionState(false) }
-        val toggleTransition = updateTransition(
-            targetState = toggleState.targetState,
-            label = "ToggleTransition"
-        )
-        val toggleTransitionAnimation by toggleTransition.animateColor(
-            label = "ToggleTransitionAnimation",
-            transitionSpec = {
-                spring(
-                    dampingRatio = Spring.DampingRatioHighBouncy,
-                    stiffness = 1f,
-                )
-            },
-            targetValueByState = { targetToggleState ->
-                when (targetToggleState) {
-                    true -> Color.Pink
-                    else -> Color.LightGray
+        var targetSize by remember { mutableStateOf(Size(100.dp, 100.dp)) }
+        val animationSize by animateValueAsState<Size, AnimationVector2D>(
+            targetValue = targetSize,
+            typeConverter = TwoWayConverter(
+                convertToVector = { size ->
+                    AnimationVector2D(size.width.value, size.height.value)
+                },
+                convertFromVector = { vector ->
+                    Size(vector.v1.dp, vector.v2.dp)
                 }
-            }
+            )
         )
 
         LaunchedEffect(Unit) {
-            toggleState.targetState = true
+            delay(1000)
+            targetSize = Size(250.dp, 250.dp)
         }
 
         Box(
             modifier = Modifier
-                .size(150.dp)
-                .background(color = toggleTransitionAnimation)
+                .animateContentSize()
+                .size(animationSize.width, animationSize.height)
+                .background(color = Color.Pink)
+                .clickable {
+                    val size = Random.nextInt(100, 250)
+                    targetSize = Size(size.dp, size.dp)
+                }
         )
     }
 }
