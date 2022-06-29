@@ -29,25 +29,44 @@ import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector2D
 import androidx.compose.animation.core.TwoWayConverter
 import androidx.compose.animation.core.VectorConverter
+import androidx.compose.animation.core.animateDp
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateValueAsState
+import androidx.compose.animation.core.updateTransition
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Icon
 import androidx.compose.material.ProvideTextStyle
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
@@ -135,33 +154,49 @@ private data class Size(val width: Dp, val height: Dp)
 @Preview
 @Composable
 private fun Content() {
-    val offset = remember { Animatable(Offset(0f, 0f), Offset.VectorConverter) }
+    SortedColumn {
+        var selected by remember { mutableStateOf(false) }
+        val transition = updateTransition(
+            targetState = selected,
+            label = "transition",
+        )
+        val borderColor by transition.animateColor(label = "borderColor") { isSelected ->
+            if (isSelected) Color.Magenta else Color.White
+        }
+        val elevation by transition.animateDp(label = "elevation") { isSelected ->
+            if (isSelected) 10.dp else 2.dp
+        }
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .pointerInput(Unit) {
-                coroutineScope {
-                    while (true) {
-                        // Detect a tap event and obtain its position.
-                        val position = awaitPointerEventScope {
-                            awaitFirstDown().position
-                        }
-                        launch {
-                            offset.animateTo(position)
-                        }
+        Surface(
+            onClick = { selected = !selected },
+            shape = RoundedCornerShape(8.dp),
+            border = BorderStroke(2.dp, borderColor),
+            elevation = elevation
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ) {
+                Text(text = "Hello, world!")
+                transition.AnimatedVisibility(
+                    visible = { targetSelected -> targetSelected },
+                    enter = expandVertically(),
+                    exit = shrinkVertically()
+                ) {
+                    Text(text = "It is fine today.")
+                }
+                transition.AnimatedContent { targetState ->
+                    if (targetState) {
+                        Text(text = "Selected")
+                    } else {
+                        Icon(
+                            imageVector = Icons.Default.Phone,
+                            contentDescription = "Phone"
+                        )
                     }
                 }
             }
-    ) {
-        Box(
-            modifier = Modifier
-                .size(100.dp)
-                .clip(CircleShape)
-                .background(color = Color.Pink)
-                .offset { offset.value.toIntOffset() }
-        )
+        }
     }
 }
-
-private fun Offset.toIntOffset() = IntOffset(x.roundToInt(), y.roundToInt())
