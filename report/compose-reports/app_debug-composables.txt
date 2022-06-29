@@ -1,1 +1,5 @@
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Combination()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun animateBoxHorizontal(
+  stable dbAnimateAsState: Dp
+)
