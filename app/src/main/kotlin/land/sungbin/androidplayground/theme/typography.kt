@@ -18,6 +18,6 @@ val NanumGothicTextStyle
     @Composable
     get() = LocalTextStyle.current.copy(
         fontFamily = NanumGothic,
-        fontSize = 13.sp,
+        fontSize = 30.sp,
         textAlign = TextAlign.Start
     )

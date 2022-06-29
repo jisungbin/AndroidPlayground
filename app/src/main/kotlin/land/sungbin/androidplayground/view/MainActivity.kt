@@ -21,7 +21,6 @@
     ExperimentalFoundationApi::class,
     ExperimentalAnimationApi::class,
 )
-@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.view
 
@@ -30,27 +29,24 @@ import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.animation.Animatable
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.spring
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -64,7 +60,6 @@ import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -122,53 +117,36 @@ private enum class VisibilityState {
 @Preview
 @Composable
 private fun Content() {
-    var toggleState by remember { mutableStateOf(true) }
-    var isFirstComposition by remember { mutableStateOf(true) }
-
-    val visibilityState = remember { MutableTransitionState(VisibilityState.Hide) }
-    val visibilityTransition = updateTransition(
-        targetState = visibilityState.targetState,
-        label = TransitionLabel
-    )
-    val visibilityTransitionColor by visibilityTransition.animateColor(
-        transitionSpec = {
-            when {
-                VisibilityState.Visible isTransitioningTo VisibilityState.Hide ->
-                    spring(stiffness = 50f)
-                else ->
-                    tween(durationMillis = 500)
-            }
-        },
-        label = TransitionLabel,
-        targetValueByState = { targetVisibilityState ->
-            when (targetVisibilityState) {
-                VisibilityState.Visible -> Color.Pink
-                VisibilityState.Hide -> Color.LightGray
-            }
-        }
-    )
-
-    LaunchedEffect(Unit) {
-        delay(1000)
-        visibilityState.targetState = VisibilityState.Visible
-    }
-
     SortedColumn {
-        Box(
-            modifier = Modifier
-                .size(500.dp)
-                .background(visibilityTransitionColor)
+        var toggleState = remember { MutableTransitionState(false) }
+        val toggleTransition = updateTransition(
+            targetState = toggleState.targetState,
+            label = "ToggleTransition"
         )
-
-        Button(
-            onClick = {
-                visibilityState.targetState = when (visibilityState.targetState) {
-                    VisibilityState.Visible -> VisibilityState.Hide
-                    VisibilityState.Hide -> VisibilityState.Visible
+        val toggleTransitionAnimation by toggleTransition.animateColor(
+            label = "ToggleTransitionAnimation",
+            transitionSpec = {
+                spring(
+                    dampingRatio = Spring.DampingRatioHighBouncy,
+                    stiffness = 1f,
+                )
+            },
+            targetValueByState = { targetToggleState ->
+                when (targetToggleState) {
+                    true -> Color.Pink
+                    else -> Color.LightGray
                 }
             }
-        ) {
-            Text(text = "Toggle state")
+        )
+
+        LaunchedEffect(Unit) {
+            toggleState.targetState = true
         }
+
+        Box(
+            modifier = Modifier
+                .size(150.dp)
+                .background(color = toggleTransitionAnimation)
+        )
     }
 }
