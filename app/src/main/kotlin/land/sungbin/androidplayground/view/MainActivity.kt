@@ -28,6 +28,7 @@ package land.sungbin.androidplayground.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.animation.BounceInterpolator
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -35,6 +36,7 @@ import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
@@ -55,7 +57,10 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
+import androidx.compose.animation.with
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -98,9 +103,11 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
@@ -154,20 +161,11 @@ class MainActivity : ComponentActivity() {
             }
 
             ProvideTextStyle(NanumGothicTextStyle) {
-                Combination()
+                AnimatedContentSizeTransform()
             }
         }
     }
 }
-
-private const val TransitionLabel = "AwesomeLabel"
-
-private enum class VisibilityState {
-    Visible, Hide
-}
-
-private data class Size(val width: Dp, val height: Dp)
-
 
 @Preview
 @Composable
@@ -219,79 +217,59 @@ private fun Content() {
     }
 }
 
-@Preview
-@Composable
-fun Combination() {
-    var enabled by remember { mutableStateOf(false) }
+private fun expandFading(time: Int) = fadeIn(
+    animationSpec = tween(time * 3)
+) with fadeOut(animationSpec = tween(time))
 
-    val dbAnimateAsState: Dp by animateDpAsState(
-        targetValue = switch(enabled),
-        animationSpec = animationSpec()
-    )
-
-    val dbAnimatable = remember { Animatable(0.dp) }
-
-    val transition = updateTransition(enabled, label = "")
-    val dbTransition by transition.animateDp(
-        transitionSpec = { animationSpec() }, label = ""
-    ) {
-        switch(it)
-    }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = Color.White),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Text("AnimateAsState")
-        animateBoxHorizontal(dbAnimateAsState)
-        Text("Animatable")
-        animateBoxHorizontal(dbAnimatable.value)
-        Text("UpdateTransition")
-        animateBoxHorizontal(dbTransition)
-
-        Button(onClick = { enabled = !enabled }) {
-            Text("Click Me")
-        }
-    }
-
-    LaunchedEffect(key1 = enabled) {
-        dbAnimatable.animateTo(
-            targetValue = switch(enabled),
-            animationSpec = animationSpec()
-        )
+private fun expandSizing(time: Int) = SizeTransform { initialSize, targetSize ->
+    keyframes {
+        IntSize(targetSize.width, initialSize.height) at time
+        durationMillis = time * 3
     }
 }
 
-private fun animationSpec(): SpringSpec<Dp> = spring(visibilityThreshold = 20.dp)
+private fun shrinkFading(time: Int) = fadeIn(
+    animationSpec = tween(
+        durationMillis = time,
+        delayMillis = time * 2
+    )
+) with fadeOut(animationSpec = tween(time * 3))
 
-private fun switch(enabled: Boolean) = if (enabled) 268.dp else 0.dp
-
-fun Animatable(initialValue: Dp) = Animatable(
-    initialValue,
-    DpToVector,
-)
-
-private val DpToVector: TwoWayConverter<Dp, AnimationVector1D> =
-    TwoWayConverter({ AnimationVector1D(it.value) }, { it.value.dp })
+private fun shrinkSizing(time: Int) = SizeTransform { initialSize, targetSize ->
+    keyframes {
+        IntSize(initialSize.width, targetSize.height) at time
+        durationMillis = time * 3
+    }
+}
 
 @Composable
-private fun animateBoxHorizontal(dbAnimateAsState: Dp) {
-    Box(
-        modifier = Modifier
-            .height(32.dp)
-            .width(300.dp)
-            .background(Color.Yellow)
-    ) {
-        Box(
-            modifier = Modifier
-                .offset(dbAnimateAsState, 0.dp)
-                .size(32.dp)
-                .background(Color.Red)
-        )
+fun AnimatedContentSizeTransform() {
+    val time = 500
+    SortedColumn {
+        var expanded by remember { mutableStateOf(false) }
+
+        AnimatedContent(
+            targetState = expanded,
+            transitionSpec = {
+                if (targetState) {
+                    expandFading(time) using expandSizing(time)
+                } else {
+                    shrinkFading(time) using shrinkSizing(time)
+                }
+            }
+        ) { targetExpanded ->
+            Box(
+                modifier = Modifier.background(
+                    when (targetExpanded) {
+                        true -> Color.Pink
+                        else -> Color.LightGray
+                    }
+                )
+            )
+        }
+
+        Button(onClick = { expanded = !expanded }) {
+            Text(if (expanded) "Hide" else "Show")
+        }
     }
-    Spacer(modifier = Modifier.height(16.dp))
 }
