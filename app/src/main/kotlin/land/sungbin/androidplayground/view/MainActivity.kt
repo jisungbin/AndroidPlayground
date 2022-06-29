@@ -42,12 +42,15 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.animation.core.AnimationVector2D
 import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.SpringSpec
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.TwoWayConverter
 import androidx.compose.animation.core.VectorConverter
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateValueAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.expandVertically
@@ -262,11 +265,7 @@ fun Combination() {
     }
 }
 
-private fun animationSpec(): TweenSpec<Dp> =
-    tween(
-        durationMillis = 3000,
-        easing = LinearOutSlowInEasing
-    )
+private fun animationSpec(): SpringSpec<Dp> = spring(visibilityThreshold = 20.dp)
 
 private fun switch(enabled: Boolean) = if (enabled) 268.dp else 0.dp
 
