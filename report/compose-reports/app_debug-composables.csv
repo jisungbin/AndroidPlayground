@@ -1,4 +1,3 @@
 package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
 land.sungbin.androidplayground.view.Content,Content,1,1,1,0,0,0,0,0,1,1,
-land.sungbin.androidplayground.view.Combination,Combination,1,1,1,0,0,0,0,0,1,7,
-land.sungbin.androidplayground.view.animateBoxHorizontal,animateBoxHorizontal,1,1,1,0,0,0,0,0,1,2,
+land.sungbin.androidplayground.view.AnimatedContentSizeTransform,AnimatedContentSizeTransform,1,1,1,0,0,0,0,0,1,1,

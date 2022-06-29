@@ -259,12 +259,14 @@ fun AnimatedContentSizeTransform() {
             }
         ) { targetExpanded ->
             Box(
-                modifier = Modifier.background(
-                    when (targetExpanded) {
-                        true -> Color.Pink
-                        else -> Color.LightGray
-                    }
-                )
+                modifier = Modifier
+                    .size(250.dp)
+                    .background(
+                        when (targetExpanded) {
+                            true -> Color.Pink
+                            else -> Color.LightGray
+                        }
+                    )
             )
         }
 
