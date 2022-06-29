@@ -25,29 +25,22 @@
 
 package land.sungbin.androidplayground.view
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.EnterExitState
+import androidx.compose.animation.Animatable
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColor
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
@@ -60,17 +53,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
@@ -118,30 +110,65 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+private const val TransitionLabel = "AwesomeLabel"
+
+private enum class VisibilityState {
+    Visible, Hide
+}
+
 @Preview
 @Composable
 private fun Content() {
-    var visibilityState by remember { mutableStateOf(true) }
+    var toggleState by remember { mutableStateOf(true) }
+    var isFirstComposition by remember { mutableStateOf(true) }
+
+    var visibilityState by remember { mutableStateOf(VisibilityState.Hide) }
+    val visibilityTransition = updateTransition(
+        targetState = visibilityState,
+        label = TransitionLabel
+    )
+    val visibilityTransitionColor by visibilityTransition.animateColor(
+        transitionSpec = {
+            when {
+                VisibilityState.Visible isTransitioningTo VisibilityState.Hide ->
+                    spring(stiffness = 50f)
+                else ->
+                    tween(durationMillis = 500)
+            }
+        },
+        label = TransitionLabel,
+        targetValueByState = { targetVisibilityState ->
+            when (targetVisibilityState) {
+                VisibilityState.Visible -> Color.Red
+                VisibilityState.Hide -> Color.Blue
+            }
+        }
+    )
 
     SortedColumn {
-        AnimatedVisibility(
-            visible = visibilityState,
-            enter = fadeIn(),
-            exit = fadeOut()
-        ) {
-            val background by transition.animateColor(label = "") { state ->
-                if (state == EnterExitState.Visible) Color.Blue else Color.Gray
+        /*val color = remember { Animatable(Color.Gray) }
+        LaunchedEffect(toggleState) {
+            if (isFirstComposition) {
+                isFirstComposition = false
+                delay(1000)
             }
-            println(background)
-            Box(
-                modifier = Modifier
-                    .size(128.dp)
-                    .background(background)
-            )
-        }
+            color.animateTo(if (toggleState) Color.Green else Color.Red)
+        }*/
+        Box(
+            modifier = Modifier
+                .size(500.dp)
+                .background(visibilityTransitionColor)
+        )
 
-        Button(onClick = { visibilityState = !visibilityState }) {
-            Text(text = "Toggle visibilityState")
+        Button(
+            onClick = {
+                visibilityState = when (visibilityState) {
+                    VisibilityState.Visible -> VisibilityState.Hide
+                    VisibilityState.Hide -> VisibilityState.Visible
+                }
+            }
+        ) {
+            Text(text = "Toggle state")
         }
     }
 }
