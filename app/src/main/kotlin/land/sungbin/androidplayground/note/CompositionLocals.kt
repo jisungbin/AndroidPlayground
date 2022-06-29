@@ -175,9 +175,7 @@ fun ComponentActivity.onCreate() = setContent {
         LocalOverscrollConfiguration provides PinkOverscrollConfiguration,
     ) {
         SortedLazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = Color.BackgroundWhite)
+            backgroundColor = Color.BackgroundWhite
         ) {
             items(
                 count = 6,
