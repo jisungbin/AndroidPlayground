@@ -19,6 +19,7 @@
     ExperimentalMaterialApi::class,
     ExperimentalComposeUiApi::class,
     ExperimentalFoundationApi::class,
+    ExperimentalAnimationApi::class,
 )
 @file:NoLiveLiterals
 
@@ -30,11 +31,20 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
+import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
@@ -45,9 +55,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.databinding.DataBindingUtil
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -77,6 +90,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             val systemUiController = rememberSystemUiController()
 
+            var visibilityState by remember { mutableStateOf(true) }
             var selectedColorState by remember { mutableStateOf(Color.Red) }
 
             LaunchedEffect(Unit) {
@@ -93,31 +107,33 @@ class MainActivity : ComponentActivity() {
 
             ProvideTextStyle(NanumGothicTextStyle) {
                 SortedColumn {
-                    // Create a MutableTransitionState<Boolean> for the AnimatedVisibility.
-                    val visibilityState = remember {
-                        MutableTransitionState(false).apply {
-                            // Start the animation immediately.
-                            targetState = true
+                    AnimatedVisibility(
+                        modifier = Modifier.size(300.dp),
+                        visible = visibilityState,
+                        enter = fadeIn(),
+                        exit = fadeOut()
+                    ) {
+                        // Fade in/out the background and the foreground.
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(Color.DarkGray)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .align(Alignment.Center)
+                                    .animateEnterExit(
+                                        // Slide in/out the inner box.
+                                        enter = slideInVertically(),
+                                        exit = slideOutVertically()
+                                    )
+                                    .size(150.dp)
+                                    .background(Color.Red)
+                            )
                         }
                     }
-                    Column {
-                        AnimatedVisibility(visibleState = visibilityState) {
-                            Text(text = "Hello, world!")
-                        }
-
-                        // Use the MutableTransitionState to know the current animation state
-                        // of the AnimatedVisibility.
-                        Text(
-                            modifier = Modifier.clickable {
-                                visibilityState.targetState = !visibilityState.targetState
-                            },
-                            text = when {
-                                visibilityState.isIdle && visibilityState.currentState -> "Visible"
-                                !visibilityState.isIdle && visibilityState.currentState -> "Disappearing"
-                                visibilityState.isIdle && !visibilityState.currentState -> "Invisible"
-                                else -> "Appearing"
-                            }
-                        )
+                    Button(onClick = { visibilityState = !visibilityState }) {
+                        Text(text = "Toggle visibilityState")
                     }
                 }
             }
