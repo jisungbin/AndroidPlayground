@@ -151,48 +151,7 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            ProvideTextStyle(NanumGothicTextStyle) {
-                // Creates a transition state with an initial state where visible = false
-                val visibleState = remember { MutableTransitionState(false) }
-                // Sets the target state of the transition state to true. As it's different than the initial
-                // state, a transition from not visible to visible will be triggered.
-                visibleState.targetState = true
-
-                // Creates a transition with the transition state created above.
-                val transition = updateTransition(visibleState, label = "")
-                // Adds a scale animation to the transition to scale the card up when transitioning in.
-                val scale by transition.animateFloat(
-                    // Uses a custom spring for the transition.
-                    transitionSpec = { spring(dampingRatio = Spring.DampingRatioMediumBouncy) },
-                    label = ""
-                ) { visible ->
-                    if (visible) 1f else 0.8f
-                }
-                // Adds an elevation animation that animates the dp value of the animation.
-                val elevation by transition.animateDp(
-                    // Uses a tween animation
-                    transitionSpec = {
-                        // Uses different animations for when animating from visible to not visible, and
-                        // the other way around
-                        if (false isTransitioningTo true) {
-                            tween(1000)
-                        } else {
-                            spring()
-                        }
-                    }, label = ""
-                ) { visible ->
-                    if (visible) 10.dp else 0.dp
-                }
-
-                Card(
-                    Modifier
-                        .graphicsLayer(scaleX = scale, scaleY = scale)
-                        .size(200.dp, 100.dp)
-                        .fillMaxWidth()
-                        .background(color = Color.Pink),
-                    elevation = elevation
-                ) {}
-            }
+            ProvideTextStyle(NanumGothicTextStyle) {}
         }
     }
 }
