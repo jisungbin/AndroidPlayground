@@ -31,12 +31,12 @@ class BaselineProfileBenchmark {
 
     private fun startup(compilationMode: CompilationMode) {
         benchmarkRule.measureRepeated(
-            packageName = "com.example.app",
+            packageName = MainPackageName,
             metrics = listOf(StartupTimingMetric()),
             iterations = 10,
             startupMode = StartupMode.COLD,
             compilationMode = compilationMode
-        ) { // this = MacrobenchmarkScope
+        ) {
             pressHome()
             startActivityAndWait()
         }
