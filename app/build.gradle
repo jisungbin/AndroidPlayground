@@ -56,7 +56,7 @@ android {
         }
 
         benchmark {
-            debuggable = true
+            debuggable = false
             signingConfig = debug.signingConfig
             matchingFallbacks = ["release"]
         }
