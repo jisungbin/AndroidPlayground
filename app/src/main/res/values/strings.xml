@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AndroidPlayground</string>
     <string name="sungbin_land">SungbinLand</string>
+
+    <string name="input_text">Input text:</string>
+    <string name="confirm_text">Confirm text:</string>
 </resources>
