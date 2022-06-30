@@ -68,6 +68,7 @@ dependencies {
     implementation "androidx.core:core-ktx:1.8.0"
     implementation "com.google.android.material:material:1.6.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
 
     // compose
@@ -82,9 +83,11 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.42"
 
     // tooling
-    debugImplementation "androidx.customview:customview:1.2.0-alpha01"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "androidx.profileinstaller:profileinstaller:1.2.0-rc01"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+
+    // debug
+    debugImplementation "androidx.customview:customview:1.2.0-alpha01"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.customview:customview-poolingcontainer:1.0.0-rc01"
 }

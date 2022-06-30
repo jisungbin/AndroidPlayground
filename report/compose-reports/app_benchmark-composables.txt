@@ -1,0 +1,59 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Particles(
+  stable modifier: Modifier
+  stable quantity: Int
+  stable emoji: String
+  stable visible: Boolean
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Particle(
+  stable model: ParticleModel
+)
+restartable skippable scheme("[0, [0]]") fun SingletonComposableLambda(
+  stable content: Function2<Composer, Int, Unit>
+)
+restartable skippable scheme("[0, [0]]") fun CapturedComposableLambda(
+  stable content: Function2<Composer, Int, Unit>
+)
+scheme("[androidx.compose.ui.UiComposable]") fun NonRestartableText()
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun SortedColumn(
+  stable backgroundColor: Color = @static Companion.White
+  stable modifier: Modifier? = @dynamic Companion.fillMaxSize().background(
+  color   =   backgroundColor
+)
+  stable space: Dp = @static DefaultPadding
+  stable content: @[ExtensionFunctionType] Function3<ColumnScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SortedLazyColumn(
+  stable backgroundColor: Color = @static Companion.White
+  stable modifier: Modifier? = @dynamic Companion.fillMaxSize().background(
+  color   =   backgroundColor
+)
+  stable space: Dp = @static DefaultPadding
+  stable paddingValues: PaddingValues? = @dynamic PaddingValues(
+  vertical   =   space
+)
+  stable content: @[ExtensionFunctionType] Function1<LazyListScope, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun LoggingButton(
+  stable modifier: Modifier? = @static Companion
+  stable log: String? = @static "Button composition."
+  stable onClick: Function0<Unit>
+  stable content: @[ExtensionFunctionType] Function3<RowScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LoggingText(
+  stable modifier: Modifier? = @static Companion
+  stable log: String? = @static "Text composition."
+  stable text: String
+)
+fun defaultColor(
+  stable <this>: <no name provided>
+): Color
+fun rippleAlpha(
+  stable <this>: <no name provided>
+): RippleAlpha
+readonly fun <get-NanumGothicTextStyle>()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun AnimatedContentSizeTransform()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Foo(
+  unused stable <this>: MainFragment
+)
+fun rememberToast()
