@@ -59,6 +59,8 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -69,6 +71,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import land.sungbin.androidplayground.extension.and
+import land.sungbin.androidplayground.extension.invoke
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.Pink
 import land.sungbin.androidplayground.theme.PlaygroundTheme
@@ -112,51 +116,55 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+}
 
-    @Preview
-    @Composable
-    private fun Content() {
-        var textField = remember { mutableStateOf(TextFieldValue()) }
-        var confirmTextField = remember { mutableStateOf(TextFieldValue()) }
-        var pass by remember { mutableStateOf(true) }
+@Preview
+@Composable
+private fun Content() {
+    val textField = remember { mutableStateOf(TextFieldValue()) }
+    val confirmTextField = remember { mutableStateOf(TextFieldValue()) }
+    var pass by remember { mutableStateOf(true) }
 
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 100.dp),
-            verticalArrangement = Arrangement.spacedBy(space = 30.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            listOf(
-                getString(R.string.input_text) to textField,
-                getString(R.string.confirm_text) to confirmTextField
-            ).forEach { (label, textFieldValue) ->
-                Column {
-                    Text(text = label)
-                    OutlinedTextField(
-                        modifier = Modifier.padding(top = 8.dp),
-                        value = textFieldValue.value,
-                        onValueChange = { newTextFieldValue ->
-                            textFieldValue.value = newTextFieldValue
-                        },
-                        singleLine = true,
-                        maxLines = 1
-                    )
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 100.dp),
+        verticalArrangement = Arrangement.spacedBy(space = 30.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        listOf(
+            Triple(R.string.input_text, textField, R.string.input_text_tag),
+            Triple(R.string.confirm_text, confirmTextField, R.string.confirm_text_tag)
+        ).forEach { (label, textFieldValue, textFieldTestTag) ->
+            Column {
+                Text(text = stringResource(label))
+                OutlinedTextField(
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .testTag(stringResource(textFieldTestTag)),
+                    value = textFieldValue.value,
+                    onValueChange = { newTextFieldValue ->
+                        textFieldValue.value = newTextFieldValue
+                    },
+                    singleLine = true,
+                    maxLines = 1
+                )
 
-                }
-            }
-            Button(
-                onClick = {
-                    pass = textField.value == confirmTextField.value
-                }
-            ) {
-                Text(text = "Check text")
-            }
-            if (pass) {
-                Text(text = "Pass")
-            } else {
-                Text(text = "Fail")
             }
         }
+        Button(
+            onClick = {
+                pass = textField.value.text == confirmTextField.value.text
+            }
+        ) {
+            Text(text = stringResource(R.string.check_text))
+        }
+        Text(
+            modifier = Modifier.testTag(stringResource(R.string.check_result)),
+            text = when (pass) {
+                true -> stringResource(R.string.pass)
+                else -> stringResource(R.string.fail)
+            }
+        )
     }
 }

@@ -1,3 +1,0 @@
-restartable scheme("[androidx.compose.ui.UiComposable]") fun Content(
-  unstable <this>: MainActivity
-)
