@@ -1236,7 +1236,6 @@ HSPLandroidx/compose/runtime/ComposerImpl;->dispose$runtime_release()V
 HSPLandroidx/compose/runtime/ComposerImpl;->doCompose(Landroidx/compose/runtime/collection/IdentityArrayMap;Lkotlin/jvm/functions/Function2;)V
 HSPLandroidx/compose/runtime/ComposerImpl;->doRecordDownsFor(II)V
 HSPLandroidx/compose/runtime/ComposerImpl;->enableReusing()V
-HSPLandroidx/compose/runtime/ComposerImpl;->end(Z)V
 HSPLandroidx/compose/runtime/ComposerImpl;->endDefaults()V
 HSPLandroidx/compose/runtime/ComposerImpl;->endGroup()V
 HSPLandroidx/compose/runtime/ComposerImpl;->endNode()V
@@ -1298,7 +1297,6 @@ HSPLandroidx/compose/runtime/ComposerImpl;->skipToGroupEnd()V
 HSPLandroidx/compose/runtime/ComposerImpl;->sourceInformation(Ljava/lang/String;)V
 HSPLandroidx/compose/runtime/ComposerImpl;->sourceInformationMarkerEnd()V
 HSPLandroidx/compose/runtime/ComposerImpl;->sourceInformationMarkerStart(ILjava/lang/String;)V
-HSPLandroidx/compose/runtime/ComposerImpl;->start(ILjava/lang/Object;ZLjava/lang/Object;)V
 HSPLandroidx/compose/runtime/ComposerImpl;->startDefaults()V
 HSPLandroidx/compose/runtime/ComposerImpl;->startGroup(I)V
 HSPLandroidx/compose/runtime/ComposerImpl;->startGroup(ILjava/lang/Object;)V
@@ -1788,7 +1786,6 @@ HSPLandroidx/compose/runtime/SlotWriter;->dataIndex(I)I
 HSPLandroidx/compose/runtime/SlotWriter;->dataIndex([II)I
 HSPLandroidx/compose/runtime/SlotWriter;->dataIndexToDataAddress(I)I
 HSPLandroidx/compose/runtime/SlotWriter;->dataIndexToDataAnchor(IIII)I
-HSPLandroidx/compose/runtime/SlotWriter;->endGroup()I
 HSPLandroidx/compose/runtime/SlotWriter;->endInsert()V
 HSPLandroidx/compose/runtime/SlotWriter;->ensureStarted(I)V
 HSPLandroidx/compose/runtime/SlotWriter;->ensureStarted(Landroidx/compose/runtime/Anchor;)V
@@ -1831,7 +1828,6 @@ HSPLandroidx/compose/runtime/SlotWriter;->slotIndex([II)I
 HSPLandroidx/compose/runtime/SlotWriter;->startData(ILjava/lang/Object;Ljava/lang/Object;)V
 HSPLandroidx/compose/runtime/SlotWriter;->startGroup()V
 HSPLandroidx/compose/runtime/SlotWriter;->startGroup(ILjava/lang/Object;)V
-HSPLandroidx/compose/runtime/SlotWriter;->startGroup(ILjava/lang/Object;ZLjava/lang/Object;)V
 HSPLandroidx/compose/runtime/SlotWriter;->startNode(Ljava/lang/Object;)V
 HSPLandroidx/compose/runtime/SlotWriter;->update(Ljava/lang/Object;)Ljava/lang/Object;
 HSPLandroidx/compose/runtime/SlotWriter;->updateAnchors(II)V
