@@ -33,7 +33,7 @@ class BaselineProfileBenchmark {
         benchmarkRule.measureRepeated(
             packageName = MainPackageName,
             metrics = listOf(StartupTimingMetric()),
-            iterations = 10,
+            iterations = 1,
             startupMode = StartupMode.COLD,
             compilationMode = compilationMode
         ) {
