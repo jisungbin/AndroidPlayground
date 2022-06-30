@@ -15,7 +15,9 @@ class BaselineProfileGenerator {
 
     @Test
     fun startup() =
-        baselineProfileRule.collectBaselineProfile(packageName = "land.sungbin.androidplayground") {
+        baselineProfileRule.collectBaselineProfile(
+            packageName = MainPackageName
+        ) {
             pressHome()
             startActivityAndWait()
         }

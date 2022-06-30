@@ -15,7 +15,7 @@ class StartupBenchmark {
 
     @Test
     fun startup() = benchmarkRule.measureRepeated(
-        packageName = "land.sungbin.androidplayground",
+        packageName = MainPackageName,
         metrics = listOf(StartupTimingMetric()),
         iterations = 5,
         startupMode = StartupMode.COLD
