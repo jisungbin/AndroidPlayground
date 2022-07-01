@@ -69,6 +69,7 @@ fun LookaheadLayoutExample() {
     LookaheadLayout(
         content = {
             var fullWidth by remember { mutableStateOf(false) }
+
             Row(
                 modifier = (if (fullWidth) Modifier.fillMaxWidth() else Modifier.width(100.dp))
                     .height(200.dp)
@@ -76,13 +77,13 @@ fun LookaheadLayoutExample() {
                     .clickable { fullWidth = !fullWidth }
             ) {
                 Box(
-                    Modifier
+                    modifier = Modifier
                         .weight(1f)
                         .fillMaxHeight()
                         .background(Color.Red)
                 )
                 Box(
-                    Modifier
+                    modifier = Modifier
                         .weight(2f)
                         .fillMaxHeight()
                         .background(Color.Yellow)
