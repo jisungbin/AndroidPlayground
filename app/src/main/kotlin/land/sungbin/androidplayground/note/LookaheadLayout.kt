@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 
-fun Modifier.animateConstraints(lookaheadScope: LookaheadLayoutScope) = composed {
+private fun Modifier.animateConstraints(lookaheadScope: LookaheadLayoutScope) = composed {
     var sizeAnimation: Animatable<IntSize, AnimationVector2D>? by remember {
         mutableStateOf(null)
     }
