@@ -1,5 +1,0 @@
-unstable class MainActivity {
-  unstable var binding: ActivityMainBinding
-  unstable val vm$delegate: Lazy<MainViewModel>
-  <runtime stability> = Unstable
-}
