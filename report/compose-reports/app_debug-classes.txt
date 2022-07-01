@@ -1,12 +1,5 @@
-unstable class ComposeUiTest {
-  runtime val composeTestRule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>
-  runtime var textInputField: SemanticsNodeInteraction
-  runtime var confirmTextInputField: SemanticsNodeInteraction
-  runtime var checkButton: SemanticsNodeInteraction
-  runtime var checkResultText: SemanticsNodeInteraction
-  stable val hello: String
-  stable val world: String
-  stable var checkFailText: String
-  stable var checkSuccessText: String
+unstable class MainActivity {
+  unstable var binding: ActivityMainBinding
+  unstable val vm$delegate: Lazy<MainViewModel>
   <runtime stability> = Unstable
 }

@@ -130,7 +130,7 @@ fun LocalCompositionList() = setContent {
     LocalUriHandler // 그냥 Action.VIEW 로 startActivity 해줌
 }
 
-fun ComponentActivity.onCreate() = setContent {
+fun ComponentActivity.CompositionLocals() = setContent {
     val toast = rememberToast()
     val systemUiController = rememberSystemUiController()
 

@@ -1,0 +1,2 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovableContentAnimation()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content()

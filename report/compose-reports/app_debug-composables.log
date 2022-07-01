@@ -1,2 +1,2 @@
-applier inference TransitionAnimation.kt:42:35: Type disagreement [Binding(372), [Binding(377)], [Binding(378)]] <=> [Binding(372), [Binding(372)]]
-applier inference TransitionAnimation.kt:45:33: Type disagreement [Binding(372), [Binding(381)], [Binding(382)]] <=> [Binding(372), [Binding(372)]]
+applier inference TransitionAnimation.kt:42:35: Type disagreement [Binding(432), [Binding(437)], [Binding(438)]] <=> [Binding(432), [Binding(432)]]
+applier inference TransitionAnimation.kt:45:33: Type disagreement [Binding(432), [Binding(441)], [Binding(442)]] <=> [Binding(432), [Binding(432)]]

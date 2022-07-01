@@ -16,4 +16,4 @@ val Color.Companion.Pink
 
 val Color.Companion.Random
     @Stable
-    get() = (0..0xFFFFFF).random() // same 0x000000..0xFFFFFF
+    get() = Color((0..0xFFFFFF).random()) // same 0x000000..0xFFFFFF

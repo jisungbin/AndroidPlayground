@@ -65,6 +65,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.extension.invoke
+import land.sungbin.androidplayground.note.MovableContentAnimation
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -102,58 +103,9 @@ class MainActivity : ComponentActivity() {
             }
 
             PlaygroundTheme {
-                Content()
+                MovableContentAnimation()
             }
         }
     }
 }
 
-@Preview
-@Composable
-private fun Content() {
-    val textField = remember { mutableStateOf(TextFieldValue()) }
-    val confirmTextField = remember { mutableStateOf(TextFieldValue()) }
-    var pass by remember { mutableStateOf(true) }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 100.dp),
-        verticalArrangement = Arrangement.spacedBy(space = 30.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        listOf(
-            Triple(R.string.input_text, textField, R.string.input_text_tag),
-            Triple(R.string.confirm_text, confirmTextField, R.string.confirm_text_tag)
-        ).forEach { (label, textFieldValue, textFieldTestTag) ->
-            Column {
-                Text(text = stringResource(label))
-                OutlinedTextField(
-                    modifier = Modifier
-                        .padding(top = 8.dp)
-                        .testTag(stringResource(textFieldTestTag)),
-                    value = textFieldValue.value,
-                    onValueChange = { newTextFieldValue ->
-                        textFieldValue.value = newTextFieldValue
-                    },
-                    singleLine = true,
-                    maxLines = 1
-                )
-            }
-        }
-        Button(
-            onClick = {
-                pass = textField.value.text == confirmTextField.value.text
-            }
-        ) {
-            Text(text = stringResource(R.string.check_text))
-        }
-        Text(
-            modifier = Modifier.testTag(stringResource(R.string.check_result)),
-            text = when (pass) {
-                true -> stringResource(R.string.pass)
-                else -> stringResource(R.string.fail)
-            }
-        )
-    }
-}
