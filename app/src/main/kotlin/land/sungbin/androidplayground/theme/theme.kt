@@ -5,7 +5,6 @@ package land.sungbin.androidplayground.theme
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.OverscrollConfiguration
 import androidx.compose.foundation.text.selection.TextSelectionColors
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.Composable

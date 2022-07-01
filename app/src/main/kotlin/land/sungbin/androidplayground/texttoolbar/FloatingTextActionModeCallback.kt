@@ -3,14 +3,13 @@
 package land.sungbin.androidplayground.texttoolbar
 
 import android.graphics.Rect
-import androidx.compose.ui.geometry.Rect as ComposeRect
 import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.annotation.StringRes
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.wrapper.ToastWrapper
+import androidx.compose.ui.geometry.Rect as ComposeRect
 
 private const val DefaultGroupId = 0
 private const val SungbinLandItemId = 0
