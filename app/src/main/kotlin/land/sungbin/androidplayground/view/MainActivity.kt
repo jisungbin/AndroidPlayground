@@ -77,11 +77,15 @@ class MainActivity : ComponentActivity() {
 
             LaunchedEffect(Unit) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
-                systemUiController.setStatusBarColor(
+                /*systemUiController.setStatusBarColor(
                     color = Color.Transparent,
                     darkIcons = true
                 )
                 systemUiController.setNavigationBarColor(
+                    color = Color.White,
+                    darkIcons = true
+                )*/
+                systemUiController.setSystemBarsColor(
                     color = Color.White,
                     darkIcons = true
                 )
