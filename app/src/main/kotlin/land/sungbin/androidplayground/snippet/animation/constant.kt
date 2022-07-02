@@ -1,5 +1,6 @@
 package land.sungbin.androidplayground.snippet.animation
 
+import androidx.annotation.DrawableRes
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
@@ -79,3 +80,11 @@ fun tabTextColorWithAnimation(
     },
     animationSpec = defaultTween()
 ).value
+
+@Stable
+fun searchTabIndexByDrawable(@DrawableRes drawable: Int) = when (drawable) {
+    R.drawable.thor_poster -> 0
+    R.drawable.spiderman_poster -> 1
+    R.drawable.doctor_poster -> 2
+    else -> throw IllegalStateException("Drawable $drawable is not supported.")
+}
