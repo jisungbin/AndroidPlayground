@@ -66,7 +66,7 @@ fun ColumnScope.TabFullname(
 }
 
 @Composable
-fun TabPoster(
+fun MoviePoster(
     modifier: Modifier = Modifier,
     @DrawableRes selectedTabPosterDrawable: Int,
     posterDescription: String? = null

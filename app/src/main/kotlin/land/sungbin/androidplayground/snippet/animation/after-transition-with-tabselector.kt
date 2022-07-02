@@ -54,8 +54,8 @@ import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.extension.toPercent
+import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
 import land.sungbin.androidplayground.snippet.animation.component.TabFullname
-import land.sungbin.androidplayground.snippet.animation.component.TabPoster
 import land.sungbin.androidplayground.snippet.animation.component.TabTitle
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
@@ -239,8 +239,8 @@ fun WithLowApiAnimationAndTabSelectorDemo() {
                                 animationSpec = defaultTween()
                             ) with fadeOut(
                                 animationSpec = defaultTween()
-                            ) using SizeTransform( // 텍스트 사이즈 바뀌는거 애니메이션 입힘
-                                clip = true, // card edge 까지 텍스트 침범? 없어도 잘 되는데 일단 clap false 처리
+                            ) using SizeTransform(
+                                clip = false,
                                 sizeAnimationSpec = { _, _ ->
                                     defaultTween()
                                 }
@@ -282,14 +282,13 @@ fun WithLowApiAnimationAndTabSelectorDemo() {
                                     }
                                 )
                             }.apply {
-                                // fadeOut 되는거 zIndex 처리 해서 배경으로 보이게 해줌
                                 targetContentZIndex = targetIndex.toFloat()
                             }
                         }
                     ) { selectedTabType ->
                         val (_, selectedTabPoster, _) = TabDefaults.Items[selectedTabType.ordinal]
 
-                        TabPoster(
+                        MoviePoster(
                             selectedTabPosterDrawable = selectedTabPoster,
                             posterDescription = selectedTabType.string
                         )

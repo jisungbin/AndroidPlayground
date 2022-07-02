@@ -13,15 +13,14 @@ import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
 import land.sungbin.androidplayground.theme.Pink
 
-val DefaultCornerSize = 30.dp
+const val DefaultCornerPercent = 30
+const val AnimationDuration = 500
 
 enum class TabType(val string: String) {
     Thor("토르"),
     Spider("거미맨"),
     Doctor("의사");
 }
-
-const val AnimationDuration = 500
 
 fun <T> defaultTween() = tween<T>(
     durationMillis = AnimationDuration,

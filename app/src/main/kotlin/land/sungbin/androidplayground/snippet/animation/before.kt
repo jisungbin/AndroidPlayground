@@ -32,8 +32,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.extension.noRippleClickable
+import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
 import land.sungbin.androidplayground.snippet.animation.component.TabFullname
-import land.sungbin.androidplayground.snippet.animation.component.TabPoster
 import land.sungbin.androidplayground.snippet.animation.component.TabTitle
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
@@ -65,8 +65,8 @@ fun WithoutAnimationDemo() {
                     .wrapContentHeight()
                     .clip(
                         RoundedCornerShape(
-                            bottomStart = DefaultCornerSize,
-                            bottomEnd = DefaultCornerSize
+                            bottomStartPercent = DefaultCornerPercent,
+                            bottomEndPercent = DefaultCornerPercent
                         )
                     ),
                 elevation = 10.dp
@@ -117,8 +117,8 @@ fun WithoutAnimationDemo() {
                     .fillMaxWidth()
                     .height(posterContainerHeight(selectedTabIndexState)),
                 shape = RoundedCornerShape(
-                    topStart = DefaultCornerSize,
-                    topEnd = DefaultCornerSize
+                    topStartPercent = DefaultCornerPercent,
+                    topEndPercent = DefaultCornerPercent
                 ),
                 elevation = 10.dp,
                 backgroundColor = Color.White
@@ -130,7 +130,7 @@ fun WithoutAnimationDemo() {
                     verticalArrangement = Arrangement.spacedBy(15.dp)
                 ) {
                     TabFullname(selectedTabFullname = selectedTabFullname)
-                    TabPoster(
+                    MoviePoster(
                         selectedTabPosterDrawable = selectedTabPosterDrawable,
                         posterDescription = selectedTabType.string
                     )

@@ -43,7 +43,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.snippet.animation.component.TabFullname
-import land.sungbin.androidplayground.snippet.animation.component.TabPoster
+import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
 import land.sungbin.androidplayground.snippet.animation.component.TabTitle
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
@@ -75,8 +75,8 @@ fun WithHighApiAnimationDemo() {
                     .wrapContentHeight()
                     .clip(
                         RoundedCornerShape(
-                            bottomStart = DefaultCornerSize,
-                            bottomEnd = DefaultCornerSize
+                            bottomStartPercent = DefaultCornerPercent,
+                            bottomEndPercent = DefaultCornerPercent
                         )
                     ),
                 elevation = 10.dp
@@ -129,8 +129,8 @@ fun WithHighApiAnimationDemo() {
                     .fillMaxWidth()
                     .height(600.dp),
                 shape = RoundedCornerShape(
-                    topStart = DefaultCornerSize,
-                    topEnd = DefaultCornerSize
+                    topStartPercent = DefaultCornerPercent,
+                    topEndPercent = DefaultCornerPercent
                 ),
                 elevation = 10.dp,
                 backgroundColor = Color.White
@@ -152,8 +152,8 @@ fun WithHighApiAnimationDemo() {
                                 animationSpec = defaultTween()
                             ) with fadeOut(
                                 animationSpec = defaultTween()
-                            ) using SizeTransform( // 텍스트 사이즈 바뀌는거 애니메이션 입힘
-                                clip = true, // card edge 까지 텍스트 침범? 없어도 잘 되는데 일단 clap false 처리
+                            ) using SizeTransform(
+                                clip = true,
                                 sizeAnimationSpec = { _, _ ->
                                     defaultTween()
                                 }
@@ -199,14 +199,13 @@ fun WithHighApiAnimationDemo() {
                                     }
                                 )
                             }.apply {
-                                // fadeOut 되는거 zIndex 처리 해서 배경으로 보이게 해줌
                                 targetContentZIndex = searchTabIndexByDrawable(
                                     drawable = targetState
                                 ).toFloat()
                             }
                         }
                     ) { targetTabPosterDrawable ->
-                        TabPoster(
+                        MoviePoster(
                             selectedTabPosterDrawable = targetTabPosterDrawable,
                             posterDescription = selectedTabType.string
                         )
