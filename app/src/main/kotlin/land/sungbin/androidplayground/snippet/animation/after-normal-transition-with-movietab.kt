@@ -46,13 +46,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.extension.StatusBarHeightDp
-import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.extension.toPercent
 import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
 import land.sungbin.androidplayground.snippet.animation.component.MovieName
 import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
 import land.sungbin.androidplayground.snippet.animation.component.TabContainer
-import land.sungbin.androidplayground.snippet.animation.component.TabTitle
+import land.sungbin.androidplayground.snippet.animation.component.TabItem
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 
@@ -67,8 +66,8 @@ private fun MovieTab(
             .wrapContentHeight()
             .clip(
                 RoundedCornerShape(
-                    bottomStartPercent = DefaultCornerPercent,
-                    bottomEndPercent = DefaultCornerPercent
+                    bottomStartPercent = DefaultCornerUnit,
+                    bottomEndPercent = DefaultCornerUnit
                 )
             )
     ) {
@@ -125,22 +124,14 @@ private fun MovieTab(
                     }
                 }
 
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(StatusBarHeightDp + 50.dp)
-                        .background(color = TabDefaults.Color.defaultBackground)
-                        .noRippleClickable {
-                            updateSelectedTabType(type)
-                        },
-                    contentAlignment = Alignment.Center
-                ) {
-                    TabTitle(
-                        modifier = Modifier.padding(top = StatusBarHeightDp),
-                        title = type.string,
-                        textColor = textColor
-                    )
-                }
+                TabItem(
+                    title = type.string,
+                    backgroundColor = TabDefaults.Color.defaultBackground,
+                    textColor = textColor,
+                    onTabClick = {
+                        updateSelectedTabType(type)
+                    }
+                )
             }
         }
 

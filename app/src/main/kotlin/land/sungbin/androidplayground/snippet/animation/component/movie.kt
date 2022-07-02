@@ -21,7 +21,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import land.sungbin.androidplayground.snippet.animation.DefaultCornerPercent
+import land.sungbin.androidplayground.snippet.animation.DefaultCornerUnit
 
 @Composable
 fun MovieContainer(
@@ -33,8 +33,8 @@ fun MovieContainer(
             .fillMaxWidth()
             .height(600.dp),
         shape = RoundedCornerShape(
-            topStart = DefaultCornerPercent.dp,
-            topEnd = DefaultCornerPercent.dp
+            topStart = DefaultCornerUnit.dp,
+            topEnd = DefaultCornerUnit.dp
         ),
         elevation = 10.dp,
         backgroundColor = Color.White,
@@ -57,9 +57,7 @@ fun ColumnScope.MovieName(
     Text(
         modifier = modifier.align(Alignment.CenterHorizontally),
         text = selectedTabFullname,
-        style = LocalTextStyle.current.copy(
-            fontSize = 15.sp,
-        )
+        style = LocalTextStyle.current.copy(fontSize = 15.sp)
     )
 }
 

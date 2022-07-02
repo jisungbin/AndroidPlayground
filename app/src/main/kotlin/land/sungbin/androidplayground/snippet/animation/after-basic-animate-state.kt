@@ -5,12 +5,11 @@ package land.sungbin.androidplayground.snippet.animation
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.ProvideTextStyle
@@ -25,13 +24,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import land.sungbin.androidplayground.extension.StatusBarHeightDp
-import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
 import land.sungbin.androidplayground.snippet.animation.component.MovieName
 import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
 import land.sungbin.androidplayground.snippet.animation.component.TabContainer
-import land.sungbin.androidplayground.snippet.animation.component.TabTitle
+import land.sungbin.androidplayground.snippet.animation.component.TabItem
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 
@@ -58,30 +55,20 @@ fun BasicAnimateStateMovieSelector() {
         ) {
             TabContainer {
                 TabDefaults.Items.forEachIndexed { index, (type, _, _) ->
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(StatusBarHeightDp + 50.dp)
-                            .background(
-                                color = tabBackgroundColorWithAnimation(
-                                    selectedIndex = selectedTabIndexState,
-                                    nowTabIndex = index
-                                )
-                            )
-                            .noRippleClickable {
-                                selectedTabIndexState = index
-                            },
-                        contentAlignment = Alignment.Center
-                    ) {
-                        TabTitle(
-                            modifier = Modifier.padding(top = StatusBarHeightDp),
-                            title = type.string,
-                            textColor = tabTextColorWithAnimation(
-                                selectedIndex = selectedTabIndexState,
-                                nowTabIndex = index
-                            )
-                        )
-                    }
+                    TabItem(
+                        title = type.string,
+                        backgroundColor = tabBackgroundColorWithAnimation(
+                            selectedIndex = selectedTabIndexState,
+                            nowTabIndex = index
+                        ),
+                        textColor = tabTextColorWithAnimation(
+                            selectedIndex = selectedTabIndexState,
+                            nowTabIndex = index
+                        ),
+                        onTabClick = {
+                            selectedTabIndexState = index
+                        }
+                    )
                 }
             }
 
@@ -109,3 +96,27 @@ fun BasicAnimateStateMovieSelector() {
         }
     }
 }
+
+@Composable
+private fun tabBackgroundColorWithAnimation(
+    selectedIndex: Int,
+    nowTabIndex: Int
+) = animateColorAsState(
+    targetValue = when (selectedIndex == nowTabIndex) {
+        true -> TabDefaults.Color.selectedBackground
+        false -> TabDefaults.Color.defaultBackground
+    },
+    animationSpec = defaultTween()
+).value
+
+@Composable
+private fun tabTextColorWithAnimation(
+    selectedIndex: Int,
+    nowTabIndex: Int
+) = animateColorAsState(
+    targetValue = when (selectedIndex == nowTabIndex) {
+        true -> TabDefaults.Color.selectedText
+        false -> TabDefaults.Color.defaultText
+    },
+    animationSpec = defaultTween()
+).value
