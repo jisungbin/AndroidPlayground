@@ -6,6 +6,7 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
@@ -14,6 +15,7 @@ import land.sungbin.androidplayground.theme.Pink
 const val DefaultCornerUnit = 30
 const val AnimationDuration = 500
 
+@Immutable // maybe?
 enum class Movie(val string: String) {
     Thor("토르"),
     Spider("거미맨"),
@@ -39,5 +41,7 @@ object TabDefaults {
         Movie.Spider to R.drawable.spiderman_poster and "스파이더맨: 노 웨이 홈",
         Movie.Doctor to R.drawable.doctor_poster and "닥터 스트레인지: 대혼돈의 멀티버스"
     )
+
+    @Stable
     val Color = TabColors()
 }
