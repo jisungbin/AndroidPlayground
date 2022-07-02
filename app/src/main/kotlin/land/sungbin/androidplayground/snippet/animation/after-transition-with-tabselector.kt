@@ -1,4 +1,7 @@
-@file:OptIn(ExperimentalAnimationApi::class, ExperimentalTransitionApi::class)
+@file:OptIn(
+    ExperimentalAnimationApi::class,
+    ExperimentalTransitionApi::class
+)
 
 package land.sungbin.androidplayground.snippet.animation
 
@@ -14,7 +17,6 @@ import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.TwoWayConverter
 import androidx.compose.animation.core.animateIntOffset
 import androidx.compose.animation.core.animateValue
-import androidx.compose.animation.core.createChildTransition
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -38,7 +40,6 @@ import androidx.compose.material.Card
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -117,10 +118,6 @@ private fun TabSelector(
             }
         }
 
-        SideEffect {
-            println(backgroundShapeTransition)
-        }
-
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
@@ -186,17 +183,6 @@ fun WithLowApiAnimationAndTabSelectorDemo() {
         targetState = selectedTabTypeState,
         label = "selected tab"
     )
-    val selectedTabFullnameTransition = selectedTabTransition.createChildTransition(
-        label = "selected tab fullname",
-        transformToChildState = { selectedTabType ->
-            val (_, _, selectedTabFullname) = TabDefaults.Items[selectedTabType.ordinal]
-            selectedTabFullname
-        }
-    )
-    val selectedTabPosterTransition = selectedTabTransition.createChildTransition(
-        label = "selected tab poster",
-        transformToChildState = { selectedTabType -> selectedTabType }
-    )
 
     ProvideTextStyle(NanumGothicTextStyle) {
         Column(
@@ -230,7 +216,7 @@ fun WithLowApiAnimationAndTabSelectorDemo() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(15.dp)
                 ) {
-                    selectedTabFullnameTransition.AnimatedContent(
+                    selectedTabTransition.AnimatedContent(
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
                             .padding(horizontal = 30.dp),
@@ -246,11 +232,12 @@ fun WithLowApiAnimationAndTabSelectorDemo() {
                                 }
                             )
                         }
-                    ) { selectedTabFullname ->
+                    ) { selectedTabType ->
+                        val (_, _, selectedTabFullname) = TabDefaults.Items[selectedTabType.ordinal]
                         TabFullname(selectedTabFullname = selectedTabFullname)
                     }
 
-                    selectedTabPosterTransition.AnimatedContent(
+                    selectedTabTransition.AnimatedContent(
                         modifier = Modifier.wrapContentSize(),
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
@@ -287,7 +274,6 @@ fun WithLowApiAnimationAndTabSelectorDemo() {
                         }
                     ) { selectedTabType ->
                         val (_, selectedTabPoster, _) = TabDefaults.Items[selectedTabType.ordinal]
-
                         MoviePoster(
                             selectedTabPosterDrawable = selectedTabPoster,
                             posterDescription = selectedTabType.string
