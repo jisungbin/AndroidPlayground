@@ -8,7 +8,6 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.SizeTransform
-import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.with
@@ -181,19 +180,37 @@ fun WithHighApiAnimationDemo() {
                         targetState = selectedTabPosterDrawable,
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
-                            (
+                            val targetIndex = searchTabIndexByDrawable(
+                                drawable = targetState
+                            )
+                            val initialIndex = searchTabIndexByDrawable(
+                                drawable = initialState
+                            )
+                            if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
                                     towards = AnimatedContentScope.SlideDirection.Start,
-                                    animationSpec = tween(durationMillis = AnimationDuration),
+                                    animationSpec = defaultTween(),
                                 ) with fadeOut(
                                     animationSpec = defaultTween()
                                 ) using SizeTransform(
-                                    clip = false, // card edge 까지 이미지 침범
+                                    clip = false,
                                     sizeAnimationSpec = { _, _ ->
                                         defaultTween()
                                     }
                                 )
-                                ).apply { // 컨텐츠 겹치는게 해줌
+                            } else { // 이전 탭
+                                fadeIn(
+                                    animationSpec = defaultTween()
+                                ) with slideOutOfContainer(
+                                    towards = AnimatedContentScope.SlideDirection.End,
+                                    animationSpec = defaultTween(),
+                                ) using SizeTransform(
+                                    clip = false,
+                                    sizeAnimationSpec = { _, _ ->
+                                        defaultTween()
+                                    }
+                                )
+                            }.apply {
                                 // fadeOut 되는거 zIndex 처리 해서 배경으로 보이게 해줌
                                 targetContentZIndex = searchTabIndexByDrawable(
                                     drawable = targetState
