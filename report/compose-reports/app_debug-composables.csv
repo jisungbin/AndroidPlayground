@@ -1,4 +1,5 @@
 package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
-land.sungbin.androidplayground.snippet.animation.WithHighApiAnimationDemo,WithHighApiAnimationDemo,1,1,1,0,0,0,0,0,1,4,
-land.sungbin.androidplayground.snippet.animation.WithLowApiAnimationDemo,WithLowApiAnimationDemo,1,1,1,0,0,0,0,0,1,5,
-land.sungbin.androidplayground.snippet.animation.WithoutAnimationDemo,WithoutAnimationDemo,1,1,1,0,0,0,0,0,1,4,
+land.sungbin.androidplayground.snippet.animation.component.TabTitle,TabTitle,1,1,1,0,0,0,1,0,2,2,
+land.sungbin.androidplayground.snippet.animation.component.TabTitle,TabTitle,1,1,1,0,0,0,0,0,1,1,
+land.sungbin.androidplayground.snippet.animation.component.TabFullname,TabFullname,1,1,1,0,0,0,0,0,1,2,
+land.sungbin.androidplayground.snippet.animation.component.TabPoster,TabPoster,1,1,1,0,0,0,0,0,1,2,
