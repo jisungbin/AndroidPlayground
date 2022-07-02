@@ -1,3 +1,5 @@
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground.snippet.animation
 
 import android.content.res.Configuration
@@ -7,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue

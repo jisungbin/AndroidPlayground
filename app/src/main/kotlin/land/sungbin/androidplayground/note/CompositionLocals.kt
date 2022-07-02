@@ -8,6 +8,7 @@
     "unused",
     "UNUSED_VARIABLE"
 )
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.note
 
@@ -36,6 +37,7 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.LocalSaveableStateRegistry
@@ -72,6 +74,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import java.lang.invoke.MethodHandles.constant
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.composable.SortedLazyColumn
@@ -128,6 +131,13 @@ fun LocalCompositionList() = setContent {
 
     /** 왜 존재하는지 모르겠는 것들 */
     LocalUriHandler // 그냥 Action.VIEW 로 startActivity 해줌
+}
+
+private enum class DisplayFor {
+    FocusRequester,
+    FocusManager,
+    OpenSungbinLand,
+    Spacing;
 }
 
 fun ComponentActivity.CompositionLocals() = setContent {

@@ -1,8 +1,11 @@
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground.snippet.animation
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.graphics.Color
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and

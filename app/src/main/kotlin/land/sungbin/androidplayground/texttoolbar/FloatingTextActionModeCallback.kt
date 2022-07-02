@@ -1,4 +1,5 @@
 @file:Suppress("EXTENSION_SHADOWED_BY_MEMBER")
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.texttoolbar
 
@@ -7,6 +8,7 @@ import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.compose.runtime.NoLiveLiterals
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.wrapper.ToastWrapper
 import androidx.compose.ui.geometry.Rect as ComposeRect
@@ -42,9 +44,8 @@ class FloatingTextActionModeCallback(
     }
 
     override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-        if (/*mode == null || */menu == null) return false
-        menu.addOrRemoveItem()
-//        menu.addSungbinLandItem()
+        if (menu == null) return false
+        menu.addItemIfEmpty()
         return true
     }
 
@@ -73,7 +74,7 @@ private fun Menu.addSungbinLandItem() {
         .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
 }
 
-private fun Menu.addOrRemoveItem() {
+private fun Menu.addItemIfEmpty() {
     if (findItem(SungbinLandItemId) == null) {
         addSungbinLandItem()
     }

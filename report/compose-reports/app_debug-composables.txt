@@ -1,3 +1,98 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithHighApiAnimationDemo()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithLowApiAnimationDemo()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithoutAnimationDemo()
+restartable skippable scheme("[0, [0]]") fun SingletonComposableLambda(
+  stable content: Function2<Composer, Int, Unit>
+)
+restartable skippable scheme("[0, [0]]") fun CapturedComposableLambda(
+  stable content: Function2<Composer, Int, Unit>
+)
+scheme("[androidx.compose.ui.UiComposable]") fun NonRestartableText()
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun SortedColumn(
+  stable backgroundColor: Color = @static Companion.White
+  stable modifier: Modifier? = @dynamic Companion.fillMaxSize().background(
+  color   =   backgroundColor
+)
+  stable space: Dp = @static DefaultPadding
+  stable content: @[ExtensionFunctionType] Function3<ColumnScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SortedLazyColumn(
+  stable backgroundColor: Color = @static Companion.White
+  stable modifier: Modifier? = @dynamic Companion.fillMaxSize().background(
+  color   =   backgroundColor
+)
+  stable space: Dp = @static DefaultPadding
+  stable paddingValues: PaddingValues? = @dynamic PaddingValues(
+  vertical   =   space
+)
+  stable content: @[ExtensionFunctionType] Function1<LazyListScope, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun LoggingButton(
+  stable modifier: Modifier? = @static Companion
+  stable log: String? = @static "Button composition."
+  stable onClick: Function0<Unit>
+  stable content: @[ExtensionFunctionType] Function3<RowScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LoggingText(
+  stable modifier: Modifier? = @static Companion
+  stable log: String? = @static "Text composition."
+  stable text: String
+)
+fun <get-StatusBarHeightDp>()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LookaheadLayoutExample()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovableContentAnimation()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TextConfirm()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TransitionAnimation()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun BasicAnimateStateMovieSelector()
+fun tabBackgroundColorWithAnimation(
+  stable selectedIndex: Int
+  stable nowTabIndex: Int
+): Color
+fun tabTextColorWithAnimation(
+  stable selectedIndex: Int
+  stable nowTabIndex: Int
+): Color
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieTab(
+  stable selectedTabTransition: Transition<Movie>
+  stable updateSelectedTabType: Function1<@[ParameterName(name = 'type')] Movie, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun NormalTransitionMovieSelectorWithMovieTab()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun NormalTransitionMovieSelector()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun DefaultMovieSelector()
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun MovieContainer(
+  stable modifier: Modifier? = @static Companion
+  stable content: @[ExtensionFunctionType] Function3<ColumnScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieName(
+  stable <this>: ColumnScope
+  stable modifier: Modifier? = @static Companion
+  stable selectedTabFullname: String
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MoviePoster(
+  stable modifier: Modifier? = @static Companion
+  stable selectedTabPosterDrawable: Int
+  stable posterDescription: String? = @static null
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun TabContainer(
+  stable modifier: Modifier? = @static Companion
+  stable content: @[ExtensionFunctionType] Function3<RowScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TabItem(
+  stable <this>: RowScope
+  stable modifier: Modifier? = @static Companion
+  stable title: String
+  stable backgroundColor: Color
+  stable textColor: Color
+  stable onTabClick: Function0<Unit>
+)
+fun defaultColor(
+  stable <this>: <no name provided>
+): Color
+fun rippleAlpha(
+  stable <this>: <no name provided>
+): RippleAlpha
+restartable skippable scheme("[0, [0]]") fun PlaygroundTheme(
+  stable content: Function2<Composer, Int, Unit>
+)
+readonly fun <get-NanumGothicTextStyle>()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Foo(
+  unused stable <this>: MainFragment
+)
+fun rememberToast()

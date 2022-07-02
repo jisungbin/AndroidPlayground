@@ -1,3 +1,4 @@
+@file:NoLiveLiterals
 @file:OptIn(ExperimentalFoundationApi::class)
 
 package land.sungbin.androidplayground.theme
@@ -8,6 +9,7 @@ import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.graphics.Color
 
 val PinkRippleTheme = object : RippleTheme {

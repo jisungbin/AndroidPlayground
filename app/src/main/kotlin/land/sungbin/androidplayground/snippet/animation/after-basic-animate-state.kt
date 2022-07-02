@@ -1,3 +1,4 @@
+@file:NoLiveLiterals
 @file:OptIn(ExperimentalAnimationApi::class)
 
 package land.sungbin.androidplayground.snippet.animation
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -1,7 +1,10 @@
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground.texttoolbar
 
 import android.view.ActionMode
 import android.view.View
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.platform.TextToolbar
 import androidx.compose.ui.platform.TextToolbarStatus

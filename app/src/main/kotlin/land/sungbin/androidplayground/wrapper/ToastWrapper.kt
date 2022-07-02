@@ -9,25 +9,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import land.sungbin.androidplayground.extension.Empty
+import java.lang.ref.WeakReference
 
 class ToastWrapper(context: Context) {
-    private val instance = Toast.makeText(context, "", Toast.LENGTH_SHORT)
+    private val contextWrapper = WeakReference(context)
+    private val _context get() = contextWrapper.get()!!
+    private val toastInstance = Toast.makeText(_context, String.Empty, Toast.LENGTH_SHORT)
 
     operator fun invoke(
         message: String,
         length: Int = Toast.LENGTH_SHORT,
     ) {
-        show(
-            message = message,
-            length = length
-        )
-    }
-
-    fun show(
-        message: String,
-        length: Int = Toast.LENGTH_SHORT,
-    ) {
-        instance.run {
+        toastInstance.run {
             setText(message)
             duration = length
             show()
