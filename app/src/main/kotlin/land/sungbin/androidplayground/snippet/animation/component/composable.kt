@@ -53,7 +53,7 @@ fun ColumnScope.TabFullname(selectedTabFullname: String) {
         modifier = Modifier.align(Alignment.CenterHorizontally),
         text = selectedTabFullname,
         style = LocalTextStyle.current.copy(
-            fontSize = 20.sp,
+            fontSize = 15.sp,
         )
     )
 }
@@ -61,12 +61,12 @@ fun ColumnScope.TabFullname(selectedTabFullname: String) {
 @Composable
 fun TabPoster(
     @DrawableRes selectedTabPosterDrawable: Int,
-    selectedTabTitle: String
+    posterDescription: String
 ) {
     Image(
         modifier = Modifier.fillMaxSize(),
         painter = painterResource(selectedTabPosterDrawable),
         contentScale = ContentScale.Fit,
-        contentDescription = selectedTabTitle
+        contentDescription = posterDescription
     )
 }

@@ -132,7 +132,7 @@ fun WithoutAnimationDemo() {
                     TabFullname(selectedTabFullname = selectedTabFullname)
                     TabPoster(
                         selectedTabPosterDrawable = selectedTabPosterDrawable,
-                        selectedTabTitle = selectedTabType.string
+                        posterDescription = selectedTabType.string
                     )
                 }
             }

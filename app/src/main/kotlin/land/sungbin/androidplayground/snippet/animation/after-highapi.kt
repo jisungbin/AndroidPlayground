@@ -113,8 +113,10 @@ fun WithHighApiAnimationDemo() {
                             ) {
                                 TabTitle(
                                     title = type.string,
-                                    selectedTabIndex = selectedTabIndexState,
-                                    index = index
+                                    textColor = tabTextColorWithAnimation(
+                                        selectedIndex =selectedTabIndexState,
+                                        nowTabIndex = index
+                                    )
                                 )
                             }
                         }
@@ -206,7 +208,7 @@ fun WithHighApiAnimationDemo() {
                     ) { targetTabPosterDrawable ->
                         TabPoster(
                             selectedTabPosterDrawable = targetTabPosterDrawable,
-                            selectedTabTitle = selectedTabType.string
+                            posterDescription = selectedTabType.string
                         )
                     }
                 }

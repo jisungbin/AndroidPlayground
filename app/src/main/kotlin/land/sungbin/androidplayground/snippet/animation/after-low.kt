@@ -32,7 +32,6 @@ import androidx.compose.material.Card
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -58,14 +57,9 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 @Composable
 fun WithLowApiAnimationDemo() {
     var selectedTabTypeState by remember { mutableStateOf(TabType.Thor) }
-    val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
-        derivedStateOf {
-            TabDefaults.Items[selectedTabTypeState.ordinal]
-        }
-    }.value
-    val selectedTabBackgroundColorTransition = updateTransition(
+    val selectedTabTransition = updateTransition(
         targetState = selectedTabTypeState,
-        label = "selected tab background color"
+        label = "selected tab"
     )
 
     ProvideTextStyle(NanumGothicTextStyle) {
@@ -93,7 +87,7 @@ fun WithLowApiAnimationDemo() {
                         .wrapContentHeight()
                 ) {
                     TabDefaults.Items.forEach { (type, _, _) ->
-                        val backgroundColor by selectedTabBackgroundColorTransition.animateColor(
+                        val backgroundColor by selectedTabTransition.animateColor(
                             transitionSpec = { defaultTween() },
                             label = "background color"
                         ) { selectedTabType ->
@@ -102,7 +96,7 @@ fun WithLowApiAnimationDemo() {
                                 false -> TabDefaults.Color.defaultBackground
                             }
                         }
-                        val textColor by selectedTabBackgroundColorTransition.animateColor(
+                        val textColor by selectedTabTransition.animateColor(
                             transitionSpec = { defaultTween() },
                             label = "text color"
                         ) { selectedTabType ->
@@ -159,11 +153,10 @@ fun WithLowApiAnimationDemo() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(15.dp)
                 ) {
-                    AnimatedContent(
+                    selectedTabTransition.AnimatedContent(
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
                             .padding(horizontal = 30.dp),
-                        targetState = selectedTabFullname,
                         transitionSpec = {
                             fadeIn(
                                 animationSpec = defaultTween()
@@ -176,21 +169,18 @@ fun WithLowApiAnimationDemo() {
                                 }
                             )
                         }
-                    ) { targetTabFullname ->
-                        TabFullname(selectedTabFullname = targetTabFullname)
+                    ) { selectedTabType ->
+                        val (_, _, selectedTabFullname) = TabDefaults.Items[selectedTabType.ordinal]
+                        TabFullname(selectedTabFullname = selectedTabFullname)
                     }
 
-                    AnimatedContent(
+                    selectedTabTransition.AnimatedContent(
                         modifier = Modifier.wrapContentSize(),
-                        targetState = selectedTabPosterDrawable,
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
-                            val targetIndex = searchTabIndexByDrawable(
-                                drawable = targetState
-                            )
-                            val initialIndex = searchTabIndexByDrawable(
-                                drawable = initialState
-                            )
+                            val targetIndex = targetState.ordinal
+                            val initialIndex = initialState.ordinal
+
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
                                     towards = AnimatedContentScope.SlideDirection.Start,
@@ -217,15 +207,15 @@ fun WithLowApiAnimationDemo() {
                                 )
                             }.apply {
                                 // fadeOut 되는거 zIndex 처리 해서 배경으로 보이게 해줌
-                                targetContentZIndex = searchTabIndexByDrawable(
-                                    drawable = targetState
-                                ).toFloat()
+                                targetContentZIndex = targetIndex.toFloat()
                             }
                         }
-                    ) { targetTabPosterDrawable ->
+                    ) { selectedTabType ->
+                        val (_, selectedTabPosterDrawable, _) = TabDefaults.Items[selectedTabType.ordinal]
+
                         TabPoster(
-                            selectedTabPosterDrawable = targetTabPosterDrawable,
-                            selectedTabTitle = selectedTabType.string
+                            selectedTabPosterDrawable = selectedTabPosterDrawable,
+                            posterDescription = selectedTabType.string
                         )
                     }
                 }
