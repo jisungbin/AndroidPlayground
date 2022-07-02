@@ -7,6 +7,8 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.with
@@ -55,12 +57,16 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 )
 @Composable
 fun WithLowApiAnimationDemo() {
-    var selectedTabIndex by remember { mutableStateOf(0) }
-    val (selectedTabTitle, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
+    var selectedTabTypeState by remember { mutableStateOf(TabType.Thor) }
+    val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {
-            TabDefaults.Items[selectedTabIndex]
+            TabDefaults.Items[selectedTabTypeState.ordinal]
         }
     }.value
+    val selectedTabBackgroundColorTransition = updateTransition(
+        targetState = selectedTabTypeState,
+        label = "selected tab background color"
+    )
 
     ProvideTextStyle(NanumGothicTextStyle) {
         Column(
@@ -86,19 +92,33 @@ fun WithLowApiAnimationDemo() {
                         .fillMaxWidth()
                         .wrapContentHeight()
                 ) {
-                    TabDefaults.Items.forEachIndexed { index, (title, _, _) ->
+                    TabDefaults.Items.forEach { (type, _, _) ->
+                        val backgroundColor by selectedTabBackgroundColorTransition.animateColor(
+                            transitionSpec = { defaultTween() },
+                            label = "background color"
+                        ) { selectedTabType ->
+                            when (selectedTabType == type) {
+                                true -> TabDefaults.Color.selectedBackground
+                                false -> TabDefaults.Color.defaultBackground
+                            }
+                        }
+                        val textColor by selectedTabBackgroundColorTransition.animateColor(
+                            transitionSpec = { defaultTween() },
+                            label = "text color"
+                        ) { selectedTabType ->
+                            when (selectedTabType == type) {
+                                true -> TabDefaults.Color.selectedText
+                                false -> TabDefaults.Color.defaultText
+                            }
+                        }
+
                         Column(
                             modifier = Modifier
                                 .weight(1f)
                                 .wrapContentHeight()
-                                .background(
-                                    color = tabBackgroundColorWithAnimation(
-                                        selectedIndex = selectedTabIndex,
-                                        nowTabIndex = index
-                                    )
-                                )
+                                .background(color = backgroundColor)
                                 .noRippleClickable {
-                                    selectedTabIndex = index
+                                    selectedTabTypeState = type
                                 }
                         ) {
                             Spacer(
@@ -112,9 +132,8 @@ fun WithLowApiAnimationDemo() {
                                 contentAlignment = Alignment.Center
                             ) {
                                 TabTitle(
-                                    title = title,
-                                    selectedTabIndex = selectedTabIndex,
-                                    index = index
+                                    title = type.string,
+                                    textColor = textColor
                                 )
                             }
                         }
@@ -206,7 +225,7 @@ fun WithLowApiAnimationDemo() {
                     ) { targetTabPosterDrawable ->
                         TabPoster(
                             selectedTabPosterDrawable = targetTabPosterDrawable,
-                            selectedTabTitle = selectedTabTitle
+                            selectedTabTitle = selectedTabType.string
                         )
                     }
                 }

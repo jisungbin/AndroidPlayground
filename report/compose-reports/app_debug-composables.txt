@@ -1,1 +1,3 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithHighApiAnimationDemo()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithLowApiAnimationDemo()
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithoutAnimationDemo()

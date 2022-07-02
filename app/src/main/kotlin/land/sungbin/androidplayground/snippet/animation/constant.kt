@@ -13,7 +13,14 @@ import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
 import land.sungbin.androidplayground.theme.Pink
 
+enum class TabType(val string: String) {
+    Thor("토르"),
+    Spider("거미맨"),
+    Doctor("의사");
+}
+
 const val AnimationDuration = 500
+
 fun <T> defaultTween() = tween<T>(
     durationMillis = AnimationDuration,
     easing = LinearEasing
@@ -29,9 +36,9 @@ data class TabColors(
 
 object TabDefaults {
     val Items = listOf(
-        "토르" to R.drawable.thor_poster and "토르: 러브 앤 썬더",
-        "거미맨" to R.drawable.spiderman_poster and "스파이더맨: 노 웨이 홈",
-        "의사" to R.drawable.doctor_poster and "닥터 스트레인지: 대혼돈의 멀티버스"
+        TabType.Thor to R.drawable.thor_poster and "토르: 러브 앤 썬더",
+        TabType.Spider to R.drawable.spiderman_poster and "스파이더맨: 노 웨이 홈",
+        TabType.Doctor to R.drawable.doctor_poster and "닥터 스트레인지: 대혼돈의 멀티버스"
     )
     val Color = TabColors()
 }

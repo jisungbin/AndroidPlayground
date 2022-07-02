@@ -45,10 +45,10 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 )
 @Composable
 fun WithoutAnimationDemo() {
-    var selectedTabIndex by remember { mutableStateOf(0) }
-    val (selectedTabTitle, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
+    var selectedTabIndexState by remember { mutableStateOf(0) }
+    val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {
-            TabDefaults.Items[selectedTabIndex]
+            TabDefaults.Items[selectedTabIndexState]
         }
     }.value
 
@@ -76,19 +76,19 @@ fun WithoutAnimationDemo() {
                         .fillMaxWidth()
                         .wrapContentHeight()
                 ) {
-                    TabDefaults.Items.forEachIndexed { index, (title, _, _) ->
+                    TabDefaults.Items.forEachIndexed { index, (type, _, _) ->
                         Column(
                             modifier = Modifier
                                 .weight(1f)
                                 .wrapContentHeight()
                                 .background(
                                     color = tabBackgroundColor(
-                                        selectedIndex = selectedTabIndex,
+                                        selectedIndex = selectedTabIndexState,
                                         nowTabIndex = index
                                     )
                                 )
                                 .noRippleClickable {
-                                    selectedTabIndex = index
+                                    selectedTabIndexState = index
                                 }
                         ) {
                             Spacer(
@@ -102,8 +102,8 @@ fun WithoutAnimationDemo() {
                                 contentAlignment = Alignment.Center
                             ) {
                                 TabTitle(
-                                    title = title,
-                                    selectedTabIndex = selectedTabIndex,
+                                    title = type.string,
+                                    selectedTabIndex = selectedTabIndexState,
                                     index = index
                                 )
                             }
@@ -115,7 +115,7 @@ fun WithoutAnimationDemo() {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(posterContainerHeight(selectedTabIndex)),
+                    .height(posterContainerHeight(selectedTabIndexState)),
                 shape = RoundedCornerShape(
                     topStart = 30.dp,
                     topEnd = 30.dp
@@ -132,7 +132,7 @@ fun WithoutAnimationDemo() {
                     TabFullname(selectedTabFullname = selectedTabFullname)
                     TabPoster(
                         selectedTabPosterDrawable = selectedTabPosterDrawable,
-                        selectedTabTitle = selectedTabTitle
+                        selectedTabTitle = selectedTabType.string
                     )
                 }
             }

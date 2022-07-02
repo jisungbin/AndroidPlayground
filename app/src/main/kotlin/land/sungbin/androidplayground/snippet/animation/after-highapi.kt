@@ -55,10 +55,10 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 )
 @Composable
 fun WithHighApiAnimationDemo() {
-    var selectedTabIndex by remember { mutableStateOf(0) }
-    val (selectedTabTitle, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
+    var selectedTabIndexState by remember { mutableStateOf(0) }
+    val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {
-            TabDefaults.Items[selectedTabIndex]
+            TabDefaults.Items[selectedTabIndexState]
         }
     }.value
 
@@ -86,19 +86,19 @@ fun WithHighApiAnimationDemo() {
                         .fillMaxWidth()
                         .wrapContentHeight()
                 ) {
-                    TabDefaults.Items.forEachIndexed { index, (title, _, _) ->
+                    TabDefaults.Items.forEachIndexed { index, (type, _, _) ->
                         Column(
                             modifier = Modifier
                                 .weight(1f)
                                 .wrapContentHeight()
                                 .background(
                                     color = tabBackgroundColorWithAnimation(
-                                        selectedIndex = selectedTabIndex,
+                                        selectedIndex = selectedTabIndexState,
                                         nowTabIndex = index
                                     )
                                 )
                                 .noRippleClickable {
-                                    selectedTabIndex = index
+                                    selectedTabIndexState = index
                                 }
                         ) {
                             Spacer(
@@ -112,8 +112,8 @@ fun WithHighApiAnimationDemo() {
                                 contentAlignment = Alignment.Center
                             ) {
                                 TabTitle(
-                                    title = title,
-                                    selectedTabIndex = selectedTabIndex,
+                                    title = type.string,
+                                    selectedTabIndex = selectedTabIndexState,
                                     index = index
                                 )
                             }
@@ -206,7 +206,7 @@ fun WithHighApiAnimationDemo() {
                     ) { targetTabPosterDrawable ->
                         TabPoster(
                             selectedTabPosterDrawable = targetTabPosterDrawable,
-                            selectedTabTitle = selectedTabTitle
+                            selectedTabTitle = selectedTabType.string
                         )
                     }
                 }
