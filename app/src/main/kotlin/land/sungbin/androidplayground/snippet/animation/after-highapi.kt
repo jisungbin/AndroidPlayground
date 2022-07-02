@@ -1,5 +1,4 @@
 @file:OptIn(ExperimentalAnimationApi::class)
-@file:Suppress("ComplexRedundantLet")
 
 package land.sungbin.androidplayground.snippet.animation
 
@@ -11,7 +10,6 @@ import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.with
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -29,10 +27,8 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
-import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -43,12 +39,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import land.sungbin.androidplayground.extension.noRippleClickable
+import land.sungbin.androidplayground.snippet.animation.component.TabFullname
+import land.sungbin.androidplayground.snippet.animation.component.TabPoster
+import land.sungbin.androidplayground.snippet.animation.component.TabTitle
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 
@@ -115,15 +111,10 @@ fun WithHighApiAnimationDemo() {
                                     .height(50.dp),
                                 contentAlignment = Alignment.Center
                             ) {
-                                Text(
-                                    text = title,
-                                    style = LocalTextStyle.current.copy(
-                                        color = tabTextColorWithAnimation(
-                                            selectedIndex = selectedTabIndex,
-                                            nowTabIndex = index
-                                        ),
-                                        fontSize = 20.sp,
-                                    )
+                                TabTitle(
+                                    title = title,
+                                    selectedTabIndex = selectedTabIndex,
+                                    index = index
                                 )
                             }
                         }
@@ -167,12 +158,7 @@ fun WithHighApiAnimationDemo() {
                             )
                         }
                     ) { targetTabFullname ->
-                        Text(
-                            text = targetTabFullname,
-                            style = LocalTextStyle.current.copy(
-                                fontSize = 15.sp,
-                            )
-                        )
+                        TabFullname(selectedTabFullname = targetTabFullname)
                     }
 
                     AnimatedContent(
@@ -218,10 +204,9 @@ fun WithHighApiAnimationDemo() {
                             }
                         }
                     ) { targetTabPosterDrawable ->
-                        Image(
-                            painter = painterResource(targetTabPosterDrawable),
-                            contentScale = ContentScale.Fit,
-                            contentDescription = selectedTabTitle
+                        TabPoster(
+                            selectedTabPosterDrawable = targetTabPosterDrawable,
+                            selectedTabTitle = selectedTabTitle
                         )
                     }
                 }
