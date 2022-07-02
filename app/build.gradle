@@ -79,6 +79,7 @@ dependencies {
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.24.11-rc"
+    implementation "com.github.skydoves:landscapist-coil:1.5.2"
 
     // hilt
     implementation "com.google.dagger:hilt-android:2.42"

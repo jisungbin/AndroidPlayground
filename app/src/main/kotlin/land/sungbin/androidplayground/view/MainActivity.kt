@@ -27,6 +27,7 @@
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -50,7 +51,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.extension.invoke
-import land.sungbin.androidplayground.snippet.IntrinsicPreview
+import land.sungbin.androidplayground.snippet.animation.WithoutAnimationDemo
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -76,6 +77,7 @@ class MainActivity : ComponentActivity() {
             var selectedColorState by remember { mutableStateOf(Color.Red) }
 
             LaunchedEffect(Unit) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 /*systemUiController.setStatusBarColor(
                     color = Color.Transparent,
@@ -86,13 +88,13 @@ class MainActivity : ComponentActivity() {
                     darkIcons = true
                 )*/
                 systemUiController.setSystemBarsColor(
-                    color = Color.White,
+                    color = Color.Transparent,
                     darkIcons = true
                 )
             }
 
             PlaygroundTheme {
-                IntrinsicPreview()
+                WithoutAnimationDemo()
             }
         }
     }
