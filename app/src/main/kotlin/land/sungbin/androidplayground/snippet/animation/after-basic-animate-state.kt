@@ -41,7 +41,7 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
 )
 @Composable
-fun WithHighApiAnimationDemo() {
+fun BasicAnimateStateMovieSelector() {
     var selectedTabIndexState by remember { mutableStateOf(0) }
     val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {

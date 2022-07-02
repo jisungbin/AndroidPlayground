@@ -47,7 +47,7 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
 )
 @Composable
-fun WithLowApiAnimationDemo() {
+fun NormalTransitionMovieSelector() {
     var selectedMovieState by remember { mutableStateOf(Movie.Thor) }
     val selectedTabTransition = updateTransition(
         targetState = selectedMovieState,

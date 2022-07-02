@@ -161,7 +161,7 @@ private fun MovieTab(
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
 )
 @Composable
-fun WithLowApiAnimationAndTabSelectorDemo() {
+fun NormalTransitionMovieSelectorWithMovieTab() {
     var selectedMovieState by remember { mutableStateOf(Movie.Thor) }
     val selectedTabTransition = updateTransition(
         targetState = selectedMovieState,
