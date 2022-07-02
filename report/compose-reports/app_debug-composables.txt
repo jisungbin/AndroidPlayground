@@ -1,18 +1,3 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TabTitle(
-  stable title: String
-  stable selectedTabIndex: Int
-  stable index: Int
-  stable textColor: Color = @dynamic tabTextColor(selectedTabIndex, index)
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TabTitle(
-  stable title: String
-  stable textColor: Color
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TabFullname(
-  stable <this>: ColumnScope
-  stable selectedTabFullname: String
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TabPoster(
-  stable selectedTabPosterDrawable: Int
-  stable posterDescription: String
-)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithHighApiAnimationDemo()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithLowApiAnimationDemo()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WithoutAnimationDemo()

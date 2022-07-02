@@ -17,6 +17,7 @@ import land.sungbin.androidplayground.snippet.animation.tabTextColor
 
 @Composable
 fun TabTitle(
+    modifier: Modifier = Modifier,
     title: String,
     selectedTabIndex: Int,
     index: Int,
@@ -26,6 +27,7 @@ fun TabTitle(
     ),
 ) {
     Text(
+        modifier = modifier,
         text = title,
         style = LocalTextStyle.current.copy(
             color = textColor,
@@ -36,10 +38,12 @@ fun TabTitle(
 
 @Composable
 fun TabTitle(
+    modifier: Modifier = Modifier,
     title: String,
     textColor: Color
 ) {
     TabTitle(
+        modifier = modifier,
         title = title,
         selectedTabIndex = 0,
         index = 0,
@@ -48,9 +52,12 @@ fun TabTitle(
 }
 
 @Composable
-fun ColumnScope.TabFullname(selectedTabFullname: String) {
+fun ColumnScope.TabFullname(
+    modifier: Modifier = Modifier,
+    selectedTabFullname: String
+) {
     Text(
-        modifier = Modifier.align(Alignment.CenterHorizontally),
+        modifier = modifier.align(Alignment.CenterHorizontally),
         text = selectedTabFullname,
         style = LocalTextStyle.current.copy(
             fontSize = 15.sp,
@@ -60,11 +67,12 @@ fun ColumnScope.TabFullname(selectedTabFullname: String) {
 
 @Composable
 fun TabPoster(
+    modifier: Modifier = Modifier,
     @DrawableRes selectedTabPosterDrawable: Int,
-    posterDescription: String
+    posterDescription: String? = null
 ) {
     Image(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         painter = painterResource(selectedTabPosterDrawable),
         contentScale = ContentScale.Fit,
         contentDescription = posterDescription

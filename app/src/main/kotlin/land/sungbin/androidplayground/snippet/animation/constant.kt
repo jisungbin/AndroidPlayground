@@ -2,7 +2,7 @@ package land.sungbin.androidplayground.snippet.animation
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
 import land.sungbin.androidplayground.theme.Pink
+
+val DefaultCornerSize = 30.dp
 
 enum class TabType(val string: String) {
     Thor("토르"),
@@ -23,7 +25,7 @@ const val AnimationDuration = 500
 
 fun <T> defaultTween() = tween<T>(
     durationMillis = AnimationDuration,
-    easing = LinearEasing
+    easing = FastOutSlowInEasing
 )
 
 @Immutable

@@ -75,8 +75,8 @@ fun WithHighApiAnimationDemo() {
                     .wrapContentHeight()
                     .clip(
                         RoundedCornerShape(
-                            bottomStart = 30.dp,
-                            bottomEnd = 30.dp
+                            bottomStart = DefaultCornerSize,
+                            bottomEnd = DefaultCornerSize
                         )
                     ),
                 elevation = 10.dp
@@ -114,7 +114,7 @@ fun WithHighApiAnimationDemo() {
                                 TabTitle(
                                     title = type.string,
                                     textColor = tabTextColorWithAnimation(
-                                        selectedIndex =selectedTabIndexState,
+                                        selectedIndex = selectedTabIndexState,
                                         nowTabIndex = index
                                     )
                                 )
@@ -129,8 +129,8 @@ fun WithHighApiAnimationDemo() {
                     .fillMaxWidth()
                     .height(600.dp),
                 shape = RoundedCornerShape(
-                    topStart = 30.dp,
-                    topEnd = 30.dp
+                    topStart = DefaultCornerSize,
+                    topEnd = DefaultCornerSize
                 ),
                 elevation = 10.dp,
                 backgroundColor = Color.White
