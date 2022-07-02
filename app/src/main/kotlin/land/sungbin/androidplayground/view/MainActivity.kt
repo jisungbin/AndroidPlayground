@@ -50,7 +50,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.extension.invoke
-import land.sungbin.androidplayground.note.LookaheadLayoutExample
+import land.sungbin.androidplayground.snippet.IntrinsicPreview
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -92,7 +92,7 @@ class MainActivity : ComponentActivity() {
             }
 
             PlaygroundTheme {
-                LookaheadLayoutExample()
+                IntrinsicPreview()
             }
         }
     }
