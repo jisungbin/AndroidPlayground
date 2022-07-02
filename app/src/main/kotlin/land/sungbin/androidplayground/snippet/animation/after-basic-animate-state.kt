@@ -1,6 +1,10 @@
+@file:OptIn(ExperimentalAnimationApi::class)
+
 package land.sungbin.androidplayground.snippet.animation
 
 import android.content.res.Configuration
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -36,7 +41,7 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
 )
 @Composable
-fun WithoutAnimationDemo() {
+fun WithHighApiAnimationDemo() {
     var selectedTabIndexState by remember { mutableStateOf(0) }
     val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {
@@ -58,7 +63,7 @@ fun WithoutAnimationDemo() {
                             .weight(1f)
                             .height(StatusBarHeightDp + 50.dp)
                             .background(
-                                color = tabBackgroundColor(
+                                color = tabBackgroundColorWithAnimation(
                                     selectedIndex = selectedTabIndexState,
                                     nowTabIndex = index
                                 )
@@ -71,19 +76,35 @@ fun WithoutAnimationDemo() {
                         TabTitle(
                             modifier = Modifier.padding(top = StatusBarHeightDp),
                             title = type.string,
-                            selectedTabIndex = selectedTabIndexState,
-                            index = index
+                            textColor = tabTextColorWithAnimation(
+                                selectedIndex = selectedTabIndexState,
+                                nowTabIndex = index
+                            )
                         )
                     }
                 }
             }
 
             MovieContainer {
-                MovieName(selectedTabFullname = selectedTabFullname)
-                MoviePoster(
-                    selectedTabPosterDrawable = selectedTabPosterDrawable,
-                    posterDescription = selectedTabType.string
-                )
+                AnimatedContent(
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(horizontal = 30.dp),
+                    targetState = selectedTabFullname
+                ) { targetTabFullname ->
+                    MovieName(selectedTabFullname = targetTabFullname)
+                }
+
+                AnimatedContent(
+                    modifier = Modifier.wrapContentSize(),
+                    targetState = selectedTabPosterDrawable,
+                    contentAlignment = Alignment.Center
+                ) { targetTabPosterDrawable ->
+                    MoviePoster(
+                        selectedTabPosterDrawable = targetTabPosterDrawable,
+                        posterDescription = selectedTabType.string
+                    )
+                }
             }
         }
     }

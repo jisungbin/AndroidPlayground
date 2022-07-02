@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
 import land.sungbin.androidplayground.theme.Pink
@@ -16,7 +15,7 @@ import land.sungbin.androidplayground.theme.Pink
 const val DefaultCornerPercent = 30
 const val AnimationDuration = 500
 
-enum class TabType(val string: String) {
+enum class Movie(val string: String) {
     Thor("토르"),
     Spider("거미맨"),
     Doctor("의사");
@@ -37,9 +36,9 @@ data class TabColors(
 
 object TabDefaults {
     val Items = listOf(
-        TabType.Thor to R.drawable.thor_poster and "토르: 러브 앤 썬더",
-        TabType.Spider to R.drawable.spiderman_poster and "스파이더맨: 노 웨이 홈",
-        TabType.Doctor to R.drawable.doctor_poster and "닥터 스트레인지: 대혼돈의 멀티버스"
+        Movie.Thor to R.drawable.thor_poster and "토르: 러브 앤 썬더",
+        Movie.Spider to R.drawable.spiderman_poster and "스파이더맨: 노 웨이 홈",
+        Movie.Doctor to R.drawable.doctor_poster and "닥터 스트레인지: 대혼돈의 멀티버스"
     )
     val Color = TabColors()
 }
@@ -61,9 +60,6 @@ fun tabTextColor(
     true -> TabDefaults.Color.selectedText
     false -> TabDefaults.Color.defaultText
 }
-
-@Stable
-fun posterContainerHeight(index: Int) = listOf(500, 550, 600)[index].dp
 
 @Composable
 fun tabBackgroundColorWithAnimation(

@@ -2,8 +2,15 @@ package land.sungbin.androidplayground.snippet.animation.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,47 +19,38 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import land.sungbin.androidplayground.snippet.animation.tabTextColor
+import land.sungbin.androidplayground.snippet.animation.DefaultCornerPercent
 
 @Composable
-fun TabTitle(
+fun MovieContainer(
     modifier: Modifier = Modifier,
-    title: String,
-    selectedTabIndex: Int,
-    index: Int,
-    textColor: Color = tabTextColor(
-        selectedIndex = selectedTabIndex,
-        nowTabIndex = index
-    ),
+    content: @Composable ColumnScope.() -> Unit
 ) {
-    Text(
-        modifier = modifier,
-        text = title,
-        style = LocalTextStyle.current.copy(
-            color = textColor,
-            fontSize = 20.sp,
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(600.dp),
+        shape = RoundedCornerShape(
+            topStart = DefaultCornerPercent.dp,
+            topEnd = DefaultCornerPercent.dp
+        ),
+        elevation = 10.dp,
+        backgroundColor = Color.White,
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(15.dp),
+            content = content
         )
-    )
+    }
 }
 
 @Composable
-fun TabTitle(
-    modifier: Modifier = Modifier,
-    title: String,
-    textColor: Color
-) {
-    TabTitle(
-        modifier = modifier,
-        title = title,
-        selectedTabIndex = 0,
-        index = 0,
-        textColor = textColor
-    )
-}
-
-@Composable
-fun ColumnScope.TabFullname(
+fun ColumnScope.MovieName(
     modifier: Modifier = Modifier,
     selectedTabFullname: String
 ) {
