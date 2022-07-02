@@ -1,6 +1,0 @@
-stable class TabColors {
-  stable val defaultBackground: Color
-  stable val selectedBackground: Color
-  stable val defaultText: Color
-  stable val selectedText: Color
-}
