@@ -1,4 +1,4 @@
-package land.sungbin.androidplayground.snippet.animation.preview
+package land.sungbin.androidplayground.preview
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 

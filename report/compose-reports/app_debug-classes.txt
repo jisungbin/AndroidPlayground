@@ -4,6 +4,10 @@ stable class AndroidPlayground {
 stable class HiltModule {
   <runtime stability> = Stable
 }
+unstable class BooleanPreview {
+  unstable val values: Sequence<Boolean>
+  <runtime stability> = Unstable
+}
 stable class PosterSize {
   stable val Vertical: DpSize
   stable val Horizontal: DpSize

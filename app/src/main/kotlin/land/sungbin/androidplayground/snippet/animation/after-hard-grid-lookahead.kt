@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.round
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.noRippleClickable
+import land.sungbin.androidplayground.preview.BooleanPreview
 import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
-import land.sungbin.androidplayground.snippet.animation.preview.BooleanPreview
 
 private fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
     var placementOffset by remember { mutableStateOf(IntOffset.Zero) }

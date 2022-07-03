@@ -41,6 +41,10 @@ fun tabTextColorWithAnimation(
   stable nowTabIndex: Int
 ): Color
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun HardLookaheadMovieGridWithAnimation()
+restartable scheme("[androidx.compose.ui.UiComposable]") fun MovieItem(
+  unstable <this>: LookaheadLayoutScope
+  stable isInColumn: Boolean
+)
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun HardLookaheadMovieGrid()
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieTab(
   stable selectedTabTransition: Transition<Movie>
