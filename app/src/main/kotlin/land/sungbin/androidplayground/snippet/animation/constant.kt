@@ -8,6 +8,8 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
 import land.sungbin.androidplayground.theme.Pink
@@ -20,6 +22,20 @@ enum class Movie(val string: String) {
     Thor("토르"),
     Spider("거미맨"),
     Doctor("의사");
+}
+
+object PosterSize {
+    @Stable
+    val Vertical = DpSize(
+        width = 180.dp,
+        height = 220.dp
+    )
+
+    @Stable
+    val Horizontal = DpSize(
+        width = 120.dp,
+        height = 200.dp
+    )
 }
 
 fun <T> defaultTween() = tween<T>(

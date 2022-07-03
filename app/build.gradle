@@ -28,7 +28,7 @@ android {
 
     kotlinOptions {
         jvmTarget = '11'
-        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn"]
+        freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn", "-Xjvm-default=all"]
         freeCompilerArgs += ["-P",
                              "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${rootProject.file(".").absolutePath}/report/compose-metrics"]
         freeCompilerArgs += ["-P",
