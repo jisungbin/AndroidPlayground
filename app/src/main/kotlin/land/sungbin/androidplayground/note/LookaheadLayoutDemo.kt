@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalComposeUiApi::class, ExperimentalComposeUiApi::class)
+@file:OptIn(ExperimentalComposeUiApi::class)
 
 package land.sungbin.androidplayground.note
 
@@ -188,8 +188,8 @@ fun LookaheadLayoutDemo() {
         val maxHeight = placeables.maxOf { it.height }
 
         layout(width = maxWidth, height = maxHeight) {
-            placeables.forEach {
-                it.place(x = 0, y = 0)
+            placeables.forEach { placeable ->
+                placeable.place(x = 0, y = 0)
             }
         }
     }
