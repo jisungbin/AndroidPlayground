@@ -97,9 +97,12 @@ private fun Modifier.layoutTransitionAnimation(lookaheadScope: LookaheadLayoutSc
 
                 // targetOffset 이 layout 안에 들어올 때면 항상 non-null 인데
                 // 왜? 인지를 모르겠다.
+                // -> 이 intermediateLayout 블럭 4번 실행되고 (배치할 박스가 4개니까)
+                // 이후 layout 블럭이 4번 실행 됨.
+                // 내부에서 suspend 가 있는건가???
+                // 어떻게 비동기로 작동하는 걸까?
                 val placeable = measurable.measure(constraints)
                 layout(placeable.width, placeable.height) {
-
                     // 이동한 오프셋에 배치 하려고
                     // targetOffset - placementOffset 하는거 같음
                     val (x, y) = (
