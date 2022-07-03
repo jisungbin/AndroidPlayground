@@ -47,11 +47,8 @@ fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
     with(lookaheadScope) {
         this@composed
             .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
-                println("onPlaced.")
                 targetOffset = lookaheadScopeCoordinates
-                    .localLookaheadPositionOf(
-                        sourceCoordinates = layoutCoordinates
-                    )
+                    .localLookaheadPositionOf(sourceCoordinates = layoutCoordinates)
                     .round()
 
                 placementOffset = lookaheadScopeCoordinates
@@ -62,7 +59,6 @@ fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
                     .round()
             }
             .intermediateLayout { measurable, constraints, _ ->
-                println("intermediateLayout.")
                 val placeable = measurable.measure(constraints)
                 layout(placeable.width, placeable.height) {
                     val (x, y) = targetOffset!! - placementOffset
@@ -110,9 +106,7 @@ fun Modifier.layoutTransitionAnimation(
         this@composed
             .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
                 targetOffset = lookaheadScopeCoordinates
-                    .localLookaheadPositionOf(
-                        sourceCoordinates = layoutCoordinates
-                    )
+                    .localLookaheadPositionOf(sourceCoordinates = layoutCoordinates)
                     .round()
 
                 placementOffset = lookaheadScopeCoordinates

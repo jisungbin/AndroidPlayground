@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.DefaultMeasurePolicy
+import land.sungbin.androidplayground.extension.layoutTransition
 import land.sungbin.androidplayground.extension.layoutTransitionAnimation
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.theme.Pink

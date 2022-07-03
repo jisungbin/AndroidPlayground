@@ -1,6 +1,9 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpendableFabBasic(
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpandableFabBasic(
   stable modifier: Modifier? = @static Companion
 )
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpendableFabAnimation(
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpandableFabWithNoAnimation(
+  stable modifier: Modifier? = @static Companion
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpandableFabAnimation(
   stable modifier: Modifier? = @static Companion
 )
