@@ -52,8 +52,8 @@ private fun Modifier.layoutTransitionAnimation(
         mutableStateOf(null)
     }
 
-    var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
-    var targetOffset: IntOffset? by remember { mutableStateOf(null) }
+    var placementOffset by remember { mutableStateOf(IntOffset.Zero) } // 현재 배치된 위치
+    var targetOffset: IntOffset? by remember { mutableStateOf(null) } // lookahead 단계에서 받은 위치
 
     LaunchedEffect(Unit) {
         snapshotFlow { targetOffset }.collect { target ->
@@ -80,11 +80,13 @@ private fun Modifier.layoutTransitionAnimation(
             .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
                 // localLookaheadPositionOf는 LookaheadLayout의 로컬 좌표에서
                 // 이 수정자의 *target* 위치를 반환합니다.
+
+                // LookaheadLayout 의 로컬 좌표에서 이 modifier 의 target 위치를 반환
                 targetOffset = lookaheadScopeCoordinates
                     .localLookaheadPositionOf(
                         sourceCoordinates = layoutCoordinates
                     )
-                    .round()
+                    .round() // 가장 가까운 IntOffset 값으로 오프셋 반올림
 
                 // localPositionOf는 LookaheadLayout의 로컬 좌표에서
                 // 이 수정자의 *현재* 위치를 반환합니다.
