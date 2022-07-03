@@ -40,29 +40,24 @@ import androidx.compose.ui.unit.round
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 
-fun Modifier.layoutChangeAnimation(
-    // transition: Transition<Boolean>,
-    lookaheadScope: LookaheadLayoutScope,
-) = composed {
-    var offsetAnimation: Animatable<IntOffset, AnimationVector2D>? by remember {
+private fun Modifier.layoutChangeAnimation(lookaheadScope: LookaheadLayoutScope) = composed {
+    var targetOffsetAnimation: Animatable<IntOffset, AnimationVector2D>? by remember {
         mutableStateOf(null)
     }
 
     var placementOffset: IntOffset by remember { mutableStateOf(IntOffset.Zero) }
-    var targetOffset: IntOffset? by remember {
-        mutableStateOf(null)
-    }
+    var targetOffset: IntOffset? by remember { mutableStateOf(null) }
 
     LaunchedEffect(Unit) {
         snapshotFlow { targetOffset }.collect { target ->
-            if (target != null && target != offsetAnimation?.targetValue) {
-                offsetAnimation?.run {
+            if (target != null && target != targetOffsetAnimation?.targetValue) {
+                targetOffsetAnimation?.run {
                     launch {
                         animateTo(
                             targetValue = target,
                             animationSpec = spring(
                                 dampingRatio = Spring.DampingRatioMediumBouncy,
-                                stiffness = Spring.StiffnessMedium,
+                                stiffness = Spring.StiffnessVeryLow,
                             )
                         )
                     }
@@ -70,7 +65,7 @@ fun Modifier.layoutChangeAnimation(
                     initialValue = target,
                     typeConverter = IntOffset.VectorConverter
                 ).let { offsetAnimatable ->
-                    offsetAnimation = offsetAnimatable
+                    targetOffsetAnimation = offsetAnimatable
                 }
             }
         }
@@ -81,32 +76,43 @@ fun Modifier.layoutChangeAnimation(
             .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
                 // localLookaheadPositionOf는 LookaheadLayout의 로컬 좌표에서
                 // 이 수정자의 *target* 위치를 반환합니다.
-                targetOffset = lookaheadScopeCoordinates.localLookaheadPositionOf(
-                    sourceCoordinates = layoutCoordinates
-                ).round()
+                targetOffset = lookaheadScopeCoordinates
+                    .localLookaheadPositionOf(
+                        sourceCoordinates = layoutCoordinates
+                    )
+                    .round()
 
                 // localPositionOf는 LookaheadLayout의 로컬 좌표에서
                 // 이 수정자의 *현재* 위치를 반환합니다.
-                placementOffset = lookaheadScopeCoordinates.localPositionOf(
-                    sourceCoordinates = layoutCoordinates,
-                    relativeToSource = Offset.Zero
-                ).round()
+                placementOffset = lookaheadScopeCoordinates
+                    .localPositionOf(
+                        sourceCoordinates = layoutCoordinates,
+                        relativeToSource = Offset.Zero
+                    )
+                    .round()
             }
             .intermediateLayout { measurable, constraints, _ ->
-                val localOffsetAnimation = offsetAnimation
-                checkNotNull(localOffsetAnimation) { "offsetAnimation is null" }
+                // targOffset 이 collect 되서 targetOffsetAnimation 이 초기화 되기 전에
+                // 이 블록이 실행될 수 있음?
 
+                // targetOffset 이 layout 안에 들어올 때면 항상 non-null 인데
+                // 왜? 인지를 모르겠다.
                 val placeable = measurable.measure(constraints)
                 layout(placeable.width, placeable.height) {
-                    val (x, y) = localOffsetAnimation.value - placementOffset
+                    val (x, y) = (
+                        targetOffsetAnimation?.value ?: targetOffset!!
+                        ) - placementOffset
                     placeable.place(x, y)
                 }
             }
     }
 }
 
-val colors = listOf(
-    Color(0xffff6f69), Color(0xffffcc5c), Color(0xff264653), Color(0xff2a9d84)
+private val colors = listOf(
+    Color(0xffff6f69),
+    Color(0xffffcc5c),
+    Color(0xff264653),
+    Color(0xff2a9d84)
 )
 
 @BackgroundPreview
