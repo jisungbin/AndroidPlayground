@@ -24,12 +24,14 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LookaheadLayout
 import androidx.compose.ui.layout.LookaheadLayoutScope
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.round
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
+import land.sungbin.androidplayground.snippet.animation.preview.BooleanPreview
 
 private fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
     var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
@@ -63,7 +65,9 @@ private fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = co
 
 @BackgroundPreview
 @Composable
-private fun LookaheadLayoutScope.MovieItem(isInColumn: Boolean = true) {
+private fun LookaheadLayoutScope.MovieItem(
+    @PreviewParameter(BooleanPreview::class) isInColumn: Boolean
+) {
     TabDefaults.Items.forEach { tab ->
         val (tabType, tabPosterDrawable, _) = tab
         MoviePoster(
