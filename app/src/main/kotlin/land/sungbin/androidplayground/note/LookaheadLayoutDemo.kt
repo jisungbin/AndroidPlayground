@@ -40,12 +40,12 @@ import androidx.compose.ui.unit.round
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 
-private fun Modifier.layoutChangeAnimation(lookaheadScope: LookaheadLayoutScope) = composed {
+private fun Modifier.layoutTransitionAnimation(lookaheadScope: LookaheadLayoutScope) = composed {
     var targetOffsetAnimation: Animatable<IntOffset, AnimationVector2D>? by remember {
         mutableStateOf(null)
     }
 
-    var placementOffset: IntOffset by remember { mutableStateOf(IntOffset.Zero) }
+    var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
     var targetOffset: IntOffset? by remember { mutableStateOf(null) }
 
     LaunchedEffect(Unit) {
@@ -124,7 +124,7 @@ fun LookaheadLayoutDemo() {
         movableContentWithReceiverOf<LookaheadLayoutScope> {
             colors.forEach { color ->
                 Box(
-                    Modifier
+                    modifier = Modifier
                         .size(
                             size = when (isInColumn) {
                                 true -> DpSize(
@@ -137,7 +137,7 @@ fun LookaheadLayoutDemo() {
                                 )
                             }
                         )
-                        .layoutChangeAnimation(this)
+                        .layoutTransitionAnimation(this)
                         .background(color, RoundedCornerShape(20))
                 )
             }
@@ -181,9 +181,9 @@ fun LookaheadLayoutDemo() {
         val maxWidth = placeables.maxOf { it.width }
         val maxHeight = placeables.maxOf { it.height }
 
-        layout(maxWidth, maxHeight) {
+        layout(width = maxWidth, height = maxHeight) {
             placeables.forEach {
-                it.place(0, 0)
+                it.place(x = 0, y = 0)
             }
         }
     }
