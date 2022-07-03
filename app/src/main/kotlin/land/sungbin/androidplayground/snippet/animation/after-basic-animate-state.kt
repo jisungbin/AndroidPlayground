@@ -85,7 +85,7 @@ fun BasicAnimateStateMovieSelector() {
                     contentAlignment = Alignment.Center
                 ) { targetTabPosterDrawable ->
                     MoviePoster(
-                        selectedTabPosterDrawable = targetTabPosterDrawable,
+                        posterDrawable = targetTabPosterDrawable,
                         posterDescription = selectedTabType.string
                     )
                 }

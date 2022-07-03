@@ -24,6 +24,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import land.sungbin.androidplayground.extension.runIf
 import land.sungbin.androidplayground.snippet.animation.DefaultCornerUnit
 
 @Composable
@@ -67,12 +68,13 @@ fun ColumnScope.MovieName(
 @Composable
 fun MoviePoster(
     modifier: Modifier = Modifier,
-    @DrawableRes selectedTabPosterDrawable: Int,
+    fillMaxSize: Boolean = true,
+    @DrawableRes posterDrawable: Int,
     posterDescription: String? = null
 ) {
     Image(
-        modifier = modifier.fillMaxSize(),
-        painter = painterResource(selectedTabPosterDrawable),
+        modifier = modifier.runIf(fillMaxSize) { fillMaxSize() },
+        painter = painterResource(posterDrawable),
         contentScale = ContentScale.Fit,
         contentDescription = posterDescription
     )

@@ -3,7 +3,6 @@
 
 package land.sungbin.androidplayground.snippet.animation
 
-import android.content.res.Configuration
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -29,7 +28,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
@@ -148,7 +146,7 @@ fun NormalTransitionMovieSelector() {
                 ) { selectedTabType ->
                     val (_, selectedTabPosterDrawable, _) = TabDefaults.Items[selectedTabType.ordinal]
                     MoviePoster(
-                        selectedTabPosterDrawable = selectedTabPosterDrawable,
+                        posterDrawable = selectedTabPosterDrawable,
                         posterDescription = selectedTabType.string
                     )
                 }

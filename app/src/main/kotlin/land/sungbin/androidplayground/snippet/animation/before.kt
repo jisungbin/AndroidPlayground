@@ -2,7 +2,6 @@
 
 package land.sungbin.androidplayground.snippet.animation
 
-import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,8 +17,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import com.google.android.material.tabs.TabItem
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
 import land.sungbin.androidplayground.snippet.animation.component.MovieName
@@ -67,7 +64,7 @@ fun DefaultMovieSelector() {
             MovieContainer {
                 MovieName(selectedTabFullname = selectedTabFullname)
                 MoviePoster(
-                    selectedTabPosterDrawable = selectedTabPosterDrawable,
+                    posterDrawable = selectedTabPosterDrawable,
                     posterDescription = selectedTabType.string
                 )
             }

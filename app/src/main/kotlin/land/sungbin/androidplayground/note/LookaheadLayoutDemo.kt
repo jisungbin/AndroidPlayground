@@ -3,6 +3,7 @@
 package land.sungbin.androidplayground.note
 
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.AnimationVector2D
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.VectorConverter
@@ -40,7 +41,13 @@ import androidx.compose.ui.unit.round
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 
-private fun Modifier.layoutTransitionAnimation(lookaheadScope: LookaheadLayoutScope) = composed {
+private fun Modifier.layoutTransitionAnimation(
+    lookaheadScope: LookaheadLayoutScope,
+    animationSpec: AnimationSpec<IntOffset> = spring(
+        dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = Spring.StiffnessVeryLow,
+    )
+) = composed {
     var targetOffsetAnimation: Animatable<IntOffset, AnimationVector2D>? by remember {
         mutableStateOf(null)
     }
@@ -55,10 +62,7 @@ private fun Modifier.layoutTransitionAnimation(lookaheadScope: LookaheadLayoutSc
                     launch {
                         animateTo(
                             targetValue = target,
-                            animationSpec = spring(
-                                dampingRatio = Spring.DampingRatioMediumBouncy,
-                                stiffness = Spring.StiffnessVeryLow,
-                            )
+                            animationSpec = animationSpec
                         )
                     }
                 } ?: Animatable(
