@@ -5,14 +5,13 @@
 
 package land.sungbin.androidplayground.snippet.animation
 
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
@@ -33,8 +32,8 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.DefaultMeasurePolicy
-import land.sungbin.androidplayground.extension.layoutTransition
-import land.sungbin.androidplayground.extension.layoutTransitionAnimation
+import land.sungbin.androidplayground.extension.animateMovement
+import land.sungbin.androidplayground.extension.animateTransformation
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.theme.Pink
 
@@ -44,7 +43,7 @@ private object FabDefaults {
 
     fun shape(isExpanded: Boolean) = when (isExpanded) {
         true -> RoundedCornerShape(percent = 10)
-        else -> RoundedCornerShape(percent = 30)
+        else -> /*RoundedCornerShape(percent = 30)*/ CircleShape
     }
 
     @Stable
@@ -116,13 +115,8 @@ fun ExpandableFabAnimation(modifier: Modifier = Modifier) {
                                 maxWidthDp = screenMaxWidth.dp
                             )
                         )
-                        .layoutTransitionAnimation(
-                            lookaheadScope = this@LookaheadLayout,
-                            animationSpec = spring(
-                                dampingRatio = Spring.DampingRatioLowBouncy,
-                                stiffness = Spring.StiffnessVeryLow,
-                            )
-                        )
+                        .animateMovement(lookaheadScope = this@LookaheadLayout)
+                        .animateTransformation(lookaheadScope = this@LookaheadLayout)
                         .noRippleClickable { isExpanded = !isExpanded },
                     elevation = FabDefaults.elevation,
                     color = FabDefaults.color,

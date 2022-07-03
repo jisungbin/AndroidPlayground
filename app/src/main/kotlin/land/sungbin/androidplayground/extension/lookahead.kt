@@ -1,4 +1,6 @@
 @file:OptIn(ExperimentalComposeUiApi::class)
+@file:Suppress("unused")
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.extension
 
@@ -9,6 +11,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.VectorConverter
 import androidx.compose.animation.core.spring
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,8 +27,17 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.round
 import kotlinx.coroutines.launch
+
+private val Spring.StiffnessDebug
+    get() = 1f
+
+private fun <T> defaultSpring() = spring<T>(
+    dampingRatio = Spring.DampingRatioLowBouncy,
+    stiffness = Spring.StiffnessDebug,
+)
 
 inline val DefaultMeasurePolicy: MeasureScope.(measurables: List<Measurable>, constraints: Constraints) -> MeasureResult
     get() = { measurables, constraints ->
@@ -40,7 +52,8 @@ inline val DefaultMeasurePolicy: MeasureScope.(measurables: List<Measurable>, co
         }
     }
 
-fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
+// for test
+fun Modifier.movement(lookaheadScope: LookaheadLayoutScope) = composed {
     var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
     var targetOffset: IntOffset? by remember { mutableStateOf(null) }
 
@@ -68,19 +81,16 @@ fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
     }
 }
 
-fun Modifier.layoutTransitionAnimation(
+fun Modifier.animateMovement(
     lookaheadScope: LookaheadLayoutScope,
-    animationSpec: AnimationSpec<IntOffset> = spring(
-        dampingRatio = Spring.DampingRatioMediumBouncy,
-        stiffness = Spring.StiffnessVeryLow,
-    )
+    animationSpec: AnimationSpec<IntOffset> = defaultSpring()
 ) = composed {
+    var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
+    var targetOffset: IntOffset? by remember { mutableStateOf(null) }
+
     var targetOffsetAnimation: Animatable<IntOffset, AnimationVector2D>? by remember {
         mutableStateOf(null)
     }
-
-    var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
-    var targetOffset: IntOffset? by remember { mutableStateOf(null) }
 
     LaunchedEffect(Unit) {
         snapshotFlow { targetOffset }.collect { target ->
@@ -125,5 +135,65 @@ fun Modifier.layoutTransitionAnimation(
                     placeable.place(x, y)
                 }
             }
+    }
+}
+
+// for test
+fun Modifier.transformation(lookaheadScope: LookaheadLayoutScope) = with(lookaheadScope) {
+    intermediateLayout { measurable, _, lookaheadSize ->
+        val (width, height) = lookaheadSize
+        val animatedConstraints = Constraints.fixed(
+            width = width.coerceAtLeast(0),
+            height = height.coerceAtLeast(0)
+        )
+
+        val placeable = measurable.measure(animatedConstraints)
+        layout(placeable.width, placeable.height) {
+            placeable.place(0, 0)
+        }
+    }
+}
+
+fun Modifier.animateTransformation(
+    lookaheadScope: LookaheadLayoutScope,
+    animationSpec: AnimationSpec<IntSize> = defaultSpring(),
+) = composed {
+    var targetSize: IntSize? by remember { mutableStateOf(null) }
+    var targetSizeAnimation: Animatable<IntSize, AnimationVector2D>? by remember {
+        mutableStateOf(null)
+    }
+
+    LaunchedEffect(Unit) {
+        snapshotFlow { targetSize }.collect { target ->
+            if (target != null && target != targetSizeAnimation?.targetValue) {
+                targetSizeAnimation?.run {
+                    launch {
+                        animateTo(
+                            targetValue = target,
+                            animationSpec = animationSpec
+                        )
+                    }
+                } ?: Animatable(target, IntSize.VectorConverter).let {
+                    targetSizeAnimation = it
+                }
+            }
+        }
+    }
+
+    with(lookaheadScope) {
+        this@composed.intermediateLayout { measurable, _, lookaheadSize ->
+            targetSize = lookaheadSize
+
+            val (width, height) = targetSizeAnimation?.value ?: lookaheadSize
+            val animatedConstraints = Constraints.fixed(
+                width = width.coerceAtLeast(0),
+                height = height.coerceAtLeast(0)
+            )
+
+            val placeable = measurable.measure(animatedConstraints)
+            layout(placeable.width, placeable.height) {
+                placeable.place(0, 0)
+            }
+        }
     }
 }
