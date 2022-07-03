@@ -19,9 +19,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.layout.LookaheadLayoutScope
+import androidx.compose.ui.layout.Measurable
+import androidx.compose.ui.layout.MeasureResult
+import androidx.compose.ui.layout.MeasureScope
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.round
 import kotlinx.coroutines.launch
+
+inline val DefaultMeasurePolicy: MeasureScope.(measurables: List<Measurable>, constraints: Constraints) -> MeasureResult
+    get() = { measurables, constraints ->
+        val placeables = measurables.map { measurable -> measurable.measure(constraints) }
+        val maxWidth = placeables.maxOf { placeable -> placeable.width }
+        val maxHeight = placeables.maxOf { placeable -> placeable.height }
+
+        layout(width = maxWidth, height = maxHeight) {
+            placeables.forEach { placeable ->
+                placeable.place(x = 0, y = 0)
+            }
+        }
+    }
 
 fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
     var placementOffset by remember { mutableStateOf(IntOffset.Zero) }

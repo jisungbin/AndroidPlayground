@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
+import land.sungbin.androidplayground.extension.DefaultMeasurePolicy
 import land.sungbin.androidplayground.extension.layoutTransitionAnimation
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.theme.Pink
@@ -40,16 +41,16 @@ private object FabDefaults {
     val elevation = 10.dp
     val color = Color.Pink
 
-    fun shape(isExpended: Boolean) = when (isExpended) {
+    fun shape(isExpanded: Boolean) = when (isExpanded) {
         true -> RoundedCornerShape(percent = 10)
         else -> RoundedCornerShape(percent = 30)
     }
 
     @Stable
     fun size(
-        isExpended: Boolean,
+        isExpanded: Boolean,
         maxWidthDp: Dp
-    ) = when (isExpended) {
+    ) = when (isExpanded) {
         true -> DpSize(
             width = maxWidthDp,
             height = 300.dp
@@ -63,8 +64,8 @@ private object FabDefaults {
 
 @BackgroundPreview
 @Composable
-fun ExpendableFabBasic(modifier: Modifier = Modifier) {
-    var isExpended by remember { mutableStateOf(false) }
+fun ExpandableFabBasic(modifier: Modifier = Modifier) {
+    var isExpanded by remember { mutableStateOf(false) }
 
     BoxWithConstraints(
         modifier = modifier
@@ -77,14 +78,14 @@ fun ExpendableFabBasic(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .size(
                     size = FabDefaults.size(
-                        isExpended = isExpended,
+                        isExpanded = isExpanded,
                         maxWidthDp = maxWidth
                     )
                 )
-                .noRippleClickable { isExpended = !isExpended },
+                .noRippleClickable { isExpanded = !isExpanded },
             elevation = FabDefaults.elevation,
             color = FabDefaults.color,
-            shape = FabDefaults.shape(isExpended = isExpended),
+            shape = FabDefaults.shape(isExpanded = isExpanded),
             content = {}
         )
     }
@@ -92,8 +93,8 @@ fun ExpendableFabBasic(modifier: Modifier = Modifier) {
 
 @BackgroundPreview
 @Composable
-fun ExpendableFabAnimation(modifier: Modifier = Modifier) {
-    var isExpended by remember { mutableStateOf(false) }
+fun ExpandableFabAnimation(modifier: Modifier = Modifier) {
+    var isExpanded by remember { mutableStateOf(false) }
     val screenMaxWidth = LocalConfiguration.current.screenWidthDp
 
     LookaheadLayout(
@@ -110,7 +111,7 @@ fun ExpendableFabAnimation(modifier: Modifier = Modifier) {
                     modifier = Modifier
                         .size(
                             size = FabDefaults.size(
-                                isExpended = isExpended,
+                                isExpanded = isExpanded,
                                 maxWidthDp = screenMaxWidth.dp
                             )
                         )
@@ -121,23 +122,14 @@ fun ExpendableFabAnimation(modifier: Modifier = Modifier) {
                                 stiffness = Spring.StiffnessVeryLow,
                             )
                         )
-                        .noRippleClickable { isExpended = !isExpended },
+                        .noRippleClickable { isExpanded = !isExpanded },
                     elevation = FabDefaults.elevation,
                     color = FabDefaults.color,
-                    shape = FabDefaults.shape(isExpended = isExpended),
+                    shape = FabDefaults.shape(isExpanded = isExpanded),
                     content = {}
                 )
             }
-        }
-    ) { measurables, constraints ->
-        val placeables = measurables.map { it.measure(constraints) }
-        val maxWidth = placeables.maxOf { it.width }
-        val maxHeight = placeables.maxOf { it.height }
-
-        layout(width = maxWidth, height = maxHeight) {
-            placeables.forEach { placeable ->
-                placeable.place(x = 0, y = 0)
-            }
-        }
-    }
+        },
+        measurePolicy = DefaultMeasurePolicy
+    )
 }

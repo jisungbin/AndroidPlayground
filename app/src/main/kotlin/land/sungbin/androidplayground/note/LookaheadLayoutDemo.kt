@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.round
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.annotation.BackgroundPreview
+import land.sungbin.androidplayground.extension.DefaultMeasurePolicy
 
 private fun Modifier.layoutTransitionAnimation(
     lookaheadScope: LookaheadLayoutScope,
@@ -187,16 +188,7 @@ fun LookaheadLayoutDemo() {
                     content = { items() }
                 )
             }
-        }
-    ) { measurables, constraints ->
-        val placeables = measurables.map { it.measure(constraints) }
-        val maxWidth = placeables.maxOf { it.width }
-        val maxHeight = placeables.maxOf { it.height }
-
-        layout(width = maxWidth, height = maxHeight) {
-            placeables.forEach { placeable ->
-                placeable.place(x = 0, y = 0)
-            }
-        }
-    }
+        },
+        measurePolicy = DefaultMeasurePolicy
+    )
 }

@@ -27,6 +27,7 @@ import androidx.compose.ui.layout.LookaheadLayout
 import androidx.compose.ui.layout.LookaheadLayoutScope
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
+import land.sungbin.androidplayground.extension.DefaultMeasurePolicy
 import land.sungbin.androidplayground.extension.layoutTransitionAnimation
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.snippet.animation.movie.component.MoviePoster
@@ -94,16 +95,7 @@ fun HardLookaheadMovieGridWithAnimation() {
                     content = { items() }
                 )
             }
-        }
-    ) { measurables, constraints ->
-        val placeables = measurables.map { it.measure(constraints) }
-        val maxWidth = placeables.maxOf { it.width }
-        val maxHeight = placeables.maxOf { it.height }
-
-        layout(width = maxWidth, height = maxHeight) {
-            placeables.forEach { placeable ->
-                placeable.place(x = 0, y = 0)
-            }
-        }
-    }
+        },
+        measurePolicy = DefaultMeasurePolicy
+    )
 }
