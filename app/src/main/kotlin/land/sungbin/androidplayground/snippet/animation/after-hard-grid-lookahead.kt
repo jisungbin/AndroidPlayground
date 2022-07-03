@@ -34,17 +34,18 @@ import land.sungbin.androidplayground.preview.BooleanPreview
 import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
 
 private fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = composed {
-    var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
-    var targetOffset: IntOffset? by remember { mutableStateOf(null) }
+    var placementOffset by remember { mutableStateOf(IntOffset.Zero) } // 현재 배치된 위치
+    var targetOffset: IntOffset? by remember { mutableStateOf(null) } // lookahead 단계에서 받은 위치
 
     with(lookaheadScope) {
         this@composed
             .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
+                // LookaheadLayout 의 로컬 좌표에서 이 modifier 의 target 위치를 반환
                 targetOffset = lookaheadScopeCoordinates
                     .localLookaheadPositionOf(
                         sourceCoordinates = layoutCoordinates
                     )
-                    .round()
+                    .round() // 가장 가까운 IntOffset 값으로 오프셋 반올림
 
                 placementOffset = lookaheadScopeCoordinates
                     .localPositionOf(
