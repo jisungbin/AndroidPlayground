@@ -74,11 +74,9 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import java.lang.invoke.MethodHandles.constant
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.composable.SortedLazyColumn
-import land.sungbin.androidplayground.constant.DisplayFor
 import land.sungbin.androidplayground.setContent
 import land.sungbin.androidplayground.texttoolbar.SungbinLandTextToolbar
 import land.sungbin.androidplayground.theme.BackgroundWhite

@@ -7,6 +7,7 @@ import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.wrapper.rememberToast
 
 private object ImageSize {
@@ -23,6 +24,7 @@ private object ImageSize {
     )
 }
 
+@BackgroundPreview
 @Composable
 fun HardLookaheadMovieGrid() {
     val toast = rememberToast()

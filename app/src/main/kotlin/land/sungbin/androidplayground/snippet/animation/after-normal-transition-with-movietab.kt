@@ -47,6 +47,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.toPercent
 import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
@@ -148,11 +149,7 @@ private fun MovieTab(
     }
 }
 
-@Preview(
-    showBackground = true,
-    backgroundColor = 0xFFFFFFFF,
-    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
-)
+@BackgroundPreview
 @Composable
 fun NormalTransitionMovieSelectorWithMovieTab() {
     var selectedMovieState by remember { mutableStateOf(Movie.Thor) }

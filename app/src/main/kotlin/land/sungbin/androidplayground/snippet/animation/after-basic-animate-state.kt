@@ -3,7 +3,6 @@
 
 package land.sungbin.androidplayground.snippet.animation
 
-import android.content.res.Configuration
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColorAsState
@@ -24,8 +23,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
 import land.sungbin.androidplayground.snippet.animation.component.MovieName
 import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
@@ -34,11 +33,7 @@ import land.sungbin.androidplayground.snippet.animation.component.TabItem
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 
-@Preview(
-    showBackground = true,
-    backgroundColor = 0xFFFFFFFF,
-    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL
-)
+@BackgroundPreview
 @Composable
 fun BasicAnimateStateMovieSelector() {
     var selectedTabIndexState by remember { mutableStateOf(0) }
