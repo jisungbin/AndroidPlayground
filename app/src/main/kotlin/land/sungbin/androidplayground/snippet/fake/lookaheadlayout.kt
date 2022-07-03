@@ -73,7 +73,7 @@ interface LookaheadLayoutScope {
      * 이렇게 하면 lookahead 에서 계산된 자식 레이아웃의 크기가 제공되는 람다인 [measure] 인자를 통해
      * 중간 레이아웃이 lookahead 단계 후 자식 레이아웃을 morph 할 수 있습니다.
      *
-     * morph: 한 모양을 다른 모양으로 바꾸는 것
+     * morph: 현재 모양을 다른 모양으로 바꾸는 것
      *
      * [measure 람다 인자]
      *
