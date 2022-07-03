@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.movableContentWithReceiverOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -64,29 +63,29 @@ private fun Modifier.layoutTransition(lookaheadScope: LookaheadLayoutScope) = co
 
 @BackgroundPreview
 @Composable
+private fun LookaheadLayoutScope.MovieItem(isInColumn: Boolean = true) {
+    TabDefaults.Items.forEach { tab ->
+        val (tabType, tabPosterDrawable, _) = tab
+        MoviePoster(
+            modifier = Modifier
+                .size(
+                    size = when (isInColumn) {
+                        true -> PosterSize.Vertical
+                        false -> PosterSize.Horizontal
+                    }
+                )
+                .layoutTransition(lookaheadScope = this),
+            fillMaxSize = false,
+            posterDrawable = tabPosterDrawable,
+            posterDescription = tabType.string
+        )
+    }
+}
+
+@BackgroundPreview
+@Composable
 fun HardLookaheadMovieGrid() {
     var isInColumn by remember { mutableStateOf(true) }
-
-    val items = remember {
-        movableContentWithReceiverOf<LookaheadLayoutScope> {
-            TabDefaults.Items.forEach { tab ->
-                val (tabType, tabPosterDrawable, _) = tab
-                MoviePoster(
-                    modifier = Modifier
-                        .size(
-                            size = when (isInColumn) {
-                                true -> PosterSize.Vertical
-                                false -> PosterSize.Horizontal
-                            }
-                        )
-                        .layoutTransition(lookaheadScope = this),
-                    fillMaxSize = false,
-                    posterDrawable = tabPosterDrawable,
-                    posterDescription = tabType.string
-                )
-            }
-        }
-    }
 
     LookaheadLayout(
         modifier = Modifier
@@ -104,7 +103,7 @@ fun HardLookaheadMovieGrid() {
                         alignment = Alignment.CenterVertically
                     ),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    content = { items() }
+                    content = { MovieItem(isInColumn) }
                 )
             } else {
                 Row(
@@ -116,7 +115,7 @@ fun HardLookaheadMovieGrid() {
                         space = 15.dp,
                         alignment = Alignment.CenterHorizontally
                     ),
-                    content = { items() }
+                    content = { MovieItem(isInColumn) }
                 )
             }
         }
