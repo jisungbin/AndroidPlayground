@@ -99,6 +99,9 @@ private fun Modifier.layoutTransitionAnimation(lookaheadScope: LookaheadLayoutSc
                 // 왜? 인지를 모르겠다.
                 val placeable = measurable.measure(constraints)
                 layout(placeable.width, placeable.height) {
+
+                    // 변경이 있는 오프셋에 배치 하려고
+                    // target - placement 하는거 같음
                     val (x, y) = (
                         targetOffsetAnimation?.value ?: targetOffset!!
                         ) - placementOffset
