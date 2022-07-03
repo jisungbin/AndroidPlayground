@@ -10,7 +10,6 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.VectorConverter
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -41,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.round
 import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.annotation.BackgroundPreview
+import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
 
 private object PosterSize {
@@ -155,7 +155,7 @@ fun HardLookaheadMovieGrid() {
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.White)
-            .clickable { isInColumn = !isInColumn },
+            .noRippleClickable { isInColumn = !isInColumn },
         content = {
             if (isInColumn) {
                 Column(
