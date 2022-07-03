@@ -1,5 +1,5 @@
 @file:NoLiveLiterals
-@file:OptIn(ExperimentalComposeUiApi::class, ExperimentalComposeUiApi::class)
+@file:OptIn(ExperimentalComposeUiApi::class)
 
 package land.sungbin.androidplayground.snippet.animation
 
