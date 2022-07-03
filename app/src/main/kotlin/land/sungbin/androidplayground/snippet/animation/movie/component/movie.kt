@@ -1,6 +1,6 @@
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground.snippet.animation.component
+package land.sungbin.androidplayground.snippet.animation.movie.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -25,7 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import land.sungbin.androidplayground.extension.runIf
-import land.sungbin.androidplayground.snippet.animation.DefaultCornerUnit
+import land.sungbin.androidplayground.snippet.animation.movie.DefaultCornerUnit
 
 @Composable
 fun MovieContainer(

@@ -1,6 +1,6 @@
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground.snippet.animation.component
+package land.sungbin.androidplayground.snippet.animation.movie.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.noRippleClickable
-import land.sungbin.androidplayground.snippet.animation.DefaultCornerUnit
+import land.sungbin.androidplayground.snippet.animation.movie.DefaultCornerUnit
 
 @Composable
 fun TabContainer(

@@ -1,7 +1,7 @@
 @file:NoLiveLiterals
 @file:OptIn(ExperimentalAnimationApi::class)
 
-package land.sungbin.androidplayground.snippet.animation
+package land.sungbin.androidplayground.snippet.animation.movie
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentScope
@@ -30,11 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
-import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
-import land.sungbin.androidplayground.snippet.animation.component.MovieName
-import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
-import land.sungbin.androidplayground.snippet.animation.component.TabContainer
-import land.sungbin.androidplayground.snippet.animation.component.TabItem
+import land.sungbin.androidplayground.snippet.animation.movie.component.MovieContainer
+import land.sungbin.androidplayground.snippet.animation.movie.component.MovieName
+import land.sungbin.androidplayground.snippet.animation.movie.component.MoviePoster
+import land.sungbin.androidplayground.snippet.animation.movie.component.TabContainer
+import land.sungbin.androidplayground.snippet.animation.movie.component.TabItem
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 

@@ -1,6 +1,6 @@
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground.snippet.animation
+package land.sungbin.androidplayground.snippet.animation.movie
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween

@@ -1,6 +1,6 @@
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground.snippet.animation
+package land.sungbin.androidplayground.snippet.animation.movie
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,11 +18,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import land.sungbin.androidplayground.annotation.BackgroundPreview
-import land.sungbin.androidplayground.snippet.animation.component.MovieContainer
-import land.sungbin.androidplayground.snippet.animation.component.MovieName
-import land.sungbin.androidplayground.snippet.animation.component.MoviePoster
-import land.sungbin.androidplayground.snippet.animation.component.TabContainer
-import land.sungbin.androidplayground.snippet.animation.component.TabItem
+import land.sungbin.androidplayground.snippet.animation.movie.component.MovieContainer
+import land.sungbin.androidplayground.snippet.animation.movie.component.MovieName
+import land.sungbin.androidplayground.snippet.animation.movie.component.MoviePoster
+import land.sungbin.androidplayground.snippet.animation.movie.component.TabContainer
+import land.sungbin.androidplayground.snippet.animation.movie.component.TabItem
 import land.sungbin.androidplayground.theme.BackgroundWhite
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 

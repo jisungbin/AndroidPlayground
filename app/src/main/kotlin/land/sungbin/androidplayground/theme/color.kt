@@ -13,7 +13,7 @@ val Color.Companion.BackgroundWhite
 
 val Color.Companion.Pink
     @Stable
-    get() = Red.copy(alpha = 0.2f)
+    get() = Color(0xFFFFA9A5)
 
 val Color.Companion.Random
     @Stable
