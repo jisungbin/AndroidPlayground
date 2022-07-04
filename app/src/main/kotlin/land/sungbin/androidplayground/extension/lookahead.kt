@@ -176,8 +176,11 @@ fun Modifier.animateTransformation(
                             animationSpec = animationSpec
                         )
                     }
-                } ?: Animatable(target, IntSize.VectorConverter).let {
-                    targetSizeAnimation = it
+                } ?: Animatable(
+                    initialValue = target,
+                    typeConverter = IntSize.VectorConverter
+                ).let { sizeAnimatable ->
+                    targetSizeAnimation = sizeAnimatable
                 }
             }
         }
