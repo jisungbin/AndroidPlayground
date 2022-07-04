@@ -42,7 +42,7 @@ import kotlinx.coroutines.launch
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.DefaultMeasurePolicy
 
-private fun Modifier.layoutTransitionAnimation(
+private fun Modifier.movementArchive(
     lookaheadScope: LookaheadLayoutScope,
     animationSpec: AnimationSpec<IntOffset> = spring(
         dampingRatio = Spring.DampingRatioMediumBouncy,
@@ -150,7 +150,7 @@ fun LookaheadLayoutDemo() {
                                 )
                             }
                         )
-                        .layoutTransitionAnimation(this)
+                        .movementArchive(this)
                         .background(color, RoundedCornerShape(20))
                 )
             }
