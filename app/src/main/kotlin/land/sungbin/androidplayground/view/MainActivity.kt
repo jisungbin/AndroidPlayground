@@ -50,7 +50,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import land.sungbin.androidplayground.snippet.animation.ExpandableFabAnimation
+import land.sungbin.androidplayground.snippet.animation.movie.MovieSelectorWithMovieTabTransition
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -93,8 +93,7 @@ class MainActivity : ComponentActivity() {
             }
 
             PlaygroundTheme {
-                ExpandableFabAnimation()
-//                ExpandableFabBasic()
+                MovieSelectorWithMovieTabTransition()
             }
         }
     }
