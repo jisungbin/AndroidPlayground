@@ -73,7 +73,7 @@ fun RowScope.TabItem(
             text = title,
             style = LocalTextStyle.current.copy(
                 color = textColor,
-                fontSize = 20.sp,
+                fontSize = 20.sp
             )
         )
     }

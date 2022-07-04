@@ -48,6 +48,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.toPercent
@@ -145,7 +146,7 @@ private fun MovieTab(
                 .height(StatusBarHeightDp + 50.dp)
                 .offset { backgroundOffsetTransition }
                 .clip(backgroundShapeTransition)
-                .background(color = TabDefaults.Color.selectedBackground)
+                .background(color = TabDefaults.Color.selectedBackground.copy(alpha = 0.5f))
         )
     }
 }
