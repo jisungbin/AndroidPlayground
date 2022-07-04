@@ -144,15 +144,15 @@ fun Modifier.animateMovement(
 // for test
 fun Modifier.transformation(lookaheadScope: LookaheadLayoutScope) = with(lookaheadScope) {
     intermediateLayout { measurable, _, lookaheadSize ->
-        val (width, height) = lookaheadSize
+        val (width, height) = lookaheadSize // lookahead 크기로 width, height 결정
         val animatedConstraints = Constraints.fixed(
-            width = width.coerceAtLeast(0),
+            width = width.coerceAtLeast(0), // 최소 0 으로 설정
             height = height.coerceAtLeast(0)
         )
 
         val placeable = measurable.measure(animatedConstraints)
-        layout(placeable.width, placeable.height) {
-            placeable.place(0, 0)
+        layout(width = placeable.width, height = placeable.height) { // lookahead 크기에 맞게 배치
+            placeable.place(x = 0, y = 0)
         }
     }
 }
@@ -194,8 +194,8 @@ fun Modifier.animateTransformation(
             )
 
             val placeable = measurable.measure(animatedConstraints)
-            layout(placeable.width, placeable.height) {
-                placeable.place(0, 0)
+            layout(width = placeable.width, height = placeable.height) {
+                placeable.place(x = 0, y = 0)
             }
         }
     }
