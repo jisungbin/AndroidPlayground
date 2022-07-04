@@ -146,7 +146,7 @@ private fun MovieTab(
                 .height(StatusBarHeightDp + 50.dp)
                 .offset { backgroundOffsetTransition }
                 .clip(backgroundShapeTransition)
-                .background(color = TabDefaults.Color.selectedBackground.copy(alpha = 0.5f))
+                .background(color = TabDefaults.Color.selectedBackground)
         )
     }
 }

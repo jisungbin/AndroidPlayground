@@ -12,10 +12,14 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
-import land.sungbin.androidplayground.theme.Pink
 
 const val DefaultCornerUnit = 30
 const val AnimationDuration = 500
+
+// for tab selected state background
+private val Color.Companion.TransparentPink
+    @Stable
+    get() = Red.copy(alpha = 0.2f)
 
 @Immutable // maybe?
 enum class Movie(val string: String) {
@@ -46,7 +50,7 @@ fun <T> defaultTween() = tween<T>(
 @Immutable
 data class TabColors(
     val defaultBackground: Color = Color.White,
-    val selectedBackground: Color = Color.Pink,
+    val selectedBackground: Color = Color.TransparentPink,
     val defaultText: Color = Color.Gray,
     val selectedText: Color = Color.Black
 )
