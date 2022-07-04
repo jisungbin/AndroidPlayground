@@ -1,0 +1,5 @@
+restartable skippable fun LookaheadLayout(
+  unused stable content: @[UiComposable] @[ExtensionFunctionType] Function3<LookaheadLayoutScope, Composer, Int, Unit>
+  unused stable modifier: Modifier? = @static Companion
+  unused stable measurePolicy: MeasurePolicy
+)

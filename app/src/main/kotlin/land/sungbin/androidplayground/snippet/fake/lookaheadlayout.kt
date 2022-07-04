@@ -47,16 +47,16 @@ fun LookaheadLayout(
 @ExperimentalComposeUiApi
 interface LookaheadLayoutScope {
     /**
-     * 부모 [LayoutModifier] 가 배치된 후 자식 [LayoutModifier] 가 배치되기 전에 호출됩니다.
-     * 이를 통해 자식 [LayoutModifier] 는 부모를 기반으로 자체 placement 를 조정할 수 있습니다.
+     * intermediate layout 이 배치될 위치가 계산된 후 호출됩니다.
      *
-     * [LookaheadLayoutCoordinates] 가 주어지면 [LookaheadLayout] 의 coordinate 시스템에서 이 modifier 의 lookahead 위치와 현재 위치는 각각
-     * [LookaheadLayoutCoordinates.localLookaheadPositionOf] 및 [LookaheadLayoutCoordinates.localPositionOf] 를 사용하여 계산할 수 있습니다.
+     * [LookaheadLayoutCoordinates] 가 주어지면 계신된 intermediate layout 의 오프셋과 현재 배치돼 있는 content 의 오프셋을
+     * [LookaheadLayoutCoordinates.localLookaheadPositionOf] 와 [LookaheadLayoutCoordinates.localPositionOf] 를 사용하여 얻을 수 있습니다.
+     * 이를 통해 계산된 intermedidate layout 의 오프셋을 기반으로 content 의 배치를 조정할 수 있습니다.
      *
      * [onPlaced 람다 인자]
      *
-     * @param [lookaheadScopeCoordinates] [LookaheadLayout] 의 [LookaheadLayoutCoordinates]
-     * @param [layoutCoordinates] 이 modifier 의 [LookaheadLayoutCoordinates]
+     * @param [lookaheadScopeCoordinates] [LookaheadLayout] 이 사용하는 [LayoutCoordinates]
+     * @param [layoutCoordinates] 이 modifier 의 컴포저블이 사용하는 [LayoutCoordinates]
      */
     fun Modifier.onPlaced(
         onPlaced: (
@@ -66,17 +66,16 @@ interface LookaheadLayoutScope {
     ): Modifier
 
     /**
-     * lookahead 단계에서 계산된 자식 레이아웃의 대상 크기를 기반으로 intermediate layout 을 만듭니다.
-     * 이렇게 하면 lookahead 에서 계산된 자식 레이아웃의 크기가 제공되는 람다인 [measure] 인자를 통해
-     * intermediate layout 이 lookahead 단계 후 자식 레이아웃을 morph 할 수 있습니다.
+     * lookahead 단계에서 계산된 정보를 기반으로 intermediate layout 를 배치합니다.
+     * intermediate layout 의 크기가 제공되는 람다인 [measure] 인자를 통해 intermediate layout 를 morph 할 수 있습니다.
      *
      * morph: 햔재 모양을 다른 모양으로 바꾸는 것
      *
      * [measure 람다 인자]
      *
-     * @param [measurable] 배치할 레이아웃의 measurable
-     * @param [constraints] 배치할 레이아웃의 constraints
-     * @param [lookaheadSize] lookahead 단계에서 계산된 크기
+     * @param [measurable] intermediate layout 의 measurable
+     * @param [constraints] intermediate layout 의 constraints
+     * @param [lookaheadSize] intermediate layout 의 크기
      *
      * @return [MeasureResult] measure 결과
      */
