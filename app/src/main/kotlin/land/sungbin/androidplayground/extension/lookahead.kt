@@ -36,7 +36,7 @@ private val Spring.StiffnessDebug
 
 private fun <T> defaultSpring() = spring<T>(
     dampingRatio = Spring.DampingRatioLowBouncy,
-    stiffness = Spring.StiffnessDebug, // StiffnessLow
+    stiffness = Spring.StiffnessLow, // default: StiffnessLow
 )
 
 inline val DefaultMeasurePolicy: MeasureScope.(measurables: List<Measurable>, constraints: Constraints) -> MeasureResult
