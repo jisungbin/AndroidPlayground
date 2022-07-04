@@ -6,7 +6,6 @@
 package land.sungbin.androidplayground.snippet.animation
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -34,7 +33,9 @@ import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.DefaultMeasurePolicy
 import land.sungbin.androidplayground.extension.animateMovement
 import land.sungbin.androidplayground.extension.animateTransformation
+import land.sungbin.androidplayground.extension.movement
 import land.sungbin.androidplayground.extension.noRippleClickable
+import land.sungbin.androidplayground.extension.transformation
 import land.sungbin.androidplayground.theme.Pink
 
 private object FabDefaults {
@@ -43,7 +44,7 @@ private object FabDefaults {
 
     fun shape(isExpanded: Boolean) = when (isExpanded) {
         true -> RoundedCornerShape(percent = 10)
-        else -> /*RoundedCornerShape(percent = 30)*/ CircleShape
+        else -> CircleShape
     }
 
     @Stable
@@ -62,33 +63,55 @@ private object FabDefaults {
     }
 }
 
-@BackgroundPreview
 @Composable
-fun ExpandableFabBasic(modifier: Modifier = Modifier) {
-    var isExpanded by remember { mutableStateOf(false) }
-
-    BoxWithConstraints(
-        modifier = modifier
-            .fillMaxSize()
-            .navigationBarsPadding()
-            .padding(16.dp),
+private fun Fab(
+    modifier: Modifier = Modifier,
+    isExpanded: Boolean = false
+) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomEnd
     ) {
         Surface(
-            modifier = Modifier
-                .size(
-                    size = FabDefaults.size(
-                        isExpanded = isExpanded,
-                        maxWidthDp = maxWidth
-                    )
-                )
-                .noRippleClickable { isExpanded = !isExpanded },
+            modifier = modifier,
             elevation = FabDefaults.elevation,
             color = FabDefaults.color,
             shape = FabDefaults.shape(isExpanded = isExpanded),
             content = {}
         )
     }
+}
+
+@BackgroundPreview
+@Composable
+fun ExpandableFabBasic(modifier: Modifier = Modifier) {
+    var isExpanded by remember { mutableStateOf(false) }
+    val screenMaxWidth = LocalConfiguration.current.screenWidthDp
+
+    LookaheadLayout(
+        modifier = modifier
+            .fillMaxSize()
+            .navigationBarsPadding()
+            .padding(16.dp),
+        content = {
+            Fab(
+                modifier = Modifier
+                    .size(
+                        size = FabDefaults.size(
+                            isExpanded = isExpanded,
+                            maxWidthDp = screenMaxWidth.dp
+                        )
+                    )
+                    .movement(lookaheadScope = this)
+                    .transformation(lookaheadScope = this)
+                    .noRippleClickable {
+                        isExpanded = !isExpanded
+                    },
+                isExpanded = isExpanded
+            )
+        },
+        measurePolicy = DefaultMeasurePolicy
+    )
 }
 
 @BackgroundPreview
@@ -103,27 +126,21 @@ fun ExpandableFabAnimation(modifier: Modifier = Modifier) {
             .navigationBarsPadding()
             .padding(16.dp),
         content = {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.BottomEnd
-            ) {
-                Surface(
-                    modifier = Modifier
-                        .size(
-                            size = FabDefaults.size(
-                                isExpanded = isExpanded,
-                                maxWidthDp = screenMaxWidth.dp
-                            )
+            Fab(
+                modifier = Modifier
+                    .size(
+                        size = FabDefaults.size(
+                            isExpanded = isExpanded,
+                            maxWidthDp = screenMaxWidth.dp
                         )
-                        .animateMovement(lookaheadScope = this@LookaheadLayout)
-                        .animateTransformation(lookaheadScope = this@LookaheadLayout)
-                        .noRippleClickable { isExpanded = !isExpanded },
-                    elevation = FabDefaults.elevation,
-                    color = FabDefaults.color,
-                    shape = FabDefaults.shape(isExpanded = isExpanded),
-                    content = {}
-                )
-            }
+                    )
+                    .animateMovement(lookaheadScope = this)
+                    .animateTransformation(lookaheadScope = this)
+                    .noRippleClickable {
+                        isExpanded = !isExpanded
+                    },
+                isExpanded = isExpanded
+            )
         },
         measurePolicy = DefaultMeasurePolicy
     )
