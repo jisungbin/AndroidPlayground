@@ -10,6 +10,7 @@ package land.sungbin.androidplayground
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.simulateHotReload
+import androidx.compose.ui.layout.MeasureScope
 
 fun main() {
     setContent {

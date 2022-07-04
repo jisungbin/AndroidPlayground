@@ -55,8 +55,8 @@ interface LookaheadLayoutScope {
      *
      * [onPlaced 람다 인자]
      *
-     * @param [lookaheadScopeCoordinates] [LookaheadLayout] 이 사용하는 [LayoutCoordinates]
-     * @param [layoutCoordinates] 이 modifier 의 컴포저블이 사용하는 [LayoutCoordinates]
+     * @param [lookaheadScopeCoordinates] [LookaheadLayout] 이 사용하는 [LookaheadLayoutCoordinates]
+     * @param [layoutCoordinates] 이 modifier 의 컴포저블이 사용하는 [LookaheadLayoutCoordinates]
      */
     fun Modifier.onPlaced(
         onPlaced: (
@@ -99,7 +99,7 @@ sealed interface LookaheadLayoutCoordinates : LayoutCoordinates {
      *
      * [localPositionOf] 와 달리 [localLookaheadPositionOf] 는 coordinate 계산을 위해 lookahead 위치를 사용합니다.
      *
-     * @param [sourceCoordinates] 변환할 [Offset] 이 있는 [LayoutCoordinates]
+     * @param [sourceCoordinates] 변환할 [Offset] 이 있는 [LookaheadLayoutCoordinates]
      * @param [relativeToSource] 변활할 [Offset]
      *
      * @return [Offset] 로컬 coordinate 로 변환된 [Offset]
@@ -126,7 +126,7 @@ interface LayoutCoordinates {
 
     /**
      * [sourceCoordinates] 공간의 [relativeToSource] 를 로컬 coordinate 로 변환합니다.
-     * [sourceCoordinates] 는 동일한 레이아웃 계층에 속하는 모든 [LookaheadLayoutCoordinates] 일 수 있습니다.
+     * [sourceCoordinates] 는 동일한 레이아웃 계층에 속하는 모든 [LayoutCoordinates] 일 수 있습니다.
      *
      * @param [sourceCoordinates] 변환할 [Offset] 이 있는 [LayoutCoordinates]
      * @param [relativeToSource] 변활할 [Offset]
