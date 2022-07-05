@@ -6,3 +6,8 @@ restartable scheme("[androidx.compose.ui.UiComposable]") fun Animator(
   unstable spec: AnimationSpec<IntOffset>
   stable startAnimation: Boolean
 )
+fun animateColorAsState(
+  stable targetValue: Color
+  unstable animationSpec: AnimationSpec<Color>? = @static colorDefaultSpring
+  stable finishedListener: Function1<Color, Unit>? = @static null
+): State<Color>

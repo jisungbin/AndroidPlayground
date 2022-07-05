@@ -5,10 +5,17 @@ package land.sungbin.androidplayground.snippet.fake
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.VectorConverter
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.AnimationConstants
 import androidx.compose.animation.core.AnimationSpec
+import androidx.compose.animation.core.Easing
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.SpringSpec
+import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateValueAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
@@ -51,3 +58,44 @@ fun animateColorAsState(
         finishedListener = finishedListener
     )
 }
+
+/**
+ * 시작 값과 끝 값 사이에 물리학 기반 애니메이션을 만들며, 주어진 스프링 옵션으로 애니메이션을 처리합니다.
+ *
+ * @param DampingRatio 스프링의 감쇠비 (탄성)
+ * @param stiffness 스프링의 강성 (종료 값으로 이동하는 속도)
+ * @param visibleThreshold 가시성 임계값
+ * 애니메이션이 대상에 반올림하기에 충분히 시각적으로 가까운 것으로 간주되어야 하는 시기를 정의합니다.
+ *
+ * @return 주어진 스프링 옵션을 사용하는 [SpringSpec]
+ */
+@Stable
+fun <T> spring(
+    dampingRatio: Float = Spring.DampingRatioNoBouncy,
+    stiffness: Float = Spring.StiffnessMedium,
+    visibilityThreshold: T? = null
+): SpringSpec<T> = SpringSpec(
+    dampingRatio = dampingRatio,
+    stiffness = stiffness,
+    visibilityThreshold = visibilityThreshold
+)
+
+/**
+ * 이징 곡선을 사용하여 지정된 [durationMillis] 동안 시작 값과 끝 값 간에 애니메이션을 처리합니다.
+ *
+ * @param durationMillis 애니메이션 사양의 지속 시간 (밀리초)
+ * @param delayMillis 애니메이션이 시작되기 전에 대기하는 시간 (밀리초)
+ * @param easing 시작과 끝 사이를 보간하는 데 사용되는 이징 곡선
+ *
+ * @return 주어진 옵션을 사용하는 [TweenSpec]
+ */
+@Stable
+fun <T> tween(
+    durationMillis: Int = AnimationConstants.DefaultDurationMillis,
+    delayMillis: Int = 0,
+    easing: Easing = FastOutSlowInEasing
+): TweenSpec<T> = TweenSpec(
+    durationMillis = durationMillis,
+    delay = delayMillis,
+    easing = easing
+)

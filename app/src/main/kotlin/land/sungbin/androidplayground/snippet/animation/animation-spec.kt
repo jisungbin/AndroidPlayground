@@ -98,8 +98,8 @@ fun TweenPlayground() {
     val animators = remember {
         listOf(
             "FastOutSlowInEasing" to FastOutSlowInEasing,
-            "DampingRatioMediumBouncy" to LinearOutSlowInEasing,
-            "DampingRatioLowBouncy" to FastOutLinearInEasing,
+            "LinearOutSlowInEasing" to LinearOutSlowInEasing,
+            "FastOutLinearInEasing" to FastOutLinearInEasing,
             "LinearEasing" to LinearEasing,
             "CubicBezierEasing (EaseInBack)" to CubicBezierEasing(
                 a = 0.36f,
