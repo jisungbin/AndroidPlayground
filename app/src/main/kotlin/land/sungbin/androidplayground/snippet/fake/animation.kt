@@ -163,7 +163,7 @@ fun <T> keyframes(
  * 지정된 반복 횟수에 도달할 때까지 기간 기반 애니메이션(예: [tween] 또는 [keyframes])을 반복적으로 실행합니다.
  *
  * @param iterations 반복할 횟수
- * @param animation 반복할 애니메이션 스팩
+ * @param animation 반복할 애니메이션
  * @param repeatMode 반복할 모드 - [RepeatMode.Restart] 또는 [RepeatMode.Reverse]
  * @param initialStartOffset 애니메이션을 시작할 오프셋
  */

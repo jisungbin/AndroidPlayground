@@ -1,0 +1,27 @@
+stable class PosterSize {
+  stable val Vertical: DpSize
+  stable val Horizontal: DpSize
+  <runtime stability> = Stable
+}
+stable class TabColors {
+  stable val defaultBackground: Color
+  stable val selectedBackground: Color
+  stable val defaultText: Color
+  stable val selectedText: Color
+}
+unstable class TabDefaults {
+  unstable val Items: List<Triple<Movie, Int, String>>
+  stable val Color: TabColors
+  <runtime stability> = Unstable
+}
+stable class CubicBezierEasing {
+  stable val a: Float
+  stable val b: Float
+  stable val c: Float
+  stable val d: Float
+}
+unstable class MainActivity {
+  unstable var binding: ActivityMainBinding
+  unstable val vm$delegate: Lazy<MainViewModel>
+  <runtime stability> = Unstable
+}

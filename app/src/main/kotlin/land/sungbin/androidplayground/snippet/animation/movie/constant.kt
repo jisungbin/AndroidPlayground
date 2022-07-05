@@ -14,7 +14,7 @@ import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
 
 const val DefaultCornerUnit = 30
-const val AnimationDuration = 500
+const val AnimationDuration = 1000
 
 // for tab selected state background
 private val Color.Companion.TransparentPink

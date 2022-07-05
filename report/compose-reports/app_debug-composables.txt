@@ -6,8 +6,21 @@ restartable scheme("[androidx.compose.ui.UiComposable]") fun Animator(
   unstable spec: AnimationSpec<IntOffset>
   stable startAnimation: Boolean
 )
+restartable skippable fun KeyframesExample(
+  stable target: Int
+)
+restartable skippable fun RepeatableExample(
+  stable target: Int
+)
+restartable skippable fun InfiniteRepeatableExample(
+  stable target: Int
+)
+restartable skippable fun SnapExample(
+  stable target: Int
+)
 fun animateColorAsState(
   stable targetValue: Color
   unstable animationSpec: AnimationSpec<Color>? = @static colorDefaultSpring
   stable finishedListener: Function1<Color, Unit>? = @static null
 ): State<Color>
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TextConfirm()
