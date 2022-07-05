@@ -48,7 +48,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.zIndex
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.toPercent
@@ -199,7 +198,7 @@ fun MovieSelectorBasic() {
 
 @BackgroundPreview
 @Composable
-fun MovieSelectorWithAnimatedState() {
+fun MovieSelectorWithHighLevelAnimated() {
     var selectedTabIndexState by remember { mutableStateOf(0) }
     val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {
