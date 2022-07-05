@@ -69,7 +69,7 @@ interface LookaheadLayoutScope {
      * lookahead 단계에서 계산된 정보를 기반으로 intermediate layout 를 배치합니다.
      * intermediate layout 의 크기가 제공되는 람다인 [measure] 인자를 통해 intermediate layout 를 morph 할 수 있습니다.
      *
-     * morph: 햔재 모양을 다른 모양으로 바꾸는 것
+     * morph: 현재 모양을 다른 모양으로 바꾸는 것
      *
      * [measure 람다 인자]
      *
