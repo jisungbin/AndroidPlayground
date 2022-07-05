@@ -7,14 +7,18 @@ import androidx.compose.animation.VectorConverter
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationConstants
 import androidx.compose.animation.core.AnimationSpec
+import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.Easing
+import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.SpringSpec
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateValueAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
@@ -60,14 +64,14 @@ fun animateColorAsState(
 }
 
 /**
- * 시작 값과 끝 값 사이에 물리학 기반 애니메이션을 만들며, 주어진 스프링 옵션으로 애니메이션을 처리합니다.
+ * 시작 값과 끝 값 사이에 물리학 기반 애니메이션을 적용합니다.
  *
  * @param DampingRatio 스프링의 감쇠비 (탄성)
  * @param stiffness 스프링의 강성 (종료 값으로 이동하는 속도)
  * @param visibleThreshold 가시성 임계값
  * 애니메이션이 대상에 반올림하기에 충분히 시각적으로 가까운 것으로 간주되어야 하는 시기를 정의합니다.
  *
- * @return 주어진 스프링 옵션을 사용하는 [SpringSpec]
+ * @return 주어진 옵션을 사용하는 [SpringSpec]
  */
 @Stable
 fun <T> spring(
@@ -81,7 +85,7 @@ fun <T> spring(
 )
 
 /**
- * 이징 곡선을 사용하여 지정된 [durationMillis] 동안 시작 값과 끝 값 간에 애니메이션을 처리합니다.
+ * 이징 곡선을 사용하여 지정된 [durationMillis] 동안 시작 값과 끝 값 간에 애니메이션을 적용합니다.
  *
  * @param durationMillis 애니메이션 사양의 지속 시간 (밀리초)
  * @param delayMillis 애니메이션이 시작되기 전에 대기하는 시간 (밀리초)
@@ -99,3 +103,39 @@ fun <T> tween(
     delay = delayMillis,
     easing = easing
 )
+
+/**
+ * 전환의 끝을 강조하기 위해 빠르게 속도를 높이고 점차적으로 느려집니다.
+ */
+val FastOutSlowInEasing: Easing = CubicBezierEasing(0.4f, 0.0f, 0.2f, 1.0f)
+
+/**
+ * 들어오는 요소는 최고 속도(요소 이동의 가장 빠른 지점)에서 전환을 시작하고 정지 상태에서 끝나는 감속 완화를 사용하여 애니메이션됩니다.
+ */
+val LinearOutSlowInEasing: Easing = CubicBezierEasing(0.0f, 0.0f, 0.2f, 1.0f)
+
+/**
+ * 화면을 종료하는 요소는 정지 상태에서 시작하여 최고 속도로 끝나는 가속 완화를 사용합니다.
+ */
+val FastOutLinearInEasing: Easing = CubicBezierEasing(0.4f, 0.0f, 1.0f, 1.0f)
+
+/**
+ * 수정되지 않은 분수를 반환합니다. [Easing]이 필요하지만 실제 easing 이 필요하지 않은 경우 기본값으로 유용합니다.
+ */
+val LinearEasing: Easing = Easing { fraction -> fraction }
+
+
+/**
+ * [CubicBezierEasing] 클래스는 3차 베지어 곡선을 구현합니다.
+ */
+@Immutable
+class CubicBezierEasing(
+    private val a: Float,
+    private val b: Float,
+    private val c: Float,
+    private val d: Float
+) : Easing {
+    override fun transform(fraction: Float): Float {
+        TODO("Not yet implemented")
+    }
+}
