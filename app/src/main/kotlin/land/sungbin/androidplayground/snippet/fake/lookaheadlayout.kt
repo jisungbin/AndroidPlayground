@@ -55,8 +55,8 @@ interface LookaheadLayoutScope {
      *
      * [onPlaced 람다 인자]
      *
-     * @param [lookaheadScopeCoordinates] [LookaheadLayout] 이 사용하는 [LookaheadLayoutCoordinates]
-     * @param [layoutCoordinates] 이 modifier 의 컴포저블이 사용하는 [LookaheadLayoutCoordinates]
+     * @param lookaheadScopeCoordinates [LookaheadLayout] 이 사용하는 [LookaheadLayoutCoordinates]
+     * @param layoutCoordinates 이 modifier 의 컴포저블이 사용하는 [LookaheadLayoutCoordinates]
      */
     fun Modifier.onPlaced(
         onPlaced: (
@@ -73,11 +73,11 @@ interface LookaheadLayoutScope {
      *
      * [measure 람다 인자]
      *
-     * @param [measurable] intermediate layout 의 measurable
-     * @param [constraints] intermediate layout 의 constraints
-     * @param [lookaheadSize] intermediate layout 의 크기
+     * @param measurable intermediate layout 의 measurable
+     * @param constraints intermediate layout 의 constraints
+     * @param lookaheadSize intermediate layout 의 크기
      *
-     * @return [MeasureResult] measure 결과
+     * @return measure 결과
      */
     fun Modifier.intermediateLayout(
         measure: MeasureScope.(
@@ -99,10 +99,10 @@ sealed interface LookaheadLayoutCoordinates : LayoutCoordinates {
      *
      * [localPositionOf] 와 달리 [localLookaheadPositionOf] 는 coordinate 계산을 위해 lookahead 위치를 사용합니다.
      *
-     * @param [sourceCoordinates] 변환할 [Offset] 이 있는 [LookaheadLayoutCoordinates]
-     * @param [relativeToSource] 변활할 [Offset]
+     * @param sourceCoordinates 변환할 [Offset] 이 있는 [LookaheadLayoutCoordinates]
+     * @param relativeToSource 변활할 [Offset]
      *
-     * @return [Offset] 로컬 coordinate 로 변환된 [Offset]
+     * @return 로컬 coordinate 로 변환된 [Offset]
      */
     fun localLookaheadPositionOf(
         sourceCoordinates: LookaheadLayoutCoordinates,
@@ -128,10 +128,10 @@ interface LayoutCoordinates {
      * [sourceCoordinates] 공간의 [relativeToSource] 를 로컬 coordinate 로 변환합니다.
      * [sourceCoordinates] 는 동일한 레이아웃 계층에 속하는 모든 [LayoutCoordinates] 일 수 있습니다.
      *
-     * @param [sourceCoordinates] 변환할 [Offset] 이 있는 [LayoutCoordinates]
-     * @param [relativeToSource] 변활할 [Offset]
+     * @param sourceCoordinates 변환할 [Offset] 이 있는 [LayoutCoordinates]
+     * @param relativeToSource 변활할 [Offset]
      *
-     * @return [Offset] 로컬 coordinate 로 변환된 [Offset]
+     * @return 로컬 coordinate 로 변환된 [Offset]
      */
     fun localPositionOf(sourceCoordinates: LayoutCoordinates, relativeToSource: Offset): Offset
     fun localBoundingBoxOf(sourceCoordinates: LayoutCoordinates, clipBounds: Boolean = true): Rect

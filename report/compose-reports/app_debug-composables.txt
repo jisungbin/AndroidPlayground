@@ -1,5 +1,8 @@
-restartable skippable fun LookaheadLayout(
-  unused stable content: @[UiComposable] @[ExtensionFunctionType] Function3<LookaheadLayoutScope, Composer, Int, Unit>
-  unused stable modifier: Modifier? = @static Companion
-  unused stable measurePolicy: MeasurePolicy
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SpringPlayground()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TweenPlayground()
+restartable scheme("[androidx.compose.ui.UiComposable]") fun Animator(
+  stable modifier: Modifier? = @static Companion
+  stable label: String
+  unstable spec: AnimationSpec<IntOffset>
+  stable startAnimation: Boolean
 )
