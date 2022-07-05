@@ -5,15 +5,18 @@ package land.sungbin.androidplayground.snippet.animation
 import androidx.compose.animation.core.AnimationConstants
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.CubicBezierEasing
-import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.animateIntOffsetAsState
+import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
+import androidx.compose.animation.core.repeatable
+import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -34,18 +37,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.TextUnitType.Companion.Sp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.extension.and
-import land.sungbin.androidplayground.snippet.animation.movie.defaultTween
 import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 import land.sungbin.androidplayground.theme.Pink
 
@@ -223,5 +223,43 @@ fun KeyframesExample(target: Int) {
             500 at 80 with FastOutSlowInEasing // FastOutSlowInEasing 을 사용하며 500 ms 안에 80 까지 애니메이션
             // 이후 501 ~ 1000 ms 동안 기존에 설정한 이징인 FastOutSlowInEasing 를 계속 사용하여 100 까지 애니메이션
         }
+    )
+}
+
+@Composable
+fun RepeatableExample(target: Int) {
+    val value by animateIntAsState(
+        targetValue = target,
+        animationSpec = repeatable(
+            iterations = 3, // 3번 반복
+            animation = tween(
+                durationMillis = 300,
+                easing = LinearEasing
+            ), // 300 ms 동안 LinearEasing 으로 애니메이션
+            repeatMode = RepeatMode.Reverse // 되감기하며 반복
+        )
+    )
+}
+
+@Composable
+fun InfiniteRepeatableExample(target: Int) {
+    val value by animateIntAsState(
+        targetValue = target,
+        animationSpec = infiniteRepeatable(
+            animation = tween(
+                durationMillis = 300,
+                easing = LinearEasing
+            ), // 300 ms 동안 LinearEasing 으로 애니메이션
+            repeatMode = RepeatMode.Reverse // 되감기하며 반복
+        )
+    )
+}
+
+@Composable
+fun SnapExample(target: Int) {
+    val value by animateIntAsState(
+        targetValue = target,
+        animationSpec = snap(delayMillis = 100) // 100 ms 후에 즉시 애니메이션 종료
+        // 예를 들어 0 ~ 100 사이의 값을 설정하면 100 ms 후에 즉시 100 으로 애니메이션 종료
     )
 }

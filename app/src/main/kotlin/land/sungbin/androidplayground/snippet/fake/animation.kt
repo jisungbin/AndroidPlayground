@@ -8,13 +8,19 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationConstants
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.CubicBezierEasing
+import androidx.compose.animation.core.DurationBasedAnimationSpec
 import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.InfiniteRepeatableSpec
 import androidx.compose.animation.core.KeyframesSpec
 import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.RepeatableSpec
+import androidx.compose.animation.core.SnapSpec
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.SpringSpec
+import androidx.compose.animation.core.StartOffset
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateValueAsState
 import androidx.compose.animation.core.spring
@@ -149,6 +155,51 @@ class CubicBezierEasing(
 @Stable
 fun <T> keyframes(
     init: KeyframesSpec.KeyframesSpecConfig<T>.() -> Unit
-): KeyframesSpec<T> {
-    return KeyframesSpec(KeyframesSpec.KeyframesSpecConfig<T>().apply(init))
-}
+): KeyframesSpec<T> = KeyframesSpec(
+    config = KeyframesSpec.KeyframesSpecConfig<T>().apply(init)
+)
+
+/**
+ * 지정된 반복 횟수에 도달할 때까지 기간 기반 애니메이션(예: [tween] 또는 [keyframes])을 반복적으로 실행합니다.
+ *
+ * @param iterations 반복할 횟수
+ * @param animation 반복할 애니메이션 스팩
+ * @param repeatMode 반복할 모드 - [RepeatMode.Restart] 또는 [RepeatMode.Reverse]
+ * @param initialStartOffset 애니메이션을 시작할 오프셋
+ */
+@Stable
+fun <T> repeatable(
+    iterations: Int,
+    animation: DurationBasedAnimationSpec<T>,
+    repeatMode: RepeatMode = RepeatMode.Restart,
+    initialStartOffset: StartOffset = StartOffset(0)
+): RepeatableSpec<T> = RepeatableSpec(
+    iterations = iterations,
+    animation = animation,
+    repeatMode = repeatMode,
+    initialStartOffset = initialStartOffset
+)
+
+/**
+ * [repeatable] 과 동일하고, 유일한 차이점은 무한 반복이라 iterations 인자가 없습니다.
+ */
+@Stable
+fun <T> infiniteRepeatable(
+    animation: DurationBasedAnimationSpec<T>,
+    repeatMode: RepeatMode = RepeatMode.Restart,
+    initialStartOffset: StartOffset = StartOffset(0)
+): InfiniteRepeatableSpec<T> = InfiniteRepeatableSpec(
+    animation = animation,
+    repeatMode = repeatMode,
+    initialStartOffset = initialStartOffset
+)
+
+/**
+ * snap 은 값을 즉시 종료 값으로 변환하는 특수 [AnimationSpec] 입니다.
+ *
+ * @param delayMillis 애니메이션 시작을 지연할 시간 (밀리초)
+ */
+@Stable
+fun <T> snap(delayMillis: Int = 0): SnapSpec<T> = SnapSpec(
+    delay = delayMillis
+)
