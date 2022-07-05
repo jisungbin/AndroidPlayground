@@ -11,6 +11,7 @@ import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.KeyframesSpec
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.SpringSpec
@@ -138,4 +139,16 @@ class CubicBezierEasing(
     override fun transform(fraction: Float): Float {
         TODO("Not yet implemented")
     }
+}
+
+/**
+ * 애니메이션 기간에 여러 타임스탬프에서 지정된 스냅샷 값을 기반으로 애니메이션을 처리합니다.
+ * 언제나 애니메이션 값은 두 키프레임 값 사이에 보간됩니다.
+ * 키프레임마다 [Easing] 을 지정하여 보간 유형 곡선을 결정할 수 있습니다.
+ */
+@Stable
+fun <T> keyframes(
+    init: KeyframesSpec.KeyframesSpecConfig<T>.() -> Unit
+): KeyframesSpec<T> {
+    return KeyframesSpec(KeyframesSpec.KeyframesSpecConfig<T>().apply(init))
 }

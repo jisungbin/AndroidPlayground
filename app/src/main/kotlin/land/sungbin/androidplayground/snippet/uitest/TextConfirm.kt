@@ -1,6 +1,6 @@
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground.note
+package land.sungbin.androidplayground.snippet.uitest
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,6 +23,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.annotation.BackgroundPreview
+import land.sungbin.androidplayground.extension.and
 
 @BackgroundPreview
 @Composable
@@ -39,8 +40,8 @@ fun TextConfirm() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         listOf(
-            Triple(R.string.input_text, textField, R.string.input_text_tag),
-            Triple(R.string.confirm_text, confirmTextField, R.string.confirm_text_tag)
+            R.string.input_text to textField and R.string.input_text_tag,
+            R.string.confirm_text to confirmTextField and R.string.confirm_text_tag
         ).forEach { (label, textFieldValue, textFieldTestTag) ->
             Column {
                 Text(text = stringResource(label))

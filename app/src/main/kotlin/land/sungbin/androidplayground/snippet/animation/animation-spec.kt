@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_VARIABLE")
+
 package land.sungbin.androidplayground.snippet.animation
 
 import androidx.compose.animation.core.AnimationConstants
@@ -9,7 +11,9 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.animateIntOffsetAsState
+import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -207,4 +211,17 @@ private fun Animator(
             )
         }
     }
+}
+
+@Composable
+fun KeyframesExample(target: Int) {
+    val value by animateIntAsState(
+        targetValue = target, // 0 ~ 100
+        animationSpec = keyframes {
+            durationMillis = 1000 // 1000 ms 동안 애니메이션 진행
+            100 at 50 with LinearEasing // LinearEasing 을 사용하며 100 ms 안에 50 까지 애니메이션
+            500 at 80 with FastOutSlowInEasing // FastOutSlowInEasing 을 사용하며 500 ms 안에 80 까지 애니메이션
+            // 이후 501 ~ 1000 ms 동안 기존에 설정한 이징인 FastOutSlowInEasing 를 계속 사용하여 100 까지 애니메이션
+        }
+    )
 }
