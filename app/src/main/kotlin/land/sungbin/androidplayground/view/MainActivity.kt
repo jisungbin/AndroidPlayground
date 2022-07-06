@@ -51,6 +51,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.snippet.animation.TweenPlayground
+import land.sungbin.androidplayground.snippet.animation.movie.MovieSelectorWithCustomAnimateSpec
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -96,7 +97,8 @@ class MainActivity : ComponentActivity() {
                 // MovieSelectorBasic()
                 // MovieSelectorWithHighLevelAnimated()
                 // MovieSelectorWithMovieTabTransition()
-                TweenPlayground()
+                // TweenPlayground()
+                MovieSelectorWithCustomAnimateSpec()
             }
         }
     }

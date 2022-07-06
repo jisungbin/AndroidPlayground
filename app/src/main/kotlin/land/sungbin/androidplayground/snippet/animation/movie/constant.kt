@@ -2,6 +2,7 @@
 
 package land.sungbin.androidplayground.snippet.animation.movie
 
+import androidx.annotation.DrawableRes
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Immutable
@@ -52,7 +53,7 @@ data class TabColors(
     val defaultBackground: Color = Color.White,
     val selectedBackground: Color = Color.TransparentPink,
     val defaultText: Color = Color.Gray,
-    val selectedText: Color = Color.Black
+    val selectedText: Color = Color.Black,
 )
 
 object TabDefaults {
@@ -64,4 +65,11 @@ object TabDefaults {
 
     @Stable
     val Color = TabColors()
+
+    fun findTabIndexByDrawable(@DrawableRes drawableRes: Int) = when (drawableRes) {
+        R.drawable.thor_poster -> 0
+        R.drawable.spiderman_poster -> 1
+        R.drawable.doctor_poster -> 2
+        else -> throw IllegalArgumentException("Unknown drawable resource")
+    }
 }
