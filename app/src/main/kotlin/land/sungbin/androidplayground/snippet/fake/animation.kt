@@ -453,8 +453,8 @@ class AnimatedContentScope<S> internal constructor(
  */
 @Stable
 class Transition<S> @PublishedApi internal constructor(
-    private val transitionState: MutableTransitionState<S>,
-    val label: String? = null
+    initialState: S,
+    label: String?
 )
 
 /**
