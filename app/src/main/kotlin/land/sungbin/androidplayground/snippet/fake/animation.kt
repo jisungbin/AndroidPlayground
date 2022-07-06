@@ -1,6 +1,7 @@
 @file:Suppress(
     "KDocUnresolvedReference",
-    "UNUSED_PARAMETER", "MemberVisibilityCanBePrivate"
+    "UNUSED_PARAMETER",
+    "MemberVisibilityCanBePrivate"
 )
 
 package land.sungbin.androidplayground.snippet.fake
