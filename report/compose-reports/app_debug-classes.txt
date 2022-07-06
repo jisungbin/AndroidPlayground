@@ -30,14 +30,22 @@ stable class CubicBezierEasing {
   stable val c: Float
   stable val d: Float
 }
-stable class ContentTransform {
+unstable class ContentTransform {
   stable val targetContentEnter: EnterTransition
   stable val initialContentExit: ExitTransition
-  <runtime stability> = Stable
+  stable var targetContentZIndex$delegate: MutableState<Float>
+  runtime var sizeTransform: SizeTransform?
+  <runtime stability> = Unstable
 }
 stable class EnterTransition {
 }
 stable class ExitTransition {
+}
+unstable class AnimatedContentScope {
+  stable val transition: Transition<S>
+  stable var contentAlignment: Alignment
+  stable var layoutDirection: LayoutDirection
+  <runtime stability> = Unstable
 }
 stable class TransitionData {
   runtime val fade: Fade?

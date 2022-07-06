@@ -1,5 +1,5 @@
 @file:NoLiveLiterals
-@file:OptIn(ExperimentalAnimationApi::class)
+@file:OptIn(ExperimentalAnimationApi::class, ExperimentalTransitionApi::class)
 
 package land.sungbin.androidplayground.snippet.animation.movie
 
@@ -10,10 +10,12 @@ import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.AnimationVector4D
+import androidx.compose.animation.core.ExperimentalTransitionApi
 import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.TwoWayConverter
 import androidx.compose.animation.core.animateIntOffset
 import androidx.compose.animation.core.animateValue
+import androidx.compose.animation.core.createChildTransition
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -62,7 +64,7 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 @Composable
 private fun MovieTab(
     selectedTabTransition: Transition<Movie>,
-    updateSelectedTabType: (type: Movie) -> Unit
+    updateSelectedTabType: (type: Movie) -> Unit,
 ) {
     BoxWithConstraints(
         modifier = Modifier
@@ -153,10 +155,10 @@ private fun MovieTab(
 @BackgroundPreview
 @Composable
 fun MovieSelectorBasic() {
-    var selectedTabIndexState by remember { mutableStateOf(0) }
+    var selectedTabTypeState by remember { mutableStateOf(Movie.Thor) }
     val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {
-            TabDefaults.Items[selectedTabIndexState]
+            TabDefaults.Items[selectedTabTypeState.ordinal]
         }
     }.value
 
@@ -168,19 +170,19 @@ fun MovieSelectorBasic() {
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             TabContainer {
-                TabDefaults.Items.forEachIndexed { index, (type, _, _) ->
+                TabDefaults.Items.forEach { (type, _, _) ->
                     TabItem(
                         title = type.string,
                         backgroundColor = tabBackgroundColor(
-                            selectedIndex = selectedTabIndexState,
-                            nowTabIndex = index
+                            selectedTabType = selectedTabTypeState,
+                            nowTabType = type
                         ),
                         textColor = tabTextColor(
-                            selectedIndex = selectedTabIndexState,
-                            nowTabIndex = index
+                            selectedTabType = selectedTabTypeState,
+                            nowTabType = type
                         ),
                         onTabClick = {
-                            selectedTabIndexState = index
+                            selectedTabTypeState = type
                         }
                     )
                 }
@@ -199,10 +201,10 @@ fun MovieSelectorBasic() {
 @BackgroundPreview
 @Composable
 fun MovieSelectorWithHighLevelAnimated() {
-    var selectedTabIndexState by remember { mutableStateOf(0) }
+    var selectedTabTypeState by remember { mutableStateOf(Movie.Thor) }
     val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
         derivedStateOf {
-            TabDefaults.Items[selectedTabIndexState]
+            TabDefaults.Items[selectedTabTypeState.ordinal]
         }
     }.value
 
@@ -214,19 +216,19 @@ fun MovieSelectorWithHighLevelAnimated() {
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             TabContainer {
-                TabDefaults.Items.forEachIndexed { index, (type, _, _) ->
+                TabDefaults.Items.forEach { (type, _, _) ->
                     TabItem(
                         title = type.string,
                         backgroundColor = tabBackgroundColorWithAnimation(
-                            selectedIndex = selectedTabIndexState,
-                            nowTabIndex = index
+                            selectedTabType = selectedTabTypeState,
+                            nowTabType = type
                         ),
                         textColor = tabTextColorWithAnimation(
-                            selectedIndex = selectedTabIndexState,
-                            nowTabIndex = index
+                            selectedTabType = selectedTabTypeState,
+                            nowTabType = type
                         ),
                         onTabClick = {
-                            selectedTabIndexState = index
+                            selectedTabTypeState = type
                         }
                     )
                 }
@@ -259,7 +261,68 @@ fun MovieSelectorWithHighLevelAnimated() {
 
 @BackgroundPreview
 @Composable
-fun MovieSelectorWithTransition() {
+fun MovieSelectorWithCustomTransitionSpec() {
+    var selectedTabTypeState by remember { mutableStateOf(Movie.Thor) }
+    val (selectedTabType, selectedTabPosterDrawable, selectedTabFullname) = remember(TabDefaults.Items) {
+        derivedStateOf {
+            TabDefaults.Items[selectedTabTypeState.ordinal]
+        }
+    }.value
+
+    ProvideTextStyle(NanumGothicTextStyle) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = Color.BackgroundWhite),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            TabContainer {
+                TabDefaults.Items.forEach { (type, _, _) ->
+                    TabItem(
+                        title = type.string,
+                        backgroundColor = tabBackgroundColorWithAnimation(
+                            selectedTabType = selectedTabTypeState,
+                            nowTabType = type
+                        ),
+                        textColor = tabTextColorWithAnimation(
+                            selectedTabType = selectedTabTypeState,
+                            nowTabType = type
+                        ),
+                        onTabClick = {
+                            selectedTabTypeState = type
+                        }
+                    )
+                }
+            }
+
+            MovieContainer {
+                AnimatedContent(
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(horizontal = 30.dp),
+                    targetState = selectedTabFullname
+                ) { targetTabFullname ->
+                    MovieName(selectedTabFullname = targetTabFullname)
+                }
+
+                AnimatedContent(
+                    modifier = Modifier.wrapContentSize(),
+                    targetState = selectedTabPosterDrawable,
+                    contentAlignment = Alignment.Center
+                ) { targetTabPosterDrawable ->
+                    MoviePoster(
+                        posterDrawable = targetTabPosterDrawable,
+                        posterDescription = selectedTabType.string
+                    )
+                }
+            }
+        }
+    }
+}
+
+@BackgroundPreview
+@Composable
+fun MovieSelectorWithCustomTransitionSpecAndTransition() {
     var selectedTabTypeState by remember { mutableStateOf(Movie.Thor) }
     val selectedTabTransition = updateTransition(
         targetState = selectedTabTypeState,
@@ -306,26 +369,30 @@ fun MovieSelectorWithTransition() {
             }
 
             MovieContainer {
-                selectedTabTransition.AnimatedContent(
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                        .padding(horizontal = 30.dp),
-                    transitionSpec = {
-                        fadeIn(
-                            animationSpec = defaultTween()
-                        ) with fadeOut(
-                            animationSpec = defaultTween()
-                        ) using SizeTransform(
-                            clip = false,
-                            sizeAnimationSpec = { _, _ ->
-                                defaultTween()
-                            }
-                        )
+                selectedTabTransition
+                    .createChildTransition(label = "selected fab fullname") { selectedTabType ->
+                        val (_, _, selectedTabFullname) = TabDefaults.Items[selectedTabType.ordinal]
+                        selectedTabFullname
                     }
-                ) { selectedTabType ->
-                    val (_, _, selectedTabFullname) = TabDefaults.Items[selectedTabType.ordinal]
-                    MovieName(selectedTabFullname = selectedTabFullname)
-                }
+                    .AnimatedContent(
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .padding(horizontal = 30.dp),
+                        transitionSpec = {
+                            fadeIn(
+                                animationSpec = defaultTween()
+                            ) with fadeOut(
+                                animationSpec = defaultTween()
+                            ) using SizeTransform(
+                                clip = false,
+                                sizeAnimationSpec = { _, _ ->
+                                    defaultTween()
+                                }
+                            )
+                        }
+                    ) { selectedTabFullname ->
+                        MovieName(selectedTabFullname = selectedTabFullname)
+                    }
 
                 selectedTabTransition.AnimatedContent(
                     modifier = Modifier.wrapContentSize(),
@@ -376,7 +443,7 @@ fun MovieSelectorWithTransition() {
 
 @BackgroundPreview
 @Composable
-fun MovieSelectorWithMovieTabTransition() {
+fun MovieSelectorWithCustomTabTransition() {
     var selectedMovieState by remember { mutableStateOf(Movie.Thor) }
     val selectedTabTransition = updateTransition(
         targetState = selectedMovieState,
@@ -398,26 +465,30 @@ fun MovieSelectorWithMovieTabTransition() {
             )
 
             MovieContainer {
-                selectedTabTransition.AnimatedContent(
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                        .padding(horizontal = 30.dp),
-                    transitionSpec = {
-                        fadeIn(
-                            animationSpec = defaultTween()
-                        ) with fadeOut(
-                            animationSpec = defaultTween()
-                        ) using SizeTransform(
-                            clip = false,
-                            sizeAnimationSpec = { _, _ ->
-                                defaultTween()
-                            }
-                        )
+                selectedTabTransition
+                    .createChildTransition(label = "selected fab fullname") { selectedTabType ->
+                        val (_, _, selectedTabFullname) = TabDefaults.Items[selectedTabType.ordinal]
+                        selectedTabFullname
                     }
-                ) { selectedTabType ->
-                    val (_, _, selectedTabFullname) = TabDefaults.Items[selectedTabType.ordinal]
-                    MovieName(selectedTabFullname = selectedTabFullname)
-                }
+                    .AnimatedContent(
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .padding(horizontal = 30.dp),
+                        transitionSpec = {
+                            fadeIn(
+                                animationSpec = defaultTween()
+                            ) with fadeOut(
+                                animationSpec = defaultTween()
+                            ) using SizeTransform(
+                                clip = false,
+                                sizeAnimationSpec = { _, _ ->
+                                    defaultTween()
+                                }
+                            )
+                        }
+                    ) { selectedTabFullname ->
+                        MovieName(selectedTabFullname = selectedTabFullname)
+                    }
 
                 selectedTabTransition.AnimatedContent(
                     modifier = Modifier.wrapContentSize(),
@@ -455,9 +526,9 @@ fun MovieSelectorWithMovieTabTransition() {
                         }
                     }
                 ) { selectedTabType ->
-                    val (_, selectedTabPoster, _) = TabDefaults.Items[selectedTabType.ordinal]
+                    val (_, selectedTabPosterDrawable, _) = TabDefaults.Items[selectedTabType.ordinal]
                     MoviePoster(
-                        posterDrawable = selectedTabPoster,
+                        posterDrawable = selectedTabPosterDrawable,
                         posterDescription = selectedTabType.string
                     )
                 }
@@ -468,28 +539,28 @@ fun MovieSelectorWithMovieTabTransition() {
 
 @Stable
 private fun tabBackgroundColor(
-    selectedIndex: Int,
-    nowTabIndex: Int
-): Color = when (selectedIndex == nowTabIndex) {
+    selectedTabType: Movie,
+    nowTabType: Movie,
+): Color = when (selectedTabType == nowTabType) {
     true -> TabDefaults.Color.selectedBackground
     false -> TabDefaults.Color.defaultBackground
 }
 
 @Stable
 private fun tabTextColor(
-    selectedIndex: Int,
-    nowTabIndex: Int
-) = when (selectedIndex == nowTabIndex) {
+    selectedTabType: Movie,
+    nowTabType: Movie,
+) = when (selectedTabType == nowTabType) {
     true -> TabDefaults.Color.selectedText
     false -> TabDefaults.Color.defaultText
 }
 
 @Composable
 private fun tabBackgroundColorWithAnimation(
-    selectedIndex: Int,
-    nowTabIndex: Int
+    selectedTabType: Movie,
+    nowTabType: Movie,
 ) = animateColorAsState(
-    targetValue = when (selectedIndex == nowTabIndex) {
+    targetValue = when (selectedTabType == nowTabType) {
         true -> TabDefaults.Color.selectedBackground
         false -> TabDefaults.Color.defaultBackground
     },
@@ -498,10 +569,10 @@ private fun tabBackgroundColorWithAnimation(
 
 @Composable
 private fun tabTextColorWithAnimation(
-    selectedIndex: Int,
-    nowTabIndex: Int
+    selectedTabType: Movie,
+    nowTabType: Movie,
 ) = animateColorAsState(
-    targetValue = when (selectedIndex == nowTabIndex) {
+    targetValue = when (selectedTabType == nowTabType) {
         true -> TabDefaults.Color.selectedText
         false -> TabDefaults.Color.defaultText
     },
