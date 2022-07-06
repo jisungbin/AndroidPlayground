@@ -302,7 +302,7 @@ fun MovieSelectorWithCustomAnimateSpec() {
                     contentAlignment = Alignment.Center,
                     transitionSpec = {
                         val targetIndex = targetState.index // targetState == Tab
-                        val initialIndex = targetState.index // targetState == Tab
+                        val initialIndex = initialState.index // targetState == Tab
 
                         if (targetIndex > initialIndex) { // 다음 탭
                             slideIntoContainer(
@@ -421,7 +421,7 @@ fun MovieSelectorWithCustomAnimateSpecAndTransition() {
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
                             val targetIndex = targetState.index // targetState == Tab
-                            val initialIndex = targetState.index // targetState == Tab
+                            val initialIndex = initialState.index // targetState == Tab
 
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
@@ -514,7 +514,7 @@ fun MovieSelectorWithCustomTabTransition() {
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
                             val targetIndex = targetState.index // targetState == Tab
-                            val initialIndex = targetState.index // targetState == Tab
+                            val initialIndex = initialState.index // targetState == Tab
 
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
