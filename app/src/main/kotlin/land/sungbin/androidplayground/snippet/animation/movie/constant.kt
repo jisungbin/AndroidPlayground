@@ -90,7 +90,7 @@ fun tabBackgroundColor(
 fun tabTextColor(
     selectedTab: Tab,
     nowTab: Tab,
-) = when (selectedTab == nowTab) {
+): Color = when (selectedTab == nowTab) {
     true -> TabDefaults.Color.selectedText
     false -> TabDefaults.Color.defaultText
 }
@@ -99,7 +99,7 @@ fun tabTextColor(
 fun tabBackgroundColorWithAnimation(
     selectedTab: Tab,
     nowTab: Tab,
-) = animateColorAsState(
+): Color = animateColorAsState(
     targetValue = when (selectedTab == nowTab) {
         true -> TabDefaults.Color.selectedBackground
         false -> TabDefaults.Color.defaultBackground
@@ -111,7 +111,7 @@ fun tabBackgroundColorWithAnimation(
 fun tabTextColorWithAnimation(
     selectedTab: Tab,
     nowTab: Tab,
-) = animateColorAsState(
+): Color = animateColorAsState(
     targetValue = when (selectedTab == nowTab) {
         true -> TabDefaults.Color.selectedText
         false -> TabDefaults.Color.defaultText
