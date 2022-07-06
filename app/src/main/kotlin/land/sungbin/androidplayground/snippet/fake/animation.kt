@@ -473,8 +473,8 @@ class Transition<S> @PublishedApi internal constructor(
 /**
  * [Transition] 을 생성하고 [targetState] 에서 제공하는 대상으로 업데이트 합니다.
  * [targetState] 가 변경되면 [Transition] 은 새 [targetState] 에 대해 지정된 대상 값을 향해 모든 애니메이션을 실행합니다.
- * 애니메이션은  [Transition.animateFloat], [Transition.animateColor], [Transition.animateValue] 등을 사용하여 동적으로 추가할 수 있습니다.
- * 레이블은 Android Studio에서 다양한 전환을 구별하는 데 사용됩니다.
+ * 애니메이션은 [Transition.animateFloat], [Transition.animateColor], [Transition.animateValue] 등을 사용하여 동적으로 추가할 수 있습니다.
+ * 레이블은 Android Studio 에서 다양한 [Transition] 을 구별하는 데 사용됩니다.
  */
 @Composable
 fun <T> updateTransition(
