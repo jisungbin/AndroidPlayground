@@ -354,6 +354,20 @@ interface SizeTransform {
     fun createAnimationSpec(initialSize: IntSize, targetSize: IntSize): FiniteAnimationSpec<IntSize>
 }
 
+/**
+ * 제공된 [this][EnterTransition] 및 [exit] 를 사용하여 [ContentTransform] 을 생성하며,
+ * Enter 및 Exit 애니메이션이 동시에 실행됩니다.
+ *
+ * @param exit [this][EnterTransition] 와 합칠 [ExitTransition]
+ *
+ * @return [this][EnterTransition] 와 [ExitTransition] 이 합쳐진 [ContentTransform]
+ */
+@ExperimentalAnimationApi
+infix fun EnterTransition.with(exit: ExitTransition) = ContentTransform(
+    targetContentEnter = this,
+    initialContentExit = exit
+)
+
 /* ==================================== */
 /* ===== internal implementations ===== */
 /* ==================================== */
