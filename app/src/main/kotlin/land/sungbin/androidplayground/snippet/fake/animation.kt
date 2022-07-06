@@ -3,11 +3,14 @@
     "UNUSED_PARAMETER",
     "MemberVisibilityCanBePrivate",
     "FunctionName",
-    "unused"
+    "unused",
+    "ComposableNaming",
+    "UnusedImport"
 )
 
 package land.sungbin.androidplayground.snippet.fake
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.AnimatedVisibilityScope
@@ -458,15 +461,11 @@ class Transition<S> @PublishedApi internal constructor(
 ) {
     // targetState 로 애니메이션을 진행함
     @Composable
-    internal fun animateTo(targetState: S) { /* .. */ }
+    internal fun animateTo(targetState: S) { /* .. */
+    }
 
     // 초기 값으로 되돌림
-    internal fun onTransitionEnd() {
-        startTimeNanos = AnimationConstants.UnspecifiedTime
-        currentState = targetState
-        playTimeNanos = 0
-        transitionState.isRunning = false
-    }
+    internal fun onTransitionEnd() { /* .. */ }
 
     // ... 생략
 }
