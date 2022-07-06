@@ -340,7 +340,7 @@ fun MovieSelectorWithCustomAnimateSpec() {
     }
 }
 
-// animateColorAsState, AnimatedContent with custom animation spec and tab transition
+// animateColorAsState, AnimatedContent with custom animation spec and only tab transition
 @BackgroundPreview
 @Composable
 fun MovieSelectorWithCustomAnimateSpecAndTabTransition() {
