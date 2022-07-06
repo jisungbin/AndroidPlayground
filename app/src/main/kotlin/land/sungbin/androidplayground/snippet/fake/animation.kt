@@ -467,6 +467,8 @@ class Transition<S> @PublishedApi internal constructor(
         playTimeNanos = 0
         transitionState.isRunning = false
     }
+
+    // ... 생략
 }
 
 /**
