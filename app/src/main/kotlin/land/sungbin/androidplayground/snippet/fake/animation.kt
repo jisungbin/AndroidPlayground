@@ -20,6 +20,7 @@ import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.DurationBasedAnimationSpec
 import androidx.compose.animation.core.Easing
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.animation.core.InfiniteRepeatableSpec
 import androidx.compose.animation.core.KeyframesSpec
 import androidx.compose.animation.core.RepeatMode
@@ -43,6 +44,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.IntSize
 
 private val colorDefaultSpring = spring<Color>()
 
@@ -289,6 +291,8 @@ sealed class EnterTransition {
      * 이러한 [EnterTransition] 에서 변형을 적용하는 순서는 알파 및 배율을 먼저 조정하고 축소 또는 확대한 다음 슬라이드합니다.
      *
      * @param enter 결합할 다른 [EnterTransition]
+     *
+     * @return 2개의 [EnterTransition] 이 결합된 새로운 [EnterTransition]
      */
     @Stable
     operator fun plus(enter: EnterTransition): EnterTransition {
@@ -324,6 +328,8 @@ sealed class ExitTransition {
      * 이러한 [ExitTransition] 에서 변형을 적용하는 순서는 알파 및 배율을 먼저 조정하고 축소 또는 확대한 다음 슬라이드합니다.
      *
      * @param exit 결합할 다른 [ExitTransition]
+     *
+     * @return 2개의 [ExitTransition] 이 결합된 새로운 [ExitTransition]
      */
     @Stable
     operator fun plus(exit: ExitTransition): ExitTransition {
@@ -342,7 +348,17 @@ sealed class ExitTransition {
  * 콘텐츠의 크기가 변경될 때 한 크기에서 다른 크기로 변환하는 방법을 정의합니다.
  */
 @ExperimentalAnimationApi
-interface SizeTransform
+interface SizeTransform {
+    /**
+     * 사이즈 조절 애니메이션에서 콘텐츠를 clip 하는지 여부입니다.
+     */
+    val clip: Boolean
+
+    /**
+     * 애니메이션 적용 전인 [initialSize] 와 애니메이션의 [targetSize] 를 기반으로 [FiniteAnimationSpec] 을 정의할 수 있습니다.
+     */
+    fun createAnimationSpec(initialSize: IntSize, targetSize: IntSize): FiniteAnimationSpec<IntSize>
+}
 
 /* ==================================== */
 /* ===== internal implementations ===== */
