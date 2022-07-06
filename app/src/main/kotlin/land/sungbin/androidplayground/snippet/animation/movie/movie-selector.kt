@@ -234,8 +234,8 @@ fun MovieSelectorWithHighLevelAnimated() {
                     modifier = Modifier.wrapContentSize(),
                     targetState = selectedTabState,
                     contentAlignment = Alignment.Center
-                ) { fab ->
-                    MoviePoster(posterDrawable = fab.poster)
+                ) { tab ->
+                    MoviePoster(posterDrawable = tab.poster)
                 }
             }
         }
@@ -292,8 +292,8 @@ fun MovieSelectorWithCustomAnimateSpec() {
                             }
                         )
                     }
-                ) { fab ->
-                    MovieName(selectedTabFullname = fab.fullname)
+                ) { tab ->
+                    MovieName(selectedTabFullname = tab.fullname)
                 }
 
                 AnimatedContent(
@@ -392,7 +392,7 @@ fun MovieSelectorWithCustomAnimateSpecAndTransition() {
 
             MovieContainer {
                 selectedTabTransition
-                    .createChildTransition(label = "selected fab fullname") { tab ->
+                    .createChildTransition(label = "selected tab fullname") { tab ->
                         tab.fullname
                     }
                     .AnimatedContent(
@@ -485,7 +485,7 @@ fun MovieSelectorWithCustomTabTransition() {
 
             MovieContainer {
                 selectedTabTransition
-                    .createChildTransition(label = "selected fab fullname") { tab ->
+                    .createChildTransition(label = "selected tab fullname") { tab ->
                         tab.fullname
                     }
                     .AnimatedContent(
