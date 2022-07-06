@@ -181,7 +181,7 @@ fun MovieSelectorBasic() {
                 }
             }
             MovieContainer {
-                MovieName(selectedTabFullname = selectedTabState.fullname)
+                MovieName(fullname = selectedTabState.fullname)
                 MoviePoster(posterDrawable = selectedTabState.poster)
             }
         }
@@ -227,7 +227,7 @@ fun MovieSelectorWithHighLevelAnimated() {
                         .padding(horizontal = 30.dp),
                     targetState = selectedTabState
                 ) { tab ->
-                    MovieName(selectedTabFullname = tab.fullname)
+                    MovieName(fullname = tab.fullname)
                 }
 
                 AnimatedContent(
@@ -293,7 +293,7 @@ fun MovieSelectorWithCustomAnimateSpec() {
                         )
                     }
                 ) { tab ->
-                    MovieName(selectedTabFullname = tab.fullname)
+                    MovieName(fullname = tab.fullname)
                 }
 
                 AnimatedContent(
@@ -411,8 +411,8 @@ fun MovieSelectorWithCustomAnimateSpecAndTransition() {
                                 }
                             )
                         }
-                    ) { selectedTabFullname ->
-                        MovieName(selectedTabFullname = selectedTabFullname)
+                    ) { tabFullname ->
+                        MovieName(fullname = tabFullname)
                     }
 
                 selectedTabTransition
@@ -505,7 +505,7 @@ fun MovieSelectorWithCustomTabTransition() {
                             )
                         }
                     ) { selectedTabFullname ->
-                        MovieName(selectedTabFullname = selectedTabFullname)
+                        MovieName(fullname = selectedTabFullname)
                     }
 
                 selectedTabTransition

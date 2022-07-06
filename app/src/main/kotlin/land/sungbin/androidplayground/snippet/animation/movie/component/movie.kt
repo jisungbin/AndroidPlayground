@@ -56,11 +56,11 @@ fun MovieContainer(
 @Composable
 fun ColumnScope.MovieName(
     modifier: Modifier = Modifier,
-    selectedTabFullname: String
+    fullname: String
 ) {
     Text(
         modifier = modifier.align(Alignment.CenterHorizontally),
-        text = selectedTabFullname,
+        text = fullname,
         style = LocalTextStyle.current.copy(fontSize = 15.sp)
     )
 }
