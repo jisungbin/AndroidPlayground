@@ -455,7 +455,19 @@ class AnimatedContentScope<S> internal constructor(
 class Transition<S> @PublishedApi internal constructor(
     initialState: S,
     label: String?
-)
+) {
+    // targetState 로 애니메이션을 진행함
+    @Composable
+    internal fun animateTo(targetState: S) { /* .. */ }
+
+    // 초기 값으로 되돌림
+    internal fun onTransitionEnd() {
+        startTimeNanos = AnimationConstants.UnspecifiedTime
+        currentState = targetState
+        playTimeNanos = 0
+        transitionState.isRunning = false
+    }
+}
 
 /**
  * [Transition] 을 생성하고 [targetState] 에서 제공하는 대상으로 업데이트 합니다.
