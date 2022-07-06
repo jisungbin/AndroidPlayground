@@ -1,5 +1,8 @@
 @file:NoLiveLiterals
-@file:OptIn(ExperimentalAnimationApi::class, ExperimentalTransitionApi::class)
+@file:OptIn(
+    ExperimentalAnimationApi::class,
+    ExperimentalTransitionApi::class
+)
 
 package land.sungbin.androidplayground.snippet.animation.movie
 
