@@ -356,7 +356,7 @@ interface SizeTransform {
 
 /**
  * 제공된 [this][EnterTransition] 및 [exit] 를 사용하여 [ContentTransform] 을 생성하며,
- * Enter 및 Exit 애니메이션이 동시에 실행됩니다.
+ * [EnterTransition] 및 [ExitTransition] 애니메이션이 동시에 실행됩니다.
  *
  * @param exit [this][EnterTransition] 와 합칠 [ExitTransition]
  *
