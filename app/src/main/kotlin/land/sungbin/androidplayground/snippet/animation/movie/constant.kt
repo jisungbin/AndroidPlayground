@@ -2,7 +2,6 @@
 
 package land.sungbin.androidplayground.snippet.animation.movie
 
-import androidx.annotation.DrawableRes
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -75,14 +74,6 @@ object TabDefaults {
 
     @Stable
     val Color = TabColors()
-
-    @Stable
-    fun findTabIndexByPoster(@DrawableRes drawable: Int) = when (drawable) {
-        R.drawable.thor_poster -> 0
-        R.drawable.spiderman_poster -> 1
-        R.drawable.doctor_poster -> 2
-        else -> throw IllegalStateException("Unknown drawable")
-    }
 }
 
 

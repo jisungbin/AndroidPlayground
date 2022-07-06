@@ -8,7 +8,6 @@ import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.animateColor
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.AnimationVector4D
 import androidx.compose.animation.core.ExperimentalTransitionApi
 import androidx.compose.animation.core.Transition
@@ -37,8 +36,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -157,9 +154,6 @@ private fun MovieTab(
 @Composable
 fun MovieSelectorBasic() {
     var selectedTabState by remember { mutableStateOf(TabDefaults.Items.first()) }
-    val (_, selectedTabPosterDrawable, selectedTabFullname) = remember {
-        derivedStateOf { selectedTabState }
-    }.value
 
     ProvideTextStyle(NanumGothicTextStyle) {
         Column(
@@ -187,8 +181,8 @@ fun MovieSelectorBasic() {
                 }
             }
             MovieContainer {
-                MovieName(selectedTabFullname = selectedTabFullname)
-                MoviePoster(posterDrawable = selectedTabPosterDrawable)
+                MovieName(selectedTabFullname = selectedTabState.fullname)
+                MoviePoster(posterDrawable = selectedTabState.poster)
             }
         }
     }
@@ -199,9 +193,6 @@ fun MovieSelectorBasic() {
 @Composable
 fun MovieSelectorWithHighLevelAnimated() {
     var selectedTabState by remember { mutableStateOf(TabDefaults.Items.first()) }
-    val (_, selectedTabPosterDrawable, selectedTabFullname) = remember {
-        derivedStateOf { selectedTabState }
-    }.value
 
     ProvideTextStyle(NanumGothicTextStyle) {
         Column(
@@ -234,17 +225,17 @@ fun MovieSelectorWithHighLevelAnimated() {
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                         .padding(horizontal = 30.dp),
-                    targetState = selectedTabFullname
-                ) { targetTabFullname ->
-                    MovieName(selectedTabFullname = targetTabFullname)
+                    targetState = selectedTabState
+                ) { tab ->
+                    MovieName(selectedTabFullname = tab.fullname)
                 }
 
                 AnimatedContent(
                     modifier = Modifier.wrapContentSize(),
-                    targetState = selectedTabPosterDrawable,
+                    targetState = selectedTabState,
                     contentAlignment = Alignment.Center
-                ) { targetTabPosterDrawable ->
-                    MoviePoster(posterDrawable = targetTabPosterDrawable)
+                ) { fab ->
+                    MoviePoster(posterDrawable = fab.poster)
                 }
             }
         }
@@ -256,9 +247,6 @@ fun MovieSelectorWithHighLevelAnimated() {
 @Composable
 fun MovieSelectorWithCustomAnimateSpec() {
     var selectedTabState by remember { mutableStateOf(TabDefaults.Items.first()) }
-    val (_, selectedTabPosterDrawable, selectedTabFullname) = remember {
-        derivedStateOf { selectedTabState }
-    }.value
 
     ProvideTextStyle(NanumGothicTextStyle) {
         Column(
@@ -291,7 +279,7 @@ fun MovieSelectorWithCustomAnimateSpec() {
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                         .padding(horizontal = 30.dp),
-                    targetState = selectedTabFullname,
+                    targetState = selectedTabState,
                     transitionSpec = {
                         fadeIn(
                             animationSpec = defaultTween()
@@ -304,17 +292,17 @@ fun MovieSelectorWithCustomAnimateSpec() {
                             }
                         )
                     }
-                ) { selectedTabFullname ->
-                    MovieName(selectedTabFullname = selectedTabFullname)
+                ) { fab ->
+                    MovieName(selectedTabFullname = fab.fullname)
                 }
 
                 AnimatedContent(
                     modifier = Modifier.wrapContentSize(),
-                    targetState = selectedTabPosterDrawable,
+                    targetState = selectedTabState,
                     contentAlignment = Alignment.Center,
                     transitionSpec = {
-                        val targetIndex = TabDefaults.findTabIndexByPoster(targetState)
-                        val initialIndex = TabDefaults.findTabIndexByPoster(initialState)
+                        val targetIndex = targetState.index // targetState == Tab
+                        val initialIndex = targetState.index // targetState == Tab
 
                         if (targetIndex > initialIndex) { // 다음 탭
                             slideIntoContainer(
@@ -344,8 +332,8 @@ fun MovieSelectorWithCustomAnimateSpec() {
                             targetContentZIndex = targetIndex.toFloat()
                         }
                     }
-                ) { targetTabPosterDrawable ->
-                    MoviePoster(posterDrawable = targetTabPosterDrawable)
+                ) { tab ->
+                    MoviePoster(posterDrawable = tab.poster)
                 }
             }
         }
@@ -428,15 +416,12 @@ fun MovieSelectorWithCustomAnimateSpecAndTransition() {
                     }
 
                 selectedTabTransition
-                    .createChildTransition(label = "selected fab poster drawable") { tab ->
-                        tab.poster
-                    }
                     .AnimatedContent(
                         modifier = Modifier.wrapContentSize(),
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
-                            val targetIndex = TabDefaults.findTabIndexByPoster(targetState)
-                            val initialIndex = TabDefaults.findTabIndexByPoster(initialState)
+                            val targetIndex = targetState.index // targetState == Tab
+                            val initialIndex = targetState.index // targetState == Tab
 
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
@@ -466,8 +451,8 @@ fun MovieSelectorWithCustomAnimateSpecAndTransition() {
                                 targetContentZIndex = targetIndex.toFloat()
                             }
                         }
-                    ) { poster ->
-                        MoviePoster(posterDrawable = poster)
+                    ) { tab ->
+                        MoviePoster(posterDrawable = tab.poster)
                     }
             }
         }
@@ -524,15 +509,12 @@ fun MovieSelectorWithCustomTabTransition() {
                     }
 
                 selectedTabTransition
-                    .createChildTransition(label = "selected fab poster drawable") { tab ->
-                        tab.poster
-                    }
                     .AnimatedContent(
                         modifier = Modifier.wrapContentSize(),
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
-                            val targetIndex = TabDefaults.findTabIndexByPoster(targetState)
-                            val initialIndex = TabDefaults.findTabIndexByPoster(initialState)
+                            val targetIndex = targetState.index // targetState == Tab
+                            val initialIndex = targetState.index // targetState == Tab
 
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
@@ -562,8 +544,8 @@ fun MovieSelectorWithCustomTabTransition() {
                                 targetContentZIndex = targetIndex.toFloat()
                             }
                         }
-                    ) { poster ->
-                        MoviePoster(posterDrawable = poster)
+                    ) { tab ->
+                        MoviePoster(posterDrawable = tab.poster)
                     }
             }
         }
