@@ -281,10 +281,7 @@ class ContentTransform(
  */
 @Immutable
 sealed class EnterTransition {
-    /**
-     * 내부에서 사용하는 정보를 보관합니다.
-     */
-    internal abstract val data: TransitionData
+    internal abstract val data: TransitionData // 내부에서 사용하는 정보를 보관함
 
     /**
      * 다양한 [EnterTransition] 을 결합합니다. [EnterTransition] 는 동시에 시작되므로 결합되는 [EnterTransition] 의 순서는 중요하지 않습니다.
@@ -318,10 +315,7 @@ sealed class EnterTransition {
  */
 @Immutable
 sealed class ExitTransition {
-    /**
-     * 내부에서 사용하는 정보를 보관합니다.
-     */
-    internal abstract val data: TransitionData
+    internal abstract val data: TransitionData // 내부에서 사용하는 정보를 보관함
 
     /**
      * 다양한 [ExitTransition] 을 결합합니다. [ExitTransition] 는 동시에 시작되므로 결합되는 [ExitTransition] 의 순서는 중요하지 않습니다.
