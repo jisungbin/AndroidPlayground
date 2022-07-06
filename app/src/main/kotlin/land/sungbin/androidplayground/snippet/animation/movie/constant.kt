@@ -76,6 +76,7 @@ object TabDefaults {
     @Stable
     val Color = TabColors()
 
+    @Stable
     fun findTabIndexByPoster(@DrawableRes drawable: Int) = when (drawable) {
         R.drawable.thor_poster -> 0
         R.drawable.spiderman_poster -> 1
