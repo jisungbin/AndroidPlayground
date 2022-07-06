@@ -470,7 +470,7 @@ fun MovieSelectorWithMovieTabTransition() {
 private fun tabBackgroundColor(
     selectedIndex: Int,
     nowTabIndex: Int
-) = when (selectedIndex == nowTabIndex) {
+): Color = when (selectedIndex == nowTabIndex) {
     true -> TabDefaults.Color.selectedBackground
     false -> TabDefaults.Color.defaultBackground
 }

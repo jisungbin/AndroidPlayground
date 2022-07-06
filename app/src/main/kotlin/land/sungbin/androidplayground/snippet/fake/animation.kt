@@ -1,8 +1,18 @@
-@file:Suppress("KDocUnresolvedReference")
+@file:Suppress(
+    "KDocUnresolvedReference",
+    "UNUSED_PARAMETER", "MemberVisibilityCanBePrivate"
+)
 
 package land.sungbin.androidplayground.snippet.fake
 
 import androidx.compose.animation.Animatable
+import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.ContentTransform
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.VectorConverter
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationConstants
@@ -24,12 +34,19 @@ import androidx.compose.animation.core.StartOffset
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateValueAsState
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.with
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.data.EmptyGroup.data
 
 private val colorDefaultSpring = spring<Color>()
 
@@ -203,3 +220,127 @@ fun <T> infiniteRepeatable(
 fun <T> snap(delayMillis: Int = 0): SnapSpec<T> = SnapSpec(
     delay = delayMillis
 )
+
+/**
+ * [targetState] 가 변경될 때 [content] 에 자동으로 애니메이션을 적용하는 컨테이너입니다.
+ *
+ * @param targetState 변경될 상태
+ * @param modifier 적용할 [Modifier]
+ * @param transitionSpec 적용할 애니메이션
+ * @param contentAlignment [content] 가 배치될 [Alignment]
+ * @param content 배치할 컴포저블 함수
+ */
+@ExperimentalAnimationApi
+@Composable
+fun <S> AnimatedContent(
+    targetState: S,
+    modifier: Modifier = Modifier,
+    transitionSpec: AnimatedContentScope<S>.() -> ContentTransform = {
+        fadeIn(
+            animationSpec = tween(
+                durationMillis = 220,
+                delayMillis = 90
+            )
+        ) + scaleIn(
+            initialScale = 0.92f,
+            animationSpec = tween(
+                durationMillis = 220,
+                delayMillis = 90
+            )
+        ) with fadeOut(
+            animationSpec = tween(durationMillis = 90)
+        )
+    },
+    contentAlignment: Alignment = Alignment.TopStart,
+    content: @Composable AnimatedVisibilityScope.(targetState: S) -> Unit
+) {
+}
+
+/**
+ * 콘텐츠가 [AnimatedContent] 에 들어가고 나가는 방법을 정의합니다.
+ *
+ * @param targetContentEnter 새로운 콘텐츠가 들어오는 애니메이션
+ * @param initialContentExit 기존 콘텐츠가 나가는 애니메이션
+ * @param targetContentZIndex 콘텐츠가 들어오고 나갈 때 사용할 zIndex
+ * @param sizeTransform 콘텐츠가 들어오고 나갈 때 사이즈가 변할 경우 이를 관리하기 위한 옵션
+ */
+@ExperimentalAnimationApi
+class ContentTransform(
+    val targetContentEnter: EnterTransition,
+    val initialContentExit: ExitTransition,
+    targetContentZIndex: Float = 0f,
+    sizeTransform: SizeTransform? = SizeTransform()
+)
+
+/**
+ * [AnimatedVisibility] 컴포저블이 표시될 때 화면에 표시되는 방식을 정의합니다.
+ * 사용할 수 있는 [EnterTransition] 의 4가지 카테고리는 다음과 같습니다.
+ *
+ * 1. fade: [fadeIn]
+ * 2. scale: [scaleIn]
+ * 3. slide: [slideIn], [slideInHorizontally], [slideInVertically]
+ * 4. expand: [expandIn], [expandHorizontally], [expandVertically]
+ */
+@Immutable
+sealed class EnterTransition {
+    /**
+     * Combines different exit transitions. The order of the [ExitTransition]s being combined
+     * does not matter, as these [ExitTransition]s will start simultaneously. The order of
+     * applying transforms from these exit transitions (if defined) is: alpha and scale first,
+     * shrink or expand, then slide.
+     *
+     * @sample androidx.compose.animation.samples.FullyLoadedTransition
+     *
+     * @param exit another [ExitTransition] to be combined.
+     */
+    @Stable
+    operator fun plus(exit: ExitTransition): ExitTransition {
+        return ExitTransitionImpl(
+            TransitionData(
+                fade = data.fade ?: exit.data.fade,
+                slide = data.slide ?: exit.data.slide,
+                changeSize = data.changeSize ?: exit.data.changeSize,
+                scale = data.scale ?: exit.data.scale
+            )
+        )
+    }
+}
+
+/**
+ * [AnimatedVisibility] 컴포저블이 사라질 때 화면에 표시되는 방식을 정의합니다.
+ * 사용할 수 있는 [ExitTransition] 의 4가지 카테고리는 다음과 같습니다.
+ *
+ * 1. fade: [fadeOut]
+ * 2. scale: [scaleOut]
+ * 3. slide: [slideOut], [slideOutHorizontally], [slideOutVertically]
+ * 4. shrink: [shrinkOut], [shrinkHorizontally], [shrinkVertically]
+ */
+@Immutable
+sealed class ExitTransition {
+    internal abstract val data: TransitionData
+}
+
+/**
+ * 콘텐츠의 크기가 변경될 때 한 크기에서 다른 크기로 변환하는 방법을 정의합니다.
+ */
+@ExperimentalAnimationApi
+interface SizeTransform
+
+/* ===== internal implementations ===== */
+/* ==================================== */
+
+interface Fade
+interface Slide
+interface ChangeSize
+interface Scale
+
+@Immutable
+data class TransitionData(
+    val fade: Fade? = null,
+    val slide: Slide? = null,
+    val changeSize: ChangeSize? = null,
+    val scale: Scale? = null
+)
+
+@Immutable
+private class ExitTransitionImpl(val data: TransitionData) : ExitTransition()
