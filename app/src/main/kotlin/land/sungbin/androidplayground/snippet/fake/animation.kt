@@ -19,11 +19,9 @@ import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.DurationBasedAnimationSpec
 import androidx.compose.animation.core.Easing
-import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.InfiniteRepeatableSpec
 import androidx.compose.animation.core.KeyframesSpec
-import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.RepeatableSpec
 import androidx.compose.animation.core.SnapSpec
@@ -67,7 +65,7 @@ private val colorDefaultSpring = spring<Color>()
 fun animateColorAsState(
     targetValue: Color,
     animationSpec: AnimationSpec<Color> = colorDefaultSpring,
-    finishedListener: ((Color) -> Unit)? = null
+    finishedListener: ((Color) -> Unit)? = null,
 ): State<Color> {
     val converter = remember(targetValue.colorSpace) {
         // Color.VectorConverter 는 아래와 같은 ColorToVector 를 반환합니다.
@@ -99,7 +97,7 @@ fun animateColorAsState(
 fun <T> spring(
     dampingRatio: Float = Spring.DampingRatioNoBouncy,
     stiffness: Float = Spring.StiffnessMedium,
-    visibilityThreshold: T? = null
+    visibilityThreshold: T? = null,
 ): SpringSpec<T> = SpringSpec(
     dampingRatio = dampingRatio,
     stiffness = stiffness,
@@ -119,7 +117,7 @@ fun <T> spring(
 fun <T> tween(
     durationMillis: Int = AnimationConstants.DefaultDurationMillis,
     delayMillis: Int = 0,
-    easing: Easing = FastOutSlowInEasing
+    easing: Easing = FastOutSlowInEasing,
 ): TweenSpec<T> = TweenSpec(
     durationMillis = durationMillis,
     delay = delayMillis,
@@ -155,7 +153,7 @@ class CubicBezierEasing(
     private val a: Float,
     private val b: Float,
     private val c: Float,
-    private val d: Float
+    private val d: Float,
 ) : Easing {
     override fun transform(fraction: Float): Float {
         TODO("Not yet implemented")
@@ -169,7 +167,7 @@ class CubicBezierEasing(
  */
 @Stable
 fun <T> keyframes(
-    init: KeyframesSpec.KeyframesSpecConfig<T>.() -> Unit
+    init: KeyframesSpec.KeyframesSpecConfig<T>.() -> Unit,
 ): KeyframesSpec<T> = KeyframesSpec(
     config = KeyframesSpec.KeyframesSpecConfig<T>().apply(init)
 )
@@ -187,7 +185,7 @@ fun <T> repeatable(
     iterations: Int,
     animation: DurationBasedAnimationSpec<T>,
     repeatMode: RepeatMode = RepeatMode.Restart,
-    initialStartOffset: StartOffset = StartOffset(0)
+    initialStartOffset: StartOffset = StartOffset(0),
 ): RepeatableSpec<T> = RepeatableSpec(
     iterations = iterations,
     animation = animation,
@@ -202,7 +200,7 @@ fun <T> repeatable(
 fun <T> infiniteRepeatable(
     animation: DurationBasedAnimationSpec<T>,
     repeatMode: RepeatMode = RepeatMode.Restart,
-    initialStartOffset: StartOffset = StartOffset(0)
+    initialStartOffset: StartOffset = StartOffset(0),
 ): InfiniteRepeatableSpec<T> = InfiniteRepeatableSpec(
     animation = animation,
     repeatMode = repeatMode,
@@ -250,7 +248,7 @@ fun <S> AnimatedContent(
         )
     },
     contentAlignment: Alignment = Alignment.TopStart,
-    content: @Composable AnimatedVisibilityScope.(targetState: S) -> Unit
+    content: @Composable AnimatedVisibilityScope.(targetState: S) -> Unit,
 ) {
 }
 
@@ -267,7 +265,7 @@ class ContentTransform(
     val targetContentEnter: EnterTransition,
     val initialContentExit: ExitTransition,
     targetContentZIndex: Float = 0f,
-    sizeTransform: SizeTransform? = SizeTransform()
+    sizeTransform: SizeTransform? = SizeTransform(),
 )
 
 /**
@@ -360,8 +358,11 @@ data class TransitionData(
     val fade: Fade? = null,
     val slide: Slide? = null,
     val changeSize: ChangeSize? = null,
-    val scale: Scale? = null
+    val scale: Scale? = null,
 )
+
+@Immutable
+private class EnterTransitionImpl(override val data: TransitionData) : EnterTransition()
 
 @Immutable
 private class ExitTransitionImpl(override val data: TransitionData) : ExitTransition()
