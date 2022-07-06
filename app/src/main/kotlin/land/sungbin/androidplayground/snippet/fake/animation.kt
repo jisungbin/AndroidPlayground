@@ -9,8 +9,6 @@ import androidx.compose.animation.Animatable
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ContentTransform
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.VectorConverter
@@ -46,7 +44,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.data.EmptyGroup.data
 
 private val colorDefaultSpring = spring<Color>()
 
@@ -284,23 +281,24 @@ class ContentTransform(
 @Immutable
 sealed class EnterTransition {
     /**
-     * Combines different exit transitions. The order of the [ExitTransition]s being combined
-     * does not matter, as these [ExitTransition]s will start simultaneously. The order of
-     * applying transforms from these exit transitions (if defined) is: alpha and scale first,
-     * shrink or expand, then slide.
+     * 내부에서 사용하는 정보를 보관합니다.
+     */
+    internal abstract val data: TransitionData
+
+    /**
+     * 다양한 [EnterTransition] 을 결합합니다. [EnterTransition] 는 동시에 시작되므로 결합되는 [EnterTransition] 의 순서는 중요하지 않습니다.
+     * 이러한 [EnterTransition] 에서 변형을 적용하는 순서는 알파 및 배율을 먼저 조정하고 축소 또는 확대한 다음 슬라이드합니다.
      *
-     * @sample androidx.compose.animation.samples.FullyLoadedTransition
-     *
-     * @param exit another [ExitTransition] to be combined.
+     * @param enter 결합할 다른 [EnterTransition]
      */
     @Stable
-    operator fun plus(exit: ExitTransition): ExitTransition {
-        return ExitTransitionImpl(
+    operator fun plus(enter: EnterTransition): EnterTransition {
+        return EnterTransitionImpl(
             TransitionData(
-                fade = data.fade ?: exit.data.fade,
-                slide = data.slide ?: exit.data.slide,
-                changeSize = data.changeSize ?: exit.data.changeSize,
-                scale = data.scale ?: exit.data.scale
+                fade = data.fade ?: enter.data.fade,
+                slide = data.slide ?: enter.data.slide,
+                changeSize = data.changeSize ?: enter.data.changeSize,
+                scale = data.scale ?: enter.data.scale
             )
         )
     }
@@ -317,7 +315,28 @@ sealed class EnterTransition {
  */
 @Immutable
 sealed class ExitTransition {
+    /**
+     * 내부에서 사용하는 정보를 보관합니다.
+     */
     internal abstract val data: TransitionData
+
+    /**
+     * 다양한 [ExitTransition] 을 결합합니다. [ExitTransition] 는 동시에 시작되므로 결합되는 [ExitTransition] 의 순서는 중요하지 않습니다.
+     * 이러한 [ExitTransition] 에서 변형을 적용하는 순서는 알파 및 배율을 먼저 조정하고 축소 또는 확대한 다음 슬라이드합니다.
+     *
+     * @param exit 결합할 다른 [ExitTransition]
+     */
+    @Stable
+    operator fun plus(exit: ExitTransition): ExitTransition {
+        return ExitTransitionImpl(
+            TransitionData(
+                fade = data.fade ?: exit.data.fade,
+                slide = data.slide ?: exit.data.slide,
+                changeSize = data.changeSize ?: exit.data.changeSize,
+                scale = data.scale ?: exit.data.scale
+            )
+        )
+    }
 }
 
 /**
@@ -343,4 +362,4 @@ data class TransitionData(
 )
 
 @Immutable
-private class ExitTransitionImpl(val data: TransitionData) : ExitTransition()
+private class ExitTransitionImpl(override val data: TransitionData) : ExitTransition()
