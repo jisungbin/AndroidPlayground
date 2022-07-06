@@ -536,5 +536,4 @@ private fun SizeTransform(
 private fun land.sungbin.androidplayground.snippet.fake.Transition<*>.onTransitionEnd() {}
 private fun <T> land.sungbin.androidplayground.snippet.fake.Transition<*>.animateTo(targetState: T) {}
 
-
 private fun `throw`(): Nothing = throw NotImplementedError()
