@@ -323,8 +323,6 @@ sealed class EnterTransition {
             )
         )
     }
-
-    companion object
 }
 
 /**
@@ -392,13 +390,13 @@ infix fun EnterTransition.with(exit: ExitTransition) = ContentTransform(
 )
 
 /**
- * [slideIntoContainer] 및 ]slideOutOfContainer] 와 같이 [AnimatedContent] 컨텍스트에서만 편리하게 적용할 수 있는 기능을 제공합니다.
+ * [AnimatedContent] 컨텍스트에서만 편리하게 적용할 수 있는 기능을 제공합니다.
  */
 @ExperimentalAnimationApi
 class AnimatedContentScope<S> internal constructor(
     internal val transition: Transition<S>,
     internal var contentAlignment: Alignment,
-    internal var layoutDirection: LayoutDirection,
+    internal var layoutDirection: LayoutDirection
 ) : Transition.Segment<S> {
     override val initialState: S get() = transition.segment.initialState // 애니메이션이 시작되기 전 초기 값
     override val targetState: S get() = transition.segment.targetState // 애니메이션이 적용될 값, 즉 애니메이션의 종료 값
@@ -419,7 +417,7 @@ class AnimatedContentScope<S> internal constructor(
      * 컨테이너의 가장자리에서 [AnimatedContent] 에 특정한 수평/수직 slide-in 을 정의합니다.
      * [slideInHorizontally] 및 [slideInVertically] 와 달리 시작 오프셋이 [AnimatedContent] 의 현재 크기와 콘텐츠 정렬을 기반으로 동적으로 자동 계산됩니다.
      *
-     * @param towards 슬라이드 방향을 지정합니다.
+     * @param towards 슬라이드 방향
      * 콘텐츠는 [SlideDirection.Left], [SlideDirection.Right], [SlideDirection.Up] 및 [SlideDirection.Down] 방향으로 컨테이너로 slide 할 수 있습니다.
      * @param animationSpec 사용할 애니메이션
      * @param initialOffset 시작 오프셋. 자동으로 계산되지만 역시 수동으로 지정할 수도 있습니다.
@@ -429,7 +427,7 @@ class AnimatedContentScope<S> internal constructor(
         animationSpec: FiniteAnimationSpec<IntOffset> = spring(
             visibilityThreshold = IntOffset.VisibilityThreshold
         ),
-        initialOffset: (offsetForFullSlide: Int) -> Int = { it },
+        initialOffset: (offsetForFullSlide: Int) -> Int = { it }
     ): EnterTransition = `throw`()
 
     // slideIntoContainer 와 동일, 단 slide-in 대신 slide-out
@@ -438,7 +436,7 @@ class AnimatedContentScope<S> internal constructor(
         animationSpec: FiniteAnimationSpec<IntOffset> = spring(
             visibilityThreshold = IntOffset.VisibilityThreshold
         ),
-        targetOffset: (offsetForFullSlide: Int) -> Int = { it },
+        targetOffset: (offsetForFullSlide: Int) -> Int = { it }
     ): ExitTransition = `throw`()
 }
 

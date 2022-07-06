@@ -1,3 +1,35 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun SortedColumn(
+  stable backgroundColor: Color = @static Companion.White
+  stable modifier: Modifier? = @dynamic Companion.fillMaxSize().background(
+  color   =   backgroundColor
+)
+  stable space: Dp = @static DefaultPadding
+  stable content: @[ExtensionFunctionType] Function3<ColumnScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SortedLazyColumn(
+  stable backgroundColor: Color = @static Companion.White
+  stable modifier: Modifier? = @dynamic Companion.fillMaxSize().background(
+  color   =   backgroundColor
+)
+  stable space: Dp = @static DefaultPadding
+  stable paddingValues: PaddingValues? = @dynamic PaddingValues(
+  vertical   =   space
+)
+  stable content: @[ExtensionFunctionType] Function1<LazyListScope, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun LoggingButton(
+  stable modifier: Modifier? = @static Companion
+  stable log: String? = @static "Button composition."
+  stable onClick: Function0<Unit>
+  stable content: @[ExtensionFunctionType] Function3<RowScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LoggingText(
+  stable modifier: Modifier? = @static Companion
+  stable log: String? = @static "Text composition."
+  stable text: String
+)
+fun <get-StatusBarHeightDp>()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LookaheadLayoutDemo()
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SpringPlayground()
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TweenPlayground()
 restartable scheme("[androidx.compose.ui.UiComposable]") fun Animator(
@@ -18,9 +50,104 @@ restartable skippable fun InfiniteRepeatableExample(
 restartable skippable fun SnapExample(
   stable target: Int
 )
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Fab(
+  stable modifier: Modifier? = @static Companion
+  stable isExpanded: Boolean = @dynamic LiveLiterals$Expendable_fabKt.Boolean$param-isExpanded$fun-Fab()
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpandableFabBasic(
+  stable modifier: Modifier? = @static Companion
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpandableFabAnimation(
+  stable modifier: Modifier? = @static Companion
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun MovieContainer(
+  stable modifier: Modifier? = @static Companion
+  stable content: @[ExtensionFunctionType] Function3<ColumnScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieName(
+  stable <this>: ColumnScope
+  stable modifier: Modifier? = @static Companion
+  stable selectedTabFullname: String
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MoviePoster(
+  stable modifier: Modifier? = @static Companion
+  stable fillMaxSize: Boolean = @static true
+  stable posterDrawable: Int
+  stable posterDescription: String? = @static null
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun TabContainer(
+  stable modifier: Modifier? = @static Companion
+  stable content: @[ExtensionFunctionType] Function3<RowScope, Composer, Int, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TabItem(
+  stable <this>: RowScope
+  stable modifier: Modifier? = @static Companion
+  stable title: String
+  stable backgroundColor: Color
+  stable textColor: Color
+  stable onTabClick: Function0<Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieTab(
+  stable selectedTabTransition: Transition<Movie>
+  stable updateSelectedTabType: Function1<@[ParameterName(name = 'type')] Movie, Unit>
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorBasic()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithHighLevelAnimated()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithTransition()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithMovieTabTransition()
+fun tabBackgroundColorWithAnimation(
+  stable selectedIndex: Int
+  stable nowTabIndex: Int
+): Color
+fun tabTextColorWithAnimation(
+  stable selectedIndex: Int
+  stable nowTabIndex: Int
+): Color
 fun animateColorAsState(
   stable targetValue: Color
   unstable animationSpec: AnimationSpec<Color>? = @static colorDefaultSpring
   stable finishedListener: Function1<Color, Unit>? = @static null
 ): State<Color>
+restartable skippable fun AnimatedContent(
+  unused targetState: S
+  unused stable modifier: Modifier? = @static Companion
+  unused stable transitionSpec: @[ExtensionFunctionType] Function1<AnimatedContentScope<S>, ContentTransform>? = @static {
+  fadeIn  (
+    animationSpec     =     tween    (
+      durationMillis       =       LiveLiterals$AnimationKt      .      Int$arg-0$call-tween$arg-0$call-fadeIn$$this$call-plus$$$this$call-with$fun-$anonymous$$param-transitionSpec$fun-AnimatedContent      (      )      , 
+      delayMillis       =       LiveLiterals$AnimationKt      .      Int$arg-1$call-tween$arg-0$call-fadeIn$$this$call-plus$$$this$call-with$fun-$anonymous$$param-transitionSpec$fun-AnimatedContent      (      )
+    )
+  )   +   val   tmp0_animationSpec   =   tween  (
+    durationMillis     =     LiveLiterals$AnimationKt    .    Int$arg-0$call-tween$val-tmp0_animationSpec$arg-0$call-plus$$$this$call-with$fun-$anonymous$$param-transitionSpec$fun-AnimatedContent    (    )    , 
+    delayMillis     =     LiveLiterals$AnimationKt    .    Int$arg-1$call-tween$val-tmp0_animationSpec$arg-0$call-plus$$$this$call-with$fun-$anonymous$$param-transitionSpec$fun-AnimatedContent    (    )
+  )  
+  scaleIn  (
+    animationSpec     =     tmp0_animationSpec    , 
+    initialScale     =     LiveLiterals$AnimationKt    .    Float$arg-1$call-scaleIn$arg-0$call-plus$$$this$call-with$fun-$anonymous$$param-transitionSpec$fun-AnimatedContent    (    )
+  )   with   fadeOut  (
+    animationSpec     =     tween    (
+      durationMillis       =       LiveLiterals$AnimationKt      .      Int$arg-0$call-tween$arg-0$call-fadeOut$arg-0$call-with$fun-$anonymous$$param-transitionSpec$fun-AnimatedContent      (      )
+    )
+  )
+}
+
+  unused stable contentAlignment: Alignment? = @static Companion.TopStart
+  unused stable content: @[ExtensionFunctionType] Function4<AnimatedVisibilityScope, @[ParameterName(name = 'targetState')] S, Composer, Int, Unit>
+)
+restartable skippable fun LookaheadLayout(
+  unused stable content: @[UiComposable] @[ExtensionFunctionType] Function3<LookaheadLayoutScope, Composer, Int, Unit>
+  unused stable modifier: Modifier? = @static Companion
+  unused stable measurePolicy: MeasurePolicy
+)
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TextConfirm()
+fun defaultColor(
+  stable <this>: <no name provided>
+): Color
+fun rippleAlpha(
+  stable <this>: <no name provided>
+): RippleAlpha
+restartable skippable scheme("[0, [0]]") fun PlaygroundTheme(
+  stable content: Function2<Composer, Int, Unit>
+)
+readonly fun <get-NanumGothicTextStyle>()
+fun rememberToast()

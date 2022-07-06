@@ -1,3 +1,13 @@
+stable class AndroidPlayground {
+  <runtime stability> = Stable
+}
+stable class HiltModule {
+  <runtime stability> = Stable
+}
+unstable class BooleanPreview {
+  unstable val values: Sequence<Boolean>
+  <runtime stability> = Unstable
+}
 stable class PosterSize {
   stable val Vertical: DpSize
   stable val Horizontal: DpSize
@@ -20,8 +30,44 @@ stable class CubicBezierEasing {
   stable val c: Float
   stable val d: Float
 }
+stable class ContentTransform {
+  stable val targetContentEnter: EnterTransition
+  stable val initialContentExit: ExitTransition
+  <runtime stability> = Stable
+}
+stable class EnterTransition {
+}
+stable class ExitTransition {
+}
+stable class TransitionData {
+  runtime val fade: Fade?
+  runtime val slide: Slide?
+  runtime val changeSize: ChangeSize?
+  runtime val scale: Scale?
+}
+unstable class FloatingTextActionModeCallback {
+  stable var clickedRect: Rect
+  unstable val toast: ToastWrapper
+  stable val onActionModeDestroy: Function0<Unit>
+  <runtime stability> = Unstable
+}
+unstable class SungbinLandTextToolbar {
+  unstable val view: View
+  unstable var actionMode: ActionMode?
+  unstable val callback: FloatingTextActionModeCallback
+  stable var status: TextToolbarStatus
+  <runtime stability> = Unstable
+}
 unstable class MainActivity {
   unstable var binding: ActivityMainBinding
   unstable val vm$delegate: Lazy<MainViewModel>
+  <runtime stability> = Unstable
+}
+stable class MainViewModel {
+  <runtime stability> = Stable
+}
+unstable class ToastWrapper {
+  unstable val contextWrapper: WeakReference<@[FlexibleNullability] Context?>
+  unstable val toastInstance: @[FlexibleNullability] Toast?
   <runtime stability> = Unstable
 }
