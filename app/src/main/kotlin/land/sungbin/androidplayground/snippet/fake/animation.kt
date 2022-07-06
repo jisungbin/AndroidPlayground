@@ -1,7 +1,7 @@
 @file:Suppress(
     "KDocUnresolvedReference",
     "UNUSED_PARAMETER",
-    "MemberVisibilityCanBePrivate"
+    "MemberVisibilityCanBePrivate", "FunctionName"
 )
 
 package land.sungbin.androidplayground.snippet.fake
@@ -9,9 +9,7 @@ package land.sungbin.androidplayground.snippet.fake
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.AnimatedVisibilityScope
-import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.VectorConverter
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationConstants
@@ -29,22 +27,30 @@ import androidx.compose.animation.core.SnapSpec
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.SpringSpec
 import androidx.compose.animation.core.StartOffset
+import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.TweenSpec
+import androidx.compose.animation.core.VisibilityThreshold
 import androidx.compose.animation.core.animateValueAsState
 import androidx.compose.animation.core.spring
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.scaleIn
-import androidx.compose.animation.with
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.LayoutDirection
 
 private val colorDefaultSpring = spring<Color>()
 
@@ -268,7 +274,22 @@ class ContentTransform(
     val initialContentExit: ExitTransition,
     targetContentZIndex: Float = 0f,
     sizeTransform: SizeTransform? = SizeTransform(),
-)
+) {
+    /**
+     * 컨테이너에 들어갈 때 새로운 대상 콘텐츠의 zIndex 를 의미합니다.
+     * 기본값은 0f 입니다. zIndex 가 높은 콘텐츠는 zIndex 가 낮은 콘텐츠 위에 그려집니다.
+     * 인덱스가 같은 콘텐츠는 대상 콘텐츠가 맨 위에 배치됩니다.
+     */
+    var targetContentZIndex by mutableStateOf(targetContentZIndex)
+
+    /**
+     * 새 콘텐츠가 AnimatedContent 에 들어가고 이전 콘텐츠가 나갈 때 크기가 변경되는 경우 컨테이너의 확장 및 축소를 관리합니다.
+     * 기본적으로 [spring][SpringSpec] 은 모든 크기 변경을 애니메이션하는 데 사용되며 [AnimatedContent] 는 애니메이션된 크기로 잘립니다.
+     * 사용될 [SizeTransform] 를 직접 설정할 수 있습니다. 크기 애니메이션이 필요하지 않으면 [sizeTransform] 을 null 로 설정하세요.
+     */
+    var sizeTransform: SizeTransform? = sizeTransform
+        internal set
+}
 
 /**
  * [AnimatedVisibility] 컴포저블이 표시될 때 화면에 표시되는 방식을 정의합니다.
@@ -302,6 +323,8 @@ sealed class EnterTransition {
             )
         )
     }
+
+    companion object
 }
 
 /**
@@ -368,6 +391,57 @@ infix fun EnterTransition.with(exit: ExitTransition) = ContentTransform(
     initialContentExit = exit
 )
 
+/**
+ * [slideIntoContainer] 및 ]slideOutOfContainer] 와 같이 [AnimatedContent] 컨텍스트에서만 편리하게 적용할 수 있는 기능을 제공합니다.
+ */
+@ExperimentalAnimationApi
+class AnimatedContentScope<S> internal constructor(
+    internal val transition: Transition<S>,
+    internal var contentAlignment: Alignment,
+    internal var layoutDirection: LayoutDirection,
+) : Transition.Segment<S> {
+    override val initialState: S get() = transition.segment.initialState // 애니메이션이 시작되기 전 초기 값
+    override val targetState: S get() = transition.segment.targetState // 애니메이션이 적용될 값, 즉 애니메이션의 종료 값
+
+    /**
+     * 현재 [this][ContentTransform] 의 [sizeTransform] 를 인자로 받은 [sizeTransform] 로 설정합니다.
+     *
+     * @param sizeTransform 새로 적용할 [SizeTransform]
+     *
+     * @return [sizeTransform] 을 새로 적용한 [SizeTransform]
+     */
+    @ExperimentalAnimationApi
+    infix fun ContentTransform.using(sizeTransform: SizeTransform?): ContentTransform = apply {
+        this.sizeTransform = sizeTransform
+    }
+
+    /**
+     * 컨테이너의 가장자리에서 [AnimatedContent] 에 특정한 수평/수직 slide-in 을 정의합니다.
+     * [slideInHorizontally] 및 [slideInVertically] 와 달리 시작 오프셋이 [AnimatedContent] 의 현재 크기와 콘텐츠 정렬을 기반으로 동적으로 자동 계산됩니다.
+     *
+     * @param towards 슬라이드 방향을 지정합니다.
+     * 콘텐츠는 [SlideDirection.Left], [SlideDirection.Right], [SlideDirection.Up] 및 [SlideDirection.Down] 방향으로 컨테이너로 slide 할 수 있습니다.
+     * @param animationSpec 사용할 애니메이션
+     * @param initialOffset 시작 오프셋. 자동으로 계산되지만 역시 수동으로 지정할 수도 있습니다.
+     */
+    fun slideIntoContainer(
+        towards: AnimatedContentScope.SlideDirection,
+        animationSpec: FiniteAnimationSpec<IntOffset> = spring(
+            visibilityThreshold = IntOffset.VisibilityThreshold
+        ),
+        initialOffset: (offsetForFullSlide: Int) -> Int = { it },
+    ): EnterTransition = `throw`()
+
+    // slideIntoContainer 와 동일, 단 slide-in 대신 slide-out
+    fun slideOutOfContainer(
+        towards: AnimatedContentScope.SlideDirection,
+        animationSpec: FiniteAnimationSpec<IntOffset> = spring(
+            visibilityThreshold = IntOffset.VisibilityThreshold
+        ),
+        targetOffset: (offsetForFullSlide: Int) -> Int = { it },
+    ): ExitTransition = `throw`()
+}
+
 /* ==================================== */
 /* ===== internal implementations ===== */
 /* ==================================== */
@@ -390,3 +464,32 @@ private class EnterTransitionImpl(override val data: TransitionData) : EnterTran
 
 @Immutable
 private class ExitTransitionImpl(override val data: TransitionData) : ExitTransition()
+
+@Stable
+private fun fadeIn(
+    animationSpec: FiniteAnimationSpec<Float> = spring(stiffness = Spring.StiffnessMediumLow),
+    initialAlpha: Float = 0f,
+): EnterTransition = `throw`()
+
+@Stable
+private fun fadeOut(
+    animationSpec: FiniteAnimationSpec<Float> = spring(stiffness = Spring.StiffnessMediumLow),
+    targetAlpha: Float = 0f,
+): ExitTransition = `throw`()
+
+@Stable
+@ExperimentalAnimationApi
+private fun scaleIn(
+    animationSpec: FiniteAnimationSpec<Float> = spring(stiffness = Spring.StiffnessMediumLow),
+    initialScale: Float = 0f,
+    transformOrigin: TransformOrigin = TransformOrigin.Center,
+): EnterTransition = `throw`()
+
+@ExperimentalAnimationApi
+private fun SizeTransform(
+    clip: Boolean = true,
+    sizeAnimationSpec: (initialSize: IntSize, targetSize: IntSize) -> FiniteAnimationSpec<IntSize> =
+        { _, _ -> spring(visibilityThreshold = IntSize.VisibilityThreshold) },
+): SizeTransform = `throw`()
+
+private fun `throw`(): Nothing = throw NotImplementedError()
