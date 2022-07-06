@@ -1,7 +1,8 @@
 @file:Suppress(
     "KDocUnresolvedReference",
     "UNUSED_PARAMETER",
-    "MemberVisibilityCanBePrivate", "FunctionName"
+    "MemberVisibilityCanBePrivate",
+    "FunctionName"
 )
 
 package land.sungbin.androidplayground.snippet.fake
@@ -21,6 +22,7 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.animation.core.InfiniteRepeatableSpec
 import androidx.compose.animation.core.KeyframesSpec
+import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.RepeatableSpec
 import androidx.compose.animation.core.SnapSpec
@@ -37,6 +39,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
@@ -438,6 +441,46 @@ class AnimatedContentScope<S> internal constructor(
         ),
         targetOffset: (offsetForFullSlide: Int) -> Int = { it }
     ): ExitTransition = `throw`()
+}
+
+/**
+ * 상태 수준에서 모든 애니메이션을 관리합니다.
+ * 애니메이션은 [Transition.animateFloat], [Transition.animateColor], [Transition.animateValue] 등을
+ * 사용하여 선언적인 방식으로 만들 수 있습니다.
+ *
+ * [targetState] 가 변경되면 자동으로 시작하거나 모든 애니메이션에 대한 과정을 조정하여
+ * 각 애니메이션에 대해 정의된 새 대상 값에 애니메이션을 적용합니다.
+ */
+@Stable
+class Transition<S> @PublishedApi internal constructor(
+    private val transitionState: MutableTransitionState<S>,
+    val label: String? = null
+)
+
+/**
+ * [Transition] 을 생성하고 [targetState] 에서 제공하는 대상으로 업데이트 합니다.
+ * [targetState] 가 변경되면 [Transition] 은 새 [targetState] 에 대해 지정된 대상 값을 향해 모든 애니메이션을 실행합니다.
+ * 애니메이션은  [Transition.animateFloat], [Transition.animateColor], [Transition.animateValue] 등을 사용하여 동적으로 추가할 수 있습니다.
+ * 레이블은 Android Studio에서 다양한 전환을 구별하는 데 사용됩니다.
+ */
+@Composable
+fun <T> updateTransition(
+    targetState: T,
+    label: String? = null
+): Transition<T> {
+    val transition = remember {
+        Transition(
+            initialState = targetState,
+            label = label
+        )
+    }
+    transition.animateTo(targetState = targetState)
+    DisposableEffect(transition) {
+        onDispose {
+            transition.onTransitionEnd()
+        }
+    }
+    return transition
 }
 
 /* ==================================== */
