@@ -93,12 +93,12 @@ restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieTab(
 )
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorBasic()
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithHighLevelAnimated()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithCustomTransitionSpec()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithCustomTransitionSpecAndTransition()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithCustomAnimateSpec()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithCustomAnimateSpecAndTransition()
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovieSelectorWithCustomTabTransition()
 fun tabBackgroundColorWithAnimation(
-  stable selectedTabType: Movie
-  stable nowTabType: Movie
+  stable selectedTab: Movie
+  stable nowTab: Movie
 ): Color
 fun tabTextColorWithAnimation(
   stable selectedTabType: Movie

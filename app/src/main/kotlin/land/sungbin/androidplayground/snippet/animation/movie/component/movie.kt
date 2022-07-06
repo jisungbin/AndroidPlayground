@@ -70,12 +70,11 @@ fun MoviePoster(
     modifier: Modifier = Modifier,
     fillMaxSize: Boolean = true,
     @DrawableRes posterDrawable: Int,
-    posterDescription: String? = null
 ) {
     Image(
         modifier = modifier.runIf(fillMaxSize) { fillMaxSize() },
         painter = painterResource(posterDrawable),
         contentScale = ContentScale.Fit,
-        contentDescription = posterDescription
+        contentDescription = null
     )
 }

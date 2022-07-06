@@ -3,8 +3,10 @@
 package land.sungbin.androidplayground.snippet.animation.movie
 
 import androidx.annotation.DrawableRes
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.Stable
@@ -14,15 +16,23 @@ import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.extension.and
 
+typealias Tab = Triple<Movie, Int, String>
+
+val Tab.type get() = first
+val Tab.poster get() = second
+val Tab.fullname get() = third
+val Tab.shortname get() = type.string
+val Tab.index get() = type.ordinal
+
 const val DefaultCornerUnit = 30
 const val AnimationDuration = 1000
 
-// for tab selected state background
+// for tab selected background color (needs transparent color)
 private val Color.Companion.TransparentPink
     @Stable
     get() = Red.copy(alpha = 0.2f)
 
-@Immutable // maybe?
+@Immutable
 enum class Movie(val string: String) {
     Thor("토르"),
     Spider("거미맨"),
@@ -66,10 +76,53 @@ object TabDefaults {
     @Stable
     val Color = TabColors()
 
-    fun findTabIndexByDrawable(@DrawableRes drawableRes: Int) = when (drawableRes) {
+    fun findTabIndexByPoster(@DrawableRes drawable: Int) = when (drawable) {
         R.drawable.thor_poster -> 0
         R.drawable.spiderman_poster -> 1
         R.drawable.doctor_poster -> 2
-        else -> throw IllegalArgumentException("Unknown drawable resource")
+        else -> throw IllegalStateException("Unknown drawable")
     }
 }
+
+
+@Stable
+fun tabBackgroundColor(
+    selectedTab: Tab,
+    nowTab: Tab,
+): Color = when (selectedTab == nowTab) {
+    true -> TabDefaults.Color.selectedBackground
+    false -> TabDefaults.Color.defaultBackground
+}
+
+@Stable
+fun tabTextColor(
+    selectedTab: Tab,
+    nowTab: Tab,
+) = when (selectedTab == nowTab) {
+    true -> TabDefaults.Color.selectedText
+    false -> TabDefaults.Color.defaultText
+}
+
+@Composable
+fun tabBackgroundColorWithAnimation(
+    selectedTab: Tab,
+    nowTab: Tab,
+) = animateColorAsState(
+    targetValue = when (selectedTab == nowTab) {
+        true -> TabDefaults.Color.selectedBackground
+        false -> TabDefaults.Color.defaultBackground
+    },
+    animationSpec = defaultTween()
+).value
+
+@Composable
+fun tabTextColorWithAnimation(
+    selectedTab: Tab,
+    nowTab: Tab,
+) = animateColorAsState(
+    targetValue = when (selectedTab == nowTab) {
+        true -> TabDefaults.Color.selectedText
+        false -> TabDefaults.Color.defaultText
+    },
+    animationSpec = defaultTween()
+).value
