@@ -2,7 +2,8 @@
     "KDocUnresolvedReference",
     "UNUSED_PARAMETER",
     "MemberVisibilityCanBePrivate",
-    "FunctionName"
+    "FunctionName",
+    "unused"
 )
 
 package land.sungbin.androidplayground.snippet.fake
@@ -22,7 +23,6 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.animation.core.InfiniteRepeatableSpec
 import androidx.compose.animation.core.KeyframesSpec
-import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.RepeatableSpec
 import androidx.compose.animation.core.SnapSpec
@@ -467,7 +467,7 @@ class Transition<S> @PublishedApi internal constructor(
 fun <T> updateTransition(
     targetState: T,
     label: String? = null
-): Transition<T> {
+): land.sungbin.androidplayground.snippet.fake.Transition<T> {
     val transition = remember {
         Transition(
             initialState = targetState,
@@ -532,5 +532,9 @@ private fun SizeTransform(
     sizeAnimationSpec: (initialSize: IntSize, targetSize: IntSize) -> FiniteAnimationSpec<IntSize> =
         { _, _ -> spring(visibilityThreshold = IntSize.VisibilityThreshold) },
 ): SizeTransform = `throw`()
+
+private fun land.sungbin.androidplayground.snippet.fake.Transition<*>.onTransitionEnd() {}
+private fun <T> land.sungbin.androidplayground.snippet.fake.Transition<*>.animateTo(targetState: T) {}
+
 
 private fun `throw`(): Nothing = throw NotImplementedError()
