@@ -345,6 +345,7 @@ sealed class ExitTransition {
 @ExperimentalAnimationApi
 interface SizeTransform
 
+/* ==================================== */
 /* ===== internal implementations ===== */
 /* ==================================== */
 
