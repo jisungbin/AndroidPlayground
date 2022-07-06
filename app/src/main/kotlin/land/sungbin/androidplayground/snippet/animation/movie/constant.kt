@@ -21,7 +21,7 @@ val Tab.type get() = first
 val Tab.poster get() = second
 val Tab.fullname get() = third
 val Tab.shortname get() = type.string
-val Tab.index get() = type.ordinal
+val Tab.index get() = type.index
 
 const val DefaultCornerUnit = 30
 const val AnimationDuration = 1000
@@ -36,6 +36,11 @@ enum class Movie(val string: String) {
     Thor("토르"),
     Spider("거미맨"),
     Doctor("의사");
+
+    private val tab get() = TabDefaults.Items[ordinal]
+    val fullname get() = tab.fullname
+    val poster get() = tab.poster
+    val index get() = ordinal
 }
 
 object PosterSize {

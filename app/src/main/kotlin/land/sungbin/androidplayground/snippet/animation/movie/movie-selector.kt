@@ -63,7 +63,7 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 
 @Composable
 private fun MovieTab(
-    selectedTabTransition: Transition<Tab>,
+    selectedTabTypeTransition: Transition<Movie>,
     updateSelectedTab: (tab: Tab) -> Unit,
 ) {
     BoxWithConstraints(
@@ -78,18 +78,18 @@ private fun MovieTab(
             )
     ) {
         val eachItemWidth = remember { maxWidth / TabDefaults.Items.count() }
-        val backgroundOffsetTransition by selectedTabTransition.animateIntOffset(
+        val backgroundOffsetTransition by selectedTabTypeTransition.animateIntOffset(
             transitionSpec = { defaultTween() },
             label = "background offset"
-        ) { tab ->
+        ) { movie ->
             IntOffset(
                 x = with(LocalDensity.current) {
-                    (eachItemWidth * tab.index).toPx()
+                    (eachItemWidth * movie.index).toPx()
                 }.toInt(),
                 y = 0
             )
         }
-        val backgroundShapeTransition by selectedTabTransition.animateValue(
+        val backgroundShapeTransition by selectedTabTypeTransition.animateValue(
             transitionSpec = { defaultTween() },
             label = "background shape",
             typeConverter = TwoWayConverter(
@@ -110,8 +110,8 @@ private fun MovieTab(
                     )
                 },
             )
-        ) { tab ->
-            when (tab.type) {
+        ) { movie ->
+            when (movie) {
                 Movie.Thor -> RoundedCornerShape(bottomStartPercent = 30)
                 Movie.Spider -> RoundedCornerShape(percent = 0)
                 Movie.Doctor -> RoundedCornerShape(bottomEndPercent = 30)
@@ -120,11 +120,11 @@ private fun MovieTab(
 
         TabContainer {
             TabDefaults.Items.forEach { tab ->
-                val textColor by selectedTabTransition.animateColor(
+                val textColor by selectedTabTypeTransition.animateColor(
                     transitionSpec = { defaultTween() },
                     label = "text color"
-                ) { selectedTab ->
-                    when (selectedTab == tab) {
+                ) { movie ->
+                    when (movie == tab.type) {
                         true -> TabDefaults.Color.selectedText
                         false -> TabDefaults.Color.defaultText
                     }
@@ -348,8 +348,8 @@ fun MovieSelectorWithCustomAnimateSpec() {
 @Composable
 fun MovieSelectorWithCustomAnimateSpecAndTabTransition() {
     var selectedTabState by remember { mutableStateOf(TabDefaults.Items.first()) }
-    val selectedTabTransition = updateTransition(
-        targetState = selectedTabState,
+    val selectedTabTypeTransition = updateTransition(
+        targetState = selectedTabState.type,
         label = "selected tab"
     )
 
@@ -362,20 +362,20 @@ fun MovieSelectorWithCustomAnimateSpecAndTabTransition() {
         ) {
             TabContainer {
                 TabDefaults.Items.forEach { tab ->
-                    val backgroundColor by selectedTabTransition.animateColor(
+                    val backgroundColor by selectedTabTypeTransition.animateColor(
                         transitionSpec = { defaultTween() },
                         label = "background color"
-                    ) { selectedTabType ->
-                        when (selectedTabType == tab) {
+                    ) { movie ->
+                        when (movie == tab.type) {
                             true -> TabDefaults.Color.selectedBackground
                             false -> TabDefaults.Color.defaultBackground
                         }
                     }
-                    val textColor by selectedTabTransition.animateColor(
+                    val textColor by selectedTabTypeTransition.animateColor(
                         transitionSpec = { defaultTween() },
                         label = "text color"
-                    ) { selectedTabType ->
-                        when (selectedTabType == tab) {
+                    ) { movie ->
+                        when (movie == tab.type) {
                             true -> TabDefaults.Color.selectedText
                             false -> TabDefaults.Color.defaultText
                         }
@@ -463,8 +463,8 @@ fun MovieSelectorWithCustomAnimateSpecAndTabTransition() {
 @Composable
 fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
     var selectedTabState by remember { mutableStateOf(TabDefaults.Items.first()) }
-    val selectedTabTransition = updateTransition(
-        targetState = selectedTabState,
+    val selectedTabTypeTransition = updateTransition(
+        targetState = selectedTabState.type,
         label = "selected tab"
     )
 
@@ -477,20 +477,20 @@ fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
         ) {
             TabContainer {
                 TabDefaults.Items.forEach { tab ->
-                    val backgroundColor by selectedTabTransition.animateColor(
+                    val backgroundColor by selectedTabTypeTransition.animateColor(
                         transitionSpec = { defaultTween() },
                         label = "background color"
-                    ) { selectedTabType ->
-                        when (selectedTabType == tab) {
+                    ) { movie ->
+                        when (movie == tab.type) {
                             true -> TabDefaults.Color.selectedBackground
                             false -> TabDefaults.Color.defaultBackground
                         }
                     }
-                    val textColor by selectedTabTransition.animateColor(
+                    val textColor by selectedTabTypeTransition.animateColor(
                         transitionSpec = { defaultTween() },
                         label = "text color"
-                    ) { selectedTabType ->
-                        when (selectedTabType == tab) {
+                    ) { movie ->
+                        when (movie == tab.type) {
                             true -> TabDefaults.Color.selectedText
                             false -> TabDefaults.Color.defaultText
                         }
@@ -508,9 +508,9 @@ fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
             }
 
             MovieContainer {
-                selectedTabTransition
-                    .createChildTransition(label = "selected tab fullname") { tab ->
-                        tab.fullname
+                selectedTabTypeTransition
+                    .createChildTransition(label = "selected tab fullname") { movie ->
+                        movie.fullname
                     }
                     .AnimatedContent(
                         modifier = Modifier
@@ -532,13 +532,13 @@ fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
                         MovieName(fullname = tabFullname)
                     }
 
-                selectedTabTransition
+                selectedTabTypeTransition
                     .AnimatedContent(
                         modifier = Modifier.wrapContentSize(),
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
-                            val targetIndex = targetState.index // targetState == Tab
-                            val initialIndex = initialState.index // initialIndex == Tab
+                            val targetIndex = targetState.index // targetState == Movie (tab type)
+                            val initialIndex = initialState.index // initialIndex == Movie (tab type)
 
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
@@ -568,8 +568,8 @@ fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
                                 targetContentZIndex = targetIndex.toFloat()
                             }
                         }
-                    ) { tab ->
-                        MoviePoster(posterDrawable = tab.poster)
+                    ) { movie ->
+                        MoviePoster(posterDrawable = movie.poster)
                     }
             }
         }
@@ -581,8 +581,8 @@ fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
 @Composable
 fun MovieSelectorWithCustomTabTransition() {
     var selectedTabState by remember { mutableStateOf(TabDefaults.Items.first()) }
-    val selectedTabTransition = updateTransition(
-        targetState = selectedTabState,
+    val selectedTabTypeTransition = updateTransition(
+        targetState = selectedTabState.type,
         label = "selected tab"
     )
 
@@ -594,14 +594,14 @@ fun MovieSelectorWithCustomTabTransition() {
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             MovieTab(
-                selectedTabTransition = selectedTabTransition,
+                selectedTabTypeTransition = selectedTabTypeTransition,
                 updateSelectedTab = { newSelectedTab ->
                     selectedTabState = newSelectedTab
                 }
             )
 
             MovieContainer {
-                selectedTabTransition
+                selectedTabTypeTransition
                     .createChildTransition(label = "selected tab fullname") { tab ->
                         tab.fullname
                     }
@@ -625,13 +625,13 @@ fun MovieSelectorWithCustomTabTransition() {
                         MovieName(fullname = selectedTabFullname)
                     }
 
-                selectedTabTransition
+                selectedTabTypeTransition
                     .AnimatedContent(
                         modifier = Modifier.wrapContentSize(),
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
-                            val targetIndex = targetState.index // targetState == Tab
-                            val initialIndex = initialState.index // initialState == Tab
+                            val targetIndex = targetState.ordinal // targetState == Movie
+                            val initialIndex = initialState.ordinal // initialState == Movie
 
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(
