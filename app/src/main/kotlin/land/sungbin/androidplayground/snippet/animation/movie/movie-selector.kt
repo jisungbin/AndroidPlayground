@@ -63,7 +63,7 @@ import land.sungbin.androidplayground.theme.NanumGothicTextStyle
 @Composable
 private fun MovieTab(
     selectedTabTypeTransition: Transition<Movie>,
-    updateSelectedTab: (tab: Tab) -> Unit,
+    updateSelectedTab: (tab: Tab) -> Unit
 ) {
     BoxWithConstraints(
         modifier = Modifier

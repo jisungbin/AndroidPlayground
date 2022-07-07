@@ -51,6 +51,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.snippet.animation.movie.MovieSelectorWithCustomAnimateSpecAndTransitionExtensions
+import land.sungbin.androidplayground.snippet.animation.movie.MovieSelectorWithCustomTabTransition
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -98,7 +99,8 @@ class MainActivity : ComponentActivity() {
                 // MovieSelectorWithMovieTabTransition()
                 // TweenPlayground()
                 // MovieSelectorWithCustomAnimateSpec()
-                MovieSelectorWithCustomAnimateSpecAndTransitionExtensions()
+                // MovieSelectorWithCustomAnimateSpecAndTransitionExtensions()
+                MovieSelectorWithCustomTabTransition()
             }
         }
     }
