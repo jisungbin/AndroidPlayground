@@ -505,6 +505,8 @@ fun <T> updateTransition(
  * 지정된 [Transition] 에 색깔 애니메이션을 추가합니다.
  * 이는 이 애니메이션의 생명 주기가 [Transition] 에 의해 관리됨을 의미합니다.
  *
+ * @param transitionSpec 적용할 애니메이션
+ * @param label Android Studio Animation Preview 에서 [Transition] 을 구별하는 데 사용할 태그
  * @param targetValueByState 지정된 [Transition] 의 애니메이션이 시작됐을 때 제공할 값
  *
  * @return 애니메이션이 적용된 [Color] 의 [State]
