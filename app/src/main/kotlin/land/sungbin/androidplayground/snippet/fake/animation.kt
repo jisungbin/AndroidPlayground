@@ -520,13 +520,13 @@ inline fun <S> Transition<S>.animateColor(
 ): State<Color> = `throw`()
 
 /**
- * AnimatedContent는 [Transition] 의 대상 상태(targetState)가 변경될 때 자동으로 [content] 에 애니메이션을 적용하는 컨테이너입니다.
+ * [this][Transition] 의 대상 상태가 변경될 때 자동으로 [content] 에 애니메이션을 적용하는 컨테이너입니다.
  *
  * @param modifier 적용할 [Modifier]
  * @param transitionSpec 적용할 애니메이션
  * @param contentAlignment [content] 가 배치될 [Alignment]
  * @param contentKey 인자로 들어오는 [Transition] 의 대상 상태에 대한 키. 동일한 키를 공유하는 변경일 경우 애니메이션이 진행되지 않습니다.
- * @param content 배치할 컴포저블 함수
+ * @param content 배치할 컴포저블
  */
 @ExperimentalAnimationApi
 @Composable
@@ -534,11 +534,12 @@ fun <S> Transition<S>.AnimatedContent(
     modifier: Modifier = Modifier,
     transitionSpec: AnimatedContentScope<S>.() -> ContentTransform = {
         // 기존 AnimatedContent 와 동일
+        `throw`()
     },
     contentAlignment: Alignment = Alignment.TopStart,
     contentKey: (targetState: S) -> Any? = { it },
     content: @Composable AnimatedVisibilityScope.(targetState: S) -> Unit
-) = `throw`()
+): Nothing = `throw`()
 
 /* ==================================== */
 /* ===== internal implementations ===== */
@@ -593,4 +594,4 @@ private fun SizeTransform(
 private fun land.sungbin.androidplayground.snippet.fake.Transition<*>.onTransitionEnd() {}
 private fun <T> land.sungbin.androidplayground.snippet.fake.Transition<*>.animateTo(targetState: T) {}
 
-private fun `throw`(): Nothing = throw NotImplementedError()
+fun `throw`(): Nothing = throw NotImplementedError()
