@@ -35,6 +35,7 @@ import androidx.compose.animation.core.StartOffset
 import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.VisibilityThreshold
+import androidx.compose.animation.core.animateValue
 import androidx.compose.animation.core.animateValueAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.slideInHorizontally
@@ -451,8 +452,8 @@ class AnimatedContentScope<S> internal constructor(
  * 애니메이션은 [Transition.animateFloat], [Transition.animateColor], [Transition.animateValue] 등을
  * 사용하여 선언적인 방식으로 만들 수 있습니다.
  *
- * [targetState] 가 변경되면 자동으로 시작하거나 모든 애니메이션에 대한 과정을 조정하여
- * 각 애니메이션에 대해 정의된 새 대상 값에 애니메이션을 적용합니다.
+ * @param initialState 초기 값
+ * @param label Android Studio Animation Preview 에서 [Transition] 을 구별하는 데 사용할 태그
  */
 @Stable
 class Transition<S> @PublishedApi internal constructor(
@@ -471,10 +472,14 @@ class Transition<S> @PublishedApi internal constructor(
 }
 
 /**
- * [Transition] 을 생성하고 [targetState] 에서 제공하는 대상으로 업데이트 합니다.
- * [targetState] 가 변경되면 [Transition] 은 새 [targetState] 에 대해 지정된 대상 값을 향해 모든 애니메이션을 실행합니다.
- * 애니메이션은 [Transition.animateFloat], [Transition.animateColor], [Transition.animateValue] 등을 사용하여 동적으로 추가할 수 있습니다.
- * 레이블은 Android Studio 에서 다양한 [Transition] 을 구별하는 데 사용됩니다.
+ * [Transition] 을 생성하고 [targetState] 값으로 초기 상태를 지정합니다.
+ * [targetState] 가 변경되면 [Transition] 은 새 [targetState] 값으로 추가된 모든 애니메이션을 시작하거나 조정합니다.
+ * 애니메이션은 [Transition.animateFloat], [Transition.animateColor], [Transition.animateValue] 등을 사용하여 추가할 수 있습니다.
+ *
+ * @param targetState 변경을 감지할 대상
+ * @param label Android Studio Animation Preview 에서 [Transition] 을 구별하는 데 사용할 태그
+ *
+ * @return [targetState] 값으로 초기 상태가 지정된 [Transition]
  */
 @Composable
 fun <T> updateTransition(
@@ -494,6 +499,32 @@ fun <T> updateTransition(
         }
     }
     return transition
+}
+
+/**
+ * 지정된 [Transition] 에 색깔 애니메이션을 추가합니다.
+ * 이는 이 애니메이션의 생명 주기가 [Transition] 에 의해 관리됨을 의미합니다.
+ *
+ * @param targetValueByState 지정된 [Transition] 의 애니메이션이 시작됐을 때 제공할 값
+ *
+ * @return 애니메이션이 적용된 [Color] 의 [State]
+ */
+@Composable
+inline fun <S> Transition<S>.animateColor(
+    noinline transitionSpec: @Composable Transition.Segment<S>.() -> FiniteAnimationSpec<Color> = { spring() },
+    label: String = "ColorAnimation",
+    targetValueByState: @Composable (state: S) -> Color
+): State<Color> {
+    val colorSpace = targetValueByState(targetState).colorSpace
+    val typeConverter = remember(colorSpace) {
+        Color.VectorConverter(colorSpace = colorSpace)
+    }
+    return animateValue(
+        typeConverter = typeConverter,
+        transitionSpec = transitionSpec,
+        label = label,
+        targetValueByState = targetValueByState
+    )
 }
 
 /* ==================================== */
