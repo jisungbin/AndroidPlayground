@@ -130,11 +130,11 @@ fun Modifier.animateMovement(
             }
             .intermediateLayout { measurable, constraints, _ ->
                 val placeable = measurable.measure(constraints)
-                layout(placeable.width, placeable.height) {
+                layout(width = placeable.width, height = placeable.height) {
                     val (x, y) = (
                             targetOffsetAnimation?.value ?: targetOffset!!
                             ) - placementOffset
-                    placeable.place(x, y)
+                    placeable.place(x = x, y = y)
                 }
             }
     }
