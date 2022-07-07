@@ -538,7 +538,8 @@ fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
                         contentAlignment = Alignment.Center,
                         transitionSpec = {
                             val targetIndex = targetState.index // targetState == Movie (tab type)
-                            val initialIndex = initialState.index // initialIndex == Movie (tab type)
+                            val initialIndex =
+                                initialState.index // initialIndex == Movie (tab type)
 
                             if (targetIndex > initialIndex) { // 다음 탭
                                 slideIntoContainer(

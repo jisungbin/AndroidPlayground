@@ -22,6 +22,7 @@ import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.DurationBasedAnimationSpec
 import androidx.compose.animation.core.Easing
+import androidx.compose.animation.core.ExperimentalTransitionApi
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.animation.core.InfiniteRepeatableSpec
@@ -459,17 +460,7 @@ class AnimatedContentScope<S> internal constructor(
 class Transition<S> @PublishedApi internal constructor(
     initialState: S,
     label: String?
-) {
-    // targetState 로 애니메이션을 진행함
-    @Composable
-    internal fun animateTo(targetState: S) { /* .. */
-    }
-
-    // 초기 값으로 되돌림
-    internal fun onTransitionEnd() { /* .. */ }
-
-    // ... 생략
-}
+)
 
 /**
  * [Transition] 을 생성하고 [targetState] 값으로 초기 상태를 지정합니다.
@@ -485,21 +476,28 @@ class Transition<S> @PublishedApi internal constructor(
 fun <T> updateTransition(
     targetState: T,
     label: String? = null
-): land.sungbin.androidplayground.snippet.fake.Transition<T> {
-    val transition = remember {
-        Transition(
-            initialState = targetState,
-            label = label
-        )
-    }
-    transition.animateTo(targetState = targetState)
-    DisposableEffect(transition) {
-        onDispose {
-            transition.onTransitionEnd()
-        }
-    }
-    return transition
-}
+): Transition<T> = `throw`()
+
+/**
+ * 상위 [Transition] 의 상태와 하위 상태 간의 매핑을 기반으로 하위 [Transition] 을 만듭니다.
+ * 이는 다음과 같은 용도로 사용됩니다:
+ *
+ * 1. 하위 [Transition] 상태를 상위 [Transition] 으로 호이스트합니다.
+ * 따라서 상위 [Transition] 은 동일한 대상 상태 변경으로 인해 진행 중인 애니메이션이 있는지 여부를 인식합니다.
+ * 이렇게 하면 모든 애니메이션이 완료되었을 때 순차 애니메이션을 설정할 수 있습니다.
+ *
+ * 2. 관심사 분리.
+ * 상위 [Transition] 에서 받은 상태에서 사용하는 정보만 필터링하여 하위로 전달하고 싶을 때 유용하게 쓰일 수 있습니다.
+ *
+ * @param label Android Studio Animation Preview 에서 [Transition] 을 구별하는 데 사용할 태그
+ * @param transformToChildState 상위 [Transition] 에서 값을 받고 새로 만든 상태 값
+ */
+@ExperimentalTransitionApi
+@Composable
+inline fun <S, T> Transition<S>.createChildTransition(
+    label: String = "ChildTransition",
+    transformToChildState: @Composable (parentState: S) -> T,
+): Transition<T> = `throw`()
 
 /**
  * 지정된 [Transition] 에 색깔 애니메이션을 추가합니다.
@@ -516,18 +514,7 @@ inline fun <S> Transition<S>.animateColor(
     noinline transitionSpec: @Composable Transition.Segment<S>.() -> FiniteAnimationSpec<Color> = { spring() },
     label: String = "ColorAnimation",
     targetValueByState: @Composable (state: S) -> Color
-): State<Color> {
-    val colorSpace = targetValueByState(targetState).colorSpace
-    val typeConverter = remember(colorSpace) {
-        Color.VectorConverter(colorSpace = colorSpace)
-    }
-    return animateValue(
-        typeConverter = typeConverter,
-        transitionSpec = transitionSpec,
-        label = label,
-        targetValueByState = targetValueByState
-    )
-}
+): State<Color> = `throw`()
 
 /* ==================================== */
 /* ===== internal implementations ===== */
