@@ -107,7 +107,7 @@ private fun MovieTab(
                         bottomStartPercent = vector.v3.toInt(),
                         bottomEndPercent = vector.v4.toInt()
                     )
-                },
+                }
             )
         ) { movie ->
             when (movie) {
