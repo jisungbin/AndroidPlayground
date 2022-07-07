@@ -51,7 +51,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.annotation.BackgroundPreview
-import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.toPercent
 import land.sungbin.androidplayground.snippet.animation.movie.component.MovieContainer
 import land.sungbin.androidplayground.snippet.animation.movie.component.MovieName
