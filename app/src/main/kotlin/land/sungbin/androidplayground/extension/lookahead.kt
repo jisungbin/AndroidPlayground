@@ -158,7 +158,7 @@ fun Modifier.transformation(lookaheadScope: LookaheadLayoutScope) = with(lookahe
 
 fun Modifier.animateTransformation(
     lookaheadScope: LookaheadLayoutScope,
-    animationSpec: AnimationSpec<IntSize> = defaultSpring(),
+    animationSpec: AnimationSpec<IntSize> = defaultSpring()
 ) = composed {
     var targetSize: IntSize? by remember { mutableStateOf(null) }
     var targetSizeAnimation: Animatable<IntSize, AnimationVector2D>? by remember {

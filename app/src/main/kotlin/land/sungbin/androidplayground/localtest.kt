@@ -23,8 +23,6 @@ fun main() = setContent {
     }
     val transition = updateTransition(targetState = Color.Red, label = "")
 
-
-
     LaunchedEffect(Unit) {
         animatable.animateTo(Color.Blue)
     }
