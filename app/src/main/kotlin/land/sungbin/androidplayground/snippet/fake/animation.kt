@@ -555,6 +555,22 @@ interface TwoWayConverter<T, V : AnimationVector> {
     val convertFromVector: (V) -> T
 }
 
+/**
+ * 애니메이션에 사용되는 모든 데이터 유형은 이러한 방식으로 차원에 따라
+ * [AnimationVector1D], [AnimationVector2D], [AnimationVector3D] 또는 [AnimationVector4D] 로 변환됩니다.
+ * 따라서 객체의 여러 구성요소를 각각 자체 속도 추적 기능을 사용하여 독립적으로 애니메이션 처리할 수 있습니다.
+ *
+ * 예를 들어 [Color] 는 A, R, G, B 4개의 구성 요소로 이루어져 있습니다.
+ * 따라서 [AnimationVector4D] 를 사용합니다.
+ */
+sealed class AnimationVector {
+    internal abstract fun reset()
+    internal abstract fun newVector(): AnimationVector
+    internal abstract operator fun get(index: Int): Float
+    internal abstract operator fun set(index: Int, value: Float)
+    internal abstract val size: Int
+}
+
 /* ==================================== */
 /* ===== internal implementations ===== */
 /* ==================================== */
