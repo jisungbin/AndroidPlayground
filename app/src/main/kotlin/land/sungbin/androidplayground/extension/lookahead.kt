@@ -52,7 +52,6 @@ inline val DefaultMeasurePolicy: MeasureScope.(measurables: List<Measurable>, co
         }
     }
 
-// for test
 fun Modifier.movement(lookaheadScope: LookaheadLayoutScope) = composed {
     var targetOffset: IntOffset? by remember { mutableStateOf(null) } // 배치할 오프셋
     var placementOffset by remember { mutableStateOf(IntOffset.Zero) } // 현재 오프셋
@@ -133,8 +132,8 @@ fun Modifier.animateMovement(
                 val placeable = measurable.measure(constraints)
                 layout(placeable.width, placeable.height) {
                     val (x, y) = (
-                        targetOffsetAnimation?.value ?: targetOffset!!
-                        ) - placementOffset
+                            targetOffsetAnimation?.value ?: targetOffset!!
+                            ) - placementOffset
                     placeable.place(x, y)
                 }
             }
