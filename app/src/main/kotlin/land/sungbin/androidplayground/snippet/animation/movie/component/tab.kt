@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.noRippleClickable
 import land.sungbin.androidplayground.snippet.animation.movie.DefaultCornerUnit
+import land.sungbin.androidplayground.snippet.animation.movie.TabDefaults
 
 @Composable
 fun TabContainer(
@@ -63,7 +64,7 @@ fun RowScope.TabItem(
     Box(
         modifier = modifier
             .weight(1f)
-            .height(StatusBarHeightDp + 50.dp)
+            .height(TabDefaults.Height)
             .background(color = backgroundColor)
             .noRippleClickable(onClick = onTabClick),
         contentAlignment = Alignment.Center

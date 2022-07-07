@@ -482,15 +482,17 @@ fun <T> updateTransition(
  * 상위 [Transition] 의 상태와 하위 상태 간의 매핑을 기반으로 하위 [Transition] 을 만듭니다.
  * 이는 다음과 같은 용도로 사용됩니다:
  *
- * 1. 하위 [Transition] 상태를 상위 [Transition] 으로 호이스트합니다.
+ * 1. 하위 [Transition] 상태를 상위 [Transition] 으로 호이스팅
  * 따라서 상위 [Transition] 은 동일한 대상 상태 변경으로 인해 진행 중인 애니메이션이 있는지 여부를 인식합니다.
  * 이렇게 하면 모든 애니메이션이 완료되었을 때 순차 애니메이션을 설정할 수 있습니다.
  *
- * 2. 관심사 분리.
+ * 2. 관심사 분리
  * 상위 [Transition] 에서 받은 상태에서 사용하는 정보만 필터링하여 하위로 전달하고 싶을 때 유용하게 쓰일 수 있습니다.
  *
  * @param label Android Studio Animation Preview 에서 [Transition] 을 구별하는 데 사용할 태그
  * @param transformToChildState 상위 [Transition] 에서 값을 받고 새로 만든 상태 값
+ *
+ * @return 새로운 상태를 가지는 하위 [Transition]
  */
 @ExperimentalTransitionApi
 @Composable

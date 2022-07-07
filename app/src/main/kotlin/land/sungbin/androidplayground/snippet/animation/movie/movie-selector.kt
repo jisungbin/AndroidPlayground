@@ -144,7 +144,7 @@ private fun MovieTab(
         Box(
             modifier = Modifier
                 .width(eachItemWidth)
-                .height(StatusBarHeightDp + 50.dp)
+                .height(TabDefaults.Height)
                 .offset { backgroundOffsetTransition }
                 .clip(backgroundShapeTransition)
                 .background(color = TabDefaults.Color.selectedBackground)
@@ -397,7 +397,7 @@ fun MovieSelectorWithCustomAnimateSpecAndTabTransition() {
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                         .padding(horizontal = 30.dp),
-                    targetState = selectedTabState.fullname,
+                    targetState = selectedTabState,
                     transitionSpec = {
                         fadeIn(
                             animationSpec = defaultTween()
@@ -410,8 +410,8 @@ fun MovieSelectorWithCustomAnimateSpecAndTabTransition() {
                             }
                         )
                     }
-                ) { tabFullname ->
-                    MovieName(fullname = tabFullname)
+                ) { tab ->
+                    MovieName(fullname = tab.fullname)
                 }
 
                 AnimatedContent(
@@ -458,10 +458,10 @@ fun MovieSelectorWithCustomAnimateSpecAndTabTransition() {
     }
 }
 
-// animateColorAsState, AnimatedContent with custom animation spec and all transition
+// animateColorAsState, AnimatedContent with custom animation spec and transition extension usage
 @BackgroundPreview
 @Composable
-fun MovieSelectorWithCustomAnimateSpecAndAllTransition() {
+fun MovieSelectorWithCustomAnimateSpecAndTransitionExtensions() {
     var selectedTabState by remember { mutableStateOf(TabDefaults.Items.first()) }
     val selectedTabTypeTransition = updateTransition(
         targetState = selectedTabState.type,

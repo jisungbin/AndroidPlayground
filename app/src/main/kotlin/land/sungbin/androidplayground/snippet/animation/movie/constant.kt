@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
+import land.sungbin.androidplayground.extension.StatusBarHeightDp
 import land.sungbin.androidplayground.extension.and
 
 typealias Tab = Triple<Movie, Int, String>
@@ -79,6 +80,10 @@ object TabDefaults {
 
     @Stable
     val Color = TabColors()
+
+    val Height
+        @Composable
+        get() = StatusBarHeightDp + 50.dp
 }
 
 
