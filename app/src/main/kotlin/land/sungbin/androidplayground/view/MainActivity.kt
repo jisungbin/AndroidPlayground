@@ -1,42 +1,12 @@
-@file:Suppress(
-    "SetTextI18n",
-    "unused",
-    "OPT_IN_IS_NOT_ENABLED",
-    "SameParameterValue",
-    "UNCHECKED_CAST",
-    "LocalVariableName",
-    "RemoveExplicitTypeArguments",
-    "UnnecessaryOptInAnnotation",
-    "ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE",
-    "UNUSED_VARIABLE",
-    "UnusedImport",
-    "CanBeVal",
-    "UnrememberedMutableState",
-    "ComposableNaming",
-    "SpellCheckingInspection"
-)
-@file:OptIn(
-    InternalComposeApi::class,
-    ExperimentalLayoutApi::class,
-    ExperimentalMaterialApi::class,
-    ExperimentalComposeUiApi::class,
-    ExperimentalFoundationApi::class,
-    ExperimentalAnimationApi::class,
-)
+@file:NoLiveLiterals
 
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.InternalComposeApi
-import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.runtime.NoLiveLiterals
 
 private const val VALUE = 1
 
@@ -47,24 +17,35 @@ class MainActivity : ComponentActivity() {
         setContent {
             val capturedLambda = {
                 println(VALUE)
+                VALUE
             }
             val uncapturedLambda = {
                 println("VALUE")
+                "VALUE"
             }
 
             val capturedComposabeLambda = @Composable {
                 println(VALUE)
+                VALUE
             }
             val uncapturedComposableLambda = @Composable {
                 println("VALUE")
+                "VALUE"
             }
 
-            capturedLambda()
-            uncapturedLambda()
-            capturedComposabeLambda()
-            uncapturedComposableLambda()
-
-            Text(text = VALUE.toString())
+            invokeLambda(capturedLambda)
+            invokeLambda(uncapturedLambda)
+            invokeComposableLambda(capturedComposabeLambda)
+            invokeComposableLambda(uncapturedComposableLambda)
         }
+    }
+
+    @Composable
+    private fun invokeComposableLambda(content: @Composable () -> Any) {
+        content()
+    }
+
+    private fun invokeLambda(content: () -> Any) {
+        content()
     }
 }
