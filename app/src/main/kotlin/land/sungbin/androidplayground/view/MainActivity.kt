@@ -5,6 +5,7 @@ package land.sungbin.androidplayground.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
 
@@ -26,11 +27,11 @@ class MainActivity : ComponentActivity() {
 
             val capturedComposabeLambda = @Composable {
                 println(VALUE)
-                VALUE
+                Text(text = VALUE.toString())
             }
             val uncapturedComposableLambda = @Composable {
                 println("VALUE")
-                "VALUE"
+                Text(text = "VALUE")
             }
 
             invokeLambda(capturedLambda)
