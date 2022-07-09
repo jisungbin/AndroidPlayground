@@ -1,0 +1,6 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun WrapContentText(
+  unused unstable <this>: MainActivity
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MatchParentText(
+  unused unstable <this>: MainActivity
+)
