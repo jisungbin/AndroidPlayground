@@ -3,25 +3,24 @@ package land.sungbin.androidplayground.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.offset
 import androidx.compose.material.Text
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.IntOffset
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 private const val VALUE = 1
+
+private var state by mutableStateOf("AAA")
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Text(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .offset { IntOffset(1, 1) },
-                text = "Hello World"
-            )
+            val message = remember { mutableStateOf("hello") }
+            Text(text = message.value)
+            message.value = "Compose"
         }
     }
 }
