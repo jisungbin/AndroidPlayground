@@ -10,6 +10,7 @@ package land.sungbin.androidplayground
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.NonRestartableComposable
 
 lateinit var text: String
 
@@ -18,6 +19,7 @@ fun main() = setContent {
     ShowText()
 }
 
+@NonRestartableComposable
 @Composable
 private fun LoadText() {
     text = "Bye, world!"
