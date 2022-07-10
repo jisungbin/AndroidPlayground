@@ -1,13 +1,13 @@
-@file:NoLiveLiterals
-
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.IntOffset
 
 private const val VALUE = 1
 
@@ -16,37 +16,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val capturedLambda = {
-                println(VALUE)
-                VALUE
-            }
-            val uncapturedLambda = {
-                println("VALUE")
-                "VALUE"
-            }
-
-            val capturedComposabeLambda = @Composable {
-                println(VALUE)
-                Text(text = VALUE.toString())
-            }
-            val uncapturedComposableLambda = @Composable {
-                println("VALUE")
-                Text(text = "VALUE")
-            }
-
-            invokeLambda(capturedLambda)
-            invokeLambda(uncapturedLambda)
-            invokeComposableLambda(capturedComposabeLambda)
-            invokeComposableLambda(uncapturedComposableLambda)
+            Text(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .offset { IntOffset(1, 1) },
+                text = "Hello World"
+            )
         }
-    }
-
-    @Composable
-    private fun invokeComposableLambda(content: @Composable () -> Any) {
-        content()
-    }
-
-    private fun invokeLambda(content: () -> Any) {
-        content()
     }
 }

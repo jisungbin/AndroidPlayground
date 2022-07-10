@@ -1,4 +1,0 @@
-restartable skippable scheme("[0, [0]]") fun invokeComposableLambda(
-  stable content: Function2<Composer, Int, Any>
-  unused stable <this>: MainActivity
-)
