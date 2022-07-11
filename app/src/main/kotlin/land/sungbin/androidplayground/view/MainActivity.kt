@@ -10,7 +10,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Text(text = "Text")
+            Text(text = "Text22")
         }
     }
+}
+
+object TextHolder {
+    const val Text = "TEXT"
 }

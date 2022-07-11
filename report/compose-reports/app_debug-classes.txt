@@ -1,3 +1,7 @@
 stable class MainActivity {
   <runtime stability> = Stable
 }
+stable class TextHolder {
+  stable val Text: String
+  <runtime stability> = Stable
+}
