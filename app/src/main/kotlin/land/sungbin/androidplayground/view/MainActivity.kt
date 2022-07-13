@@ -18,3 +18,7 @@ class MainActivity : ComponentActivity() {
 object TextHolder {
     const val Text = "TEXT"
 }
+
+/* --------------------------------------------------- */
+
+
