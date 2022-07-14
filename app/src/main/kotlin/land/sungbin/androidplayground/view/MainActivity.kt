@@ -13,7 +13,8 @@
     "CanBeVal",
     "UnrememberedMutableState",
     "ComposableNaming",
-    "SpellCheckingInspection"
+    "SpellCheckingInspection",
+    "RedundantLambdaOrAnonymousFunction"
 )
 @file:OptIn(
     InternalComposeApi::class,
@@ -48,7 +49,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
-import land.sungbin.androidplayground.composable.LoggingText
 import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.theme.PlaygroundTheme
@@ -74,11 +74,17 @@ class MainActivity : ComponentActivity() {
 
             PlaygroundTheme {
                 SortedColumn {
-                    LoggingText(text = stringResource(R.string.sungbin_land))
-                    LoggingText(
+                    Text(
+                        text = stringResource(R.string.sungbin_land)
+                    ).also {
+                        println("Text 1 composition.")
+                    }
+                    Text(
                         modifier = Modifier.clickable { number++ },
-                        text = number.toString()
-                    )
+                        text = { number.toString() }()
+                    ).also {
+                        println("Text 2 composition.")
+                    }
                 }
             }
         }
