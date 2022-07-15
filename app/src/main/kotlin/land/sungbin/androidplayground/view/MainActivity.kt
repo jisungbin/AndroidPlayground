@@ -34,11 +34,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.clickable { number2++ },
                     text = { number2.toString() } // always same instance, only change invoke value -> skip recomposition
                 ).also { println("3") }
+                Text(text = ImmutableDataClass("A").string)
             }
         }
     }
 }
 
+data class ImmutableDataClass(val string: String)
 
 @Composable
 fun Textt(
