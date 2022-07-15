@@ -1,0 +1,8 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Textt(
+  stable modifier: Modifier? = @static Companion
+  stable text: String
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Texttt(
+  stable modifier: Modifier? = @static Companion
+  stable text: Function0<String>
+)
