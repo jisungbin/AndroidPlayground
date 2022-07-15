@@ -19,22 +19,13 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             var number by remember { mutableStateOf(0) }
+            val text = remember(number) { number.toString() }
             println("setContent recomposition")
             Button(onClick = { number++ }) {
                 Text(
-                    text = number.toString(),
+                    text = text,
                 ).also { println("Text recomposition") }
             }.also { println("Button recomposition") }
         }
-
-        /*setContent {
-            var number by remember { mutableStateOf(0) }
-            println("setContent recomposition")
-            Text(
-                modifier = Modifier.clickable { number++ },
-                text = number.toString(),
-            ).also { println("Text recomposition") }
-        }*/
-
     }
 }
