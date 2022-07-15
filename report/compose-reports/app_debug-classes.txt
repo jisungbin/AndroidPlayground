@@ -1,7 +1,3 @@
 stable class MainActivity {
   <runtime stability> = Stable
 }
-stable class ImmutableDataClass {
-  stable val string: String
-  <runtime stability> = Stable
-}
