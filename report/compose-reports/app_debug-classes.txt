@@ -1,7 +1,10 @@
 stable class MainActivity {
   <runtime stability> = Stable
 }
-stable class ImmutableDataClass {
-  stable val string: String
-  <runtime stability> = Stable
+stable class ImmutableListWrapper {
+  unstable val values: List<String>
+}
+unstable class MutableListWrapper {
+  unstable var values: MutableList<String>
+  <runtime stability> = Unstable
 }
