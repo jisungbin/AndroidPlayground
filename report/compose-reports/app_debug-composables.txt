@@ -1,6 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TextWithImmutableList(
-  stable texts: ImmutableListWrapper
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TextWithImmutableList(
-  stable texts: ImmutableList<String>
-)
