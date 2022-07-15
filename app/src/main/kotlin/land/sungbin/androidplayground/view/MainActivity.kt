@@ -34,23 +34,15 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material3.Text
 import androidx.compose.runtime.InternalComposeApi
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
-import land.sungbin.androidplayground.composable.SortedColumn
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
+import land.sungbin.androidplayground.snippet.animation.ExpandableFab
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -70,22 +62,8 @@ class MainActivity : ComponentActivity() {
         )
 
         setContent {
-            var number by remember { mutableStateOf(1) }
-
             PlaygroundTheme {
-                SortedColumn {
-                    Text(
-                        text = stringResource(R.string.sungbin_land)
-                    ).also {
-                        println("Text 1 composition.")
-                    }
-                    Text(
-                        modifier = Modifier.clickable { number++ },
-                        text = { number.toString() }()
-                    ).also {
-                        println("Text 2 composition.")
-                    }
-                }
+                ExpandableFab()
             }
         }
     }

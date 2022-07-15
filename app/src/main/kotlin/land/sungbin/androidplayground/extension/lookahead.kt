@@ -52,39 +52,8 @@ inline val DefaultMeasurePolicy: MeasureScope.(measurables: List<Measurable>, co
         }
     }
 
-fun Modifier.movement(lookaheadScope: LookaheadLayoutScope) = composed {
-    var targetOffset: IntOffset? by remember { mutableStateOf(null) } // 배치할 오프셋
-    var placementOffset by remember { mutableStateOf(IntOffset.Zero) } // 현재 오프셋
-
-    with(lookaheadScope) {
-        this@composed
-            .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
-                // LookaheadLayout 의 로컬 coordinate 에서 이 modifier 의 lookahead 위치를 반환
-                targetOffset = lookaheadScopeCoordinates
-                    .localLookaheadPositionOf(sourceCoordinates = layoutCoordinates)
-                    .round() // 가장 가까운 IntOffset 값으로 오프셋 반올림
-
-                // LookaheadLayout 의 로컬 coordinate 에서 이 modifier 의 현재 위치를 반환
-                placementOffset = lookaheadScopeCoordinates
-                    .localPositionOf(
-                        sourceCoordinates = layoutCoordinates,
-                        relativeToSource = Offset.Zero
-                    )
-                    .round()
-            }
-            .intermediateLayout { measurable, constraints, _ ->
-                val placeable = measurable.measure(constraints)
-                layout(width = placeable.width, height = placeable.height) {
-                    // 이동한 오프셋에 배치
-                    val (x, y) = targetOffset!! - placementOffset
-                    placeable.place(x = x, y = y)
-                }
-            }
-    }
-}
-
+context(LookaheadLayoutScope)
 fun Modifier.animateMovement(
-    lookaheadScope: LookaheadLayoutScope,
     animationSpec: AnimationSpec<IntOffset> = defaultSpring()
 ) = composed {
     var placementOffset by remember { mutableStateOf(IntOffset.Zero) }
@@ -114,50 +83,32 @@ fun Modifier.animateMovement(
         }
     }
 
-    with(lookaheadScope) {
-        this@composed
-            .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
-                targetOffset = lookaheadScopeCoordinates
-                    .localLookaheadPositionOf(sourceCoordinates = layoutCoordinates)
-                    .round()
+    this@composed
+        .onPlaced { lookaheadScopeCoordinates, layoutCoordinates ->
+            targetOffset = lookaheadScopeCoordinates
+                .localLookaheadPositionOf(sourceCoordinates = layoutCoordinates)
+                .round()
 
-                placementOffset = lookaheadScopeCoordinates
-                    .localPositionOf(
-                        sourceCoordinates = layoutCoordinates,
-                        relativeToSource = Offset.Zero
-                    )
-                    .round()
-            }
-            .intermediateLayout { measurable, constraints, _ ->
-                val placeable = measurable.measure(constraints)
-                layout(width = placeable.width, height = placeable.height) {
-                    val (x, y) = (
-                            targetOffsetAnimation?.value ?: targetOffset!!
-                            ) - placementOffset
-                    placeable.place(x = x, y = y)
-                }
-            }
-    }
-}
-
-// for test
-fun Modifier.transformation(lookaheadScope: LookaheadLayoutScope) = with(lookaheadScope) {
-    intermediateLayout { measurable, _, lookaheadSize ->
-        val (width, height) = lookaheadSize // lookahead 크기로 width, height 결정
-        val animatedConstraints = Constraints.fixed(
-            width = width.coerceAtLeast(0), // 최소 0 으로 설정
-            height = height.coerceAtLeast(0)
-        )
-
-        val placeable = measurable.measure(animatedConstraints)
-        layout(width = placeable.width, height = placeable.height) { // lookahead 크기에 맞게 배치
-            placeable.place(x = 0, y = 0)
+            placementOffset = lookaheadScopeCoordinates
+                .localPositionOf(
+                    sourceCoordinates = layoutCoordinates,
+                    relativeToSource = Offset.Zero
+                )
+                .round()
         }
-    }
+        .intermediateLayout { measurable, constraints, _ ->
+            val placeable = measurable.measure(constraints)
+            layout(width = placeable.width, height = placeable.height) {
+                val (x, y) = (
+                        targetOffsetAnimation?.value ?: targetOffset!!
+                        ) - placementOffset
+                placeable.place(x = x, y = y)
+            }
+        }
 }
 
+context(LookaheadLayoutScope)
 fun Modifier.animateTransformation(
-    lookaheadScope: LookaheadLayoutScope,
     animationSpec: AnimationSpec<IntSize> = defaultSpring()
 ) = composed {
     var targetSize: IntSize? by remember { mutableStateOf(null) }
@@ -185,20 +136,18 @@ fun Modifier.animateTransformation(
         }
     }
 
-    with(lookaheadScope) {
-        this@composed.intermediateLayout { measurable, _, lookaheadSize ->
-            targetSize = lookaheadSize
+    this@composed.intermediateLayout { measurable, _, lookaheadSize ->
+        targetSize = lookaheadSize
 
-            val (width, height) = targetSizeAnimation?.value ?: lookaheadSize
-            val animatedConstraints = Constraints.fixed(
-                width = width.coerceAtLeast(0),
-                height = height.coerceAtLeast(0)
-            )
+        val (width, height) = targetSizeAnimation?.value ?: lookaheadSize
+        val animatedConstraints = Constraints.fixed(
+            width = width.coerceAtLeast(0),
+            height = height.coerceAtLeast(0)
+        )
 
-            val placeable = measurable.measure(animatedConstraints)
-            layout(width = placeable.width, height = placeable.height) {
-                placeable.place(x = 0, y = 0)
-            }
+        val placeable = measurable.measure(animatedConstraints)
+        layout(width = placeable.width, height = placeable.height) {
+            placeable.place(x = 0, y = 0)
         }
     }
 }
