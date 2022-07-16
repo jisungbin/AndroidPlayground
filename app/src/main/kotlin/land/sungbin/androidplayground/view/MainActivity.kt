@@ -7,19 +7,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import land.sungbin.androidplayground.R
 
 class MainActivity : ComponentActivity() {
-
-    private val SungbinLand by lazy { getString(R.string.sungbin_land) }
-    private val SungbinLands by lazy { listOf(SungbinLand) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            DisplayText(SungbinLand)
-//            DisplayTexts(SungbinLands.toImmutableList())
+            DisplayText("SungbinLand")
+            DisplayTexts(listOf("SungbinLand"))
         }
     }
 }
@@ -30,6 +26,6 @@ fun DisplayText(text: String) {
 }
 
 @Composable
-fun DisplayTexts(text: List<String> = listOf("SungbinLand")) {
+fun DisplayTexts(text: List<String>) {
     Text(text = text.joinToString())
 }

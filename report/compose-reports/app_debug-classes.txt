@@ -1,5 +1,3 @@
-unstable class MainActivity {
-  unstable val SungbinLand$delegate: Lazy<@[EnhancedNullability] String>
-  unstable val SungbinLands$delegate: Lazy<List<@[EnhancedNullability] String>>
-  <runtime stability> = Unstable
+stable class MainActivity {
+  <runtime stability> = Stable
 }
