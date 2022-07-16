@@ -1,4 +1,7 @@
-@file:Suppress("PrivatePropertyName", "PropertyName")
+@file:Suppress(
+    "PrivatePropertyName",
+    "PropertyName"
+)
 
 package land.sungbin.androidplayground.view
 
@@ -15,38 +18,21 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 
 class MainActivity : ComponentActivity() {
-
-    // private val SungbinLand by lazy { getString(R.string.sungbin_land) }
-    private val One = 1
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             var number by remember { mutableStateOf(1) }
-            TextWrapperOtherClass(
+            TextWrapper(
                 modifier = Modifier.clickable { number++ },
                 text = number.toString()
             )
         }
     }
-
-    @Composable
-    fun TextWrapperInnerClass(
-        modifier: Modifier = Modifier,
-        text: String/* = SungbinLand*/
-    ) {
-        Text(modifier = modifier, text = text)
-    }
-
-    @Composable
-    fun NumberDisplay(number: Int = One) {
-        Text(text = number.toString())
-    }
 }
 
 @Composable
-fun TextWrapperOtherClass(
+fun TextWrapper(
     modifier: Modifier = Modifier,
     text: String
 ) {
