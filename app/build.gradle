@@ -93,9 +93,10 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.42"
     kapt "com.google.dagger:hilt-compiler:2.42"
 
-    // tooling
+    // tools
     implementation "androidx.profileinstaller:profileinstaller:1.2.0-rc01"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
 
     // debug
     debugImplementation "androidx.customview:customview:1.2.0-alpha01"

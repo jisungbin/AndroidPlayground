@@ -1,0 +1,3 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun DisplayText(
+  stable text: String? = @static "SungbinLand"
+)
