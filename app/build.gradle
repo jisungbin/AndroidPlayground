@@ -31,10 +31,12 @@ android {
         freeCompilerArgs += ["-opt-in=kotlin.RequiresOptIn", "-Xjvm-default=all", "-Xcontext-receivers"]
         freeCompilerArgs += [
                 "-P",
-                "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${rootProject.file(".").absolutePath}/report/compose-metrics"]
+                "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${rootProject.file(".").absolutePath}/report/compose-metrics"
+        ]
         freeCompilerArgs += [
                 "-P",
-                "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"]
+                "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"
+        ]
     }
 
     buildFeatures {
