@@ -22,14 +22,14 @@ class MainActivity : ComponentActivity() {
 //            DisplayTexts(SungbinLands.toImmutableList())
         }
     }
+}
 
-    @Composable
-    fun DisplayText(text: String) {
-        Text(text = text)
-    }
+@Composable
+fun DisplayText(text: String) {
+    Text(text = text)
+}
 
-    @Composable
-    fun DisplayTexts(text: List<String> = SungbinLands) {
-        Text(text = text.joinToString())
-    }
+@Composable
+fun DisplayTexts(text: List<String> = listOf("SungbinLand")) {
+    Text(text = text.joinToString())
 }
