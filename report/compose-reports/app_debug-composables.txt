@@ -1,8 +1,8 @@
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun DisplayText(
-  stable text: String? = @dynamic LiveLiterals$MainActivityKt.String$param-text$fun-DisplayText$class-MainActivity()
+  stable text: String
   unused unstable <this>: MainActivity
 )
 restartable scheme("[androidx.compose.ui.UiComposable]") fun DisplayTexts(
-  stable text: ImmutableList<String>? = @dynamic SungbinLands.toImmutableList()
+  unstable text: List<String>? = @dynamic SungbinLands
   unstable <this>: MainActivity
 )

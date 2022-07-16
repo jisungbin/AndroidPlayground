@@ -7,8 +7,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.toImmutableList
 import land.sungbin.androidplayground.R
 
 class MainActivity : ComponentActivity() {
@@ -26,12 +24,12 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    fun DisplayText(text: String = "SungbinLand") {
+    fun DisplayText(text: String) {
         Text(text = text)
     }
 
     @Composable
-    fun DisplayTexts(text: ImmutableList<String> = SungbinLands.toImmutableList()) {
+    fun DisplayTexts(text: List<String> = SungbinLands) {
         Text(text = text.joinToString())
     }
 }
