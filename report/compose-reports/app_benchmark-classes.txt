@@ -1,0 +1,16 @@
+stable class MainActivity {
+  <runtime stability> = Stable
+}
+stable class Loading {
+  <runtime stability> = Stable
+}
+stable class Done {
+  <runtime stability> = Stable
+}
+unstable class Exception {
+  unstable val throwable: Throwable
+  <runtime stability> = Unstable
+}
+stable class UiState {
+  <runtime stability> = Stable
+}
