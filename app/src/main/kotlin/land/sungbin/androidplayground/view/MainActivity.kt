@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 Image(
                     modifier = Modifier
-                        .size(200.dp)
+                        .size(30.dp)
                         .clip(RoundedCornerShape(800.dp)),
                     painter = painterResource(R.drawable.little_zerry),
                     contentDescription = null,
