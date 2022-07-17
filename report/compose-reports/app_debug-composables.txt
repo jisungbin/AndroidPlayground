@@ -1,7 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Fab(
-  stable modifier: Modifier? = @static Companion
-  stable isExpanded: Boolean = @dynamic LiveLiterals$Expendable_fabKt.Boolean$param-isExpanded$fun-Fab()
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ExpandableFab(
-  stable modifier: Modifier? = @static Companion
-)
