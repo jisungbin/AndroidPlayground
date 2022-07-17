@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import land.sungbin.androidplayground.R
@@ -26,10 +27,11 @@ class MainActivity : ComponentActivity() {
             ) {
                 Image(
                     modifier = Modifier
-                        .size(150.dp)
-                        .clip(RoundedCornerShape(30.dp)),
+                        .size(200.dp)
+                        .clip(RoundedCornerShape(0.dp)),
                     painter = painterResource(R.drawable.little_zerry),
-                    contentDescription = null
+                    contentDescription = null,
+                    contentScale = ContentScale.FillBounds
                 )
             }
         }

@@ -1,4 +1,3 @@
 stable class MainActivity {
-  stable val One: Int
   <runtime stability> = Stable
 }
