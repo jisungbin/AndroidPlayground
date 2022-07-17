@@ -42,7 +42,7 @@ import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import land.sungbin.androidplayground.snippet.animation.ExpandableFab
+import land.sungbin.androidplayground.snippet.animation.SpringPlayground
 import land.sungbin.androidplayground.theme.PlaygroundTheme
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             PlaygroundTheme {
-                ExpandableFab()
+                SpringPlayground()
             }
         }
     }
