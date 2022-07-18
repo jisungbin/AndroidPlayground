@@ -17,13 +17,13 @@ class BaselineProfileBenchmark {
 
     @Test
     fun startupNoCompilation() {
-        startup(CompilationMode.None())
+        startup(compilationMode = CompilationMode.None())
     }
 
     @Test
     fun startupBaselineProfile() {
         startup(
-            CompilationMode.Partial(
+            compilationMode = CompilationMode.Partial(
                 baselineProfileMode = BaselineProfileMode.Require
             )
         )
