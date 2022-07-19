@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ButtonColors
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -27,13 +31,24 @@ class MainActivity : ComponentActivity() {
             ) {
                 Image(
                     modifier = Modifier
-                        .size(30.dp)
-                        .clip(RoundedCornerShape(800.dp)),
+                        .size(100.dp)
+                        .clip(RoundedCornerShape(30.dp)),
                     painter = painterResource(R.drawable.little_zerry),
                     contentDescription = null,
                     contentScale = ContentScale.FillBounds
                 )
+                ButtonWrapper()
             }
         }
+    }
+}
+
+@Composable
+fun defaultColors() = ButtonDefaults.buttonColors()
+
+@Composable
+fun ButtonWrapper(color: ButtonColors = defaultColors()) {
+    SideEffect {
+        println(color)
     }
 }
