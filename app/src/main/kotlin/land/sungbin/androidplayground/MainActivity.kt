@@ -16,14 +16,21 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /*setContentView(R.layout.activity_main)
-        findViewById<RecyclerView>(R.id.rv_texts).adapter = TextAdapter(5)*/
+        xml()
+    }
 
+    fun xml() {
+        setContentView(R.layout.activity_main)
+        findViewById<RecyclerView>(R.id.rv_texts).adapter = TextAdapter(5)
+    }
+
+    fun compose() {
         setContent {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
