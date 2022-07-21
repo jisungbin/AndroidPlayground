@@ -1,3 +1,5 @@
+@file:Suppress("MemberVisibilityCanBePrivate")
+
 package land.sungbin.androidplayground
 
 import android.os.Bundle
@@ -25,12 +27,12 @@ class MainActivity : ComponentActivity() {
         xml()
     }
 
-    private fun xml() {
+    fun xml() {
         setContentView(R.layout.activity_main)
         findViewById<RecyclerView>(R.id.rv_texts).adapter = TextAdapter(count = 5)
     }
 
-    private fun compose() {
+    fun compose() {
         setContent {
             Column(
                 modifier = Modifier.fillMaxSize(),
