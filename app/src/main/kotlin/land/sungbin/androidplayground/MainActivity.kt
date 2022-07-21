@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,12 +25,12 @@ class MainActivity : ComponentActivity() {
         findViewById<RecyclerView>(R.id.rv_texts).adapter = TextAdapter(5)*/
 
         setContent {
-            Column(
+            LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(space = 30.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                repeat(5) {
+                items(count = 5) {
                     Text(
                         text = stringResource(R.string.sungbin_land),
                         style = TextStyle(
