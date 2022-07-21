@@ -25,12 +25,12 @@ class MainActivity : ComponentActivity() {
         xml()
     }
 
-    fun xml() {
+    private fun xml() {
         setContentView(R.layout.activity_main)
         findViewById<RecyclerView>(R.id.rv_texts).adapter = TextAdapter(count = 5)
     }
 
-    fun compose() {
+    private fun compose() {
         setContent {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
