@@ -1,4 +1,0 @@
-fun defaultColors()
-restartable skippable fun ButtonWrapper(
-  stable color: ButtonColors? = @dynamic defaultColors($composer, 0)
-)
