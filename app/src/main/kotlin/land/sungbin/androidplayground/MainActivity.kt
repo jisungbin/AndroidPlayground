@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,12 +32,12 @@ class MainActivity : ComponentActivity() {
 
     private fun compose() {
         setContent {
-            LazyColumn(
+            Column(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.spacedBy(space = 30.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                items(count = 5) {
+                repeat(times = 5) {
                     Text(
                         text = stringResource(R.string.sungbin_land),
                         style = TextStyle(
