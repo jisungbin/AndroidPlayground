@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 
     fun xml() {
         setContentView(R.layout.activity_main)
-        findViewById<RecyclerView>(R.id.rv_texts).adapter = TextAdapter(5)
+        findViewById<RecyclerView>(R.id.rv_texts).adapter = TextAdapter(count = 5)
     }
 
     fun compose() {
