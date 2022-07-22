@@ -9,12 +9,11 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 
 class RoundImageView(context: Context, attrs: AttributeSet?) : AppCompatImageView(context, attrs) {
-    private var clipPath: Path? = null
+    private var clipPath = Path()
     private var imageRadius = 16.dp
     private var bitmapRect: RectF? = null
 
     init {
-        clipPath = Path()
         val typedArray = context.obtainStyledAttributes(
             attrs,
             R.styleable.RoundImageView,
@@ -34,12 +33,9 @@ class RoundImageView(context: Context, attrs: AttributeSet?) : AppCompatImageVie
     }
 
     override fun draw(canvas: Canvas) {
-        val clipPath = checkNotNull(clipPath) {
-            "clipPath is not initialized"
-        }
         clipPath.reset()
         clipPath.addRoundRect(
-            bitmapRect!!,
+            checkNotNull(bitmapRect) { "onSizeChanged is not called." },
             imageRadius.toFloat(),
             imageRadius.toFloat(),
             Path.Direction.CW
