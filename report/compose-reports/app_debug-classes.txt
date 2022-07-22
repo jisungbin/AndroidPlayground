@@ -1,3 +1,7 @@
 stable class MainActivity {
   <runtime stability> = Stable
 }
+stable class TextAdapter {
+  stable val count: Int
+  <runtime stability> = Stable
+}
