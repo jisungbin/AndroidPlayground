@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
 
     fun compose() {
         setContent {
-            LazyColumn {
+            LazyColumn { // RecyclerView 와 동일
                 items(count = 5) {
                     Text(text = "성빈랜드")
                 }
