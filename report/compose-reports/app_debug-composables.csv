@@ -1,0 +1,4 @@
+package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
+land.sungbin.androidplayground.view.RestartableGroup,RestartableGroup,1,1,1,0,0,0,0,0,1,1,
+land.sungbin.androidplayground.view.ReplaceableGroup,ReplaceableGroup,1,1,1,0,0,0,0,0,3,2,
+land.sungbin.androidplayground.view.MovableGroup,MovableGroup,1,1,1,0,0,0,0,0,1,1,
