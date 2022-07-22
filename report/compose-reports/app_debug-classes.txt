@@ -1,6 +1,4 @@
-unstable class RoundImageView {
-  unstable var clipPath: Path
-  stable var imageRadius: Int
-  unstable var bitmapRect: RectF?
+unstable class MainActivity {
+  stable var number: Int
   <runtime stability> = Unstable
 }
