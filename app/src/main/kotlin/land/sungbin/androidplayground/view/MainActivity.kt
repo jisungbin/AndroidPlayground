@@ -1,54 +1,44 @@
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ButtonColors
-import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import land.sungbin.androidplayground.R
+import androidx.compose.runtime.NoLiveLiterals
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContent {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    modifier = Modifier
-                        .size(100.dp)
-                        .clip(RoundedCornerShape(30.dp)),
-                    painter = painterResource(R.drawable.little_zerry),
-                    contentDescription = null,
-                    contentScale = ContentScale.FillBounds
-                )
-                ButtonWrapper()
+        /*setContent {
+            Column {
+                Texts()
             }
-        }
+        }*/
     }
 }
 
-@Composable
-fun defaultColors() = ButtonDefaults.buttonColors()
+/**
+ * Composable 어노테이션은 컴포즈 함수에서 필수적으로 사용되며 크게 2가지의 역할을 갖는다.
+ *
+ * 1. 위치 메모이제이션
+ * 2. 데이터 제공 또는 컴포저블 방출
+ */
+@MustBeDocumented
+@Retention(AnnotationRetention.BINARY)
+@Target(
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.TYPE,
+    AnnotationTarget.TYPE_PARAMETER,
+    AnnotationTarget.PROPERTY_GETTER
+)
+annotation class Composable
 
 @Composable
-fun ButtonWrapper(color: ButtonColors = defaultColors()) {
-    SideEffect {
-        println(color)
+fun Texts() {
+    repeat(5) {
+        Text(text = "Bye, world!")
     }
 }

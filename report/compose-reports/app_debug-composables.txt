@@ -1,4 +1,1 @@
-fun defaultColors()
-restartable skippable fun ButtonWrapper(
-  stable color: ButtonColors? = @dynamic defaultColors($composer, 0)
-)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Texts()
