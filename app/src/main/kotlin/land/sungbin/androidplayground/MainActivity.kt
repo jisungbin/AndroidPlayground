@@ -21,9 +21,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // xml()
-        compose()
+        xml()
     }
 
     fun xml() {
@@ -44,9 +42,5 @@ class MainActivity : ComponentActivity() {
                 Text(text = "increase number: $number")
             }
         }
-    }
-
-    private fun Button.updateText() {
-        text = getString(R.string.button_number_state, number)
     }
 }
