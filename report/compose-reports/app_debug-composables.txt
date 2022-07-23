@@ -1,5 +1,1 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun RestartableGroup()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun ReplaceableGroup(
-  stable isColumn: Boolean = @static true
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovableGroup()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TextWrapper()
