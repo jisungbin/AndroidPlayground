@@ -5,25 +5,22 @@ package land.sungbin.androidplayground.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.material.Text
-import androidx.compose.runtime.CompositionContext
 import androidx.compose.runtime.NoLiveLiterals
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.CancellableContinuation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContent {
-            Text(text = "SungbinLand")
-        }
     }
 }
 
-/**
- * 리컴포지션을 수행하고 하나 이상의 컴포저블에 업데이트를 적용하기 위한 스케줄러 입니다.
- */
-class Recomposer(
-    effectCoroutineContext: CoroutineContext
-) : CompositionContext()
+private fun deriveStateLocked(): CancellableContinuation<Unit>? {
+    // 보류 중인 작업: 리컴포지션 요청 등등 컴포즈 런타임 내부에서 진행되는 여러 작업 요청
+
+    val newState = when { /* 현재 보류 중인 작업 여부에 따라 새로운 상태 계산 */ }
+    return if (newState == State.PendingWork) { // 보류 중인 작업이 있다면
+        workContinuation.also { // workContinuation 반환 및 workContinuation 초기화
+            workContinuation = null
+        }
+    } else null
+}
