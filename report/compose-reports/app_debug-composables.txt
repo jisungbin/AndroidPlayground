@@ -1,1 +1,1 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun TextWrapper()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MovableContentOf()
