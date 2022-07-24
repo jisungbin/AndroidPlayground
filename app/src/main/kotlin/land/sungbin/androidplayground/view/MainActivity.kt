@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity()
 fun MovableContentOf() {
     val content = remember {
         movableContentOf {
-            Text(text = "AA")
+            Text(text = System.currentTimeMillis().toString())
         }
     }
 }
