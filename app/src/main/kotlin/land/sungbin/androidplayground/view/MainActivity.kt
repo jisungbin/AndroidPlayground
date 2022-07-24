@@ -14,7 +14,13 @@ import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.remember
 
-class MainActivity : ComponentActivity()
+class MainActivity : ComponentActivity() {
+    init {
+        repeat(10) { index ->
+            println("AAA: $index")
+        }
+    }
+}
 
 @Composable
 fun MovableContentOf() {
