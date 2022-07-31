@@ -51,6 +51,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
 import land.sungbin.androidplayground.extension.toBoolean
+import land.sungbin.androidplayground.note.CompositionLocals
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
 @AndroidEntryPoint
@@ -68,21 +69,6 @@ class MainActivity : ComponentActivity() {
             false
         )
 
-        setContent {
-            Row(
-                modifier = Modifier.fillMaxSize(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.Bottom
-            ) {
-                repeat(2) {
-                    CompositionLocalProvider(LocalMinimumTouchTargetEnforcement provides it.toBoolean()) {
-                        Switch(
-                            checked = false,
-                            onCheckedChange = {}
-                        )
-                    }
-                }
-            }
-        }
+        CompositionLocals()
     }
 }
