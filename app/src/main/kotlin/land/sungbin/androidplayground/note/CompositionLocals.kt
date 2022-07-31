@@ -15,6 +15,7 @@ package land.sungbin.androidplayground.note
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.LocalActivityResultRegistryOwner
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.LocalOverscrollConfiguration
@@ -175,7 +176,6 @@ fun ComponentActivity.CompositionLocals() = setContent {
     CompositionLocalProvider(
         LocalRippleTheme provides PinkRippleTheme,
         LocalTextStyle provides NanumGothicTextStyle,
-        LocalMinimumTouchTargetEnforcement provides true,
         LocalTextToolbar provides SungbinLandTextToolbar(view),
         LocalTextSelectionColors provides PinkTextSelectionColors,
         LocalOverscrollConfiguration provides PinkOverscrollConfiguration,
