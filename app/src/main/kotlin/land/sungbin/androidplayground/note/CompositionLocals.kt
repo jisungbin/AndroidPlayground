@@ -143,7 +143,6 @@ fun ComponentActivity.CompositionLocals() = setContent {
     val toast = rememberToast()
     val systemUiController = rememberSystemUiController()
 
-    val view = LocalView.current
     val density = LocalDensity.current
     val uriHandler = LocalUriHandler.current
     val textToolbar = LocalTextToolbar.current
@@ -176,7 +175,7 @@ fun ComponentActivity.CompositionLocals() = setContent {
     CompositionLocalProvider(
         LocalRippleTheme provides PinkRippleTheme,
         LocalTextStyle provides NanumGothicTextStyle,
-        LocalTextToolbar provides SungbinLandTextToolbar(view),
+        LocalTextToolbar provides SungbinLandTextToolbar(LocalView.current),
         LocalTextSelectionColors provides PinkTextSelectionColors,
         LocalOverscrollConfiguration provides PinkOverscrollConfiguration,
     ) {
