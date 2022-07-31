@@ -151,7 +151,6 @@ fun ComponentActivity.CompositionLocals() = setContent {
     val softwareKeyboardController = LocalSoftwareKeyboardController.current
 
     val focusRequesters = List(4) { FocusRequester() }
-
     val fieldStates = List(4) {
         remember { mutableStateOf(TextFieldValue()) }
     }
