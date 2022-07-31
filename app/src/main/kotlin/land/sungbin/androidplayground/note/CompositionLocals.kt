@@ -119,7 +119,7 @@ fun LocalCompositionList() = setContent {
     /** 잘 알려지지 않은 것들, 알아두면 좋을 것들, 중요한 것들 */
     LocalMinimumTouchTargetEnforcement // 컴포저블 사이즈를 최소 터치 영역에 맞게 조정, 디자인에 영향 미칠 수 있음
     LocalDensity // Density 제공, 단위 변환에 유용하게 쓰임
-    LocalFocusManager // FocusManager 제공, TextField 포커싱 제어에 유용하게 쓰임
+    LocalFocusManager // FocusManager 제공, 여러 컴포저블의 포커싱 제어에 유용하게 쓰임
     LocalFontFamilyResolver // FontFamily.Resolver 제공, FontFamily 캐시 가능
     LocalInspectionMode // 안드로이드 스튜디오 Preview 로 보이고 있는지 Boolean 값 제공
     LocalTextToolbar // TextToolbar 제공, TextField 에 적용할 ActionMode 를 제공함
