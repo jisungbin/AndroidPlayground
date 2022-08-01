@@ -72,7 +72,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.constraintlayout:constraintlayout:2.1.4"
-    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+    implementation "androidx.paging:paging-runtime:3.1.1"
 
     // compose
     implementation "androidx.activity:activity-compose:1.5.1"
