@@ -34,24 +34,15 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.BackdropScaffold
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.LocalMinimumTouchTargetEnforcement
-import androidx.compose.material.Switch
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.InternalComposeApi
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.Modifier
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
 import land.sungbin.androidplayground.R
 import land.sungbin.androidplayground.databinding.ActivityMainBinding
-import land.sungbin.androidplayground.extension.toBoolean
-import land.sungbin.androidplayground.note.CompositionLocals
 import land.sungbin.androidplayground.viewmodel.MainViewModel
 
 @AndroidEntryPoint
@@ -69,6 +60,12 @@ class MainActivity : ComponentActivity() {
             false
         )
 
-        CompositionLocals()
+        setContent {
+            BackdropScaffold(
+                appBar = {},
+                backLayerContent = {},
+                frontLayerContent = {}
+            )
+        }
     }
 }
