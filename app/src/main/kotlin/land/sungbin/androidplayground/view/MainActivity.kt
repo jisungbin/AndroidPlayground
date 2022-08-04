@@ -33,12 +33,12 @@ interface PaginationListState<Key> {
     val isPaging: Boolean
     val isRetrying: Boolean
 
-    val prevPageKey: Key? // null if first page
+    val prevPageKey: Key?
     val currentPageKey: Key
     val nextPageKey: Key?
 
     suspend fun refresh() // reset all paged data, and restart from the init
-    suspend fun retry()
+    suspend fun retry() // re-request last paged
     fun cancel() // cancel all pagination requests and shutdown paging system
     fun exception(exception: Throwable) // To notify the exception raised by the user to PageItemState
 }
@@ -55,36 +55,24 @@ interface PaginationListConfig {
 @Immutable
 interface PageItemState {
     val isFirstItem: Boolean
-    val isLastItem: Boolean? // null if unknown, only true when next page key is null and the last paged item is visible
+    val isLastItem: Boolean // only true when next page key is null and the last paged item is visible
     val isPlaceholder: Boolean
     val isLoadedFromOffline: Boolean
     val exception: Throwable?
-
-    val isException get() = exception != null
 }
 
 @Immutable
 interface PaginationListScope<T> {
-    // can be footer, header, separator, item, etc...
+    // can be header, footer, separator, item, etc...
+    // item is null when it's placeholder
     fun items(content: @Composable (item: T?, state: PageItemState) -> Unit)
 }
 
-/**
- * We first fetch the data from offline,
- * and if it fails or there is no data, we re-fetch it from online.
- */
 @Immutable
 interface PagingSource<T, Key> {
-    suspend fun saveToOffline(pageKey: Key, items: List<T>): Boolean // return: result
+    suspend fun loadPage(pageKey: Key): Result<List<T>>
 
-    suspend fun loadFromOffline(pageKey: Key): List<T>? // return: null if load failed
-
-    suspend fun loadFromOnline(pageKey: Key): List<T>? // return: null if load failed
-
-    fun mustLoadFromOnline(item: T): Boolean
-
-    // lastItem: last item on the current page
-    fun calcNextPageKey(currentPageKey: Key, lastItem: T): Key? // return: null if next page key is none.
+    fun calcNextPageKey(currentPageKey: Key): Key? // return: null if next page key is none
 }
 
 /**
