@@ -29,21 +29,6 @@ class MainActivity : ComponentActivity() {
 }
 
 @Immutable
-interface PaginationListState<Key> {
-    val isPaging: Boolean
-    val isRetrying: Boolean
-
-    val prevPageKey: Key?
-    val currentPageKey: Key
-    val nextPageKey: Key?
-
-    suspend fun refresh() // reset all paged data, and restart from the init
-    suspend fun retry() // re-request last paged
-    fun cancel() // cancel all pagination requests and shutdown paging system
-    fun exception(exception: Throwable) // To notify the exception raised by the user to PageItemState
-}
-
-@Immutable
 interface PaginationListConfig {
     val initPrefetchPageCount: Int
     val prefetchPageListDistance: Int
@@ -57,13 +42,15 @@ interface PageItemState {
     val isLastItem: Boolean // only true when next page key is null and the last paged item is visible
     val isPlaceholder: Boolean
     val exception: Throwable?
+
+    suspend fun retry(): Boolean
 }
 
 @Immutable
 interface PaginationListScope<T> {
     // can be header, footer, separator, item, etc...
     // item is null when it's placeholder
-    fun items(content: @Composable (item: T?, state: PageItemState) -> Unit)
+    fun items(content: @Composable (item: T?, itemState: PageItemState) -> Unit)
 }
 
 @Immutable
@@ -73,15 +60,6 @@ interface PagingSource<T, Key> {
     fun calcNextPageKey(currentPageKey: Key): Key? // return: null if next page key is none
 }
 
-/**
- * ### We want to implement this:
- *
- * - separater
- * - header/footer
- * - retry and exception handling method
- * - auto remove duplicate request
- * - online + offline page load
- */
 @Composable
 fun <T, Key> PaginationColumn(
     modifier: Modifier = Modifier,
@@ -95,7 +73,6 @@ fun <T, Key> PaginationColumn(
     },
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
-    userScrollEnabled: Boolean = true,
     content: PaginationListScope<T>.() -> Unit
 ) {
 
