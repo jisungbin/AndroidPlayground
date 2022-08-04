@@ -17,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.paging.PagingConfig
 import javax.annotation.concurrent.Immutable
 
 class MainActivity : ComponentActivity() {
@@ -26,51 +25,48 @@ class MainActivity : ComponentActivity() {
         setContent {
 
         }
-        PagingConfig
     }
 }
 
 @Immutable
-interface PaginationListState {
-    val isPageBegin: Boolean
-    val isPageEnd: Boolean
-
-    val isPaging: Boolean // `isLoading` is better naming?
+interface PaginationListState<Key> {
+    val isPaging: Boolean
     val isRetrying: Boolean
-    val exception: Exception?
-    val isException get() = exception != null
 
-    val prevPageNumber: Int
-    val nowPageNumber: Int
-    val nextPageNumber: Int
+    val prevPageKey: Key? // null if first page
+    val currentPageKey: Key
+    val nextPageKey: Key?
+
+    suspend fun refresh() // reset all paged data, and restart from the init
+    suspend fun retry()
+    fun cancel() // cancel all pagination requests and shutdown paging system
+    fun exception(exception: Throwable) // To notify the exception raised by the user to PageItemState
 }
 
 @Immutable
-interface PaginationListController {
+interface PaginationListConfig {
     val pageSize: Int
     val initPageListSize: Int
     val prefetchPageListDistance: Int
     val enablePlaceholders: Boolean
     val loadedPageListMaxSize: Int
+}
 
-    fun retry()
-    fun cancel()
-    fun exception(exception: Throwable) // To notify the exception raised by the user to PaginationListState
+@Immutable
+interface PageItemState {
+    val isFirstItem: Boolean
+    val isLastItem: Boolean? // null if unknown, only true when next page key is null and the last paged item is visible
+    val isPlaceholder: Boolean
+    val isLoadedFromOffline: Boolean
+    val exception: Throwable?
+
+    val isException get() = exception != null
 }
 
 @Immutable
 interface PaginationListScope<T> {
-    // for Header, Footer, Separater
-    fun item(
-        visible: (state: PaginationListState) -> Boolean,
-        content: @Composable (
-            prevItem: T?, // null if no prev item
-            nextItem: T?, // null if no next item
-            fromOffline: Boolean
-        ) -> Unit
-    )
-
-    fun items(content: @Composable (item: T, fromOffline: Boolean) -> Unit)
+    // can be footer, header, separator, item, etc...
+    fun items(content: @Composable (item: T?, state: PageItemState) -> Unit)
 }
 
 /**
@@ -78,14 +74,17 @@ interface PaginationListScope<T> {
  * and if it fails or there is no data, we re-fetch it from online.
  */
 @Immutable
-interface PagingSource<T> {
-    suspend fun saveToOffline(pageNumber: Int, items: List<T>): Boolean // return: result
+interface PagingSource<T, Key> {
+    suspend fun saveToOffline(pageKey: Key, items: List<T>): Boolean // return: result
 
-    suspend fun loadFromOffline(pageNumber: Int): List<T>? // return: null if load failed
+    suspend fun loadFromOffline(pageKey: Key): List<T>? // return: null if load failed
 
-    suspend fun loadFromOnline(pageNumber: Int): List<T>? // return: null if load failed
+    suspend fun loadFromOnline(pageKey: Key): List<T>? // return: null if load failed
 
     fun mustLoadFromOnline(item: T): Boolean
+
+    // lastItem: last item on the current page
+    fun calcNextPageKey(currentPageKey: Key, lastItem: T): Key? // return: null if next page key is none.
 }
 
 /**
@@ -98,10 +97,10 @@ interface PagingSource<T> {
  * - online + offline page load
  */
 @Composable
-fun <T> PaginationColumn(
+fun <T, Key> PaginationColumn(
     modifier: Modifier = Modifier,
-    pagingController: PaginationListController,
-    pagingSource: PagingSource<T>,
+    pagingConfig: PaginationListConfig,
+    pagingSource: PagingSource<T, Key>,
     contentPadding: PaddingValues = PaddingValues(0.dp),
     reverseLayout: Boolean = false,
     verticalArrangement: Arrangement.Vertical = when (reverseLayout) {
