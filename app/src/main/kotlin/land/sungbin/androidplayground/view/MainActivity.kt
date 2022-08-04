@@ -45,8 +45,7 @@ interface PaginationListState<Key> {
 
 @Immutable
 interface PaginationListConfig {
-    val pageSize: Int
-    val initPageListSize: Int
+    val initPrefetchPageCount: Int
     val prefetchPageListDistance: Int
     val enablePlaceholders: Boolean
     val loadedPageListMaxSize: Int
@@ -57,7 +56,6 @@ interface PageItemState {
     val isFirstItem: Boolean
     val isLastItem: Boolean // only true when next page key is null and the last paged item is visible
     val isPlaceholder: Boolean
-    val isLoadedFromOffline: Boolean
     val exception: Throwable?
 }
 
