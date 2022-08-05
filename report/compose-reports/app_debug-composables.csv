@@ -1,2 +1,4 @@
 package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
-land.sungbin.androidplayground.view.MainActivity.HelloWorld,HelloWorld,1,1,1,0,0,0,0,0,1,1,
+land.sungbin.androidplayground.view.BrushDemo,BrushDemo,1,1,1,0,0,0,0,0,1,1,
+land.sungbin.androidplayground.view.LightBulb,LightBulb,1,1,1,0,0,0,0,0,1,2,
+land.sungbin.androidplayground.view.LightingText,LightingText,1,1,1,0,0,0,0,0,1,2,

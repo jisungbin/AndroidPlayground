@@ -1,3 +1,7 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun HelloWorld(
-  unused stable <this>: MainActivity
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun BrushDemo()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LightBulb(
+  state: LightingTextDemoState
+)
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LightingText(
+  state: LightingTextDemoState
 )
