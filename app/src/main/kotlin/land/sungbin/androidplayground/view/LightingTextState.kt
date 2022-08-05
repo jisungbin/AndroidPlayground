@@ -22,7 +22,7 @@ import androidx.compose.ui.input.pointer.PointerInputChange
 private const val BULB_START_X = 0.5f
 private const val BULB_START_Y = 0.1f
 
-class LightingTextDemoState(private val size: Size) {
+class LightingTextState(private val size: Size) {
     var isLightOn by mutableStateOf(true)
 
     fun toggleLight() {

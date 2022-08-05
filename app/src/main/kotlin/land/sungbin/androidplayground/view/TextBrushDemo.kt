@@ -43,10 +43,10 @@ private val SOCKET_WIDTH = 10.dp
 private val CABLE_WIDTH = 2.dp
 
 @Composable
-fun BrushDemo() {
+fun TextBrush() {
     BoxWithConstraints(modifier = Modifier.background(Color.Black)) {
         val size = Size(constraints.maxWidth.toFloat(), constraints.maxHeight.toFloat())
-        val lightingTextDemoState = remember(size) { LightingTextDemoState(size) }
+        val lightingTextDemoState = remember(size) { LightingTextState(size) }
         // Text on the background, put first in the box.
         LightingText(state = lightingTextDemoState)
         // Cable attachment to bulb can be drawn freely
@@ -60,7 +60,7 @@ fun BrushDemo() {
     }
 }
 
-fun Modifier.bulbAttachments(state: LightingTextDemoState): Modifier {
+private fun Modifier.bulbAttachments(state: LightingTextState): Modifier {
     return drawBehind {
         val bulbPosition = state.bulbOffset
 
@@ -92,7 +92,7 @@ fun Modifier.bulbAttachments(state: LightingTextDemoState): Modifier {
 }
 
 @Composable
-fun LightBulb(state: LightingTextDemoState) {
+fun LightBulb(state: LightingTextState) {
     val coroutineScope = rememberCoroutineScope()
 
     Box(
@@ -124,7 +124,7 @@ fun LightBulb(state: LightingTextDemoState) {
 
 @OptIn(ExperimentalTextApi::class)
 @Composable
-fun LightingText(state: LightingTextDemoState) {
+fun LightingText(state: LightingTextState) {
     Text(
         text = lipsum,
         modifier = Modifier
