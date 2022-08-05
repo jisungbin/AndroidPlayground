@@ -6,7 +6,6 @@ stable class PeopleWrapper {
 unstable class MutablePeopleImplWrapper {
   unstable val _name: MutableStateFlow<String>
   unstable val _age: MutableStateFlow<Int>
-  stable val immutableImpl: <no name provided>
   <runtime stability> = Unstable
 }
 unstable class MainActivity {

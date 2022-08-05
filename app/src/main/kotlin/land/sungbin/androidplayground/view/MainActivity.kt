@@ -37,7 +37,7 @@ class MutablePeopleImplWrapper(name: String, age: Int) : PeopleWrapper(name, age
             _age.value = value
         }
 
-    private val immutableImpl = object : StateFlow<PeopleWrapper> {
+    fun asStateFlow() = object : StateFlow<PeopleWrapper> {
         override val replayCache: List<PeopleWrapper> get() = listOf(value)
 
         override val value
@@ -56,8 +56,6 @@ class MutablePeopleImplWrapper(name: String, age: Int) : PeopleWrapper(name, age
                 }.stateIn(this).collect(collector)
             }
     }
-
-    fun asStateFlow() = immutableImpl
 }
 
 fun People(name: String, age: Int) = MutablePeopleImplWrapper(name, age)
