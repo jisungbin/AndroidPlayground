@@ -23,7 +23,7 @@ open class PeopleWrapper(open val name: String, open val age: Int) {
     override fun toString() = "name: $name, age: $age"
 }
 
-class MutablePeopleImplWrapper(name: String, age: Int) : PeopleWrapper(name, age) {
+class MutablePeopleWrapper(name: String, age: Int) : PeopleWrapper(name, age) {
     private val _name = MutableStateFlow(name)
     override var name
         get() = _name.value
@@ -39,7 +39,7 @@ class MutablePeopleImplWrapper(name: String, age: Int) : PeopleWrapper(name, age
         }
 
     fun asStateFlow() = object : StateFlow<PeopleWrapper> {
-        override val replayCache: List<PeopleWrapper> get() = listOf(value)
+        override val replayCache get() = listOf(value)
 
         override val value
             get() = PeopleWrapper(
@@ -59,14 +59,14 @@ class MutablePeopleImplWrapper(name: String, age: Int) : PeopleWrapper(name, age
     }
 }
 
-fun People(name: String, age: Int) = MutablePeopleImplWrapper(name, age)
+fun People(name: String, age: Int) = MutablePeopleWrapper(name, age)
 
 class MainActivity : ComponentActivity() {
     private val people = People("Ji", 0)
 
     /**
      * [Dispatchers.Main]
-     * I/System.out: Sungbin, age: 21
+     * I/System.out: name: Sungbin, age: 21
      *
      * [Dispatchers.Main.immediate]
      * I/System.out: name: Ji, age: 0
@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        CoroutineScope(Dispatchers.Main.immediate).launch {
+        CoroutineScope(Dispatchers.Main).launch {
             people.asStateFlow().collect {
                 println(it)
             }
