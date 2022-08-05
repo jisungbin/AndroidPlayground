@@ -1,7 +1,8 @@
 @file:Suppress(
     "UNUSED_PARAMETER",
     "FunctionName",
-    "UNUSED_VARIABLE", "KDocUnresolvedReference"
+    "UNUSED_VARIABLE",
+    "KDocUnresolvedReference"
 )
 
 package land.sungbin.androidplayground.view
