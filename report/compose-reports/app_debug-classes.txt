@@ -1,11 +1,3 @@
-runtime class LightingTextDemoState {
-  stable val size: Size
-  stable var isLightOn$delegate: MutableState<Boolean>
-  runtime val dragAnimatable: Animatable<Offset, AnimationVector2D>
-  stable val scrollState: ScrollState
-  stable val scrollOffset$delegate: State<Offset>
-  stable val bulbOffset$delegate: State<Offset>
-  stable val bulbBackground$delegate: State<Brush>
-  stable val lightSourceBrush$delegate: State<Brush>
-  <runtime stability> = Runtime(Animatable)
+stable class MainActivity {
+  <runtime stability> = Stable
 }
