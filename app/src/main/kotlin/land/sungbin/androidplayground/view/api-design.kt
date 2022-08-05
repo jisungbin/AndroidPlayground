@@ -1,14 +1,5 @@
-@file:Suppress(
-    "UNUSED_PARAMETER",
-    "FunctionName",
-    "UNUSED_VARIABLE"
-)
+@file:Suppress("UNUSED_PARAMETER")
 
-package land.sungbin.androidplayground.view
-
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Arrangement
@@ -18,14 +9,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import javax.annotation.concurrent.Immutable
-
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-        }
-    }
-}
 
 @Immutable
 interface PaginationListConfig {
@@ -74,5 +57,4 @@ fun <T, Key> PaginationColumn(
     flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
     content: PaginationListScope<T>.() -> Unit
 ) {
-
 }
