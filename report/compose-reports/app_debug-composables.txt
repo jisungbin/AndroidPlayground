@@ -1,3 +1,8 @@
 restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content(
   stable modifier: Modifier? = @static Companion
 )
+fun <get-NavigationBarHeightDp>()
+fun <get-StatusBarHeightDp>()
+fun <get-isImeVisible>(
+  unstable <this>: Companion
+): Boolean
