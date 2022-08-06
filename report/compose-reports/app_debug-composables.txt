@@ -1,0 +1,3 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content(
+  stable modifier: Modifier? = @static Companion
+)

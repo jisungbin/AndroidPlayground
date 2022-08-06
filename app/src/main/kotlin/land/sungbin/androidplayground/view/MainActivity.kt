@@ -1,92 +1,65 @@
-@file:Suppress(
-    "UNUSED_PARAMETER",
-    "FunctionName",
-    "UNUSED_VARIABLE",
-    "KDocUnresolvedReference"
-)
-
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.FlowCollector
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
-
-open class PeopleWrapper(open val name: String, open val age: Int) {
-    override fun toString() = "name: $name, age: $age"
-}
-
-class MutablePeopleWrapper(name: String, age: Int) : PeopleWrapper(name, age) {
-    private val _name = MutableStateFlow(name)
-    override var name
-        get() = _name.value
-        set(value) {
-            _name.value = value
-        }
-
-    private val _age = MutableStateFlow(age)
-    override var age
-        get() = _age.value
-        set(value) {
-            _age.value = value
-        }
-
-    fun asStateFlow() = object : StateFlow<PeopleWrapper> {
-        override val replayCache get() = listOf(value)
-
-        override val value
-            get() = PeopleWrapper(
-                name = _name.value,
-                age = _age.value
-            )
-
-        override suspend fun collect(collector: FlowCollector<PeopleWrapper>): Nothing =
-            coroutineScope {
-                combine(_name, _age) { params ->
-                    PeopleWrapper(
-                        name = params[0] as String,
-                        age = params[1] as Int
-                    )
-                }.stateIn(this).collect(collector)
-            }
-    }
-}
-
-fun People(name: String, age: Int) = MutablePeopleWrapper(name, age)
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowCompat
+import land.sungbin.androidplayground.R
 
 class MainActivity : ComponentActivity() {
-    private val people = People("Ji", 0)
-
-    /**
-     * [Dispatchers.Main]
-     * I/System.out: name: Sungbin, age: 21
-     *
-     * [Dispatchers.Main.immediate]
-     * I/System.out: name: Ji, age: 0
-     * I/System.out: name: Sungbin, age: 0
-     * I/System.out: name: Sungbin, age: 21
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        CoroutineScope(Dispatchers.Main).launch {
-            people.asStateFlow().collect {
-                println(it)
-            }
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        setContent {
+            Content(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .windowInsetsPadding(
+                        WindowInsets.systemBars.only(
+                            WindowInsetsSides.Vertical
+                        )
+                    )
+            )
         }
     }
+}
 
-    override fun onResume() {
-        super.onResume()
-        people.apply {
-            name = "Sungbin"
-            age = 21
+@Composable
+fun Content(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(
+            space = 15.dp,
+            alignment = Alignment.Bottom
+        )
+    ) {
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = stringResource(R.string.sungbin_land),
+            onValueChange = {}
+        )
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {}
+        ) {
+            Text(text = stringResource(R.string.sungbin_land))
         }
     }
 }

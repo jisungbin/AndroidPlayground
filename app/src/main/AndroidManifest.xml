@@ -17,7 +17,8 @@
         <activity
             android:name="land.sungbin.androidplayground.view.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AndroidPlayground">
+            android:theme="@style/Theme.AndroidPlayground"
+            android:windowSoftInputMode="adjustResize">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
