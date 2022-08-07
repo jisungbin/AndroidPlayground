@@ -1,4 +1,5 @@
-stable class MainActivity {
+unstable class MainActivity {
+  stable var mutableValue: Int
   stable val EmptyLambdaInActivity: Function0<Unit>
-  <runtime stability> = Stable
+  <runtime stability> = Unstable
 }
