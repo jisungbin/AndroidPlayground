@@ -1,5 +1,5 @@
-unstable class MainActivity {
-  unstable var mutableValue: List<DummyType>
-  stable val EmptyLambdaInActivity: Function0<MainActivity>
-  <runtime stability> = Unstable
+stable class StableModifierInstance {
+}
+stable class Playground {
+  <runtime stability> = Stable
 }
