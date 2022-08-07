@@ -1,2 +1,4 @@
-package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
-land.sungbin.androidplayground.view.LambdaComposable,LambdaComposable,1,1,1,0,0,0,0,0,1,1,
+package                                                  ,name      ,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
+land.sungbin.androidplayground.view.Playground.Something1,Something1,1         ,1        ,1          ,0       ,0     ,0       ,0          ,0            ,1     ,1    ,
+land.sungbin.androidplayground.view.Playground.Something2,Something2,1         ,1        ,1          ,0       ,0     ,0       ,0          ,0            ,1     ,2    ,
+land.sungbin.androidplayground.view.MyBox                ,MyBox     ,1         ,1        ,1          ,0       ,0     ,0       ,0          ,0            ,1     ,1    ,

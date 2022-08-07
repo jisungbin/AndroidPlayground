@@ -15,23 +15,26 @@ class StableModifierInstance : Modifier.Element
 @Stable
 private fun Modifier.something1() = this.then(StableModifierInstance())
 
-class Activity {
+class Playground {
     @Stable
     private fun Modifier.something2() = this.then(StableModifierInstance())
 
     @Composable
-    fun Content() {
+    fun Something1() {
         MyBox {
             Modifier.something1()
-        }
-
-        MyBox {
-            Modifier.something2()
         }
     }
 
     @Composable
-    fun MyBox(getModifier: () -> Modifier) {
-        Box(modifier = getModifier())
+    fun Something2() {
+        MyBox {
+            Modifier.something2()
+        }
     }
+}
+
+@Composable
+fun MyBox(getModifier: () -> Modifier) {
+    Box(modifier = getModifier())
 }
