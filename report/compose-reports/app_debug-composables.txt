@@ -1,0 +1,3 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LambdaComposable(
+  stable lambda: Function0<Unit>
+)

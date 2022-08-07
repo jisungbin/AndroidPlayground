@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 val EmptyLambdaInFile = {}
 
 class MainActivity : ComponentActivity() {
+    val mutableValue = 0
     val EmptyLambdaInActivity = {}
 
     override fun onCreate(savedInstanceState: Bundle?) {

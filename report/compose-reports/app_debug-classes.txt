@@ -1,14 +1,4 @@
-stable class PeopleWrapper {
-  stable val name: String
-  stable val age: Int
+stable class MainActivity {
+  stable val EmptyLambdaInActivity: Function0<Unit>
   <runtime stability> = Stable
-}
-unstable class MutablePeopleWrapper {
-  unstable val _name: MutableStateFlow<String>
-  unstable val _age: MutableStateFlow<Int>
-  <runtime stability> = Unstable
-}
-unstable class MainActivity {
-  unstable val people: MutablePeopleWrapper
-  <runtime stability> = Unstable
 }
