@@ -15,7 +15,7 @@ class StableModifierInstance : Modifier.Element
 @Stable
 private fun Modifier.something1() = this.then(StableModifierInstance())
 
-class Playground {
+class Playground1 {
     @Stable
     private fun Modifier.something2() = this.then(StableModifierInstance())
 
