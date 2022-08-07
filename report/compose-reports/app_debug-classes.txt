@@ -1,5 +1,5 @@
 unstable class MainActivity {
-  stable var mutableValue: Int
-  stable val EmptyLambdaInActivity: Function0<Unit>
+  unstable var mutableValue: List<DummyType>
+  stable val EmptyLambdaInActivity: Function0<MainActivity>
   <runtime stability> = Unstable
 }

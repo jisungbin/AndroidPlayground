@@ -3,29 +3,35 @@
 
 package land.sungbin.androidplayground.view
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.Stable
+import androidx.compose.ui.Modifier
 
-val EmptyLambdaInFile = {}
+@Stable
+class StableModifierInstance : Modifier.Element
 
-class MainActivity : ComponentActivity() {
-    var mutableValue = 0
-    val EmptyLambdaInActivity = {}
+@Stable
+private fun Modifier.something1() = this.then(StableModifierInstance())
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            LambdaComposable(lambda = EmptyLambdaInFile)
-            LambdaComposable(lambda = EmptyLambdaInActivity)
+class Activity {
+    @Stable
+    private fun Modifier.something2() = this.then(StableModifierInstance())
+
+    @Composable
+    fun Content() {
+        MyBox {
+            Modifier.something1()
+        }
+
+        MyBox {
+            Modifier.something2()
         }
     }
-}
 
-@Composable
-fun LambdaComposable(lambda: () -> Unit) {
-    Text(text = lambda.toString())
+    @Composable
+    fun MyBox(getModifier: () -> Modifier) {
+        Box(modifier = getModifier())
+    }
 }
