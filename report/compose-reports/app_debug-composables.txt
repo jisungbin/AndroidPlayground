@@ -1,9 +1,7 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Something1(
-  unused stable <this>: Playground
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun EmptyComposable(
+  instance: EmptyInterface
 )
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Something2(
-  stable <this>: Playground
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MyBox(
-  stable getModifier: Function0<Modifier>
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LambdaComposable(
+  stable lambda: Function0<Unit>
 )

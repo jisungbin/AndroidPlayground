@@ -1,25 +1,34 @@
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground.view
 
-import androidx.compose.material3.Text
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NoLiveLiterals
 
-interface UnstableInterface
+interface EmptyInterface
 
-class UnstableClass : UnstableInterface {
-    fun provideList() = emptyList<UnstableInterface>()
+const val StableValue = "Stable"
+
+class UnstableClass : EmptyInterface {
+    val list = emptyList<EmptyInterface>()
+    fun provideList() = emptyList<EmptyInterface>()
 }
 
 @Composable
 fun Content() {
     val unstableClass = UnstableClass()
-    UnstableComposable(unstableClass)
+    EmptyComposable(unstableClass)
     LambdaComposable {
         unstableClass.provideList()
+    }
+    LambdaComposable {
+        println(StableValue)
     }
 }
 
 @Composable
-fun UnstableComposable(instance: UnstableInterface) {
+fun EmptyComposable(instance: EmptyInterface) {
     Text(text = instance.toString())
 }
 

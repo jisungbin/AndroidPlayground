@@ -1,5 +1,4 @@
-stable class StableModifierInstance {
-}
-stable class Playground {
-  <runtime stability> = Stable
+unstable class UnstableClass {
+  unstable val list: List<EmptyInterface>
+  <runtime stability> = Unstable
 }
