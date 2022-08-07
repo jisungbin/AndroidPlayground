@@ -16,19 +16,18 @@ class StableClass {
 }
 
 @Composable
+fun LambdaComposable(lambda: () -> Unit) {
+    Text(text = lambda.toString())
+}
+
+@Composable
 fun Content() {
-    val stableValue = "Stable"
     val stableClass = StableClass()
     val unstableClass = UnstableClass()
 
     LambdaComposable { unstableClass.unit() }
-    LambdaComposable { println(stableValue) }
     LambdaComposable { stableClass.unit() }
+
     LambdaComposable(unstableClass::unit)
     LambdaComposable(stableClass::unit)
-}
-
-@Composable
-fun LambdaComposable(lambda: () -> Unit) {
-    Text(text = lambda.toString())
 }

@@ -1,0 +1,7 @@
+unstable class UnstableClass {
+  unstable val list: List<Any>
+  <runtime stability> = Unstable
+}
+stable class StableClass {
+  <runtime stability> = Stable
+}
