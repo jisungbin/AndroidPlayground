@@ -1,4 +1,0 @@
-unstable class UnstableClass {
-  unstable val list: List<EmptyInterface>
-  <runtime stability> = Unstable
-}

@@ -6,30 +6,26 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
 
-interface EmptyInterface
+class UnstableClass {
+    val list = emptyList<Any>()
+    fun unit() {}
+}
 
-const val StableValue = "Stable"
-
-class UnstableClass : EmptyInterface {
-    val list = emptyList<EmptyInterface>()
-    fun provideList() = emptyList<EmptyInterface>()
+class StableClass {
+    fun unit() {}
 }
 
 @Composable
 fun Content() {
+    val stableValue = "Stable"
+    val stableClass = StableClass()
     val unstableClass = UnstableClass()
-    EmptyComposable(unstableClass)
-    LambdaComposable {
-        unstableClass.provideList()
-    }
-    LambdaComposable {
-        println(StableValue)
-    }
-}
 
-@Composable
-fun EmptyComposable(instance: EmptyInterface) {
-    Text(text = instance.toString())
+    LambdaComposable { unstableClass.unit() }
+    LambdaComposable { println(stableValue) }
+    LambdaComposable { stableClass.unit() }
+    LambdaComposable(unstableClass::unit)
+    LambdaComposable(stableClass::unit)
 }
 
 @Composable
