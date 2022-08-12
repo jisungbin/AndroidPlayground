@@ -1,6 +1,6 @@
 @file:NoLiveLiterals
 
-package land.sungbin.androidplayground.view
+package land.sungbin.androidplayground
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
