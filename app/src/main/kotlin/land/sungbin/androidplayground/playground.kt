@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -25,7 +26,14 @@ class EmptyActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(100.dp)
+                        .background(color = Color.Black)
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
                         .weight(1f)
+                        .fillMaxHeight()
                         .background(color = Color.Red)
                 )
                 Box(
