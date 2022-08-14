@@ -1,0 +1,5 @@
+fun elevation(
+  unused stable enabled: Boolean
+  unused stable interactionSource: InteractionSource
+  unused stable <this>: Elevation
+): State<Dp>
