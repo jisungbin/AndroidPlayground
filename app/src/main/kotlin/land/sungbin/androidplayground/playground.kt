@@ -1,33 +1,46 @@
 package land.sungbin.androidplayground
 
+import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.compose.foundation.interaction.InteractionSource
-import androidx.compose.material.ButtonElevation
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.State
-import androidx.compose.ui.unit.Dp
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
-class EmptyActivity : ComponentActivity()
-
-@Stable
-private class Elevation(
-    private val defaultElevation: Dp = 1.dp,
-    private val pressedElevation: Dp = 1.dp,
-    private val disabledElevation: Dp = 1.dp,
-    private val hoveredElevation: Dp = 1.dp,
-    private val focusedElevation: Dp = 1.dp,
-) : ButtonElevation {
-    @Composable
-    override fun elevation(enabled: Boolean, interactionSource: InteractionSource): State<Dp> {
-        throw NotImplementedError()
+class EmptyActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .background(color = Color.Black)
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxSize()
+                        .background(color = Color.Green)
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .background(color = Color.Blue)
+                )
+            }
+        }
     }
-}
-
-fun main() {
-    val one = Elevation()
-    val two = Elevation()
-    println(one == two)
-    println(one === two)
 }
