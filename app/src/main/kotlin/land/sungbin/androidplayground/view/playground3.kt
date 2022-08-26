@@ -2,26 +2,18 @@
 
 package land.sungbin.androidplayground.view
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.onPlaced
-import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 @Composable
-fun Main() {
-    Column(modifier = Modifier.size(500.dp)) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .onPlaced {
-                    it.size
-                    it.size.height
-                }
-        ) {
-
-        }
+fun Counter() {
+    var number by remember { mutableStateOf(1) }
+    Button(onClick = { number++ }) {
+        Text(text = number.toString())
     }
 }
