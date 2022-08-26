@@ -11,13 +11,13 @@ import androidx.compose.runtime.setValue
 
 @Composable
 fun DelegateOtherComposable() {
-    Counter().also { println("DelegateOtherComposable called") }
+    Counter().also { println("Counter called") }
 }
 
 @Composable
 fun Counter() {
     var number by remember { mutableStateOf(1) }
     Button(onClick = { number++ }) {
-        Text(text = number.toString())
-    }.also { println("Counter called") }
+        Text(text = number.toString()).also { println("Text called") }
+    }.also { println("Button called") }
 }
