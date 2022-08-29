@@ -1,2 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun DelegateOtherComposable()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Counter()
