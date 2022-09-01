@@ -10,7 +10,7 @@
         android:theme="@style/Theme.AndroidPlayground">
 
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.PlaygroundActivity"
             android:exported="true"
             android:theme="@style/Theme.AndroidPlayground">
 

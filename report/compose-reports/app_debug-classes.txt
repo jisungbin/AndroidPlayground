@@ -1,9 +1,15 @@
+unstable class UnstableClass {
+  unstable val list: List<Any>
+  <runtime stability> = Unstable
+}
+stable class StableClass {
+  <runtime stability> = Stable
+}
 unstable class Counter {
   unstable val list: List<Any>
   stable val number: MutableState<Int>
   <runtime stability> = Unstable
 }
-unstable class MainActivity {
-  unstable val numberHolder: Counter
-  <runtime stability> = Unstable
+stable class PlaygroundActivity {
+  <runtime stability> = Stable
 }
