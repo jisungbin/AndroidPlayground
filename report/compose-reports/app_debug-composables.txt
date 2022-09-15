@@ -1,5 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun LambdaComposable(
-  stable lambda: Function0<Unit>
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun RecompositionTest()
