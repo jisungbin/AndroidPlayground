@@ -86,18 +86,18 @@ dependencies {
 
     // compose
     implementation "androidx.activity:activity-compose:1.5.1"
-    implementation "com.github.skydoves:landscapist-coil:1.5.3"
+    implementation 'com.github.skydoves:landscapist-coil:2.0.0'
     implementation "androidx.compose.material3:material3:1.0.0-beta02"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha02"
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha02"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha02"
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.26.2-beta"
+    implementation 'com.google.accompanist:accompanist-systemuicontroller:0.26.3-beta'
 
     // hilt
-    implementation "com.google.dagger:hilt-android:2.42"
-    kapt "com.google.dagger:hilt-compiler:2.42"
+    implementation 'com.google.dagger:hilt-android:2.43.2'
+    kapt 'com.google.dagger:hilt-compiler:2.43.2'
 
     // tools
     implementation "androidx.profileinstaller:profileinstaller:1.2.0"
@@ -105,8 +105,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
 
     // MuteKt
-    implementation("dev.shreyaspatil.mutekt:mutekt-core:1.0.0-alpha02")
-    ksp("dev.shreyaspatil.mutekt:mutekt-codegen:1.0.0-alpha02")
+    implementation('dev.shreyaspatil.mutekt:mutekt-core:1.0.0-alpha03')
+    ksp('dev.shreyaspatil.mutekt:mutekt-codegen:1.0.0-alpha03')
 
     // debug
     debugImplementation "androidx.customview:customview:1.2.0-alpha01"
@@ -118,15 +118,15 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
     // quack - bom
-    /*implementation platform("team.duckie.quack:quack-bom:1.0.0-dev03")
-    implementation "team.duckie.quack:quack-ui-components"
-    implementation "team.duckie.quack:quack-lint-core"
-    implementation "team.duckie.quack:quack-lint-quack"
-    implementation "team.duckie.quack:quack-lint-compose"*/
+    releaseImplementation platform("team.duckie.quack:quack-bom:1.0.0-dev06")
+    releaseImplementation "team.duckie.quack:quack-ui-components"
+    releaseImplementation "team.duckie.quack:quack-lint-core"
+    releaseImplementation "team.duckie.quack:quack-lint-quack"
+    releaseImplementation "team.duckie.quack:quack-lint-compose"
 
     // quack
-    implementation "team.duckie.quack:quack-ui-components:1.0.0-dev06"
-    implementation "team.duckie.quack:quack-lint-core:1.0.0-dev06"
-    implementation "team.duckie.quack:quack-lint-quack:1.0.0-dev06"
-    implementation "team.duckie.quack:quack-lint-compose:1.0.0-dev06"
+    /*implementation "team.duckie.quack:quack-ui-components:1.0.0-dev07"
+    implementation "team.duckie.quack:quack-lint-core:1.0.0-dev07"
+    implementation "team.duckie.quack:quack-lint-quack:1.0.0-dev07"
+    implementation "team.duckie.quack:quack-lint-compose:1.0.0-dev07"*/
 }
