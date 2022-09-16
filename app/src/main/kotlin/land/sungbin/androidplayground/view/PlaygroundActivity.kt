@@ -18,12 +18,12 @@ class PlaygroundActivity : ComponentActivity() {
             println(getDelayedValue(1000, 1))
         }
     }
-}
 
-private suspend fun <T> getDelayedValue(
-    delay: Long,
-    value: T,
-): T {
-    delay(delay)
-    return value
+    suspend fun <T> getDelayedValue(
+        delay: Long,
+        value: T,
+    ): T {
+        delay(delay)
+        return value
+    }
 }
