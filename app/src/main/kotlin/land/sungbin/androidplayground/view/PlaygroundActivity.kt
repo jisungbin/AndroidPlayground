@@ -19,7 +19,7 @@ class PlaygroundActivity : ComponentActivity() {
         }
     }
 
-    suspend fun <T> getDelayedValue(
+    private suspend fun <T> getDelayedValue(
         delay: Long,
         value: T,
     ): T {
