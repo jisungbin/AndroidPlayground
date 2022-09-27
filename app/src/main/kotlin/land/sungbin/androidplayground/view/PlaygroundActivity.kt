@@ -36,10 +36,12 @@ class PlaygroundActivity : ComponentActivity() {
             ) {
                 Button(
                     modifier = Modifier.wrapContentSize(),
-                    onClick = { number++ },
+                    onClick = { number = 10000 },
                 ) {
                     Text(
-                        text = "$number",
+                        text = animatedNumber(
+                            number = number,
+                        ).toString(),
                     )
                 }
             }
@@ -51,6 +53,8 @@ class PlaygroundActivity : ComponentActivity() {
 fun animatedNumber(
     number: Int,
 ): Int {
-    val animatedNumber by animateIntAsState(number)
+    val animatedNumber by animateIntAsState(
+        targetValue = number,
+    )
     return animatedNumber
 }
