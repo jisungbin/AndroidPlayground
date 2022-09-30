@@ -18,6 +18,7 @@ class PlaygroundActivity : ComponentActivity() {
     override fun onStart() {
         super.onStart()
         println("onStart")
+        recreate()
     }
 
     override fun onPause() {
