@@ -5,6 +5,7 @@ package land.sungbin.androidplayground.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
 import land.sungbin.androidplayground.R
 
@@ -29,4 +30,8 @@ class PlaygroundActivity : ComponentActivity() {
         super.onDestroy()
         println("onDestroy")
     }
+}
+
+@Composable
+fun Test() {
 }
