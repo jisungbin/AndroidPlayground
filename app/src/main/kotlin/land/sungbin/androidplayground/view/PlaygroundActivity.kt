@@ -4,35 +4,44 @@
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
-import androidx.compose.runtime.Composable
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.NoLiveLiterals
-import land.sungbin.androidplayground.R
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Popup
 
 class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        println("onCreate")
+        setContent {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center,
+            ) {
+                Popup {
+                    SideEffect {
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                    }
+                    Box(
+                        modifier = Modifier
+                            .size(
+                                size = 200.dp,
+                            )
+                            .background(
+                                color = Color.Green,
+                            )
+                    )
+                }
+            }
+        }
     }
-
-    override fun onStart() {
-        super.onStart()
-        println("onStart")
-        recreate()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        println("onPause")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        println("onDestroy")
-    }
-}
-
-@Composable
-fun Test() {
 }
