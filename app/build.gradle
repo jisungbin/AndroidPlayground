@@ -6,6 +6,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
+    // id 'land.sungbin.github.upload' version '0.1.0-preview'
 }
 
 android {
@@ -85,9 +86,9 @@ dependencies {
     implementation "androidx.paging:paging-runtime:3.1.1"
 
     // compose
-    implementation "androidx.activity:activity-compose:1.5.1"
+    implementation "androidx.activity:activity-compose:1.6.0"
     implementation 'com.github.skydoves:landscapist-coil:2.0.0'
-    implementation "androidx.compose.material3:material3:1.0.0-beta02"
+    implementation "androidx.compose.material3:material3:1.0.0-beta03"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha02"
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
@@ -109,7 +110,7 @@ dependencies {
     ksp('dev.shreyaspatil.mutekt:mutekt-codegen:1.0.0-alpha03')
 
     // debug
-    debugImplementation "androidx.customview:customview:1.2.0-alpha01"
+    debugImplementation "androidx.customview:customview:1.2.0-alpha02"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.customview:customview-poolingcontainer:1.0.0"
 
