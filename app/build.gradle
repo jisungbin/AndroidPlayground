@@ -7,6 +7,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
     id 'land.sungbin.github.upload' version '0.1.2-preview'
+    id 'land.sungbin.composable.reference.suppressor' version '1.0.1'
 }
 
 android {
