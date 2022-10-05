@@ -78,6 +78,8 @@ android {
 
 
 dependencies {
+    implementation project(':texts-list')
+
     // android
     implementation "androidx.core:core-ktx:1.9.0"
     implementation "com.google.android.material:material:1.6.1"

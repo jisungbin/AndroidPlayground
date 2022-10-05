@@ -4,44 +4,54 @@
 package land.sungbin.androidplayground.view
 
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Popup
+import androidx.compose.ui.composed
+import land.sungbin.texts_list.Texts
+
+private val texts = mutableStateListOf<String>()
 
 class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center,
-            ) {
-                Popup {
-                    SideEffect {
-                        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+            var state by remember { mutableStateOf(false) }
+
+            Texts(texts) {
+                if (state) {
+                    Button(modifier = Modifier.lg("A"), onClick = { state = !state }) {
+                        Text(
+                            text = "A",
+                        )
                     }
-                    Box(
-                        modifier = Modifier
-                            .size(
-                                size = 200.dp,
-                            )
-                            .background(
-                                color = Color.Green,
-                            )
-                    )
+                } else {
+                    Button(modifier = Modifier.lg("B"), onClick = { state = !state }) {
+                        Text(
+                            text = "B",
+                        )
+                    }
                 }
             }
         }
     }
+}
+
+fun Modifier.lg(key: String) = composed {
+    DisposableEffect(Unit) {
+        texts.add(key)
+        onDispose {
+            texts.remove(key)
+        }
+    }
+    this
 }
