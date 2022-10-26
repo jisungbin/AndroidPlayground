@@ -5,7 +5,7 @@
  "totalComposables": 2,
  "restartGroups": 2,
  "totalGroups": 2,
- "staticArguments": 2,
+ "staticArguments": 1,
  "certainArguments": 0,
  "knownStableArguments": 20,
  "knownUnstableArguments": 0,
@@ -13,13 +13,13 @@
  "totalArguments": 20,
  "markedStableClasses": 0,
  "inferredStableClasses": 1,
- "inferredUnstableClasses": 0,
+ "inferredUnstableClasses": 1,
  "inferredUncertainClasses": 0,
  "effectivelyStableClasses": 1,
- "totalClasses": 1,
+ "totalClasses": 2,
  "memoizedLambdas": 1,
  "singletonLambdas": 0,
- "singletonComposableLambdas": 1,
+ "singletonComposableLambdas": 0,
  "composableLambdas": 1,
- "totalLambdas": 1
+ "totalLambdas": 2
 }

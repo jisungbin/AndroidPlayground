@@ -23,7 +23,7 @@ class NumberHolder {
 }
 
 class PlaygroundActivity : ComponentActivity() {
-    private var number = NumberHolder().number
+    private var numberHolder = NumberHolder()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +32,13 @@ class PlaygroundActivity : ComponentActivity() {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .clickable { number++ },
+                    .clickable { numberHolder.number++ },
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
                     text = "Hello, World!" +
-                            "orientation is ${LocalConfiguration.current.orientation}, number is $number",
+                            "orientation is ${LocalConfiguration.current.orientation}, " +
+                            "number is ${numberHolder.number}",
                 )
             }
         }
