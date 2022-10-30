@@ -31,4 +31,14 @@ class PlaygroundActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onStop() {
+        println("!!! STOP !!!")
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        println("!!! DESTROY !!!")
+        super.onDestroy()
+    }
 }
