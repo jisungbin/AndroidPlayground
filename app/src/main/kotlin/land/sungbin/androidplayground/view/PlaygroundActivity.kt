@@ -13,9 +13,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModel
 
-class NumberHolder {
+class NumberHolder : ViewModel() {
     var number by mutableStateOf(1)
+    override fun onCleared() {
+        super.onCleared()
+    }
 }
 
 class PlaygroundActivity : ComponentActivity() {
