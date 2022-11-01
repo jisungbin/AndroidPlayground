@@ -11,6 +11,7 @@
 
         <activity
             android:name=".view.PlaygroundActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|locale|layoutDirection"
             android:exported="true"
             android:theme="@style/Theme.AndroidPlayground">
 
