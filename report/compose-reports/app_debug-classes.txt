@@ -1,4 +1,3 @@
-unstable class PlaygroundActivity {
-  unstable val vm$delegate: Lazy<AwesomeViewModel>
-  <runtime stability> = Unstable
+stable class PlaygroundActivity {
+  <runtime stability> = Stable
 }
