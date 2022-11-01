@@ -121,6 +121,8 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
 
+    testImplementation "junit:junit:4.13.2"
+
     // quack - bom
     /*implementation platform("team.duckie.quack:quack-bom:1.0.0-dev05")
     implementation "team.duckie.quack:quack-ui-components"
