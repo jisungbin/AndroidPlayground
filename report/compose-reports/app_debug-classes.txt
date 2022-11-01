@@ -1,3 +1,4 @@
-stable class PlaygroundActivity {
-  <runtime stability> = Stable
+runtime class Test {
+  runtime val vm: AwesomeViewModel
+  <runtime stability> = Runtime(AwesomeViewModel)
 }
