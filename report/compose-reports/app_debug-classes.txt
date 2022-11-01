@@ -1,4 +1,4 @@
-runtime class Test {
-  runtime val vm: AwesomeViewModel
-  <runtime stability> = Runtime(AwesomeViewModel)
+unstable class PlaygroundActivity {
+  unstable val vm$delegate: Lazy<AwesomeViewModel>
+  <runtime stability> = Unstable
 }

@@ -18,7 +18,11 @@ class PlaygroundActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        println("destroy")
+        if (isChangingConfigurations) {
+            println("change")
+        } else {
+            println("destroy")
+        }
         super.onDestroy()
     }
 }
