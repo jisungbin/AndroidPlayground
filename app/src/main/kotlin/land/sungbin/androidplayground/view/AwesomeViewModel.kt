@@ -1,11 +1,14 @@
 package land.sungbin.androidplayground.view
 
-import androidx.lifecycle.ViewModel
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 
-class AwesomeViewModel : ViewModel() {
-    val number = 1
-    override fun onCleared() {
-        println("cleared")
-        super.onCleared()
+@Composable
+fun UiNodes() {
+    Column {
+        repeat(10) { index ->
+            Text(text = "My index is $index")
+        }
     }
 }
