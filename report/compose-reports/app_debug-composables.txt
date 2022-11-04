@@ -1,2 +1,3 @@
+restartable skippable fun Main()
 scheme("[androidx.compose.ui.UiComposable]") fun DelegateOtherComposable()
 readonly scheme("[androidx.compose.ui.UiComposable]") fun Counter()
