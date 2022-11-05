@@ -1,4 +1,4 @@
-@file:Suppress("MayBeConstant", "UNUSED_ANONYMOUS_PARAMETER")
+@file:Suppress("MayBeConstant", "UNUSED_ANONYMOUS_PARAMETER", "UNUSED_VARIABLE")
 @file:NoLiveLiterals
 @file:OptIn(ExperimentalAnimationApi::class)
 
@@ -10,22 +10,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.offset
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.NonRestartableComposable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.layout
-import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 class PlaygroundActivity : ComponentActivity() {
@@ -47,34 +40,24 @@ class PlaygroundActivity : ComponentActivity() {
 
 @Composable
 fun Main() {
-    Modifier.offset { IntOffset(x = 0, y = 0) }
-    Modifier.layout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        layout(width = 0, height = 0) {
-            placeable.place(x = 0, y = 0, zIndex = 1f)
-        }
+    val density = LocalDensity.current
+    val px = with(density) {
+        1.dp.toPx()
     }
-    Modifier.graphicsLayer {
-        scaleX = 1f; rotationX = 0f; clip = false
-        shape = RectangleShape; translationX = 0f
-        alpha = 1f; shadowElevation = 0f
+    val px2 = with(density) {
+        2.dp.toPx()
+    }
+    val px3 = with(density) {
+        3.dp.toPx()
+    }
+    val px4 = with(density) {
+        4.dp.toPx()
     }
 }
 
-fun getOne() = 1
-
-@Composable
-@NonRestartableComposable
-fun DelegateOtherComposable() {
-    Counter()
-}
-
-@Composable
-// @NonRestartableComposable
-@androidx.compose.runtime.ExplicitGroupsComposable
-fun Counter() {
-    var number by remember { mutableStateOf(1) }
-    Button(onClick = { number++ }) {
-        Text(text = number.toString())
+inline val Dp.px
+    @Composable
+    @ReadOnlyComposable
+    get() = with(LocalDensity.current) {
+        toPx()
     }
-}
