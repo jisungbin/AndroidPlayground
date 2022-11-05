@@ -1,3 +1,5 @@
-restartable skippable fun Main()
-scheme("[androidx.compose.ui.UiComposable]") fun DelegateOtherComposable()
-readonly scheme("[androidx.compose.ui.UiComposable]") fun Counter()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SwipeableSample()
+restartable skippable fun SwipeableTextField(
+  unused stable text: String
+  unused stable onTextChange: Function1<String, Unit>
+)
