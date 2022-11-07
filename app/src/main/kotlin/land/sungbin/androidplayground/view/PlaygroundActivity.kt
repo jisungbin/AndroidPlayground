@@ -45,6 +45,21 @@ class PlaygroundActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun Screen(vm: AwesomeViewModel) = CoroutineScopeContent {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable {
+                launch {
+                    suspend {
+                        // Do something
+                    }.invoke()
+                }
+            },
+    )
+}
+
 interface CoroutineScopeContent {
     val coroutineScope: CoroutineScope
 }
