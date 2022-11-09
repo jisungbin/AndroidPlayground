@@ -13,7 +13,8 @@
             android:name=".view.PlaygroundActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|locale|layoutDirection"
             android:exported="true"
-            android:theme="@style/Theme.AndroidPlayground">
+            android:theme="@style/Theme.AndroidPlayground"
+            android:windowSoftInputMode="adjustResize">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
