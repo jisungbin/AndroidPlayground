@@ -57,7 +57,7 @@ class PlaygroundActivity : ComponentActivity() {
                     onClick = { /*TODO*/ },
                 ) {
                     Text(
-                        text = "Button!",
+                        text = "ㅁㅁ'ㅁㅁ",
                     )
                 }
                 TextField(

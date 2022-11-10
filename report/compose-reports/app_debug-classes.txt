@@ -1,3 +1,7 @@
+unstable class AwesomeViewModel {
+  unstable val state: MutableLiveData<Int>
+  <runtime stability> = Unstable
+}
 stable class PlaygroundActivity {
   <runtime stability> = Stable
 }
