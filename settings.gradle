@@ -27,4 +27,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidPlayground"
 include ':app'
-include ':texts-list'

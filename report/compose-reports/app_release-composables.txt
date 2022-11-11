@@ -1,6 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun UiNodes()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun SwipeableTextField(
-  stable modifier: Modifier? = @static Companion
-  stable text: String
-  stable onTextChange: Function1<String, Unit>
-)
