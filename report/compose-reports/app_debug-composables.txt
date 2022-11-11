@@ -1,0 +1,3 @@
+fun numberToString(
+  stable a: Function0<Int>
+): String

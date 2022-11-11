@@ -1,0 +1,7 @@
+stable class ImmutableClass {
+  unstable val list: List<Int>
+}
+stable class PlaygroundActivity {
+  stable val immutableClass: ImmutableClass
+  <runtime stability> = Stable
+}
