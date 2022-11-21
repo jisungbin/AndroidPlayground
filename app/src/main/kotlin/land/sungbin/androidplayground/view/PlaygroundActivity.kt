@@ -5,30 +5,34 @@ package land.sungbin.androidplayground.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.NoLiveLiterals
-
-@Immutable
-class ImmutableClass {
-    val list = listOf(1, 2, 3)
-}
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 
 class PlaygroundActivity : ComponentActivity() {
-    val immutableClass = ImmutableClass()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Text(text = numberToString2(1))
+            Column(modifier = Modifier.fillMaxSize()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .background(color = Color.Blue)
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(color = Color.Green)
+                )
+            }
         }
     }
 }
-
-@Composable
-fun NumberToString(a: () -> Int) {
-    Text(text = a().toString())
-}
-
-fun numberToString2(a: Int) = a.toString()
