@@ -20,7 +20,7 @@ class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Column(modifier = Modifier.fillMaxSize()) {
+            Column {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -30,7 +30,7 @@ class PlaygroundActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(color = Color.Green)
+                        .background(color = Color.Gray)
                 )
             }
         }
