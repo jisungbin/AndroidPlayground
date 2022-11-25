@@ -40,10 +40,6 @@ class PlaygroundActivity : ComponentActivity() {
             val imeInsets = WindowInsets.ime
             val navigationBarInsets = WindowInsets.navigationBars
 
-            // println(WindowInsets.ime)
-            // println(WindowInsets.imeAnimationSource)
-            // println(WindowInsets.imeAnimationTarget)
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -51,7 +47,10 @@ class PlaygroundActivity : ComponentActivity() {
                     .padding(16.dp),
                 verticalArrangement = Arrangement.SpaceBetween,
             ) {
-                Text(text = "Hello, World!", fontSize = 30.sp)
+                Text(
+                    text = "Hello, World!",
+                    fontSize = 30.sp,
+                )
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -59,10 +58,9 @@ class PlaygroundActivity : ComponentActivity() {
                             val imeHeight = imeInsets.getBottom(this)
                             val nagivationBarHeight = navigationBarInsets.getBottom(this)
                             // ime height 에 navigation height 가 포함되는 것으로 추측됨
-                            val yOffset = imeHeight.run {
-                                if (this > 0) minus(nagivationBarHeight)
-                                else this
-                            }
+                            val yOffset = imeHeight
+                                .minus(nagivationBarHeight)
+                                .coerceAtLeast(0)
                             IntOffset(x = 0, y = -yOffset)
                         },
                     verticalArrangement = Arrangement.spacedBy(15.dp),
