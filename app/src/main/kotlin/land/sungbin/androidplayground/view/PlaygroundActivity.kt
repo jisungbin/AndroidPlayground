@@ -21,13 +21,13 @@ class PlaygroundActivity : ComponentActivity() {
 }
 
 @Composable
-@Preview
+@Preview(showSystemUi = true, device = "spec:shape=Normal,width=100,height=100,unit=dp,dpi=420")
 private fun Test() {
     Text(text = "Hello World!")
 }
 
 @Composable
-@Preview
+@Preview(backgroundColor = 0xFFFFFF, showBackground = true)
 private fun Test2() {
     Text(text = "Hello World!2")
 }
