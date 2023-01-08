@@ -1,9 +1,5 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun CircleStyleTextField(
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun CustomTextField(
   stable text: String
-  stable onTextChanged: Function1<@[ParameterName(name = 'text')] String, Unit>
-  stable <this>: PlaygroundActivity
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun CircleText(
-  stable text: Char
+  stable onTextChanged: Function1<String, Unit>
   unused stable <this>: PlaygroundActivity
 )
