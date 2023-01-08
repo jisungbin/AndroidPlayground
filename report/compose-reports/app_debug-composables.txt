@@ -1,0 +1,4 @@
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun CircleText(
+  stable text: Char
+  unused stable <this>: PlaygroundActivity
+)
