@@ -90,7 +90,7 @@ dependencies {
     implementation "androidx.activity:activity-compose:1.6.1"
     implementation 'com.github.skydoves:landscapist-coil:2.0.0'
     implementation "androidx.compose.ui:ui-util:1.3.2"
-    implementation "androidx.compose.material3:material3:1.1.0-alpha02"
+    implementation "androidx.compose.material3:material3:1.1.0-alpha03"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-alpha03"
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
@@ -103,7 +103,7 @@ dependencies {
     kapt 'com.google.dagger:hilt-compiler:2.44'
 
     // tools
-    implementation "androidx.profileinstaller:profileinstaller:1.2.0"
+    implementation "androidx.profileinstaller:profileinstaller:1.2.1"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
     implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
 
@@ -130,7 +130,7 @@ dependencies {
     implementation "team.duckie.quack:quack-lint-compose"*/
 
     // quack
-    implementation "team.duckie.quack:quack-ui-components:1.0.0-dev07"
+    implementation "team.duckie.quack:quack-ui-components:1.4.5"
     // implementation "team.duckie.quack:quack-lint-core:1.0.0-dev07"
     // implementation "team.duckie.quack:quack-lint-quack:1.0.0-dev07"
     // implementation "team.duckie.quack:quack-lint-compose:1.0.0-dev07"
