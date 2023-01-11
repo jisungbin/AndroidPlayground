@@ -1,5 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun CustomTextField(
-  stable text: String
-  stable onTextChanged: Function1<String, Unit>
-  unused stable <this>: PlaygroundActivity
-)

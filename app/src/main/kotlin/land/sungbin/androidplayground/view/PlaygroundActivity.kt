@@ -16,13 +16,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import land.sungbin.androidplayground.mutablePairOf
+import land.sungbin.androidplayground.mutableStatePairOf
 
 class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val pair = remember { mutablePairOf(0, 0) }
+            val pair = remember { mutableStatePairOf(0, 0) }
 
             Column(
                 modifier = Modifier.fillMaxSize(),
@@ -40,7 +40,7 @@ class PlaygroundActivity : ComponentActivity() {
                         Text("Increase secondValue")
                     }
                 }
-                Text("firstValue: ${pair.firstValue} / secondValue: ${pair.secondValue}")
+                Text("pair: ${pair.value}")
             }
         }
     }

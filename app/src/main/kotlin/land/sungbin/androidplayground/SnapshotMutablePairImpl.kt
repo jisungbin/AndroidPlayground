@@ -5,7 +5,7 @@ import androidx.compose.runtime.snapshots.StateRecord
 import androidx.compose.runtime.snapshots.readable
 import androidx.compose.runtime.snapshots.writable
 
-fun <A, B> mutablePairOf(first: A, second: B): SnapshotMutablePair<A, B> {
+fun <A, B> mutableStatePairOf(first: A, second: B): SnapshotMutablePair<A, B> {
     return SnapshotMutablePairImpl(first, second)
 }
 
