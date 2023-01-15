@@ -9,6 +9,10 @@ fun <A, B> mutableStatePairOf(first: A, second: B): SnapshotMutablePair<A, B> {
     return SnapshotMutablePairImpl(first, second)
 }
 
+fun <A, B> mutableStatePairOf(value: Pair<A, B>): SnapshotMutablePair<A, B> {
+    return SnapshotMutablePairImpl(value.first, value.second)
+}
+
 private class SnapshotMutablePairImpl<A, B>(
     first: A,
     second: B,
