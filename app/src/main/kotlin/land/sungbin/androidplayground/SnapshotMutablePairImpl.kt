@@ -28,13 +28,13 @@ private class SnapshotMutablePairImpl<A, B>(
             }
         }
 
-    override var firstValue: A
+    override var first: A
         get() = next.readable(this).first
         set(value) {
             next.writable(this) { first = value }
         }
 
-    override var secondValue: B
+    override var second: B
         get() = next.readable(this).second
         set(value) {
             next.writable(this) { second = value }

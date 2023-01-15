@@ -5,6 +5,6 @@ import androidx.compose.runtime.Stable
 @Stable
 interface SnapshotMutablePair<A, B> {
     var value: Pair<A, B>
-    var firstValue: A
-    var secondValue: B
+    var first: A
+    var second: B
 }

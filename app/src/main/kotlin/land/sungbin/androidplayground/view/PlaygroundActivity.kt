@@ -44,10 +44,10 @@ fun MutableStatePairExample() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Button(onClick = { pair.firstValue++ }) {
+            Button(onClick = { pair.first++ }) {
                 Text("Increase firstValue")
             }
-            Button(onClick = { pair.secondValue++ }) {
+            Button(onClick = { pair.second++ }) {
                 Text("Increase secondValue")
             }
         }
