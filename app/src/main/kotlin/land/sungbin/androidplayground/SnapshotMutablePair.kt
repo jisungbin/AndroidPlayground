@@ -1,8 +1,8 @@
 package land.sungbin.androidplayground
 
-import javax.annotation.concurrent.Immutable
+import androidx.compose.runtime.Stable
 
-@Immutable
+@Stable
 interface SnapshotMutablePair<A, B> {
     var value: Pair<A, B>
     var firstValue: A
