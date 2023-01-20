@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
-        minSdk 23
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -101,7 +101,4 @@ dependencies {
     // hilt
     implementation 'com.google.dagger:hilt-android:2.44.2'
     kapt 'com.google.dagger:hilt-compiler:2.44.2'
-
-    // quack
-    implementation "team.duckie.quack:quack-ui-components:1.4.5"
 }

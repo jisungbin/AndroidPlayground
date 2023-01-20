@@ -1,2 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MutableStatePairExample()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun MutableStateWithPairExample()
