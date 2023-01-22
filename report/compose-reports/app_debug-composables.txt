@@ -1,0 +1,4 @@
+scheme("[androidx.compose.ui.UiComposable]") fun Test()
+restartable skippable scheme("[androidx.compose.ui.UiComposable, [androidx.compose.ui.UiComposable]]") fun SimpleLayout(
+  stable content: Function2<Composer, Int, Unit>
+)
