@@ -5,43 +5,40 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.Layout
 
 class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Test()
-            Modifier.wrapContentSize()
-        }
-    }
-}
+            var opacity by remember { mutableStateOf(1.0f) }
+            val opacityAnimation by animateFloatAsState(opacity)
 
-@Composable
-@NonRestartableComposable
-fun Test() {
-    var value by remember { mutableStateOf(1) }
-    SimpleLayout {
-        Button(onClick = { value++ }) {
-            Text(text = value.toString())
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center,
+            ) {
+                Button(onClick = { opacity -= 0.2f }) {
+                    Text(
+                        text = "opacity animation",
+                        style = LocalTextStyle.current.run {
+                            copy(color = color.copy(alpha = opacityAnimation))
+                        },
+                    )
+                }
+            }
         }
-    }
-}
-
-@Composable
-fun SimpleLayout(content: @Composable () -> Unit) {
-    Layout(content = content) { _, _ ->
-        layout(0, 0) {}
     }
 }
