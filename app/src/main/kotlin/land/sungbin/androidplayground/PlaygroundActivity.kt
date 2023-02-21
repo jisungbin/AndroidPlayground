@@ -84,7 +84,7 @@ class PlaygroundActivity : ComponentActivity() {
                             .padding(all = 30.dp)
                             .clip(shape = RoundedCornerShape(20.dp))
                             .border(
-                                width = 1.dp,
+                                width = 0.5.dp,
                                 color = Color.LightGray,
                                 shape = RoundedCornerShape(20.dp),
                             )
