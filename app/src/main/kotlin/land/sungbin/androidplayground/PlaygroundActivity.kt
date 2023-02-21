@@ -48,7 +48,6 @@ class PlaygroundActivity : ComponentActivity() {
 
         setContent {
             Scaffold(
-                modifier = Modifier.fillMaxSize(),
                 containerColor = MashupGray,
                 topBar = {
                     Row(
@@ -82,6 +81,7 @@ class PlaygroundActivity : ComponentActivity() {
                         modifier = Modifier
                             .padding(padding)
                             .padding(all = 30.dp)
+                            .fillMaxSize()
                             .clip(shape = RoundedCornerShape(20.dp))
                             .border(
                                 width = 0.5.dp,
