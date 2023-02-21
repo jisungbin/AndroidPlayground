@@ -11,7 +11,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,6 +32,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -54,11 +54,12 @@ class PlaygroundActivity : ComponentActivity() {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(30.dp),
+                            .padding(top = 30.dp)
+                            .padding(horizontal = 30.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                     ) {
                         Text(
-                            text = "일정 준비 중이에요.\n조금만 기다려주세요!",
+                            text = "일정 준비 중이에요.\n조금만 기다려 주세요!",
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
                         )
@@ -80,11 +81,15 @@ class PlaygroundActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(padding)
-                            .padding(horizontal = 30.dp)
-                            .clip(RoundedCornerShape(20.dp))
-                            .border(width = 1.dp, color = Color.LightGray, shape = RoundedCornerShape(20.dp))
+                            .padding(all = 30.dp)
+                            .clip(shape = RoundedCornerShape(20.dp))
+                            .border(
+                                width = 1.dp,
+                                color = Color.LightGray,
+                                shape = RoundedCornerShape(20.dp),
+                            )
                             .background(color = Color.White)
-                            .padding(16.dp),
+                            .padding(20.dp),
                         verticalArrangement = Arrangement.spacedBy(16.dp),
                     ) {
                         Text(
@@ -93,22 +98,34 @@ class PlaygroundActivity : ComponentActivity() {
                                 .background(color = MashupGray)
                                 .padding(vertical = 4.dp, horizontal = 8.dp),
                             text = "D-?",
-                            color = Color.Gray,
+                            color = Color.DarkGray,
                             fontSize = 13.sp,
                         )
                         Text(
                             text = "등록된 일정이 없어요",
+                            color = Color.Gray,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
                         )
-                        Box(
-                            modifier = Modifier.fillMaxWidth(),
-                            contentAlignment = Alignment.Center,
+                        Column(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .clip(shape = RoundedCornerShape(20.dp))
+                                .background(color = MashupGray, shape = RoundedCornerShape(20.dp)),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center,
                         ) {
                             Image(
                                 modifier = Modifier.size(150.dp),
                                 painter = painterResource(R.drawable.img_mashup_sleeping),
                                 contentDescription = null,
+                            )
+                            Text(
+                                modifier = Modifier.padding(top = 4.dp),
+                                text = "열심히 일정을 준비하고 있어요\n조금만 기다려 주세요!",
+                                fontSize = 15.sp,
+                                color = Color.Gray,
+                                textAlign = TextAlign.Center,
                             )
                         }
                     }
