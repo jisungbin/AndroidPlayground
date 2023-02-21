@@ -28,6 +28,7 @@ import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
@@ -63,13 +64,14 @@ class PlaygroundActivity : ComponentActivity() {
                         )
                         Text(
                             modifier = Modifier
-                                .padding(all = 8.dp)
                                 .clip(shape = RoundedCornerShape(8.dp))
                                 .border(
                                     width = 1.dp,
                                     color = Color.LightGray,
                                     shape = RoundedCornerShape(8.dp),
-                                ),
+                                )
+                                .background(color = Color.White)
+                                .padding(all = 8.dp),
                             text = "일정 새로고침",
                         )
                     }
@@ -78,17 +80,18 @@ class PlaygroundActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(padding)
-                            .padding(top = 8.dp)
-                            .clip(RoundedCornerShape(30.dp))
-                            .border(width = 1.dp, color = Color.LightGray)
+                            .padding(horizontal = 30.dp)
+                            .clip(RoundedCornerShape(20.dp))
+                            .border(width = 1.dp, color = Color.LightGray, shape = RoundedCornerShape(20.dp))
+                            .background(color = Color.White)
                             .padding(16.dp),
                         verticalArrangement = Arrangement.spacedBy(16.dp),
                     ) {
                         Text(
                             modifier = Modifier
-                                .padding(4.dp)
                                 .clip(RoundedCornerShape(30.dp))
-                                .background(color = Color.LightGray),
+                                .background(color = MashupGray)
+                                .padding(vertical = 4.dp, horizontal = 8.dp),
                             text = "D-?",
                             color = Color.Gray,
                             fontSize = 13.sp,
@@ -96,6 +99,7 @@ class PlaygroundActivity : ComponentActivity() {
                         Text(
                             text = "등록된 일정이 없어요",
                             fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
                         )
                         Box(
                             modifier = Modifier.fillMaxWidth(),
@@ -112,21 +116,24 @@ class PlaygroundActivity : ComponentActivity() {
                 bottomBar = {
                     Row(
                         modifier = Modifier
+                            .shadow(elevation = 10.dp)
                             .fillMaxWidth()
                             .height(60.dp)
                             .background(color = Color.White),
-                        horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Icon(
+                            modifier = Modifier.weight(1f),
                             painter = painterResource(R.drawable.round_tv_24),
                             contentDescription = null,
                         )
                         Icon(
+                            modifier = Modifier.weight(1f),
                             painter = painterResource(R.drawable.round_qr_code_scanner_24),
                             contentDescription = null,
                         )
                         Icon(
+                            modifier = Modifier.weight(1f),
                             painter = painterResource(R.drawable.round_emoji_people_24),
                             contentDescription = null,
                         )
