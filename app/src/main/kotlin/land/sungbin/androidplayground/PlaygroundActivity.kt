@@ -133,9 +133,9 @@ class PlaygroundActivity : ComponentActivity() {
                 bottomBar = {
                     Row(
                         modifier = Modifier
-                            .shadow(elevation = 10.dp)
                             .fillMaxWidth()
                             .height(60.dp)
+                            .shadow(elevation = 10.dp)
                             .background(color = Color.White),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
