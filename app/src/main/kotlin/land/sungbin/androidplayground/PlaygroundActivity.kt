@@ -5,9 +5,8 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.SideEffect
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -170,8 +169,8 @@ class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Box(modifier = Modifier, propagateMinConstraints = true) {
-                Modifier.matchParentSize()
+            SideEffect {
+                println()
             }
         }
     }
