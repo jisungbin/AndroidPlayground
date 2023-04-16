@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.currentComposer
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -169,9 +169,7 @@ class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SideEffect {
-                println()
-            }
+            currentComposer.compositionData
         }
     }
 }
