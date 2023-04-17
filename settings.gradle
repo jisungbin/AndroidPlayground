@@ -27,3 +27,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidPlayground"
 include ':app'
+include ':fake-composable'
