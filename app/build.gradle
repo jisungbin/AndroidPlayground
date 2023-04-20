@@ -80,5 +80,8 @@ dependencies {
     kapt 'com.google.dagger:hilt-compiler:2.44.2'
 
     // local
-    implementation project(':test01')
+    // implementation project(':test01')
+
+    // quackquack
+    implementation "team.duckie.quackquack.ui:ui:2.0.0-alpha01"
 }

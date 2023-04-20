@@ -4,8 +4,9 @@ package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.runtime.NoLiveLiterals
-import land.sungbin.androidplayground.test01.prt
+import team.duckie.quackquack.ui.sugar.QuackLarge1
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -167,8 +168,8 @@ import land.sungbin.androidplayground.test01.prt
 class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        prt()
-        prt(value = null)
-        prt(value2 = 2)
+        setContent {
+            QuackLarge1(text = "Hello, World!")
+        }
     }
 }
