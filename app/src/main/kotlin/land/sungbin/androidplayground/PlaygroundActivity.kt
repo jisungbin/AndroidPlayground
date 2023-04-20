@@ -4,10 +4,8 @@ package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.material3.Text
 import androidx.compose.runtime.NoLiveLiterals
-import land.sungbin.androidplayground.invoker.ComposableInvoker
+import land.sungbin.androidplayground.test01.prt
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -169,10 +167,8 @@ import land.sungbin.androidplayground.invoker.ComposableInvoker
 class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            ComposableInvoker {
-                Text("Hi")
-            }
-        }
+        prt()
+        prt(value = null)
+        prt(value2 = 2)
     }
 }
