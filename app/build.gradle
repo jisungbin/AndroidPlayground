@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
 }
 
 android {
@@ -67,10 +68,10 @@ dependencies {
     implementation "com.google.android.material:material:1.8.0"
 
     // compose
-    implementation "androidx.compose.ui:ui-util:1.4.1"
-    implementation "androidx.compose.runtime:runtime:1.4.1"
+    implementation "androidx.compose.ui:ui-util:1.4.2"
+    implementation "androidx.compose.runtime:runtime:1.4.2"
     implementation "androidx.activity:activity-compose:1.7.1"
-    implementation "androidx.compose.material:material:1.4.1"
+    implementation "androidx.compose.material:material:1.4.2"
     implementation "androidx.compose.material3:material3:1.1.0-rc01"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
     implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
@@ -80,8 +81,28 @@ dependencies {
     kapt 'com.google.dagger:hilt-compiler:2.44.2'
 
     // local
-    // implementation project(':test01')
+    implementation project(':test01')
+    implementation project(':test02')
 
     // quackquack
-    implementation "team.duckie.quackquack.ui:ui:2.0.0-alpha01"
+    implementation platform("team.duckie.quackquack.bom:bom:2.0.0-alpha01")
+
+    implementation "team.duckie.quackquack.runtime:runtime"
+    implementation "team.duckie.quackquack.material:material"
+    implementation "team.duckie.quackquack.animation:animation"
+    implementation "team.duckie.quackquack.ui:ui"
+
+    // add("kotlinCompilerPluginClasspath", "team.duckie.quackquack.sugar:sugar-processor:2.0.0-alpha01")
+    implementation "team.duckie.quackquack.sugar:sugar-material"
+
+    lintChecks "team.duckie.quackquack.aide:aide:2.0.0-alpha01"
+    implementation "team.duckie.quackquack.aide:aide-annotation"
+    ksp "team.duckie.quackquack.aide:aide-processor:2.0.0-alpha01"
+
+    implementation "team.duckie.quackquack.casa:casa-ui"
+    implementation "team.duckie.quackquack.casa:casa-annotation"
+    implementation "team.duckie.quackquack.casa:casa-material"
+    // ksp "team.duckie.quackquack.casa:casa-processor:2.0.0-alpha01"
+
+    implementation "team.duckie.quackquack.util:util"
 }
