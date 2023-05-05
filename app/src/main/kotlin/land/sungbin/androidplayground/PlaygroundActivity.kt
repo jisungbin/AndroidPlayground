@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -18,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
@@ -211,6 +213,7 @@ class PlaygroundActivity : ComponentActivity() {
                 Box(
                     modifier = Modifier
                         .weight(1f)
+                        .clip(RoundedCornerShape(topStart = 30.dp))
                         .fillMaxHeight()
                         .border(color = Color.Red, width = 1.dp),
                     contentAlignment = Alignment.Center,
@@ -220,6 +223,14 @@ class PlaygroundActivity : ComponentActivity() {
                         color = Color.White,
                     )
                 }
+
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .clip(RoundedCornerShape(topStart = 30.dp))
+                        .fillMaxHeight()
+                        .border(color = Color.Red, width = 1.dp),
+                )
             }
         }
     }
