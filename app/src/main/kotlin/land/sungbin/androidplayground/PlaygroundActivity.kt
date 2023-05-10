@@ -1,7 +1,12 @@
 package land.sungbin.androidplayground
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import team.duckie.quackquack.sample.ui.SampleTest
+import team.duckie.quackquack.ui.sugar.QuackSecondaryLargeButton
+import team.duckie.quackquack.ui.util.ExperimentalQuackQuackApi
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -161,58 +166,15 @@ import androidx.activity.ComponentActivity
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
+    @OptIn(ExperimentalQuackQuackApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*        setContent {
-            BottomNavigation(modifier = Modifier.fillMaxWidth()) {
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxHeight()
-                        .border(color = Color.Red, width = 1.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = "Left",
-                        color = Color.White,
-                    )
-                }
-                Box(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .border(color = Color.Red, width = 1.dp)
-                        .padding(horizontal = 20.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Icon(
-                        imageVector = Icons.Filled.Favorite,
-                        contentDescription = "FilledHeart",
-                        tint = Color.White,
-                    )
-                }
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .clip(RoundedCornerShape(topStart = 30.dp))
-                        .fillMaxHeight()
-                        .border(color = Color.Red, width = 1.dp),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = "Right",
-                        color = Color.White,
-                    )
-                }
-
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .clip(RoundedCornerShape(topStart = 30.dp))
-                        .fillMaxHeight()
-                        .border(color = Color.Red, width = 1.dp),
-                )
-            }
+        setContent {
+            SampleTest()
+            QuackSecondaryLargeButton(
+                text = "test",
+                onClick = { Toast.makeText(applicationContext, "Clicked", Toast.LENGTH_SHORT).show() },
+            )
         }
-    }*/
     }
 }
