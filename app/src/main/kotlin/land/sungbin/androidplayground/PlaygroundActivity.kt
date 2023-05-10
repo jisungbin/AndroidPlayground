@@ -1,12 +1,10 @@
 package land.sungbin.androidplayground
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import team.duckie.quackquack.sample.ui.SampleTest
-import team.duckie.quackquack.ui.sugar.QuackSecondaryLargeButton
-import team.duckie.quackquack.ui.util.ExperimentalQuackQuackApi
+import team.duckie.quackquack.material.QuackTypography
+import team.duckie.quackquack.ui.QuackText
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -166,15 +164,10 @@ import team.duckie.quackquack.ui.util.ExperimentalQuackQuackApi
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-    @OptIn(ExperimentalQuackQuackApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SampleTest()
-            QuackSecondaryLargeButton(
-                text = "test",
-                onClick = { Toast.makeText(applicationContext, "Clicked", Toast.LENGTH_SHORT).show() },
-            )
+            QuackText(text = "test", typography = QuackTypography.Body1)
         }
     }
 }
