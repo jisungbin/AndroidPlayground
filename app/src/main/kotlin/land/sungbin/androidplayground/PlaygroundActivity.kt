@@ -3,8 +3,8 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import team.duckie.quackquack.material.QuackTypography
-import team.duckie.quackquack.ui.QuackText
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -167,7 +167,12 @@ class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            QuackText(text = "test", typography = QuackTypography.Body1)
+            mutableStateOf(1).value = 2
         }
     }
+}
+
+fun main(state: MutableState<Int>) {
+    state.value = 1
+    state.value = 2
 }
