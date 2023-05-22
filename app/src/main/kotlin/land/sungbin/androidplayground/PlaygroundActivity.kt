@@ -6,8 +6,12 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.LayoutModifier
 import androidx.compose.ui.text.ExperimentalTextApi
 
 /**
@@ -193,7 +197,18 @@ class PlaygroundActivity : ComponentActivity() {
         isAccessible = true
       }
       val fillWholeMaxWidth = fillWholeMaxWidthField.get(sizeKt)!!
-      Text(fillWholeMaxWidth.hashCode().toString())
+
+      val modifiers = Modifier
+        .fillMaxWidth()
+        .foldIn(mutableListOf<Modifier.Element>()) { acc, element ->
+          acc.apply { add(element) }
+        }
+      val layoutModifier = modifiers.first { it is LayoutModifier }
+
+      Column {
+        Text(fillWholeMaxWidth.hashCode().toString())
+        Text(layoutModifier.hashCode().toString())
+      }
     }
   }
 }
