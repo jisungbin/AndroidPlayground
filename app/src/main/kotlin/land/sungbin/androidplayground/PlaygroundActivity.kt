@@ -6,16 +6,9 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
-import androidx.compose.ui.text.rememberTextMeasurer
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -178,7 +171,7 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val textMeasurer = rememberTextMeasurer()
+      /*val textMeasurer = rememberTextMeasurer()
       val style = TextStyle.Default
 
       Text(
@@ -194,7 +187,13 @@ class PlaygroundActivity : ComponentActivity() {
             drawText(textMeasuerResult)
           },
         style = style,
-      )
+      )*/
+      val sizeKt = Class.forName("androidx.compose.foundation.layout.SizeKt")
+      val fillWholeMaxWidthField = sizeKt.getDeclaredField("FillWholeMaxWidth").apply {
+        isAccessible = true
+      }
+      val fillWholeMaxWidth = fillWholeMaxWidthField.get(sizeKt)!!
+      Text(fillWholeMaxWidth.hashCode().toString())
     }
   }
 }
