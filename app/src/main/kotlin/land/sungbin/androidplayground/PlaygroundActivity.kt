@@ -1,25 +1,21 @@
+@file:OptIn(ExperimentalTextApi::class)
+@file:NoLiveLiterals
+
 package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.Button
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Popup
+import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.rememberTextMeasurer
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -179,24 +175,26 @@ import androidx.compose.ui.window.Popup
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Column(modifier = Modifier.fillMaxSize()) {
-                var state by remember { mutableStateOf(false) }
-                Popup(alignment = Alignment.TopEnd) {
-                    AnimatedVisibility(state) {
-                        Box(
-                            Modifier
-                                .size(50.dp)
-                                .background(Color.Cyan)
-                        )
-                    }
-                }
-                Button(onClick = { state = !state }) {
-                    Text(text = "A")
-                }
-            }
-        }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContent {
+      val textMeasurer = rememberTextMeasurer()
+      val style = TextStyle.Default
+
+      Text(
+        "HE",
+        modifier = Modifier
+          .fillMaxWidth()
+          .drawBehind {
+            val textMeasuerResult = textMeasurer.measure(
+              text = "HELLO!",
+              style = style.copy(color = Color.Cyan),
+            )
+
+            drawText(textMeasuerResult)
+          },
+        style = style,
+      )
     }
+  }
 }
