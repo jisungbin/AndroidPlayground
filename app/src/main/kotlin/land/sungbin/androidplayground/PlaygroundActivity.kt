@@ -3,15 +3,17 @@
 
 package land.sungbin.androidplayground
 
+import aaaa.AllAssets
+import aaaa.QuackIcon
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Text
+import androidx.compose.material.Icon
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.LayoutModifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
 
 /**
@@ -175,39 +177,10 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      /*val textMeasurer = rememberTextMeasurer()
-      val style = TextStyle.Default
-
-      Text(
-        "HE",
-        modifier = Modifier
-          .fillMaxWidth()
-          .drawBehind {
-            val textMeasuerResult = textMeasurer.measure(
-              text = "HELLO!",
-              style = style.copy(color = Color.Cyan),
-            )
-
-            drawText(textMeasuerResult)
-          },
-        style = style,
-      )*/
-      val sizeKt = Class.forName("androidx.compose.foundation.layout.SizeKt")
-      val fillWholeMaxWidthField = sizeKt.getDeclaredField("FillWholeMaxWidth").apply {
-        isAccessible = true
-      }
-      val fillWholeMaxWidth = fillWholeMaxWidthField.get(sizeKt)!!
-
-      val modifiers = Modifier
-        .fillMaxWidth()
-        .foldIn(mutableListOf<Modifier.Element>()) { acc, element ->
-          acc.apply { add(element) }
+      Row(Modifier.fillMaxWidth()) {
+        QuackIcon.AllAssets.forEach {
+          Icon(imageVector = it, contentDescription = null, tint = Color.Unspecified)
         }
-      val layoutModifier = modifiers.first { it is LayoutModifier }
-
-      Column {
-        Text(fillWholeMaxWidth.hashCode().toString())
-        Text(layoutModifier.hashCode().toString())
       }
     }
   }
