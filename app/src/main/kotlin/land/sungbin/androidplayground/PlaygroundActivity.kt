@@ -9,14 +9,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.runtime.SnapshotMutationPolicy
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.ui.text.ExperimentalTextApi
 
@@ -193,15 +190,26 @@ fun A() {
 }
 
 fun main() {
-  var Z by mutableStateOf(10)
+  var Z by mutableStateOf(
+    value = 10,
+    policy = object : SnapshotMutationPolicy<Int> {
+      override fun equivalent(a: Int, b: Int) = a == b
+      override fun merge(previous: Int, current: Int, applied: Int) =
+        "$previous$current$applied".toInt()
+    },
+  )
+  println(Z) // 10
   val A = Snapshot.takeMutableSnapshot()
+  val B = Snapshot.takeMutableSnapshot()
   A.enter {
     Z = 30
-    println(Z)
+    Z = 30
   }
-  println(Z)
-  val B = Snapshot.takeSnapshot()
+  A.apply()
+  println(Z) // 30
   B.enter {
-    assert(Z == 10)
+    Z = 60
   }
+  B.apply()
+  println(Z) // 103060
 }
