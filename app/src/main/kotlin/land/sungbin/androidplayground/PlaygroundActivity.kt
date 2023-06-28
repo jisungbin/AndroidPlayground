@@ -193,41 +193,15 @@ fun A() {
 }
 
 fun main() {
-  var Z by mutableStateOf(
-    value = 10,
-    policy = object : SnapshotMutationPolicy<Int> {
-      override fun equivalent(a: Int, b: Int) = a == b
-      override fun merge(previous: Int, current: Int, applied: Int) =
-        "$previous$current$applied".toInt()
-    },
-  )
+  var Z by mutableStateOf(10)
   val A = Snapshot.takeMutableSnapshot()
-  val B = Snapshot.takeMutableSnapshot()
   A.enter {
-    Z = 20
     Z = 30
-    Z = 40
+    println(Z)
   }
+  println(Z)
+  val B = Snapshot.takeSnapshot()
   B.enter {
-    Z = 50
-    Z = 60
-  }
-  println(Z) // 10
-  A.apply()
-  println(Z) // 40
-  B.apply()
-  print(Z) // 104060
-}
-
-@Composable
-fun A(currentBackStack: Any) {
-  var currentScreen by remember { mutableStateOf<Any?>(Any()) }
-
-  LaunchedEffect(Unit) {
-    val allScreens = listOf(Any(), Any())
-
-    snapshotFlow { currentBackStack }.collect { backstack ->
-      currentScreen = allScreens.find { it == backstack }
-    }
+    assert(Z == 10)
   }
 }
