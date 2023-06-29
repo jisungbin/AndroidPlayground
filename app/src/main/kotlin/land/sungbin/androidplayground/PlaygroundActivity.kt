@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalTextApi::class)
 @file:NoLiveLiterals
-@file:Suppress("LocalVariableName")
+@file:Suppress("LocalVariableName", "UNUSED_VARIABLE")
 
 package land.sungbin.androidplayground
 
@@ -10,10 +10,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.SnapshotMutationPolicy
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.ui.text.ExperimentalTextApi
 
@@ -190,26 +187,29 @@ fun A() {
 }
 
 fun main() {
-  var Z by mutableStateOf(
-    value = 10,
-    policy = object : SnapshotMutationPolicy<Int> {
-      override fun equivalent(a: Int, b: Int) = a == b
-      override fun merge(previous: Int, current: Int, applied: Int) =
-        "$previous$current$applied".toInt()
-    },
-  )
-  println(Z) // 10
-  val A = Snapshot.takeMutableSnapshot()
-  val B = Snapshot.takeMutableSnapshot()
-  A.enter {
-    Z = 30
-    Z = 30
+  val rootSnapshot = mutableStateOf(1) // 루트 스냅샷 아이디: 1 (가정)
+
+  Snapshot.withMutableSnapshot {
+    // 중첩 스냅샷 아이디: 2 (가정)
+    Snapshot.withMutableSnapshot {
+      // 중첩 스냅샷 아이디: 3 (가정)
+      Snapshot.withMutableSnapshot {
+        // 중첩 스냅샷 아이디: 4 (가정)
+        Snapshot.withMutableSnapshot {
+          // 중첩 스냅샷 아이디: 5 (가정)
+
+          // 여기에서 rootSnapshot 에 대해 valid 가 실행된다면
+          // candidateSnapshot 의 아이디는 레코드가 생성되는
+          // 스냅샷의 아이디일 것이다.
+          // 즉, 1~5 의 아이디를 가질 수 있디.
+
+          // 이 곳의 currentSnapshot().id 의 값은
+          // 중첩된 아이디만큼 5 가 된다.
+
+          // 따라서 candidateSnapshot <= currentSnapshot 가
+          // 항상 성립해야 한다.
+        }
+      }
+    }
   }
-  A.apply()
-  println(Z) // 30
-  B.enter {
-    Z = 60
-  }
-  B.apply()
-  println(Z) // 103060
 }
