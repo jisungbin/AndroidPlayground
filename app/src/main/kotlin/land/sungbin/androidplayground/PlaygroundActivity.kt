@@ -181,13 +181,3 @@ class PlaygroundActivity : ComponentActivity() {
     }
   }
 }
-
-@Composable
-fun A() {
-  Text(text = "AAA")
-}
-
-fun main() {
-  println(Modifier.background(Color.Cyan) == Modifier.background(Color.Cyan))
-  println(Modifier.background(Color.Cyan) == Modifier.background(Color.Black))
-}
