@@ -1,6 +1,11 @@
 @file:OptIn(ExperimentalTextApi::class)
 @file:NoLiveLiterals
-@file:Suppress("LocalVariableName", "UNUSED_VARIABLE")
+@file:Suppress(
+  "LocalVariableName",
+  "UNUSED_VARIABLE",
+  "KotlinRedundantDiagnosticSuppress",
+  "UnnecessaryOptInAnnotation",
+)
 
 package land.sungbin.androidplayground
 
