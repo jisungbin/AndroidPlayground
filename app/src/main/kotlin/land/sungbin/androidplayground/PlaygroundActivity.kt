@@ -7,12 +7,8 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
 
 /**
@@ -177,7 +173,6 @@ class PlaygroundActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       Text(text = "AAA")
-      A()
     }
   }
 }
