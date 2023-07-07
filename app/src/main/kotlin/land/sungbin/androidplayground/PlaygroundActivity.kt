@@ -188,6 +188,9 @@ class PlaygroundActivity : ComponentActivity() {
 
 fun main() {
   val rootSnapshot = mutableStateOf(1) // 루트 스냅샷 아이디: 1 (가정)
+  var a = Snapshot.takeSnapshot().enter {
+    rootSnapshot.value
+  }
 
   Snapshot.withMutableSnapshot {
     // 중첩 스냅샷 아이디: 2 (가정)
