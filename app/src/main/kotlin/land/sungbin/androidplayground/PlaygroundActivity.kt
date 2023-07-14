@@ -232,7 +232,7 @@ interface SnapshotMutablePair<A, B> {
   var second: B
 }
 
-fun <A, B> mutableStatePairOf(first: A, second: B) =
+fun <A, B> mutableStatePairOf(first: A, second: B): SnapshotMutablePair<A, B> =
   SnapshotMutablePairImpl(first, second)
 
 class SnapshotMutablePairImpl<A, B>(

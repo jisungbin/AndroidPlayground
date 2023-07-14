@@ -1,3 +1,7 @@
 stable class PlaygroundActivity {
   <runtime stability> = Stable
 }
+stable class SnapshotMutablePairImpl {
+  unstable var next: SnapshotPairRecord<A, B>
+  <runtime stability> = Stable
+}
