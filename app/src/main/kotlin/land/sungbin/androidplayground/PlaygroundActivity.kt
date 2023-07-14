@@ -16,24 +16,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.snapshots.StateObject
-import androidx.compose.runtime.snapshots.StateRecord
-import androidx.compose.runtime.snapshots.readable
-import androidx.compose.runtime.snapshots.writable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.unit.dp
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -196,12 +180,12 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      MutableStatePairExample()
+      // MutableStatePairExample()
     }
   }
 }
 
-@Composable
+/*@Composable
 fun MutableStatePairExample() {
   val pair = remember { mutableStatePairOf(0 to 0) }
 
@@ -223,74 +207,5 @@ fun MutableStatePairExample() {
     }
     Text("pair: ${pair.value}")
   }
-}
+}*/
 
-fun <A, B> mutableStatePairOf(first: A, second: B): SnapshotMutablePair<A, B> {
-  return SnapshotMutablePairImpl(first, second)
-}
-
-fun <A, B> mutableStatePairOf(value: Pair<A, B>): SnapshotMutablePair<A, B> {
-  return SnapshotMutablePairImpl(value.first, value.second)
-}
-
-@Stable
-interface SnapshotMutablePair<A, B> {
-  var value: Pair<A, B>
-  var first: A
-  var second: B
-}
-
-private class SnapshotMutablePairImpl<A, B>(
-  first: A,
-  second: B,
-) : StateObject, SnapshotMutablePair<A, B> {
-  private var next = SnapshotPairRecord(first, second)
-
-  override var value: Pair<A, B>
-    get() = next.readable(this).asPair()
-    set(value) {
-      next.writable(this) {
-        first = value.first
-        second = value.second
-      }
-    }
-
-  override var first: A
-    get() = next.readable(this).first
-    set(value) {
-      next.writable(this) { first = value }
-    }
-
-  override var second: B
-    get() = next.readable(this).second
-    set(value) {
-      next.writable(this) { second = value }
-    }
-
-  override val firstStateRecord: StateRecord
-    get() = next
-
-  override fun prependStateRecord(value: StateRecord) {
-    @Suppress("UNCHECKED_CAST")
-    next = value as SnapshotPairRecord<A, B>
-  }
-
-  private class SnapshotPairRecord<A, B>(
-    var first: A,
-    var second: B,
-  ) : StateRecord() {
-    override fun create(): StateRecord {
-      return SnapshotPairRecord(first, second)
-    }
-
-    override fun assign(value: StateRecord) {
-      @Suppress("UNCHECKED_CAST")
-      (value as SnapshotPairRecord<A, B>).let { record ->
-        first = record.first
-        second = record.second
-      }
-    }
-
-    fun asPair() = first to second
-  }
-}
