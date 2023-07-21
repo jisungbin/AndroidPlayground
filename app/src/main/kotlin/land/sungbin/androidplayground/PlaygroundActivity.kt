@@ -16,24 +16,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.snapshots.StateObject
-import androidx.compose.runtime.snapshots.StateRecord
-import androidx.compose.runtime.snapshots.readable
-import androidx.compose.runtime.snapshots.writable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.Constraints
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -196,97 +188,80 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      MutableStatePairExample()
-    }
-  }
-}
+      Layout(
+        modifier = Modifier.fillMaxWidth(),
+        content = {
+          Box(
+            Modifier
+              .layoutId("A")
+              .background(color = Color(0xFFF6CD91)),
+          )
+          Box(
+            Modifier
+              .layoutId("B")
+              .background(color = Color(0xFFFCEA2B))
+          )
+          Box(
+            Modifier
+              .layoutId("C")
+              .background(color = Color(0xFF9747FF)),
+          )
+          Box(
+            Modifier
+              .layoutId("D")
+              .background(color = Color(0xFFFF8800)),
+          )
+          Box(
+            Modifier
+              .layoutId("Center")
+              .background(color = Color(0xFFFC1B1B)),
+          )
+        },
+      ) { measurables, constraints ->
+        val A = measurables.first { it.layoutId == "A" }
+        val B = measurables.first { it.layoutId == "B" }
+        val C = measurables.first { it.layoutId == "C" }
+        val D = measurables.first { it.layoutId == "D" }
+        val Center = measurables.first { it.layoutId == "Center" }
 
-@Composable
-fun MutableStatePairExample() {
-  val pair = remember { mutableStatePairOf(first = 0, second = 0) }
+        val maxWidth = constraints.maxWidth
+        val centerWidth = maxWidth / 5
 
-  Column(
-    modifier = Modifier.fillMaxSize(),
-    verticalArrangement = Arrangement.spacedBy(
-      space = 15.dp,
-      alignment = Alignment.CenterVertically,
-    ),
-    horizontalAlignment = Alignment.CenterHorizontally,
-  ) {
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-      Button(onClick = { pair.first++ }) {
-        Text("Increase firstValue")
-      }
-      Button(onClick = { pair.second++ }) {
-        Text("Increase secondValue")
-      }
-    }
-    Text("pair: ${pair.value}")
-  }
-}
+        val centerConstraints = Constraints.fixed(width = centerWidth, height = centerWidth)
 
-fun <A, B> mutableStatePairOf(first: A, second: B): SnapshotMutablePair<A, B> {
-  return SnapshotMutablePairImpl(first, second)
-}
+        val aConstraints = Constraints.fixed(width = centerWidth * 3, height = centerWidth * 2)
+        val bConstraints = Constraints.fixed(width = centerWidth * 2, height = centerWidth * 3)
+        val cConstraints = Constraints.fixed(width = centerWidth * 3, height = centerWidth * 2)
+        val dConstraints = Constraints.fixed(width = centerWidth * 2, height = centerWidth * 3)
 
-@Stable
-interface SnapshotMutablePair<A, B> {
-  var value: Pair<A, B>
-  var first: A
-  var second: B
-}
+        val aPlaceable = A.measure(aConstraints)
+        val bPlaceable = B.measure(bConstraints)
+        val cPlaceable = C.measure(cConstraints)
+        val dPlaceable = D.measure(dConstraints)
+        val centerPlaceable = Center.measure(centerConstraints)
 
-private class SnapshotPairRecord<A, B>(
-  var first: A,
-  var second: B,
-) : StateRecord() {
-  override fun create(): StateRecord {
-    return SnapshotPairRecord(first, second)
-  }
-
-  override fun assign(value: StateRecord) {
-    @Suppress("UNCHECKED_CAST")
-    (value as SnapshotPairRecord<A, B>).let { record ->
-      first = record.first
-      second = record.second
-    }
-  }
-
-  fun asPair() = first to second
-}
-
-private class SnapshotMutablePairImpl<A, B>(
-  first: A,
-  second: B,
-) : StateObject, SnapshotMutablePair<A, B> {
-  private var next = SnapshotPairRecord(first, second)
-
-  override var value: Pair<A, B>
-    get() = next.readable(this).asPair()
-    set(value) {
-      next.writable(this) {
-        first = value.first
-        second = value.second
+        layout(width = maxWidth, height = maxWidth) {
+          aPlaceable.place(x = 0, y = 0)
+          bPlaceable.place(x = centerWidth * 3, y = 0)
+          cPlaceable.place(x = centerWidth * 2, y = centerWidth * 3)
+          dPlaceable.place(x = 0, y = centerWidth * 2)
+          centerPlaceable.place(x = centerWidth * 2, y = centerWidth * 2)
+        }
       }
     }
-
-  override var first: A
-    get() = next.readable(this).first
-    set(value) {
-      next.writable(this) { first = value }
-    }
-
-  override var second: B
-    get() = next.readable(this).second
-    set(value) {
-      next.writable(this) { second = value }
-    }
-
-  override val firstStateRecord: StateRecord
-    get() = next
-
-  override fun prependStateRecord(value: StateRecord) {
-    @Suppress("UNCHECKED_CAST")
-    next = value as SnapshotPairRecord<A, B>
   }
 }
+
+// Measurement -> Placement -> Laid out
+
+// [Measurement] measurable, constraints
+// 컴포저블이 어떻게 그려질지 제약 사항을 전달하는 단계
+// measurable: 아직 제약 사항이 전달되지 않은 컴포저블 노드
+// constraints: 제약 사항, 내 컴포저블이 UI에 어떻게 그려져야 하는지를 나타냄
+
+// [Placement] placeable
+// placeable: 제약 사항이 전달된 measurable
+
+// [Laid out]
+// placeable을 실제 좌표에 배치함
+// Compose UI에서 모든 좌표는 TopStart를 기준으로 함
