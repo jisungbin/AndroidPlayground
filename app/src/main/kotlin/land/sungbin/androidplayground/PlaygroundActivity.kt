@@ -275,3 +275,18 @@ fun Test() {
 // [Laid out]
 // placeable을 실제 좌표에 배치함
 // Compose UI에서 모든 좌표는 TopStart를 기준으로 함
+
+// AOT Compile, JIT Compile
+
+// Ahead-Of-Time compilation -> APK 설치할 때 미리 dex를 로드시킴
+// Just-In-Time compilation -> APK가 실행될 때 dex를 lazy하게 로드시킴
+
+// Android framework -> View System => AOT
+// Jetpack Compose (Android framework XXX) -> Compose System => JIT
+
+// ART compilation (Android Runtime: AOT + JIT)
+
+// APK Provider: Google PlayStore
+// Android Provider: Google
+
+// Google -> Android System Permission
