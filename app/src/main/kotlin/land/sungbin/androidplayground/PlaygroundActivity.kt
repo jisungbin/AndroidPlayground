@@ -18,7 +18,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -252,7 +254,15 @@ class PlaygroundActivity : ComponentActivity() {
   }
 }
 
-// Measurement -> Placement -> Laid out
+@Composable
+fun Test() {
+  BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
+    constraints
+  }
+}
+
+// [Composition] Measurement -> Placement -> Laid out
+// Recomposition: Composition 한번 더 + 위치 메모이제이션 + 명득성
 
 // [Measurement] measurable, constraints
 // 컴포저블이 어떻게 그려질지 제약 사항을 전달하는 단계
