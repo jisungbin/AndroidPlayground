@@ -1,13 +1,13 @@
 @file:OptIn(
-  ExperimentalTextApi::class,
-  ExperimentalFoundationApi::class
+    ExperimentalTextApi::class,
+    ExperimentalFoundationApi::class
 )
 @file:NoLiveLiterals
 @file:Suppress(
-  "LocalVariableName",
-  "UNUSED_VARIABLE",
-  "KotlinRedundantDiagnosticSuppress",
-  "UnnecessaryOptInAnnotation",
+    "LocalVariableName",
+    "UNUSED_VARIABLE",
+    "KotlinRedundantDiagnosticSuppress",
+    "UnnecessaryOptInAnnotation", "SpellCheckingInspection", "CanBeVal",
 )
 
 package land.sungbin.androidplayground
@@ -16,18 +16,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.layout.layoutId
+import androidx.compose.runtime.currentRecomposeScope
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.unit.Constraints
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -187,106 +184,21 @@ import androidx.compose.ui.unit.Constraints
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContent {
-      Layout(
-        modifier = Modifier.fillMaxWidth(),
-        content = {
-          Box(
-            Modifier
-              .layoutId("A")
-              .background(color = Color(0xFFF6CD91)),
-          )
-          Box(
-            Modifier
-              .layoutId("B")
-              .background(color = Color(0xFFFCEA2B))
-          )
-          Box(
-            Modifier
-              .layoutId("C")
-              .background(color = Color(0xFF9747FF)),
-          )
-          Box(
-            Modifier
-              .layoutId("D")
-              .background(color = Color(0xFFFF8800)),
-          )
-          Box(
-            Modifier
-              .layoutId("Center")
-              .background(color = Color(0xFFFC1B1B)),
-          )
-        },
-      ) { measurables, constraints ->
-        val A = measurables.first { it.layoutId == "A" }
-        val B = measurables.first { it.layoutId == "B" }
-        val C = measurables.first { it.layoutId == "C" }
-        val D = measurables.first { it.layoutId == "D" }
-        val Center = measurables.first { it.layoutId == "Center" }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            var data by remember { mutableStateOf(1) }
 
-        val maxWidth = constraints.maxWidth
-        val centerWidth = maxWidth / 5
+            @Suppress("RememberReturnType")
+            remember(data) { assert(data == 1) }
 
-        val centerConstraints = Constraints.fixed(width = centerWidth, height = centerWidth)
+            currentRecomposeScope.invalidate()
 
-        val aConstraints = Constraints.fixed(width = centerWidth * 3, height = centerWidth * 2)
-        val bConstraints = Constraints.fixed(width = centerWidth * 2, height = centerWidth * 3)
-        val cConstraints = Constraints.fixed(width = centerWidth * 3, height = centerWidth * 2)
-        val dConstraints = Constraints.fixed(width = centerWidth * 2, height = centerWidth * 3)
+            val a = @Composable {
+                currentRecomposeScope.invalidate()
+            }
 
-        val aPlaceable = A.measure(aConstraints)
-        val bPlaceable = B.measure(bConstraints)
-        val cPlaceable = C.measure(cConstraints)
-        val dPlaceable = D.measure(dConstraints)
-        val centerPlaceable = Center.measure(centerConstraints)
-
-        layout(width = maxWidth, height = maxWidth) {
-          aPlaceable.place(x = 0, y = 0)
-          bPlaceable.place(x = centerWidth * 3, y = 0)
-          cPlaceable.place(x = centerWidth * 2, y = centerWidth * 3)
-          dPlaceable.place(x = 0, y = centerWidth * 2)
-          centerPlaceable.place(x = centerWidth * 2, y = centerWidth * 2)
+            CircularProgressIndicator()
         }
-      }
     }
-  }
 }
-
-@Composable
-fun Test() {
-  BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
-    constraints
-  }
-}
-
-// [Composition] Measurement -> Placement -> Laid out
-// Recomposition: Composition 한번 더 + 위치 메모이제이션 + 명득성
-
-// [Measurement] measurable, constraints
-// 컴포저블이 어떻게 그려질지 제약 사항을 전달하는 단계
-// measurable: 아직 제약 사항이 전달되지 않은 컴포저블 노드
-// constraints: 제약 사항, 내 컴포저블이 UI에 어떻게 그려져야 하는지를 나타냄
-
-// [Placement] placeable
-// placeable: 제약 사항이 전달된 measurable
-
-// [Laid out]
-// placeable을 실제 좌표에 배치함
-// Compose UI에서 모든 좌표는 TopStart를 기준으로 함
-
-// AOT Compile, JIT Compile
-
-// Ahead-Of-Time compilation -> APK 설치할 때 미리 dex를 로드시킴
-// Just-In-Time compilation -> APK가 실행될 때 dex를 lazy하게 로드시킴
-
-// Android framework -> View System => AOT
-// Jetpack Compose (Android framework XXX) -> Compose System => JIT
-
-// ART compilation (Android Runtime: AOT + JIT)
-
-// APK Provider: Google PlayStore
-// Android Provider: Google
-
-// Google -> Android System Permission
