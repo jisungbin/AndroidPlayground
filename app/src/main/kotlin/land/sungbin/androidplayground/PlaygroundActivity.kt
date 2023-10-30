@@ -17,13 +17,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.runtime.currentRecomposeScope
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.ExperimentalTextApi
 
 /**
@@ -65,7 +59,7 @@ import androidx.compose.ui.text.ExperimentalTextApi
  * Composable functions need to have the default expressions executed inside of the group of the
  * function. In order to accomplish this, composable functions handle default arguments
  * themselves, instead of using the default handling of kotlin. This is also a win because we can
- * handle the default arguments without generating an additional function since we do not need to
+ㅌ * handle the default arguments without generating an additional function since we do not need to
  * worry about callers from java. Generally speaking though, compose handles default arguments
  * similarly to kotlin in that we generate a $default bitmask parameter which maps each parameter
  * index to a bit on the int. A value of "1" for a given parameter index indicated that that
@@ -187,17 +181,6 @@ class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            var data by remember { mutableStateOf(1) }
-
-            @Suppress("RememberReturnType")
-            remember(data) { assert(data == 1) }
-
-            currentRecomposeScope.invalidate()
-
-            val a = @Composable {
-                currentRecomposeScope.invalidate()
-            }
-
             CircularProgressIndicator()
         }
     }
