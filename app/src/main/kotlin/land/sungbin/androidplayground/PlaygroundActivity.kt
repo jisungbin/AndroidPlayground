@@ -188,7 +188,7 @@ import androidx.compose.ui.unit.dp
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-    lateinit var recomposeScope: RecomposeScope
+    private lateinit var recomposeScope: RecomposeScope
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
