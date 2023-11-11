@@ -27,5 +27,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidPlayground"
 include ':app'
-include ':test01'
-include ':test02'
+//include ':test01'
+//include ':test02'

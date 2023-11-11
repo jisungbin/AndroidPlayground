@@ -1,6 +1,6 @@
 @file:OptIn(
     ExperimentalTextApi::class,
-    ExperimentalFoundationApi::class
+    ExperimentalFoundationApi::class, ExperimentalComposeApi::class
 )
 @file:NoLiveLiterals
 @file:Suppress(
@@ -16,9 +16,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.NoLiveLiterals
+import androidx.compose.runtime.RecomposeScope
+import androidx.compose.runtime.currentRecomposeScope
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.unit.dp
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -178,10 +188,26 @@ import androidx.compose.ui.text.ExperimentalTextApi
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
+    lateinit var recomposeScope: RecomposeScope
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CircularProgressIndicator()
+            recomposeScope = currentRecomposeScope
+
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(
+                    space = 10.dp,
+                    alignment = Alignment.CenterVertically,
+                ),
+            ) {
+                Text(text = System.currentTimeMillis().toString())
+                Button(onClick = { recomposeScope.invalidate() }) {
+                    Text(text = "Recompose")
+                }
+            }
         }
     }
 }
