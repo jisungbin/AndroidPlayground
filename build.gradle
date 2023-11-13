@@ -11,6 +11,12 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.9.20' apply false
 }
 
-tasks.register('clean') {
+tasks.register('clean', Delete) {
     delete rootProject.layout.buildDirectory
+}
+
+tasks.register('cleanAll', Delete) {
+    allprojects.forEach { project ->
+        delete project.layout.buildDirectory
+    }
 }
