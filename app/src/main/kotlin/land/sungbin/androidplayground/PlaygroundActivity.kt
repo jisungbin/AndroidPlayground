@@ -16,6 +16,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ExperimentalComposeApi
 import androidx.compose.runtime.NoLiveLiterals
@@ -189,5 +191,11 @@ class PlaygroundActivity : ComponentActivity() {
 
 @Composable
 fun entry() {
-    println("Hello, world!")
+    repeat(3) {
+        Column {
+            BasicText(text = "it $it")
+            BasicText(text = "it2 $it")
+            BasicText(text = "it3 $it")
+        }
+    }
 }

@@ -1,1 +1,1 @@
-restartable skippable fun entry()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun entry()

@@ -17,7 +17,7 @@ public final class ComposableSingletons$PlaygroundActivityKt {
    public static Function2 lambda-1;
 
    @NotNull
-   public final Function2 getLambda_1$app_release/* $FF was: getLambda-1$app_release*/() {
+   public final Function2 getLambda_1$app_debug/* $FF was: getLambda-1$app_debug*/() {
       return lambda-1;
    }
 
