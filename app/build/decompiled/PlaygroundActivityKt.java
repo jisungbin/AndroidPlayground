@@ -39,25 +39,25 @@ import org.jetbrains.annotations.Nullable;
    k = 2,
    xi = 48,
    d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u001a\r\u0010\u0000\u001a\u00020\u0001H\u0007¢\u0006\u0002\u0010\u0002¨\u0006\u0003"},
-   d2 = {"entry", "", "(Landroidx/compose/runtime/Composer;I)V", "app_debug"}
+   d2 = {"Entry", "", "(Landroidx/compose/runtime/Composer;I)V", "app_debug"}
 )
-@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/PlaygroundActivityKt\n+ 2 Column.kt\nandroidx/compose/foundation/layout/ColumnKt\n+ 3 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 4 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 5 Composer.kt\nandroidx/compose/runtime/Updater\n*L\n1#1,202:1\n71#2,7:203\n78#2:238\n82#2:243\n78#3,11:210\n91#3:242\n456#4,8:221\n464#4,3:235\n467#4,3:239\n4144#5,6:229\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/PlaygroundActivityKt\n*L\n195#1:203,7\n195#1:238\n195#1:243\n195#1:210,11\n195#1:242\n195#1:221,8\n195#1:235,3\n195#1:239,3\n195#1:229,6\n*E\n"})
+@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/PlaygroundActivityKt\n+ 2 Column.kt\nandroidx/compose/foundation/layout/ColumnKt\n+ 3 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 4 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 5 Composer.kt\nandroidx/compose/runtime/Updater\n*L\n1#1,187:1\n71#2,7:188\n78#2:223\n82#2:228\n78#3,11:195\n91#3:227\n456#4,8:206\n464#4,3:220\n467#4,3:224\n4144#5,6:214\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/PlaygroundActivityKt\n*L\n181#1:188,7\n181#1:223\n181#1:228\n181#1:195,11\n181#1:227\n181#1:206,8\n181#1:220,3\n181#1:224,3\n181#1:214,6\n*E\n"})
 public final class PlaygroundActivityKt {
    @Composable
    @ComposableTarget(
       applier = "androidx.compose.ui.UiComposable"
    )
-   public static final void entry(@Nullable Composer $composer, final int $changed) {
-      $composer = $composer.startRestartGroup(520545983);
-      ComposerKt.sourceInformation($composer, "C(entry)*194@7371L137:PlaygroundActivity.kt#qshby3");
+   public static final void Entry(@Nullable Composer $composer, final int $changed) {
+      $composer = $composer.startRestartGroup(1032455839);
+      ComposerKt.sourceInformation($composer, "C(Entry)*180@6882L108:PlaygroundActivity.kt#qshby3");
       if ($changed == 0 && $composer.getSkipping()) {
          $composer.skipToGroupEnd();
       } else {
          if (ComposerKt.isTraceInProgress()) {
-            ComposerKt.traceEventStart(520545983, $changed, -1, "land.sungbin.androidplayground.entry (PlaygroundActivity.kt:192)");
+            ComposerKt.traceEventStart(1032455839, $changed, -1, "land.sungbin.androidplayground.Entry (PlaygroundActivity.kt:178)");
          }
 
-         byte var2 = 3;
+         int var2 = LiveLiterals$PlaygroundActivityKt.INSTANCE.Int$arg-0$call-repeat$fun-Entry();
 
          for(int var3 = 0; var3 < var2; ++var3) {
             int var5 = false;
@@ -110,10 +110,10 @@ public final class PlaygroundActivityKt {
             int var29 = 6 | 112 & $changed$iv >> 6;
             ColumnScope var10000 = (ColumnScope)ColumnScopeInstance.INSTANCE;
             int var32 = false;
-            ComposerKt.sourceInformationMarkerStart($composer, 936583481, "C195@7392L26,196@7431L27,197@7471L27:PlaygroundActivity.kt#qshby3");
-            BasicTextKt.BasicText-VhcvRP8("it " + var3, (Modifier)null, (TextStyle)null, (Function1)null, 0, false, 0, 0, (ColorProducer)null, $composer, 0, 510);
-            BasicTextKt.BasicText-VhcvRP8("it2 " + var3, (Modifier)null, (TextStyle)null, (Function1)null, 0, false, 0, 0, (ColorProducer)null, $composer, 0, 510);
-            BasicTextKt.BasicText-VhcvRP8("it3 " + var3, (Modifier)null, (TextStyle)null, (Function1)null, 0, false, 0, 0, (ColorProducer)null, $composer, 0, 510);
+            ComposerKt.sourceInformationMarkerStart($composer, 574466928, "C181@6903L26,182@6942L38:PlaygroundActivity.kt#qshby3");
+            String var33 = LiveLiterals$PlaygroundActivityKt.INSTANCE.String$0$str$arg-0$call-BasicText$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-1$call-repeat$fun-Entry();
+            BasicTextKt.BasicText-VhcvRP8(var33 + var3, (Modifier)null, (TextStyle)null, (Function1)null, 0, false, 0, 0, (ColorProducer)null, $composer, 0, 510);
+            BasicTextKt.BasicText-VhcvRP8(LiveLiterals$PlaygroundActivityKt.INSTANCE.String$arg-0$call-BasicText-1$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-1$call-repeat$fun-Entry(), (Modifier)null, (TextStyle)null, (Function1)null, 0, false, 0, 0, (ColorProducer)null, $composer, 0, 510);
             ComposerKt.sourceInformationMarkerEnd($composer);
             ComposerKt.sourceInformationMarkerEnd($composer);
             $composer.endReplaceableGroup();
@@ -127,11 +127,11 @@ public final class PlaygroundActivityKt {
          }
       }
 
-      ScopeUpdateScope var33 = $composer.endRestartGroup();
-      if (var33 != null) {
-         var33.updateScope((Function2)(new Function2() {
+      ScopeUpdateScope var34 = $composer.endRestartGroup();
+      if (var34 != null) {
+         var34.updateScope((Function2)(new Function2() {
             public final void invoke(@Nullable Composer $composer, int $force) {
-               PlaygroundActivityKt.entry($composer, RecomposeScopeImplKt.updateChangedFlags($changed | 1));
+               PlaygroundActivityKt.Entry($composer, RecomposeScopeImplKt.updateChangedFlags($changed | 1));
             }
          }));
       }

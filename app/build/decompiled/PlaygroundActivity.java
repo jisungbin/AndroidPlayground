@@ -25,4 +25,8 @@ public final class PlaygroundActivity extends ComponentActivity {
       super.onCreate(savedInstanceState);
       ComponentActivityKt.setContent$default((ComponentActivity)this, (CompositionContext)null, ComposableSingletons$PlaygroundActivityKt.INSTANCE.getLambda-1$app_debug(), 1, (Object)null);
    }
+
+   static {
+      $stable = LiveLiterals$PlaygroundActivityKt.INSTANCE.Int$class-PlaygroundActivity();
+   }
 }

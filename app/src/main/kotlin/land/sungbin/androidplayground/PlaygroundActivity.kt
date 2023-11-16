@@ -1,27 +1,13 @@
-@file:OptIn(
-    ExperimentalTextApi::class,
-    ExperimentalFoundationApi::class, ExperimentalComposeApi::class
-)
-@file:NoLiveLiterals
-@file:Suppress(
-    "LocalVariableName",
-    "UNUSED_VARIABLE",
-    "KotlinRedundantDiagnosticSuppress",
-    "UnnecessaryOptInAnnotation", "SpellCheckingInspection", "CanBeVal",
-)
+@file:Suppress("KDocUnresolvedReference")
 
 package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ExperimentalComposeApi
-import androidx.compose.runtime.NoLiveLiterals
-import androidx.compose.ui.text.ExperimentalTextApi
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -184,18 +170,17 @@ class PlaygroundActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            entry()
+            Entry()
         }
     }
 }
 
 @Composable
-fun entry() {
+fun Entry() {
     repeat(3) {
         Column {
             BasicText(text = "it $it")
-            BasicText(text = "it2 $it")
-            BasicText(text = "it3 $it")
+            BasicText(text = "Hello, World!!!!!!")
         }
     }
 }

@@ -1,2 +1,2 @@
 package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
-land.sungbin.androidplayground.entry,entry,1,1,1,0,0,0,0,0,1,0,
+land.sungbin.androidplayground.Entry,Entry,1,1,1,0,0,0,0,0,1,0,
