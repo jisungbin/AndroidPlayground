@@ -1,13 +1,25 @@
-@file:Suppress("KDocUnresolvedReference")
+@file:Suppress("KDocUnresolvedReference", "SpellCheckingInspection")
 
 package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.BasicText
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.dp
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -167,20 +179,36 @@ import androidx.compose.runtime.Composable
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Entry()
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContent {
+      var millis by remember { mutableLongStateOf(System.currentTimeMillis()) }
+
+      Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(
+          space = 15.dp,
+          alignment = Alignment.CenterVertically,
+        ),
+        horizontalAlignment = Alignment.CenterHorizontally,
+      ) {
+        Button(onClick = { millis = System.currentTimeMillis() }) {
+          Text(text = "Update!")
         }
+        Child(millis = millis, textStyle = TextStyleWrapper(TextStyle()))
+      }
     }
+  }
+}
+
+data class TextStyleWrapper(val value: TextStyle) {
+  init {
+    println("INIT - value: ${value.hashCode()}")
+    println("INIT - own: ${this.hashCode()}")
+  }
 }
 
 @Composable
-fun Entry() {
-    repeat(3) {
-        Column {
-            BasicText(text = "it $it")
-            BasicText(text = "Hello, World!!!!!!")
-        }
-    }
+private fun Child(millis: Long, textStyle: TextStyleWrapper) {
+  BasicText(text = "$millis", style = textStyle.value)
 }

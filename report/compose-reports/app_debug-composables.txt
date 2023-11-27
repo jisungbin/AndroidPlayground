@@ -1,1 +1,4 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Entry()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Child(
+  stable millis: Long
+  stable textStyle: TextStyleWrapper
+)
