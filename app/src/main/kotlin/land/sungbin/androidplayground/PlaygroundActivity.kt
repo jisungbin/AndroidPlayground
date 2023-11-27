@@ -5,16 +5,11 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.unit.Constraints
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.input.pointer.pointerInput
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -178,30 +173,19 @@ class PlaygroundActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center,
-      ) {
-        Layout(
-          modifier = Modifier
-            .size(100.dp)
-            .background(color = Color.Gray),
-          content = {
-            Box(
-              Modifier
-                .size(size = 100.dp)
-                .background(color = Color.Red),
-            )
+        Modifier
+          .fillMaxSize()
+          .pointerInput(Unit) {
+            detectTapGestures { offset ->
+              println("First: $offset")
+            }
           }
-        ) { measurables, _ ->
-          val parentConstraints = Constraints.fixed(width = 100.dp.roundToPx(), height = 100.dp.roundToPx())
-          val looseConstraints = parentConstraints.copy(minWidth = 0, minHeight = 0)
-          val placeable = measurables.single().measure(looseConstraints)
-
-          layout(width = parentConstraints.maxWidth, height = parentConstraints.maxHeight) {
-            placeable.place(x = 0, y = -100.dp.roundToPx())
-          }
-        }
-      }
+          .pointerInput(Unit) {
+            detectTapGestures { offset ->
+              println("Second: $offset")
+            }
+          },
+      )
     }
   }
 }
