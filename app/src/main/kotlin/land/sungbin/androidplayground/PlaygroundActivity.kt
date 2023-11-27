@@ -5,20 +5,15 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableLongStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 
 /**
@@ -182,33 +177,31 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      var millis by remember { mutableLongStateOf(System.currentTimeMillis()) }
-
-      Column(
+      Box(
         modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(
-          space = 15.dp,
-          alignment = Alignment.CenterVertically,
-        ),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        contentAlignment = Alignment.Center,
       ) {
-        Button(onClick = { millis = System.currentTimeMillis() }) {
-          Text(text = "Update!")
+        Layout(
+          modifier = Modifier
+            .size(100.dp)
+            .background(color = Color.Gray),
+          content = {
+            Box(
+              Modifier
+                .size(size = 100.dp)
+                .background(color = Color.Red),
+            )
+          }
+        ) { measurables, _ ->
+          val parentConstraints = Constraints.fixed(width = 100.dp.roundToPx(), height = 100.dp.roundToPx())
+          val looseConstraints = parentConstraints.copy(minWidth = 0, minHeight = 0)
+          val placeable = measurables.single().measure(looseConstraints)
+
+          layout(width = parentConstraints.maxWidth, height = parentConstraints.maxHeight) {
+            placeable.place(x = 0, y = -100.dp.roundToPx())
+          }
         }
-        Child(millis = millis, textStyle = TextStyleWrapper(TextStyle()))
       }
     }
   }
-}
-
-data class TextStyleWrapper(val value: TextStyle) {
-  init {
-    println("INIT - value: ${value.hashCode()}")
-    println("INIT - own: ${this.hashCode()}")
-  }
-}
-
-@Composable
-private fun Child(millis: Long, textStyle: TextStyleWrapper) {
-  BasicText(text = "$millis", style = textStyle.value)
 }
