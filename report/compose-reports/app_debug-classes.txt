@@ -1,7 +1,0 @@
-stable class PlaygroundActivity {
-  <runtime stability> = Stable
-}
-stable class TextStyleWrapper {
-  stable val value: TextStyle
-  <runtime stability> = Stable
-}
