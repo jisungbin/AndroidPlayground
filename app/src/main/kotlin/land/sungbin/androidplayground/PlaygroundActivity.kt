@@ -5,11 +5,17 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.ClipOp
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.unit.dp
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -173,19 +179,21 @@ class PlaygroundActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       Box(
-        Modifier
+        modifier = Modifier
           .fillMaxSize()
-          .pointerInput(Unit) {
-            detectTapGestures { offset ->
-              println("First: $offset")
+          .background(color = Color.Green),
+        contentAlignment = Alignment.Center,
+      ) {
+        Box(
+          Modifier
+            .size(500.dp)
+            .drawBehind {
+              clipRect(right = size.width / 2f, clipOp = ClipOp.Intersect) {
+                drawRect(color = Color.Red)
+              }
             }
-          }
-          .pointerInput(Unit) {
-            detectTapGestures { offset ->
-              println("Second: $offset")
-            }
-          },
-      )
+        )
+      }
     }
   }
 }
