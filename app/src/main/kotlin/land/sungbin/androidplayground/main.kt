@@ -1,12 +1,12 @@
 package land.sungbin.androidplayground
 
-object NULL
-
-var a: Any = NULL
-
-fun hasCodeAndMessageLazy(): Int {
-  if (a === NULL) a = 1
-  return a as Int
+sealed interface A {
+  data object First
+  data object Second
 }
 
-fun hasCodeAndMessageGetter() = 1
+fun main() {
+  val values = listOf(A.Second, A.First)
+  val sortedValues = values.sortedByDescending { it is A.First }
+  println(sortedValues)
+}
