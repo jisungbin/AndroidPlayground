@@ -1,6 +1,9 @@
-stable class First {
+stable class One {
   <runtime stability> = Stable
 }
-stable class Second {
+stable class Two {
+  <runtime stability> = Stable
+}
+stable class A {
   <runtime stability> = Stable
 }

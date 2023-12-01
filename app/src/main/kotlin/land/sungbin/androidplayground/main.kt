@@ -1,12 +1,14 @@
 package land.sungbin.androidplayground
 
-sealed interface A {
-  data object First
-  data object Second
+sealed class A {
+  class One : A()
+  class Two : A()
 }
 
 fun main() {
-  val values = listOf(A.Second, A.First)
-  val sortedValues = values.sortedByDescending { it is A.First }
-  println(sortedValues)
+  val one = A.One()
+  val two = A.Two()
+
+  println(one.javaClass.canonicalName)
+  println(two.javaClass.canonicalName)
 }
