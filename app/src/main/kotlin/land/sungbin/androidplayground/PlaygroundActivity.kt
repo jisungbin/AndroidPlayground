@@ -9,6 +9,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
@@ -175,25 +179,27 @@ import androidx.compose.ui.unit.dp
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContent {
-      Box(
-        modifier = Modifier
-          .fillMaxSize()
-          .background(color = Color.Green),
-        contentAlignment = Alignment.Center,
-      ) {
-        Box(
-          Modifier
-            .size(500.dp)
-            .drawBehind {
-              clipRect(right = size.width / 2f, clipOp = ClipOp.Intersect) {
-                drawRect(color = Color.Red)
-              }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            var state by remember { mutableStateOf(false) }
+
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(color = Color.Green),
+                contentAlignment = Alignment.Center,
+            ) {
+                Box(
+                    Modifier
+                        .size(500.dp)
+                        .drawBehind {
+                            clipRect(right = size.width / 2f, clipOp = ClipOp.Intersect) {
+                                drawRect(color = Color.Red)
+                            }
+                        }
+                )
             }
-        )
-      }
+        }
     }
-  }
 }
