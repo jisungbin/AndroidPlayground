@@ -5,14 +5,11 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
@@ -20,6 +17,7 @@ import androidx.compose.ui.graphics.ClipOp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.unit.dp
+import land.sungbin.composeinvestigator.runtime.currentComposableInvalidationTracker
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -179,27 +177,28 @@ import androidx.compose.ui.unit.dp
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            var state by remember { mutableStateOf(false) }
-
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = Color.Green),
-                contentAlignment = Alignment.Center,
-            ) {
-                Box(
-                    Modifier
-                        .size(500.dp)
-                        .drawBehind {
-                            clipRect(right = size.width / 2f, clipOp = ClipOp.Intersect) {
-                                drawRect(color = Color.Red)
-                            }
-                        }
-                )
-            }
-        }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContent {
+      Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+      ) {
+        Text(text = currentComposableInvalidationTracker.currentComposableName.name)
+      }
     }
+  }
+}
+
+@Composable
+fun A() {
+  Box(
+    Modifier
+      .size(500.dp)
+      .drawBehind {
+        clipRect(right = size.width / 2f, clipOp = ClipOp.Intersect) {
+          drawRect(color = Color.Red)
+        }
+      }
+  )
 }

@@ -19,66 +19,22 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$MainKt {
    @NotNull
    public static final LiveLiterals$MainKt INSTANCE = new LiveLiterals$MainKt();
-   private static int Int$class-One$class-A;
+   private static int Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main;
    @Nullable
-   private static State State$Int$class-One$class-A;
-   private static int Int$class-Two$class-A;
-   @Nullable
-   private static State State$Int$class-Two$class-A;
-   private static int Int$class-A;
-   @Nullable
-   private static State State$Int$class-A;
+   private static State State$Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main;
 
    @LiveLiteralInfo(
-      key = "Int$class-One$class-A",
-      offset = -1
+      key = "Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main",
+      offset = 169
    )
-   public final int Int$class_One$class_A/* $FF was: Int$class-One$class-A*/() {
+   public final int Int$arg_0$call_mutableStateOf$$this$call_$get_value$$val_state$fun_main/* $FF was: Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$class-One$class-A;
+         return Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main;
       } else {
-         State var10000 = State$Int$class-One$class-A;
+         State var10000 = State$Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$class-One$class-A", Int$class-One$class-A);
-            State$Int$class-One$class-A = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$class-Two$class-A",
-      offset = -1
-   )
-   public final int Int$class_Two$class_A/* $FF was: Int$class-Two$class-A*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$class-Two$class-A;
-      } else {
-         State var10000 = State$Int$class-Two$class-A;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$class-Two$class-A", Int$class-Two$class-A);
-            State$Int$class-Two$class-A = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$class-A",
-      offset = -1
-   )
-   public final int Int$class_A/* $FF was: Int$class-A*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$class-A;
-      } else {
-         State var10000 = State$Int$class-A;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$class-A", Int$class-A);
-            State$Int$class-A = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main", Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main);
+            State$Int$arg-0$call-mutableStateOf$$this$call-$get-value$$val-state$fun-main = var1;
             var10000 = var1;
          }
 

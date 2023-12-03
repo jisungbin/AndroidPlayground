@@ -1,14 +1,9 @@
 package land.sungbin.androidplayground
 
-sealed class A {
-  class One : A()
-  class Two : A()
-}
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 
 fun main() {
-  val one = A.One()
-  val two = A.Two()
-
-  println(one.javaClass.canonicalName)
-  println(two.javaClass.canonicalName)
+  val state = (mutableStateOf(0) as State<*>).value
+  println(state)
 }

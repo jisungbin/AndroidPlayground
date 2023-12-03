@@ -1,9 +1,3 @@
-stable class One {
-  <runtime stability> = Stable
-}
-stable class Two {
-  <runtime stability> = Stable
-}
-stable class A {
+stable class PlaygroundActivity {
   <runtime stability> = Stable
 }
