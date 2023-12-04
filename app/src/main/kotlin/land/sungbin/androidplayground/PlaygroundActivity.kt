@@ -3,21 +3,16 @@
 package land.sungbin.androidplayground
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.graphics.ClipOp
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.clipRect
-import androidx.compose.ui.unit.dp
-import land.sungbin.composeinvestigator.runtime.currentComposableInvalidationTracker
+import androidx.compose.ui.input.pointer.pointerInput
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -181,24 +176,15 @@ class PlaygroundActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center,
-      ) {
-        Text(text = currentComposableInvalidationTracker.currentComposableName.name)
-      }
+        Modifier
+          .pointerInput(Unit) {
+            detectVerticalDragGestures { change, dragAmount ->
+               Log.d("detectVerticalDragGestures", "offset: ${change.position}, previousOffset: ${change.previousPosition}")
+            }
+          }
+          .background(color = Color.Blue)
+          .fillMaxSize(),
+      )
     }
   }
-}
-
-@Composable
-fun A() {
-  Box(
-    Modifier
-      .size(500.dp)
-      .drawBehind {
-        clipRect(right = size.width / 2f, clipOp = ClipOp.Intersect) {
-          drawRect(color = Color.Red)
-        }
-      }
-  )
 }

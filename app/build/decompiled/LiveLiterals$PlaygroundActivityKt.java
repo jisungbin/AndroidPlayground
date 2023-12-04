@@ -19,15 +19,81 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$PlaygroundActivityKt {
    @NotNull
    public static final LiveLiterals$PlaygroundActivityKt INSTANCE = new LiveLiterals$PlaygroundActivityKt();
+   @NotNull
+   private static String String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = "detectVerticalDragGestures";
+   @Nullable
+   private static State State$String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = "offset: ";
+   @Nullable
+   private static State State$String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = ", previousOffset: ";
+   @Nullable
+   private static State State$String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
    private static int Int$class-PlaygroundActivity;
    @Nullable
    private static State State$Int$class-PlaygroundActivity;
-   private static int Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A = 500;
-   @Nullable
-   private static State State$Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A;
-   private static float Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A = 2.0F;
-   @Nullable
-   private static State State$Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A;
+
+   @LiveLiteralInfo(
+      key = "String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity",
+      offset = 7186
+   )
+   @NotNull
+   public final String String$arg_0$call_d$fun_$anonymous$$arg_3$call_detectVerticalDragGestures$fun_$anonymous$$arg_1$call_pointerInput$$$this$call_background$$$this$call_fillMaxSize$arg_0$call_Box$fun_$anonymous$$arg_1$call_setContent$fun_onCreate$class_PlaygroundActivity/* $FF was: String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity", String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity);
+            State$String$arg-0$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity",
+      offset = 7216
+   )
+   @NotNull
+   public final String String$0$str$arg_1$call_d$fun_$anonymous$$arg_3$call_detectVerticalDragGestures$fun_$anonymous$$arg_1$call_pointerInput$$$this$call_background$$$this$call_fillMaxSize$arg_0$call_Box$fun_$anonymous$$arg_1$call_setContent$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity",
+      offset = 7242
+   )
+   @NotNull
+   public final String String$2$str$arg_1$call_d$fun_$anonymous$$arg_3$call_detectVerticalDragGestures$fun_$anonymous$$arg_1$call_pointerInput$$$this$call_background$$$this$call_fillMaxSize$arg_0$call_Box$fun_$anonymous$$arg_1$call_setContent$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-1$call-d$fun-$anonymous$$arg-3$call-detectVerticalDragGestures$fun-$anonymous$$arg-1$call-pointerInput$$$this$call-background$$$this$call-fillMaxSize$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
 
    @LiveLiteralInfo(
       key = "Int$class-PlaygroundActivity",
@@ -45,44 +111,6 @@ public final class LiveLiterals$PlaygroundActivityKt {
          }
 
          return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A",
-      offset = 7541
-   )
-   public final int Int$$$this$call_$get_dp$$arg_0$call_size$$$this$call_drawBehind$arg_0$call_Box$fun_A/* $FF was: Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A;
-      } else {
-         State var10000 = State$Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A", Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A);
-            State$Int$$$this$call-$get-dp$$arg-0$call-size$$$this$call-drawBehind$arg-0$call-Box$fun-A = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A",
-      offset = 7607
-   )
-   public final float Float$arg_0$call_div$arg_2$call_clipRect$fun_$anonymous$$arg_0$call_drawBehind$arg_0$call_Box$fun_A/* $FF was: Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A;
-      } else {
-         State var10000 = State$Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A", Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A);
-            State$Float$arg-0$call-div$arg-2$call-clipRect$fun-$anonymous$$arg-0$call-drawBehind$arg-0$call-Box$fun-A = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).floatValue();
       }
    }
 }
