@@ -70,8 +70,8 @@ dependencies {
 
     // implementation 'team.duckie.quackquack.ui:ui:internal-2.0.0-test02'
 
-    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.0-SNAPSHOT")
-    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.0-SNAPSHOT")
+//    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.0-SNAPSHOT")
+//    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.0-SNAPSHOT")
 
     // compose
 //    implementation "androidx.compose.ui:ui-util:1.4.3"
