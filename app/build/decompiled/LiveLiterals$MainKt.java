@@ -19,31 +19,37 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$MainKt {
    @NotNull
    public static final LiveLiterals$MainKt INSTANCE = new LiveLiterals$MainKt();
-   private static int Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main = 1;
+   private static int Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = 1;
    @Nullable
-   private static State State$Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main;
-   private static int Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main = 5;
+   private static State State$Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
+   private static int Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = 2;
    @Nullable
-   private static State State$Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main;
-   private static int Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main = 3;
+   private static State State$Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
+   private static int Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = 3;
    @Nullable
-   private static State State$Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main;
-   private static int Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main = 6;
+   private static State State$Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
+   private static int Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = 4;
    @Nullable
-   private static State State$Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main;
+   private static State State$Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
+   private static int Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = 5;
+   @Nullable
+   private static State State$Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
+   private static int Int$arg-0$call-chunked$arg-0$call-println$fun-main = 2;
+   @Nullable
+   private static State State$Int$arg-0$call-chunked$arg-0$call-println$fun-main;
 
    @LiveLiteralInfo(
-      key = "Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main",
-      offset = 80
+      key = "Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main",
+      offset = 70
    )
-   public final int Int$arg_0$call_to$0$vararg$arg_0$call_mapOf$val_map$fun_main/* $FF was: Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main*/() {
+   public final int Int$0$vararg$arg_0$call_listOf$$$this$call_chunked$arg_0$call_println$fun_main/* $FF was: Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main;
+         return Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
       } else {
-         State var10000 = State$Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main;
+         State var10000 = State$Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main", Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main);
-            State$Int$arg-0$call-to$0$vararg$arg-0$call-mapOf$val-map$fun-main = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main", Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main);
+            State$Int$0$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = var1;
             var10000 = var1;
          }
 
@@ -52,17 +58,17 @@ public final class LiveLiterals$MainKt {
    }
 
    @LiveLiteralInfo(
-      key = "Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main",
-      offset = 92
+      key = "Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main",
+      offset = 73
    )
-   public final int Int$arg_0$call_to$1$vararg$arg_0$call_mapOf$val_map$fun_main/* $FF was: Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main*/() {
+   public final int Int$1$vararg$arg_0$call_listOf$$$this$call_chunked$arg_0$call_println$fun_main/* $FF was: Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main;
+         return Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
       } else {
-         State var10000 = State$Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main;
+         State var10000 = State$Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main", Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main);
-            State$Int$arg-0$call-to$1$vararg$arg-0$call-mapOf$val-map$fun-main = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main", Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main);
+            State$Int$1$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = var1;
             var10000 = var1;
          }
 
@@ -71,17 +77,17 @@ public final class LiveLiterals$MainKt {
    }
 
    @LiveLiteralInfo(
-      key = "Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main",
-      offset = 104
+      key = "Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main",
+      offset = 76
    )
-   public final int Int$arg_0$call_to$2$vararg$arg_0$call_mapOf$val_map$fun_main/* $FF was: Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main*/() {
+   public final int Int$2$vararg$arg_0$call_listOf$$$this$call_chunked$arg_0$call_println$fun_main/* $FF was: Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main;
+         return Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
       } else {
-         State var10000 = State$Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main;
+         State var10000 = State$Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main", Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main);
-            State$Int$arg-0$call-to$2$vararg$arg-0$call-mapOf$val-map$fun-main = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main", Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main);
+            State$Int$2$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = var1;
             var10000 = var1;
          }
 
@@ -90,17 +96,55 @@ public final class LiveLiterals$MainKt {
    }
 
    @LiveLiteralInfo(
-      key = "Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main",
-      offset = 116
+      key = "Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main",
+      offset = 79
    )
-   public final int Int$arg_0$call_to$3$vararg$arg_0$call_mapOf$val_map$fun_main/* $FF was: Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main*/() {
+   public final int Int$3$vararg$arg_0$call_listOf$$$this$call_chunked$arg_0$call_println$fun_main/* $FF was: Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main;
+         return Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
       } else {
-         State var10000 = State$Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main;
+         State var10000 = State$Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main", Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main);
-            State$Int$arg-0$call-to$3$vararg$arg-0$call-mapOf$val-map$fun-main = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main", Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main);
+            State$Int$3$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).intValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main",
+      offset = 82
+   )
+   public final int Int$4$vararg$arg_0$call_listOf$$$this$call_chunked$arg_0$call_println$fun_main/* $FF was: Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
+      } else {
+         State var10000 = State$Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main", Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main);
+            State$Int$4$vararg$arg-0$call-listOf$$$this$call-chunked$arg-0$call-println$fun-main = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).intValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Int$arg-0$call-chunked$arg-0$call-println$fun-main",
+      offset = 93
+   )
+   public final int Int$arg_0$call_chunked$arg_0$call_println$fun_main/* $FF was: Int$arg-0$call-chunked$arg-0$call-println$fun-main*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Int$arg-0$call-chunked$arg-0$call-println$fun-main;
+      } else {
+         State var10000 = State$Int$arg-0$call-chunked$arg-0$call-println$fun-main;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-chunked$arg-0$call-println$fun-main", Int$arg-0$call-chunked$arg-0$call-println$fun-main);
+            State$Int$arg-0$call-chunked$arg-0$call-println$fun-main = var1;
             var10000 = var1;
          }
 

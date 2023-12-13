@@ -3,16 +3,22 @@
 package land.sungbin.androidplayground
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Text
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -175,16 +181,32 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
+      val list = remember { mutableStateListOf(0) }
+      val listState = remember(list) { derivedStateOf { list.toList() } }
+
+      LaunchedEffect(listState) {
+        launch {
+          println("Hello, world!")
+          snapshotFlow { listState.value }.collect { println(it) }
+        }
+
+        while (true) {
+//          Snapshot.withMutableSnapshot {
+//            list.clear()
+//            list.add(Random.nextInt(10))
+//          }
+          list.clear()
+          list.add(Random.nextInt(10))
+          delay(1000)
+        }
+      }
+
       Box(
-        Modifier
-          .pointerInput(Unit) {
-            detectVerticalDragGestures { change, dragAmount ->
-               Log.d("detectVerticalDragGestures", "offset: ${change.position}, previousOffset: ${change.previousPosition}")
-            }
-          }
-          .background(color = Color.Blue)
-          .fillMaxSize(),
-      )
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+      ) {
+        Text(text = list.joinToString(), fontSize = 30.sp)
+      }
     }
   }
 }
