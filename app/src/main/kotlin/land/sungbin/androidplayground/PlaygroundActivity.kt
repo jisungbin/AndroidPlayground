@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlin.random.Random
+import kotlinx.coroutines.runBlocking
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -181,7 +181,7 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val list = remember { mutableStateListOf(0) }
+      val list = remember { mutableStateListOf(0, 1, 2, 3, 4, 5, 6, 7, 9, 10) }
       val listState = remember(list) { derivedStateOf { list.toList() } }
 
       LaunchedEffect(listState) {
@@ -190,14 +190,24 @@ class PlaygroundActivity : ComponentActivity() {
           snapshotFlow { listState.value }.collect { println(it) }
         }
 
-        while (true) {
-//          Snapshot.withMutableSnapshot {
-//            list.clear()
-//            list.add(Random.nextInt(10))
-//          }
-          list.clear()
-          list.add(Random.nextInt(10))
-          delay(1000)
+//        while (true) {
+////          Snapshot.withMutableSnapshot {
+////            list.clear()
+////            list.add(Random.nextInt(10))
+////          }
+//          list.clear()
+//          list.add(Random.nextInt(10))
+//          delay(1000)
+//        }
+
+        val current = list.toList()
+        current.forEach {
+          if (it % 2 == 0) {
+            runBlocking {
+              list.remove(it)
+              delay(1000)
+            }
+          }
         }
       }
 
