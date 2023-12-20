@@ -7,18 +7,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.snapshotFlow
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -181,42 +178,23 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val list = remember { mutableStateListOf(0, 1, 2, 3, 4, 5, 6, 7, 9, 10) }
-      val listState = remember(list) { derivedStateOf { list.toList() } }
-
-      LaunchedEffect(listState) {
-        launch {
-          println("Hello, world!")
-          snapshotFlow { listState.value }.collect { println(it) }
-        }
-
-//        while (true) {
-////          Snapshot.withMutableSnapshot {
-////            list.clear()
-////            list.add(Random.nextInt(10))
-////          }
-//          list.clear()
-//          list.add(Random.nextInt(10))
-//          delay(1000)
-//        }
-
-        val current = list.toList()
-        current.forEach {
-          if (it % 2 == 0) {
-            runBlocking {
-              list.remove(it)
-              delay(1000)
-            }
-          }
-        }
+      var a by remember { mutableStateOf(A()) }
+      val test by remember {
+        val aState = derivedStateOf { a }.value
+        mutableStateOf(Test(aState))
       }
-
       Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
       ) {
-        Text(text = list.joinToString(), fontSize = 30.sp)
+        Button(onClick = { a = A() }) {
+          Text(text = test.a.toString())
+        }
       }
     }
   }
 }
+
+class A
+
+class Test(val a: A)

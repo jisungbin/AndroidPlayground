@@ -16,7 +16,6 @@
         android:required="false" />
 
     <application
-        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AndroidPlayground"
@@ -24,7 +23,6 @@
 
         <activity
             android:name=".PlaygroundActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|locale|layoutDirection"
             android:exported="true"
             android:theme="@style/Theme.AndroidPlayground"
             android:windowSoftInputMode="adjustResize">
