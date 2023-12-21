@@ -1,5 +1,9 @@
 package land.sungbin.androidplayground
 
+// -1142010939
+// -1932617631
+
 fun main() {
-  println(listOf(2, 1) as java.util.List<*> == listOf(2, 1) as java.util.List<*>)
+  println("ASDASFSAGWQGASDSAFHGQWF".hashCode())
+  println("ASDASFSAa2vasSDSAFHGQWF".hashCode())
 }
