@@ -5,7 +5,9 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.delay
 
@@ -170,18 +172,24 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val value = CompletableDeferred<Long>()
+      val value = remember { CompletableDeferred<Long>() }
 
       LaunchedEffect(value) {
+        println("Enter: ${System.currentTimeMillis()}")
         println("One is ${value.await()}")
         println("Two is ${value.await()}")
         println("Three is ${value.await()}")
       }
 
       LaunchedEffect(value) {
-        delay(3000)
+        println("Enter2: ${System.currentTimeMillis()}")
+        delay(2000)
         value.complete(System.currentTimeMillis())
       }
+
+      println("Hello World!!!!")
+
+      BasicText(text = "Hello World!")
     }
   }
 }

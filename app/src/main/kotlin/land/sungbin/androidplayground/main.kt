@@ -1,6 +1,17 @@
 package land.sungbin.androidplayground
 
-fun main() {
-  val list = listOf("하" to true, "가" to true, "라" to false, "다" to true, "나" to false)
-  println(list.sortedWith(compareBy({ !it.second }, { it.first })))
+import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
+
+fun main() = runBlocking {
+  val value = CompletableDeferred<Long>()
+  println("Enter: ${System.currentTimeMillis()}")
+
+  delay(3000)
+  value.complete(System.currentTimeMillis())
+
+  println("One is ${value.await()}")
+  println("Two is ${value.await()}")
+  println("Three is ${value.await()}")
 }
