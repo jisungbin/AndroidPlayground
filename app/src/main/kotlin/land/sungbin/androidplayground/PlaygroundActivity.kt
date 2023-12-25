@@ -2,6 +2,7 @@
 
 package land.sungbin.androidplayground
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,11 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
@@ -178,23 +175,20 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      var a by remember { mutableStateOf(A()) }
-      val test by remember {
-        val aState = derivedStateOf { a }.value
-        mutableStateOf(Test(aState))
-      }
+      val currentMs = rememberSaveable { System.currentTimeMillis() }
+
       Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
       ) {
-        Button(onClick = { a = A() }) {
-          Text(text = test.a.toString())
+        Button(
+          onClick = {
+            startActivity(Intent(this@PlaygroundActivity, SecondActivity::class.java))
+          },
+        ) {
+          Text(text = "FirstActivity: $currentMs")
         }
       }
     }
   }
 }
-
-class A
-
-class Test(val a: A)

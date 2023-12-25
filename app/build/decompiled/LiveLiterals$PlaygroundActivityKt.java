@@ -19,15 +19,33 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$PlaygroundActivityKt {
    @NotNull
    public static final LiveLiterals$PlaygroundActivityKt INSTANCE = new LiveLiterals$PlaygroundActivityKt();
+   @NotNull
+   private static String String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = "FirstActivity: ";
+   @Nullable
+   private static State State$String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
    private static int Int$class-PlaygroundActivity;
    @Nullable
    private static State State$Int$class-PlaygroundActivity;
-   private static int Int$class-A;
-   @Nullable
-   private static State State$Int$class-A;
-   private static int Int$class-Test;
-   @Nullable
-   private static State State$Int$class-Test;
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity",
+      offset = 7337
+   )
+   @NotNull
+   public final String String$0$str$arg_0$call_Text$fun_$anonymous$$arg_9$call_Button$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_1$call_setContent$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
 
    @LiveLiteralInfo(
       key = "Int$class-PlaygroundActivity",
@@ -41,44 +59,6 @@ public final class LiveLiterals$PlaygroundActivityKt {
          if (var10000 == null) {
             State var1 = LiveLiteralKt.liveLiteral("Int$class-PlaygroundActivity", Int$class-PlaygroundActivity);
             State$Int$class-PlaygroundActivity = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$class-A",
-      offset = -1
-   )
-   public final int Int$class_A/* $FF was: Int$class-A*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$class-A;
-      } else {
-         State var10000 = State$Int$class-A;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$class-A", Int$class-A);
-            State$Int$class-A = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$class-Test",
-      offset = -1
-   )
-   public final int Int$class_Test/* $FF was: Int$class-Test*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$class-Test;
-      } else {
-         State var10000 = State$Int$class-Test;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$class-Test", Int$class-Test);
-            State$Int$class-Test = var1;
             var10000 = var1;
          }
 
