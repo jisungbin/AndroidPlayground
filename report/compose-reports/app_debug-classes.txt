@@ -1,4 +1,3 @@
-stable class PlaygroundActivity {
-  stable val ms: Long
+stable class SecondActivity {
   <runtime stability> = Stable
 }
