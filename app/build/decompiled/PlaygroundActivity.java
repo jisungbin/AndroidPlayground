@@ -62,14 +62,19 @@ import org.jetbrains.annotations.Nullable;
    mv = {1, 9, 0},
    k = 1,
    xi = 48,
-   d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0012\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\u0014¨\u0006\u0007"},
-   d2 = {"Lland/sungbin/androidplayground/PlaygroundActivity;", "Landroidx/activity/ComponentActivity;", "()V", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "app_debug"}
+   d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0012\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\nH\u0014R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u000b"},
+   d2 = {"Lland/sungbin/androidplayground/PlaygroundActivity;", "Landroidx/activity/ComponentActivity;", "()V", "ms", "", "getMs", "()J", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "app_debug"}
 )
 @StabilityInferred(
    parameters = 1
 )
 public final class PlaygroundActivity extends ComponentActivity {
+   private final long ms = System.currentTimeMillis();
    public static final int $stable;
+
+   public final long getMs() {
+      return this.ms;
+   }
 
    protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -79,15 +84,15 @@ public final class PlaygroundActivity extends ComponentActivity {
             applier = "androidx.compose.ui.UiComposable"
          )
          public final void invoke(@Nullable Composer $composer, int $changed) {
-            ComposerKt.sourceInformation($composer, "C178@7078L47,180@7133L321,193@7462L62:PlaygroundActivity.kt#qshby3");
+            ComposerKt.sourceInformation($composer, "C180@7117L47,182@7172L314,195@7494L62:PlaygroundActivity.kt#qshby3");
             if (($changed & 11) == 2 && $composer.getSkipping()) {
                $composer.skipToGroupEnd();
             } else {
                if (ComposerKt.isTraceInProgress()) {
-                  ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.PlaygroundActivity.onCreate.<anonymous> (PlaygroundActivity.kt:178)");
+                  ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.PlaygroundActivity.onCreate.<anonymous> (PlaygroundActivity.kt:180)");
                }
 
-               final long currentMs = ((Number)RememberSaveableKt.rememberSaveable(new Object[0], (Saver)null, (String)null, (Function0)null.INSTANCE, $composer, 3080, 6)).longValue();
+               long currentMs = ((Number)RememberSaveableKt.rememberSaveable(new Object[0], (Saver)null, (String)null, (Function0)null.INSTANCE, $composer, 3080, 6)).longValue();
                Modifier modifier$iv = SizeKt.fillMaxSize$default((Modifier)Modifier.Companion, 0.0F, 1, (Object)null);
                Alignment contentAlignment$iv = Alignment.Companion.getCenter();
                final PlaygroundActivity var8 = PlaygroundActivity.this;
@@ -138,8 +143,8 @@ public final class PlaygroundActivity extends ComponentActivity {
                int var29 = 6 | 112 & $changed$ivx >> 6;
                BoxScope var10000 = (BoxScope)BoxScopeInstance.INSTANCE;
                int var32 = false;
-               ComposerKt.sourceInformationMarkerStart($composer, -14390824, "C184@7244L202:PlaygroundActivity.kt#qshby3");
-               $composer.startReplaceableGroup(-1968075127);
+               ComposerKt.sourceInformationMarkerStart($composer, -14390785, "C186@7283L195:PlaygroundActivity.kt#qshby3");
+               $composer.startReplaceableGroup(-1968075088);
                boolean invalid$iv = $composer.changed(var8);
                int $i$f$cache = false;
                Object it$iv = $composer.rememberedValue();
@@ -167,15 +172,15 @@ public final class PlaygroundActivity extends ComponentActivity {
                   )
                   public final void invoke(@NotNull RowScope $this$Button, @Nullable Composer $composer, int $changed) {
                      Intrinsics.checkNotNullParameter($this$Button, "$this$Button");
-                     ComposerKt.sourceInformation($composer, "C189@7396L40:PlaygroundActivity.kt#qshby3");
+                     ComposerKt.sourceInformation($composer, "C191@7435L33:PlaygroundActivity.kt#qshby3");
                      if (($changed & 81) == 16 && $composer.getSkipping()) {
                         $composer.skipToGroupEnd();
                      } else {
                         if (ComposerKt.isTraceInProgress()) {
-                           ComposerKt.traceEventStart(1589692019, $changed, -1, "land.sungbin.androidplayground.PlaygroundActivity.onCreate.<anonymous>.<anonymous>.<anonymous> (PlaygroundActivity.kt:189)");
+                           ComposerKt.traceEventStart(1589692019, $changed, -1, "land.sungbin.androidplayground.PlaygroundActivity.onCreate.<anonymous>.<anonymous>.<anonymous> (PlaygroundActivity.kt:191)");
                         }
 
-                        TextKt.Text--4IGK_g(LiveLiterals$PlaygroundActivityKt.INSTANCE.String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity() + currentMs, (Modifier)null, 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 0, 0, 131070);
+                        TextKt.Text--4IGK_g(LiveLiterals$PlaygroundActivityKt.INSTANCE.String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity() + var8.getMs(), (Modifier)null, 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 0, 0, 131070);
                         if (ComposerKt.isTraceInProgress()) {
                            ComposerKt.traceEventEnd();
                         }

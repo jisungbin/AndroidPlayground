@@ -173,11 +173,11 @@ import androidx.compose.ui.Modifier
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
+  private val ms = System.currentTimeMillis()
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val currentMs = rememberSaveable { System.currentTimeMillis() }
-
       Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -187,7 +187,7 @@ class PlaygroundActivity : ComponentActivity() {
             startActivity(Intent(this@PlaygroundActivity, SecondActivity::class.java))
           },
         ) {
-          Text(text = "FirstActivity: $currentMs")
+          Text(text = "FirstActivity: $ms")
         }
       }
 

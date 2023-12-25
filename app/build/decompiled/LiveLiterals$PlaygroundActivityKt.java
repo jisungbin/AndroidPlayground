@@ -33,7 +33,7 @@ public final class LiveLiterals$PlaygroundActivityKt {
 
    @LiveLiteralInfo(
       key = "String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity",
-      offset = 7409
+      offset = 7448
    )
    @NotNull
    public final String String$0$str$arg_0$call_Text$fun_$anonymous$$arg_9$call_Button$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_1$call_setContent$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-Text$fun-$anonymous$$arg-9$call-Button$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity*/() {
@@ -53,7 +53,7 @@ public final class LiveLiterals$PlaygroundActivityKt {
 
    @LiveLiteralInfo(
       key = "String$arg-0$call-println$fun-$anonymous$$arg-1$call-LaunchedEffect$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity",
-      offset = 7502
+      offset = 7534
    )
    @NotNull
    public final String String$arg_0$call_println$fun_$anonymous$$arg_1$call_LaunchedEffect$fun_$anonymous$$arg_1$call_setContent$fun_onCreate$class_PlaygroundActivity/* $FF was: String$arg-0$call-println$fun-$anonymous$$arg-1$call-LaunchedEffect$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity*/() {
