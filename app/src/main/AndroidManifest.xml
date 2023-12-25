@@ -24,8 +24,7 @@
         <activity
             android:name=".PlaygroundActivity"
             android:exported="true"
-            android:theme="@style/Theme.AndroidPlayground"
-            android:windowSoftInputMode="adjustResize">
+            android:theme="@style/Theme.AndroidPlayground">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
