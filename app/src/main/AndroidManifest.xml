@@ -18,13 +18,13 @@
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:taskAffinity="drtsdk.ui"
         android:theme="@style/Theme.AndroidPlayground"
         android:usesCleartextTraffic="true">
 
         <activity
             android:name=".PlaygroundActivity"
             android:exported="true"
-            android:taskAffinity="drtsdk_ui"
             android:theme="@style/Theme.AndroidPlayground">
 
             <intent-filter>
@@ -33,13 +33,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".SecondActivity"
-            android:taskAffinity="drtsdk_ui" />
+        <activity android:name=".SecondActivity" />
 
-        <activity
-            android:name=".ThirdActivity"
-            android:taskAffinity="drtsdk_ui" />
+        <activity android:name=".ThirdActivity" />
 
     </application>
 
