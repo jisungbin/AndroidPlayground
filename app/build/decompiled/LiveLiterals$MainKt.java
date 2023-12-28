@@ -19,122 +19,48 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$MainKt {
    @NotNull
    public static final LiveLiterals$MainKt INSTANCE = new LiveLiterals$MainKt();
-   @NotNull
-   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main = "Enter: ";
+   private static int Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
    @Nullable
-   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-   private static long Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main = 3000L;
+   private static State State$Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
+   private static int Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
    @Nullable
-   private static State State$Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-   @NotNull
-   private static String String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main = "One is ";
-   @Nullable
-   private static State State$String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-   @NotNull
-   private static String String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main = "Two is ";
-   @Nullable
-   private static State State$String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-   @NotNull
-   private static String String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main = "Three is ";
-   @Nullable
-   private static State State$String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
+   private static State State$Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
 
    @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main",
+      key = "Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main",
+      offset = 162
+   )
+   public final int Int$val_count$fun_$anonymous$$arg_1$call_runBlocking$fun_main/* $FF was: Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
+      } else {
+         State var10000 = State$Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main", Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main);
+            State$Int$val-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).intValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main",
       offset = 237
    )
-   @NotNull
-   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_1$call_runBlocking$fun_main/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main*/() {
+   public final int Int$set_count$fun_$anonymous$$arg_1$call_runBlocking$fun_main/* $FF was: Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
+         return Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
       } else {
-         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
+         State var10000 = State$Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main", String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main);
-            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-runBlocking$fun-main = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main", Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main);
+            State$Int$set-count$fun-$anonymous$$arg-1$call-runBlocking$fun-main = var1;
             var10000 = var1;
          }
 
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main",
-      offset = 285
-   )
-   public final long Long$arg_0$call_delay$fun_$anonymous$$arg_1$call_runBlocking$fun_main/* $FF was: Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-      } else {
-         State var10000 = State$Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main", Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main);
-            State$Long$arg-0$call-delay$fun-$anonymous$$arg-1$call-runBlocking$fun-main = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).longValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main",
-      offset = 348
-   )
-   @NotNull
-   public final String String$0$str$arg_0$call_println_1$fun_$anonymous$$arg_1$call_runBlocking$fun_main/* $FF was: String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-      } else {
-         State var10000 = State$String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main", String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main);
-            State$String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-1$call-runBlocking$fun-main = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main",
-      offset = 385
-   )
-   @NotNull
-   public final String String$0$str$arg_0$call_println_2$fun_$anonymous$$arg_1$call_runBlocking$fun_main/* $FF was: String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-      } else {
-         State var10000 = State$String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main", String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main);
-            State$String$0$str$arg-0$call-println-2$fun-$anonymous$$arg-1$call-runBlocking$fun-main = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main",
-      offset = 422
-   )
-   @NotNull
-   public final String String$0$str$arg_0$call_println_3$fun_$anonymous$$arg_1$call_runBlocking$fun_main/* $FF was: String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-      } else {
-         State var10000 = State$String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main", String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main);
-            State$String$0$str$arg-0$call-println-3$fun-$anonymous$$arg-1$call-runBlocking$fun-main = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
+         return ((Number)var10000.getValue()).intValue();
       }
    }
 }

@@ -77,7 +77,7 @@ public final class SecondActivity extends ComponentActivity {
             applier = "androidx.compose.ui.UiComposable"
          )
          public final void invoke(@Nullable Composer $composer, int $changed) {
-            ComposerKt.sourceInformation($composer, "C23@879L22,25@909L252,33@1169L74:SecondActivity.kt#qshby3");
+            ComposerKt.sourceInformation($composer, "C23@879L22,25@909L252,33@1169L77:SecondActivity.kt#qshby3");
             if (($changed & 11) == 2 && $composer.getSkipping()) {
                $composer.skipToGroupEnd();
             } else {
@@ -99,53 +99,32 @@ public final class SecondActivity extends ComponentActivity {
                      SecondActivity.this.startActivity(new Intent((Context)SecondActivity.this, ThirdActivity.class));
                   }
                }), 7, (Object)null), $composer, 0);
-               Unit var10000 = Unit.INSTANCE;
-               $composer.startReplaceableGroup(-1894252224);
-               boolean invalid$iv = $composer.changed(textMeasurer);
-               int $i$f$cache = false;
-               Object it$iv = $composer.rememberedValue();
-               int var9 = false;
-               Object var13;
-               if (!invalid$iv && it$iv != Composer.Companion.getEmpty()) {
-                  var13 = it$iv;
-               } else {
-                  Unit var12 = var10000;
-                  int var10 = false;
-                  Function2 var10001 = (Function2)(new Function2((Continuation)null) {
-                     int label;
+               EffectsKt.LaunchedEffect(Unit.INSTANCE, (Function2)(new Function2((Continuation)null) {
+                  int label;
 
-                     @Nullable
-                     public final Object invokeSuspend(@NotNull Object var1) {
-                        IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                        switch(this.label) {
-                        case 0:
-                           ResultKt.throwOnFailure(var1);
-                           System.out.println(LiveLiterals$SecondActivityKt.INSTANCE.String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-LaunchedEffect$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-SecondActivity() + textMeasurer);
-                           return Unit.INSTANCE;
-                        default:
-                           throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-                        }
+                  @Nullable
+                  public final Object invokeSuspend(@NotNull Object var1) {
+                     IntrinsicsKt.getCOROUTINE_SUSPENDED();
+                     switch(this.label) {
+                     case 0:
+                        ResultKt.throwOnFailure(var1);
+                        System.out.println(LiveLiterals$SecondActivityKt.INSTANCE.String$0$str$arg-0$call-println$fun-$anonymous$$arg-1$call-LaunchedEffect$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-SecondActivity() + SecondActivity.this.getIntent().getExtras());
+                        return Unit.INSTANCE;
+                     default:
+                        throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                      }
+                  }
 
-                     @NotNull
-                     public final Continuation create(@Nullable Object value, @NotNull Continuation $completion) {
-                        return (Continuation)(new <anonymous constructor>($completion));
-                     }
+                  @NotNull
+                  public final Continuation create(@Nullable Object value, @NotNull Continuation $completion) {
+                     return (Continuation)(new <anonymous constructor>($completion));
+                  }
 
-                     @Nullable
-                     public final Object invoke(@NotNull CoroutineScope p1, @Nullable Continuation p2) {
-                        return ((<undefinedtype>)this.create(p1, p2)).invokeSuspend(Unit.INSTANCE);
-                     }
-                  });
-                  var10000 = var12;
-                  Object value$iv = var10001;
-                  $composer.updateRememberedValue(value$iv);
-                  var13 = value$iv;
-               }
-
-               Function2 var4 = (Function2)var13;
-               $composer.endReplaceableGroup();
-               EffectsKt.LaunchedEffect(var10000, var4, $composer, 70);
+                  @Nullable
+                  public final Object invoke(@NotNull CoroutineScope p1, @Nullable Continuation p2) {
+                     return ((<undefinedtype>)this.create(p1, p2)).invokeSuspend(Unit.INSTANCE);
+                  }
+               }), $composer, 70);
                if (ComposerKt.isTraceInProgress()) {
                   ComposerKt.traceEventEnd();
                }

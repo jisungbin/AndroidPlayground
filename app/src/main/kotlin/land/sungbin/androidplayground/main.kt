@@ -1,17 +1,10 @@
 package land.sungbin.androidplayground
 
-import kotlinx.coroutines.CompletableDeferred
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 
-fun main() = runBlocking {
-  val value = CompletableDeferred<Long>()
-  println("Enter: ${System.currentTimeMillis()}")
-
-  delay(3000)
-  value.complete(System.currentTimeMillis())
-
-  println("One is ${value.await()}")
-  println("Two is ${value.await()}")
-  println("Three is ${value.await()}")
+fun main(): Unit = runBlocking {
+  var count = 0
+  flow { while (++count < 10) emit(count) }.collect(::println)
+  count = 0
 }

@@ -32,7 +32,7 @@ class SecondActivity : ComponentActivity() {
       )
 
       LaunchedEffect(Unit) {
-        println("Enter with $textMeasurer")
+        println("Enter with ${intent.extras}")
       }
     }
   }
