@@ -1,0 +1,9 @@
+stable class PlaygroundActivity {
+  <runtime stability> = Stable
+}
+stable class SecondActivity {
+  <runtime stability> = Stable
+}
+stable class ThirdActivity {
+  <runtime stability> = Stable
+}

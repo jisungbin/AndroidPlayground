@@ -24,6 +24,7 @@
         <activity
             android:name=".PlaygroundActivity"
             android:exported="true"
+            android:taskAffinity="drtsdk_ui"
             android:theme="@style/Theme.AndroidPlayground">
 
             <intent-filter>
@@ -32,8 +33,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".ThirdActivity" />
+        <activity
+            android:name=".SecondActivity"
+            android:taskAffinity="drtsdk_ui" />
+
+        <activity
+            android:name=".ThirdActivity"
+            android:taskAffinity="drtsdk_ui" />
 
     </application>
 

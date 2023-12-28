@@ -2,14 +2,16 @@
 
 package land.sungbin.androidplayground
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
-import kotlinx.coroutines.CompletableDeferred
-import kotlinx.coroutines.delay
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -172,24 +174,12 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val value = remember { CompletableDeferred<Long>() }
-
-      LaunchedEffect(value) {
-        println("Enter: ${System.currentTimeMillis()}")
-        println("One is ${value.await()}")
-        println("Two is ${value.await()}")
-        println("Three is ${value.await()}")
-      }
-
-      LaunchedEffect(value) {
-        println("Enter2: ${System.currentTimeMillis()}")
-        delay(2000)
-        value.complete(System.currentTimeMillis())
-      }
-
-      println("Hello World!!!!")
-
-      BasicText(text = "Hello World!")
+      Box(
+        Modifier
+          .fillMaxSize()
+          .background(color = Color.Cyan)
+          .clickable { startActivity(Intent(this, SecondActivity::class.java)) },
+      )
     }
   }
 }
