@@ -18,7 +18,7 @@ class ThirdActivity : ComponentActivity() {
         Modifier
           .fillMaxSize()
           .background(color = Color.Yellow)
-          .clickable { finishAffinity() },
+          .clickable(onClick = ::finish),
       )
     }
   }

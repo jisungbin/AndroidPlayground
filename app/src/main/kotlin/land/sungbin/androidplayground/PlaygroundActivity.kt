@@ -178,7 +178,12 @@ class PlaygroundActivity : ComponentActivity() {
         Modifier
           .fillMaxSize()
           .background(color = Color.Cyan)
-          .clickable { startActivity(Intent(this, SecondActivity::class.java)) },
+          .clickable {
+            val intent = Intent(this, SecondActivity::class.java).apply {
+              putExtra("test", System.currentTimeMillis().toString())
+            }
+            startActivity(intent)
+          },
       )
     }
   }
