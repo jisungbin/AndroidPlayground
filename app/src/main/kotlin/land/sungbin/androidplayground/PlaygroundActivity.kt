@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import land.sungbin.androidplayground.app02.PlaygroundActivity2
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -179,7 +180,7 @@ class PlaygroundActivity : ComponentActivity() {
           .fillMaxSize()
           .background(color = Color.Cyan)
           .clickable {
-            val intent = Intent(this, SecondActivity::class.java).apply {
+            val intent = Intent(this, PlaygroundActivity2::class.java).apply {
               putExtra("test", System.currentTimeMillis().toString())
             }
             startActivity(intent)

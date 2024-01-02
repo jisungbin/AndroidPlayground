@@ -23,6 +23,7 @@ import androidx.compose.ui.semantics.Role;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import land.sungbin.androidplayground.app02.PlaygroundActivity2;
 import org.jetbrains.annotations.Nullable;
 
 @Metadata(
@@ -46,19 +47,19 @@ public final class PlaygroundActivity extends ComponentActivity {
             applier = "androidx.compose.ui.UiComposable"
          )
          public final void invoke(@Nullable Composer $composer, int $changed) {
-            ComposerKt.sourceInformation($composer, "C176@6973L324:PlaygroundActivity.kt#qshby3");
+            ComposerKt.sourceInformation($composer, "C177@7037L329:PlaygroundActivity.kt#qshby3");
             if (($changed & 11) == 2 && $composer.getSkipping()) {
                $composer.skipToGroupEnd();
             } else {
                if (ComposerKt.isTraceInProgress()) {
-                  ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.PlaygroundActivity.onCreate.<anonymous> (PlaygroundActivity.kt:176)");
+                  ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.PlaygroundActivity.onCreate.<anonymous> (PlaygroundActivity.kt:177)");
                }
 
                Modifier var10000 = BackgroundKt.background-bw27NRU$default(SizeKt.fillMaxSize$default((Modifier)Modifier.Companion, 0.0F, 1, (Object)null), Color.Companion.getCyan-0d7_KjU(), (Shape)null, 2, (Object)null);
                boolean var10001 = false;
                Object var10002 = null;
                Object var10003 = null;
-               $composer.startReplaceableGroup(-1968075316);
+               $composer.startReplaceableGroup(-1968075252);
                boolean invalid$iv = $composer.changed(PlaygroundActivity.this);
                final PlaygroundActivity var6 = PlaygroundActivity.this;
                int $i$f$cache = false;
@@ -75,7 +76,7 @@ public final class PlaygroundActivity extends ComponentActivity {
                   int var10 = false;
                   Function0 var16 = (Function0)(new Function0() {
                      public final void invoke() {
-                        Intent var2 = new Intent((Context)var6, SecondActivity.class);
+                        Intent var2 = new Intent((Context)var6, PlaygroundActivity2.class);
                         int var4 = false;
                         var2.putExtra(LiveLiterals$PlaygroundActivityKt.INSTANCE.String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity(), String.valueOf(System.currentTimeMillis()));
                         var6.startActivity(var2);

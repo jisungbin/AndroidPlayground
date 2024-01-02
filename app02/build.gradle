@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id "com.github.takahirom.decomposer"
     id 'kotlin-parcelize'
@@ -10,15 +10,11 @@ plugins {
 
 android {
     compileSdk 34
-    namespace 'land.sungbin.androidplayground'
+    namespace 'land.sungbin.androidplayground.app2'
 
     defaultConfig {
-        applicationId "land.sungbin.androidplayground"
         minSdk 23
-        //noinspection EditedTargetSdkVersion
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
     }
 
     compileOptions {
@@ -88,7 +84,7 @@ dependencies {
 //
 //    // local
 //    implementation project(':test01')
-    implementation project(':app02')
+//    implementation project(':test02')
 
 //    // quackquack
     // implementation platform("team.duckie.quackquack.bom:bom:2023.07.08")

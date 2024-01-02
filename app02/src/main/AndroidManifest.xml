@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity
+            android:name="land.sungbin.androidplayground.app02.PlaygroundActivity2"
+            android:taskAffinity="land.sungbin.androidplayground.app2" />
+
+        <activity
+            android:name="land.sungbin.androidplayground.app02.SecondActivity2"
+            android:taskAffinity="land.sungbin.androidplayground.app2" />
+
+        <activity
+            android:name="land.sungbin.androidplayground.app02.ThirdActivity2"
+            android:taskAffinity="land.sungbin.androidplayground.app2" />
+
+    </application>
+
+</manifest>
