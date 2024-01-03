@@ -10,6 +10,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import land.sungbin.androidplayground.app02.PlaygroundActivity2
@@ -175,13 +176,15 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
+      val ms = remember { System.currentTimeMillis() }
+
       Box(
         Modifier
           .fillMaxSize()
           .background(color = Color.Cyan)
           .clickable {
             val intent = Intent(this, PlaygroundActivity2::class.java).apply {
-              putExtra("test", System.currentTimeMillis().toString())
+              putExtra("test", ms.toString())
             }
             startActivity(intent)
           },
