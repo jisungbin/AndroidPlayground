@@ -1,10 +1,14 @@
 package land.sungbin.androidplayground
 
-fun main() {
-  var target = 0
-  val targetGetter = { target }
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.Snapshot
 
-  println(targetGetter())
-  target++
-  println(targetGetter())
+fun main() {
+  (1..10).forEach loop@{ number ->
+    if (number % 2 == 0) return@loop
+    println(number)
+  }
 }
