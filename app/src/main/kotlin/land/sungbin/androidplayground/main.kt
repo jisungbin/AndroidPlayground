@@ -2,6 +2,7 @@ package land.sungbin.androidplayground
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.runtime.snapshots.SnapshotMutableState
@@ -12,8 +13,11 @@ fun main() {
     println("written: ${stateObject.value}")
   }
 
-  var state by mutableIntStateOf(0)
+  var intState by mutableIntStateOf(0)
+  var stringState by mutableStateOf("Hello")
+
   repeat(10) {
-    state++
+    intState++
+    stringState += stringState
   }
 }
