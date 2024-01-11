@@ -1,0 +1,10 @@
+stable class PlaygroundActivity {
+  <runtime stability> = Stable
+}
+unstable class SecondActivity {
+  unstable val ms$delegate: Lazy<@[EnhancedNullability] String>
+  <runtime stability> = Unstable
+}
+stable class ThirdActivity {
+  <runtime stability> = Stable
+}
