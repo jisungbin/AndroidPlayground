@@ -19,33 +19,9 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$PlaygroundActivityKt {
    @NotNull
    public static final LiveLiterals$PlaygroundActivityKt INSTANCE = new LiveLiterals$PlaygroundActivityKt();
-   @NotNull
-   private static String String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = "test";
-   @Nullable
-   private static State State$String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
    private static int Int$class-PlaygroundActivity;
    @Nullable
    private static State State$Int$class-PlaygroundActivity;
-
-   @LiveLiteralInfo(
-      key = "String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity",
-      offset = 7349
-   )
-   @NotNull
-   public final String String$arg_0$call_putExtra$fun_$anonymous$$arg_0$call_apply$val_intent$fun_$anonymous$$arg_3$call_clickable$arg_0$call_Box$fun_$anonymous$$arg_1$call_setContent$fun_onCreate$class_PlaygroundActivity/* $FF was: String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
-      } else {
-         State var10000 = State$String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity", String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity);
-            State$String$arg-0$call-putExtra$fun-$anonymous$$arg-0$call-apply$val-intent$fun-$anonymous$$arg-3$call-clickable$arg-0$call-Box$fun-$anonymous$$arg-1$call-setContent$fun-onCreate$class-PlaygroundActivity = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
 
    @LiveLiteralInfo(
       key = "Int$class-PlaygroundActivity",
