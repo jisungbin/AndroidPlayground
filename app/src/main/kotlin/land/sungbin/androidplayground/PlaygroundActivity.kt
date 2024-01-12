@@ -224,7 +224,11 @@ BLOCK type=kotlin.Unit origin=null
 
 @Composable
 fun Content(ms: MutableLongState) {
-  Button(onClick = { ms.longValue = System.currentTimeMillis() }) {
-    Text(text = ms.longValue.toString())
-  }
+  Button(onClick = { ms.longValue = System.currentTimeMillis() }) {}
+  Display(text = ms.longValue.toString())
+}
+
+@Composable
+private fun Display(text: String) {
+  Text(text = text)
 }
