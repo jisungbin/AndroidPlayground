@@ -38,36 +38,36 @@ w: dump: FILE fqName:land.sungbin.androidplayground fileName:/Users/jisungbin/An
                   then: CONST Int type=kotlin.Int value=2
       WHEN type=kotlin.Unit origin=IF
         BRANCH
-          if: WHEN type=kotlin.Boolean origin=OROR
-            BRANCH
-              if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
-                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
-                  arg0: CALL 'public final fun and (other: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
-                    $this: GET_VAR 'val $dirty: kotlin.Int [val] declared in land.sungbin.androidplayground.Content' type=kotlin.Int origin=null
-                    other: CONST Int type=kotlin.Int value=11
-                  arg1: CONST Int type=kotlin.Int value=2
-              then: CONST Boolean type=kotlin.Boolean value=true
-            BRANCH
-              if: CONST Boolean type=kotlin.Boolean value=true
-              then: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
-                $this: CALL 'public abstract fun <get-skipping> (): kotlin.Boolean declared in androidx.compose.runtime.Composer' type=kotlin.Boolean origin=null
-                  $this: GET_VAR '$composer: androidx.compose.runtime.Composer? [assignable] declared in land.sungbin.androidplayground.Content' type=androidx.compose.runtime.Composer? origin=null
-          then: BLOCK type=kotlin.Unit origin=null
-            WHEN type=kotlin.Unit origin=IF
-              BRANCH
-                if: CALL 'public final fun isTraceInProgress (): kotlin.Boolean declared in androidx.compose.runtime.ComposerKt' type=kotlin.Boolean origin=null
-                then: CALL 'public final fun traceEventStart (key: kotlin.Int, dirty1: kotlin.Int, dirty2: kotlin.Int, info: kotlin.String): kotlin.Unit declared in androidx.compose.runtime.ComposerKt' type=kotlin.Unit origin=null
-                  key: CONST Int type=kotlin.Int value=456589275
-                  dirty1: GET_VAR 'val $dirty: kotlin.Int [val] declared in land.sungbin.androidplayground.Content' type=kotlin.Int origin=null
-                  dirty2: CONST Int type=kotlin.Int value=-1
-                  info: CONST String type=kotlin.String value="land.sungbin.androidplayground.Content (ir-dump-target.kt:51)"
-            CALL 'public final fun Button (onClick: kotlin.Function0<kotlin.Unit>, modifier: androidx.compose.ui.Modifier?, enabled: kotlin.Boolean, shape: androidx.compose.ui.graphics.Shape?, colors: androidx.compose.material3.ButtonColors?, elevation: androidx.compose.material3.ButtonElevation?, border: androidx.compose.foundation.BorderStroke?, contentPadding: androidx.compose.foundation.layout.PaddingValues?, interactionSource: androidx.compose.foundation.interaction.MutableInteractionSource?, content: @[ExtensionFunctionType] kotlin.Function3<androidx.compose.foundation.layout.RowScope, androidx.compose.runtime.Composer, kotlin.Int, kotlin.Unit>, $composer: androidx.compose.runtime.Composer?, $changed: kotlin.Int, $default: kotlin.Int): kotlin.Unit declared in androidx.compose.material3.ButtonKt' type=kotlin.Unit origin=null
-              onClick: BLOCK type=kotlin.Function0<kotlin.Unit> origin=null
-                CALL 'public abstract fun startReplaceableGroup (key: kotlin.Int): kotlin.Unit declared in androidx.compose.runtime.Composer' type=kotlin.Unit origin=null
-                  $this: GET_VAR '$composer: androidx.compose.runtime.Composer? [assignable] declared in land.sungbin.androidplayground.Content' type=androidx.compose.runtime.Composer? origin=null
-                  key: CONST Int type=kotlin.Int value=114597045
-                VAR IR_TEMPORARY_VARIABLE name:tmpCache type:kotlin.Function0<kotlin.Unit> [val]
-                  CALL 'public final fun cache <T> (invalid: kotlin.Boolean, block: @[DisallowComposableCalls] kotlin.Function0<T of androidx.compose.runtime.ComposerKt.cache>): T of androidx.compose.runtime.ComposerKt.cache [inline] declared in androidx.compose.runtime.ComposerKt' type=kotlin.Function0<kotlin.Unit> origin=null
+          |if: WHEN type=kotlin.Boolean origin=OROR
+          |  BRANCH
+          |    if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+          |      $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+          |        arg0: CALL 'public final fun and (other: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+          |          $this: GET_VAR 'val $dirty: kotlin.Int [val] declared in land.sungbin.androidplayground.Content' type=kotlin.Int origin=null
+          |          other: CONST Int type=kotlin.Int value=11
+          |        arg1: CONST Int type=kotlin.Int value=2
+          |    then: CONST Boolean type=kotlin.Boolean value=true
+          |  BRANCH
+          |    if: CONST Boolean type=kotlin.Boolean value=true
+          |    then: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+          |      $this: CALL 'public abstract fun <get-skipping> (): kotlin.Boolean declared in androidx.compose.runtime.Composer' type=kotlin.Boolean origin=null
+          |        $this: GET_VAR '$composer: androidx.compose.runtime.Composer? [assignable] declared in land.sungbin.androidplayground.Content' type=androidx.compose.runtime.Composer? origin=null
+          |then: BLOCK type=kotlin.Unit origin=null
+          |  WHEN type=kotlin.Unit origin=IF
+          |    BRANCH
+          |      if: CALL 'public final fun isTraceInProgress (): kotlin.Boolean declared in androidx.compose.runtime.ComposerKt' type=kotlin.Boolean origin=null
+          |      then: CALL 'public final fun traceEventStart (key: kotlin.Int, dirty1: kotlin.Int, dirty2: kotlin.Int, info: kotlin.String): kotlin.Unit declared in androidx.compose.runtime.ComposerKt' type=kotlin.Unit origin=null
+          |        key: CONST Int type=kotlin.Int value=456589275
+          |        dirty1: GET_VAR 'val $dirty: kotlin.Int [val] declared in land.sungbin.androidplayground.Content' type=kotlin.Int origin=null
+          |        dirty2: CONST Int type=kotlin.Int value=-1
+          |        info: CONST String type=kotlin.String value="land.sungbin.androidplayground.Content (ir-dump-target.kt:51)"
+          |  CALL 'public final fun Button (onClick: kotlin.Function0<kotlin.Unit>, modifier: androidx.compose.ui.Modifier?, enabled: kotlin.Boolean, shape: androidx.compose.ui.graphics.Shape?, colors: androidx.compose.material3.ButtonColors?, elevation: androidx.compose.material3.ButtonElevation?, border: androidx.compose.foundation.BorderStroke?, contentPadding: androidx.compose.foundation.layout.PaddingValues?, interactionSource: androidx.compose.foundation.interaction.MutableInteractionSource?, content: @[ExtensionFunctionType] kotlin.Function3<androidx.compose.foundation.layout.RowScope, androidx.compose.runtime.Composer, kotlin.Int, kotlin.Unit>, $composer: androidx.compose.runtime.Composer?, $changed: kotlin.Int, $default: kotlin.Int): kotlin.Unit declared in androidx.compose.material3.ButtonKt' type=kotlin.Unit origin=null
+          |    onClick: BLOCK type=kotlin.Function0<kotlin.Unit> origin=null
+          |      CALL 'public abstract fun startReplaceableGroup (key: kotlin.Int): kotlin.Unit declared in androidx.compose.runtime.Composer' type=kotlin.Unit origin=null
+          |        $this: GET_VAR '$composer: androidx.compose.runtime.Composer? [assignable] declared in land.sungbin.androidplayground.Content' type=androidx.compose.runtime.Composer? origin=null
+          |        key: CONST Int type=kotlin.Int value=114597045
+          |      VAR IR_TEMPORARY_VARIABLE name:tmpCache type:kotlin.Function0<kotlin.Unit> [val]
+          |        CALL 'public final fun cache <T> (invalid: kotlin.Boolean, block: @[DisallowComposableCalls] kotlin.Function0<T of androidx.compose.runtime.ComposerKt.cache>): T of androidx.compose.runtime.ComposerKt.cache [inline] declared in androidx.compose.runtime.ComposerKt' type=kotlin.Function0<kotlin.Unit> origin=null
                     <T>: kotlin.Function0<kotlin.Unit>
                     $receiver: GET_VAR '$composer: androidx.compose.runtime.Composer? [assignable] declared in land.sungbin.androidplayground.Content' type=androidx.compose.runtime.Composer? origin=null
                     invalid: CALL 'public abstract fun changed (value: kotlin.Any?): kotlin.Boolean declared in androidx.compose.runtime.Composer' type=kotlin.Boolean origin=null
