@@ -3,7 +3,8 @@ package land.sungbin.androidplayground
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableLongState
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.remember
 
 /*
 { // BLOCK
@@ -49,7 +50,8 @@ BLOCK type=kotlin.Unit origin=null
  */
 
 @Composable
-fun Content(ms: MutableLongState) {
+fun Content() {
+  val ms = remember { mutableLongStateOf(System.currentTimeMillis()) }
   Button(onClick = { ms.longValue = System.currentTimeMillis() }) {}
   Display(text = ms.longValue.toString())
 }

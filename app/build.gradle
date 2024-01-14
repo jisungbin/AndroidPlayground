@@ -68,6 +68,9 @@ dependencies {
 //    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.google.android.material:material:1.11.0"
 
+    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.5-SNAPSHOT")
+    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.12-SNAPSHOT")
+
     add("kotlinCompilerPluginClasspath", "land.sungbin.kotlin:kotlin-compiler-ir-dump:0.2.0")
 
     // implementation 'team.duckie.quackquack.ui:ui:internal-2.0.0-test02'

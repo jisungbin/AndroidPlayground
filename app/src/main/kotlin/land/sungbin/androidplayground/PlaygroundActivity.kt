@@ -173,8 +173,7 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val ms = remember { mutableLongStateOf(System.currentTimeMillis()) }
-      Content(ms)
+      Content()
     }
   }
 }
