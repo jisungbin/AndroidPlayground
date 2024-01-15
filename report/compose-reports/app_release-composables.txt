@@ -1,1 +1,4 @@
-restartable skippable fun entry()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Display(
+  stable text: String
+)

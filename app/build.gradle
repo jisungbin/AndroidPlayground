@@ -15,7 +15,6 @@ android {
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
         minSdk 23
-        //noinspection EditedTargetSdkVersion
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -41,6 +40,10 @@ android {
                 "-P",
                 "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"
         ]
+        freeCompilerArgs += [
+                "-P",
+                "plugin:land.sungbin.composeinvestigator.compiler:verbose=true"
+        ]
     }
 
     buildFeatures {
@@ -54,7 +57,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "1.5.4"
+        kotlinCompilerExtensionVersion "1.5.7"
     }
 }
 
@@ -68,8 +71,10 @@ dependencies {
 //    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.google.android.material:material:1.11.0"
 
-    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.5-SNAPSHOT")
-    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.12-SNAPSHOT")
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.21"
+
+    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
+    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")
 
     add("kotlinCompilerPluginClasspath", "land.sungbin.kotlin:kotlin-compiler-ir-dump:0.2.0")
 
@@ -93,7 +98,7 @@ dependencies {
 //
 //    // local
 //    implementation project(':test01')
-    implementation project(':app02')
+//    implementation project(':app02')
 
 //    // quackquack
     // implementation platform("team.duckie.quackquack.bom:bom:2023.07.08")
