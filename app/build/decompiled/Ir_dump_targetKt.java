@@ -2,8 +2,6 @@ package land.sungbin.androidplayground;
 
 import androidx.compose.animation.core.AnimatableKt;
 import kotlin.Metadata;
-import land.sungbin.composeinvestigator.runtime.ComposableInvalidationTrackTable;
-import org.jetbrains.annotations.NotNull;
 
 @Metadata(
    mv = {1, 9, 0},
@@ -13,9 +11,6 @@ import org.jetbrains.annotations.NotNull;
    d2 = {"main", "", "app_debug"}
 )
 public final class Ir_dump_targetKt {
-   @NotNull
-   private static final ComposableInvalidationTrackTable ComposableInvalidationTrackTableImpl$Ir_dump_targetKt = new ComposableInvalidationTrackTable();
-
    public static final void main() {
       Main.INSTANCE.getStack().push(AnimatableKt.Animatable$default(0.0F, 0.0F, 2, (Object)null));
    }

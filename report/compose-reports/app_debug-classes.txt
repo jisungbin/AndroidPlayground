@@ -1,4 +1,0 @@
-unstable class Main {
-  unstable val stack: Stack<Any>
-  <runtime stability> = Unstable
-}

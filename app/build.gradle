@@ -40,10 +40,10 @@ android {
                 "-P",
                 "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"
         ]
-        freeCompilerArgs += [
-                "-P",
-                "plugin:land.sungbin.composeinvestigator.compiler:verbose=true"
-        ]
+//        freeCompilerArgs += [
+//                "-P",
+//                "plugin:land.sungbin.composeinvestigator.compiler:verbose=true"
+//        ]
     }
 
     buildFeatures {
@@ -73,10 +73,10 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.21"
 
-    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
-    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")
-
-    add("kotlinCompilerPluginClasspath", "land.sungbin.kotlin:kotlin-compiler-ir-dump:0.2.0")
+//    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
+//    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")
+//
+//    add("kotlinCompilerPluginClasspath", "land.sungbin.kotlin:kotlin-compiler-ir-dump:0.2.0")
 
     // implementation 'team.duckie.quackquack.ui:ui:internal-2.0.0-test02'
 
