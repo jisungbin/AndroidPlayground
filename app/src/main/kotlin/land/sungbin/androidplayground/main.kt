@@ -1,31 +1,10 @@
 package land.sungbin.androidplayground
 
-import kotlin.concurrent.thread
-
-private val lock = Object()
-private var ref: Any? = Any()
+import kotlinx.collections.immutable.persistentListOf
 
 fun main() {
-  println("START...")
+  val a = persistentListOf(1, 2, 3)
+  val b = persistentListOf(1, 2, 3)
 
-  thread { deleter() }
-  assigner()
-
-  println("END...")
-}
-
-private fun deleter() {
-  synchronized(lock) {
-    Thread.sleep(3000)
-    ref = null
-    lock.notifyAll()
-  }
-}
-
-private fun assigner() {
-  synchronized(lock) {
-    println("[assigner] awaiting...")
-    while (ref != null) lock.wait()
-    println("[assigner] Assigned!")
-  }
+  println(a == b)
 }

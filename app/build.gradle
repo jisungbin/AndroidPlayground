@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
-        minSdk 23
+        minSdk 26
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -32,38 +32,42 @@ android {
                 "-Xjvm-default=all",
                 "-Xcontext-receivers",
         ]
-        freeCompilerArgs += [
-                "-P",
-                "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${rootProject.file(".").absolutePath}/report/compose-metrics"
-        ]
-        freeCompilerArgs += [
-                "-P",
-                "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"
-        ]
+//        freeCompilerArgs += [
+//                "-P",
+//                "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=${rootProject.file(".").absolutePath}/report/compose-metrics"
+//        ]
+//        freeCompilerArgs += [
+//                "-P",
+//                "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"
+//        ]
 //        freeCompilerArgs += [
 //                "-P",
 //                "plugin:land.sungbin.composeinvestigator.compiler:verbose=true"
 //        ]
     }
 
-    buildFeatures {
+//    buildFeatures {
         // dataBinding true
-        compose true
-    }
+//        compose true
+//    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin/'
         main.kotlin.srcDirs += 'build/generated/ksp/main/kotlin'
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion "1.5.7"
-    }
+//    composeOptions {
+//        kotlinCompilerExtensionVersion '1.5.4'
+//    }
 }
 
 dependencies {
+//    def TAXI_SDK_VERSION = "1.1.4"
+//    implementation 'io.autocrypt.sdk:sdk-android-taxi-devdebug:1.1.4'
+//    implementation 'io.autocrypt.sdk:sdk-android-drt-screen:1.0.1'
+
     // android
-//    implementation "androidx.core:core-ktx:1.10.0"
+    implementation "androidx.core:core-ktx:1.12.0"
 //    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
 //    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
 //    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
@@ -71,7 +75,7 @@ dependencies {
 //    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.google.android.material:material:1.11.0"
 
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.21"
+//    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.21"
 
 //    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
 //    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")
@@ -86,11 +90,11 @@ dependencies {
     // compose
 //    implementation "androidx.compose.ui:ui-util:1.4.3"
 //    implementation "androidx.compose.runtime:runtime:1.4.3"
-    implementation "androidx.activity:activity-compose:1.8.2"
-    implementation "androidx.compose.material:material:1.5.4"
-    implementation "androidx.compose.material3:material3:1.1.2"
+//    implementation "androidx.activity:activity-compose:1.8.2"
+//    implementation "androidx.compose.material:material:1.5.4"
+//    implementation "androidx.compose.material3:material3:1.2.0"
 //    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-//    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
+    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.7"
 //
 //    // hilt
 //    implementation 'com.google.dagger:hilt-android:2.44.2'

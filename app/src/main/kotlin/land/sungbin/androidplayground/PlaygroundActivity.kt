@@ -2,15 +2,7 @@
 
 package land.sungbin.androidplayground
 
-import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableLongState
-import androidx.compose.runtime.mutableLongStateOf
-import androidx.compose.runtime.remember
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -170,10 +162,4 @@ import androidx.compose.runtime.remember
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContent {
-      // Content()
-    }
-  }
 }
