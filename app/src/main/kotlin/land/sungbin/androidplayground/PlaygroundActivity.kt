@@ -5,12 +5,13 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableLongState
-import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -173,7 +174,15 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      // Content()
+      var num by remember { mutableIntStateOf(0) }
+      Button(onClick = { num++ }) {
+        View(num)
+      }
     }
   }
+}
+
+@Composable
+fun View(src: Any) {
+  BasicText("Target: $src")
 }
