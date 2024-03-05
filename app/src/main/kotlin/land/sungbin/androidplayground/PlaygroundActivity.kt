@@ -1,10 +1,14 @@
 @file:Suppress("KDocUnresolvedReference", "SpellCheckingInspection")
+@file:OptIn(ExperimentalComposeInvestigatorApi::class)
 
 package land.sungbin.androidplayground
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
@@ -12,6 +16,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import land.sungbin.composeinvestigator.runtime.ComposableInvalidationLogger
+import land.sungbin.composeinvestigator.runtime.ComposeInvestigatorConfig
+import land.sungbin.composeinvestigator.runtime.ExperimentalComposeInvestigatorApi
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -171,18 +178,35 @@ import androidx.compose.runtime.setValue
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
+  init {
+    ComposeInvestigatorConfig.invalidationLogger = ComposableInvalidationLogger { callstack, composable, type ->
+      Log.d(
+        "ComposeInvestigator",
+        "The '${composable.name}' composable has been invalidated.\n(${callstack.joinToString(separator = " -> ")})\n$type"
+      )
+    }
+  }
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      var num by remember { mutableIntStateOf(0) }
-      Button(onClick = { num++ }) {
-        View(num)
-      }
+      Home()
     }
   }
 }
 
 @Composable
-fun View(src: Any) {
+fun Home() {
+  var num by remember { mutableIntStateOf(0) }
+  Column {
+    Button(onClick = { num++ }) {}
+    Row {
+      View(num)
+    }
+  }
+}
+
+@Composable
+fun View(src: Int) {
   BasicText("Target: $src")
 }

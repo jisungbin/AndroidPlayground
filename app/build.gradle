@@ -6,6 +6,7 @@ plugins {
     // id 'kotlin-kapt'
     // id 'dagger.hilt.android.plugin'
     // id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
+    id 'land.sungbin.composeinvestigator' version '1.5.10-0.1.0'
 }
 
 android {
@@ -40,10 +41,10 @@ android {
                 "-P",
                 "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${rootProject.file(".").absolutePath}/report/compose-reports"
         ]
-        freeCompilerArgs += [
-                "-P",
-                "plugin:land.sungbin.composeinvestigator.compiler:verbose=true"
-        ]
+        // freeCompilerArgs += [
+        //         "-P",
+        //         "plugin:land.sungbin.composeinvestigator.compiler:verbose=true"
+        // ]
     }
 
     buildFeatures {
@@ -57,7 +58,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "1.5.7"
+        kotlinCompilerExtensionVersion "1.5.10"
     }
 }
 
@@ -71,7 +72,7 @@ dependencies {
 //    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.google.android.material:material:1.11.0"
 
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.21"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.22"
 
 //    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
 //    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")
@@ -87,8 +88,8 @@ dependencies {
 //    implementation "androidx.compose.ui:ui-util:1.4.3"
 //    implementation "androidx.compose.runtime:runtime:1.4.3"
     implementation "androidx.activity:activity-compose:1.8.2"
-    implementation "androidx.compose.material:material:1.5.4"
-    implementation "androidx.compose.material3:material3:1.1.2"
+    implementation "androidx.compose.material:material:1.6.2"
+    implementation "androidx.compose.material3:material3:1.2.0"
 //    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
 //    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
 //

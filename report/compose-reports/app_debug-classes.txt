@@ -1,7 +1,0 @@
-stable class PlaygroundActivity {
-  <runtime stability> = Stable
-}
-unstable class Main {
-  unstable val stack: Stack<Any>
-  <runtime stability> = Unstable
-}
