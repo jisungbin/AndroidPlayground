@@ -4,20 +4,16 @@
 package land.sungbin.androidplayground
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import land.sungbin.composeinvestigator.runtime.ComposableInvalidationLogger
-import land.sungbin.composeinvestigator.runtime.ComposeInvestigatorConfig
 import land.sungbin.composeinvestigator.runtime.ExperimentalComposeInvestigatorApi
 
 /**
@@ -178,15 +174,6 @@ import land.sungbin.composeinvestigator.runtime.ExperimentalComposeInvestigatorA
  * and the source location of the caller can be determined from the containing group.
  */
 class PlaygroundActivity : ComponentActivity() {
-  init {
-    ComposeInvestigatorConfig.invalidationLogger = ComposableInvalidationLogger { callstack, composable, type ->
-      Log.d(
-        "ComposeInvestigator",
-        "The '${composable.name}' composable has been invalidated.\n(${callstack.joinToString(separator = " -> ")})\n$type"
-      )
-    }
-  }
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
@@ -196,17 +183,15 @@ class PlaygroundActivity : ComponentActivity() {
 }
 
 @Composable
-fun Home() {
-  var num by remember { mutableIntStateOf(0) }
-  Column {
-    Button(onClick = { num++ }) {}
-    Row {
-      View(num)
-    }
-  }
-}
+private fun Home() {
+  val number = remember { mutableIntStateOf(1) }
+  var number2 by remember { mutableIntStateOf(1) }
+  val sum = remember { derivedStateOf { number.intValue + number2 } }
 
-@Composable
-fun View(src: Int) {
-  BasicText("Target: $src")
+  Button(onClick = {
+    number.intValue++
+    number2++
+  }) {
+    BasicText(sum.value.toString())
+  }
 }

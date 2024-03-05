@@ -6,7 +6,7 @@ plugins {
     // id 'kotlin-kapt'
     // id 'dagger.hilt.android.plugin'
     // id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
-    id 'land.sungbin.composeinvestigator' version '1.5.10-0.1.0'
+    id 'land.sungbin.composeinvestigator' version '1.5.10-0.1.1-SNAPSHOT'
 }
 
 android {

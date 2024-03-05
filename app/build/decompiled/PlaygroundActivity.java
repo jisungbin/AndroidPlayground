@@ -1,19 +1,11 @@
 package land.sungbin.androidplayground;
 
 import android.os.Bundle;
-import android.util.Log;
 import androidx.activity.ComponentActivity;
 import androidx.activity.compose.ComponentActivityKt;
 import androidx.compose.runtime.CompositionContext;
 import androidx.compose.runtime.internal.StabilityInferred;
-import java.util.List;
 import kotlin.Metadata;
-import kotlin.collections.CollectionsKt;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import land.sungbin.composeinvestigator.runtime.ComposableInvalidationType;
-import land.sungbin.composeinvestigator.runtime.ComposeInvestigatorConfig;
-import land.sungbin.composeinvestigator.runtime.affect.AffectedComposable;
 import org.jetbrains.annotations.Nullable;
 
 @Metadata(
@@ -29,22 +21,9 @@ import org.jetbrains.annotations.Nullable;
 public final class PlaygroundActivity extends ComponentActivity {
    public static final int $stable;
 
-   public PlaygroundActivity() {
-      ComposeInvestigatorConfig.INSTANCE.setInvalidationLogger(PlaygroundActivity::_init_$lambda$0);
-   }
-
    protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       ComponentActivityKt.setContent$default((ComponentActivity)this, (CompositionContext)null, ComposableSingletons$PlaygroundActivityKt.INSTANCE.getLambda-1$app_debug(), 1, (Object)null);
-   }
-
-   private static final void _init_$lambda$0(List callstack, AffectedComposable composable, ComposableInvalidationType type) {
-      Intrinsics.checkNotNullParameter(callstack, "callstack");
-      Intrinsics.checkNotNullParameter(composable, "composable");
-      Intrinsics.checkNotNullParameter(type, "type");
-      String var10000 = LiveLiterals$PlaygroundActivityKt.INSTANCE.String$arg-0$call-d$fun-$anonymous$$arg-0$call-$set-invalidationLogger$$init$class-PlaygroundActivity();
-      String var10001 = LiveLiterals$PlaygroundActivityKt.INSTANCE.String$0$str$arg-1$call-d$fun-$anonymous$$arg-0$call-$set-invalidationLogger$$init$class-PlaygroundActivity();
-      Log.d(var10000, var10001 + composable.getName() + LiveLiterals$PlaygroundActivityKt.INSTANCE.String$2$str$arg-1$call-d$fun-$anonymous$$arg-0$call-$set-invalidationLogger$$init$class-PlaygroundActivity() + CollectionsKt.joinToString$default((Iterable)callstack, (CharSequence)LiveLiterals$PlaygroundActivityKt.INSTANCE.String$arg-0$call-joinToString$3$str$arg-1$call-d$fun-$anonymous$$arg-0$call-$set-invalidationLogger$$init$class-PlaygroundActivity(), (CharSequence)null, (CharSequence)null, 0, (CharSequence)null, (Function1)null, 62, (Object)null) + LiveLiterals$PlaygroundActivityKt.INSTANCE.String$4$str$arg-1$call-d$fun-$anonymous$$arg-0$call-$set-invalidationLogger$$init$class-PlaygroundActivity() + type);
    }
 
    static {
