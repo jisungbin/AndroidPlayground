@@ -6,7 +6,7 @@ plugins {
     // id 'kotlin-kapt'
     // id 'dagger.hilt.android.plugin'
     // id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
-    id 'land.sungbin.composeinvestigator' version '1.5.10-0.1.1-SNAPSHOT'
+    // id 'land.sungbin.composeinvestigator' version '1.5.10-0.1.1-SNAPSHOT'
 }
 
 android {
@@ -58,7 +58,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "1.5.10"
+        kotlinCompilerExtensionVersion "1.5.11"
     }
 }
 
@@ -88,11 +88,9 @@ dependencies {
 //    implementation "androidx.compose.ui:ui-util:1.4.3"
 //    implementation "androidx.compose.runtime:runtime:1.4.3"
     implementation "androidx.activity:activity-compose:1.8.2"
-    implementation "androidx.compose.material:material:1.6.4"
+    implementation "androidx.compose.material:material:1.6.5"
     implementation "androidx.compose.material3:material3:1.2.1"
-
-
-    implementation "androidx.compose.ui:ui-test-junit4:1.6.4"
+    implementation "androidx.compose.ui:ui-test-junit4:1.6.5"
 
 //    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
 //    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"

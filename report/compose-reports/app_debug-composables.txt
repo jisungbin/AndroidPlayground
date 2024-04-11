@@ -1,1 +1,1 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Home()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content()
