@@ -72,7 +72,9 @@ dependencies {
 //    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.google.android.material:material:1.11.0"
 
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.22"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.23"
+    implementation 'com.naver.maps:map-sdk:3.18.0'
+    implementation 'io.github.classgraph:classgraph:4.8.170'
 
 //    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
 //    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")

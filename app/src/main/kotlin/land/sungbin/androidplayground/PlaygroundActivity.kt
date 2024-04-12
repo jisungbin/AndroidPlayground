@@ -5,9 +5,10 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.runtime.Composable
+import androidx.compose.material.Text
+import androidx.compose.runtime.InternalComposeApi
+import androidx.compose.runtime.currentComposer
+import androidx.compose.ui.platform.LocalLifecycleOwner
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -170,22 +171,10 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      Column {
-        BasicText("Hello, World!")
-        BasicText("Hello, World! 5")
-      }
-      Content()
-      Content()
+      Text(
+        @OptIn(InternalComposeApi::class)
+        currentComposer.consume(LocalLifecycleOwner).lifecycle.currentState.toString()
+      )
     }
-  }
-}
-
-@Composable
-fun Content() {
-  Column {
-    BasicText(text = "AA")
-    BasicText(text = "AA")
-    BasicText(text = "AA")
-    BasicText(text = "AA")
   }
 }
