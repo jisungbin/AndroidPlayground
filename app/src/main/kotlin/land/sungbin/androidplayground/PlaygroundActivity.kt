@@ -5,10 +5,15 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.Text
-import androidx.compose.runtime.InternalComposeApi
-import androidx.compose.runtime.currentComposer
-import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -171,10 +176,29 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      Text(
-        @OptIn(InternalComposeApi::class)
-        currentComposer.consume(LocalLifecycleOwner).lifecycle.currentState.toString()
-      )
+      val dispose = remember { mutableStateOf(false) }
+      var count by remember { mutableIntStateOf(0) }
+
+      Column {
+        Button(onClick = { dispose.value = !dispose.value }) {
+          Text("Toggle dispose state")
+        }
+        Button(onClick = { count++ }) {
+          Text("Increment count")
+        }
+      }
+
+      println(count)
+
+      if (!dispose.value) {
+        DisposableEffect(dispose) {
+          println("Show!")
+
+          onDispose {
+            println("Dispose!")
+          }
+        }
+      }
     }
   }
 }
