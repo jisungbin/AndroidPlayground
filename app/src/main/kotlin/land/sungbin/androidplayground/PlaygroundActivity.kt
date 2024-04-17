@@ -5,15 +5,13 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 
 /**
  * This IR Transform is responsible for the main transformations of the body of a composable
@@ -176,28 +174,16 @@ class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      val dispose = remember { mutableStateOf(false) }
-      var count by remember { mutableIntStateOf(0) }
+      val signal = remember { mutableStateOf(Unit, policy = neverEqualPolicy()) }
 
-      Column {
-        Button(onClick = { dispose.value = !dispose.value }) {
-          Text("Toggle dispose state")
-        }
-        Button(onClick = { count++ }) {
-          Text("Increment count")
+      LaunchedEffect(signal) {
+        snapshotFlow { signal.value }.collect {
+          println("Signal received")
         }
       }
 
-      println(count)
-
-      if (!dispose.value) {
-        DisposableEffect(dispose) {
-          println("Show!")
-
-          onDispose {
-            println("Dispose!")
-          }
-        }
+      Button(onClick = { signal.value = Unit }) {
+        Text(text = "Send Signal")
       }
     }
   }
