@@ -62,6 +62,16 @@ android {
     }
 }
 
+configurations {
+    myConf
+}
+
+tasks.register('myConf') {
+    configurations.myConf.dependencies.forEach {
+        println(it.name)
+    }
+}
+
 dependencies {
     // android
 //    implementation "androidx.core:core-ktx:1.10.0"
@@ -72,9 +82,9 @@ dependencies {
 //    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
     implementation "com.google.android.material:material:1.11.0"
 
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.23"
-    implementation 'com.naver.maps:map-sdk:3.18.0'
-    implementation 'io.github.classgraph:classgraph:4.8.170'
+    myConf "org.jetbrains.kotlin:kotlin-reflect:1.9.23"
+    myConf 'com.naver.maps:map-sdk:3.18.0'
+    myConf 'io.github.classgraph:classgraph:4.8.170'
 
 //    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
 //    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")
@@ -89,10 +99,10 @@ dependencies {
     // compose
 //    implementation "androidx.compose.ui:ui-util:1.4.3"
 //    implementation "androidx.compose.runtime:runtime:1.4.3"
-    implementation "androidx.activity:activity-compose:1.8.2"
-    implementation "androidx.compose.material:material:1.6.5"
+    implementation "androidx.activity:activity-compose:1.9.0"
+    implementation "androidx.compose.material:material:1.6.6"
     implementation "androidx.compose.material3:material3:1.2.1"
-    implementation "androidx.compose.ui:ui-test-junit4:1.6.5"
+    implementation "androidx.compose.ui:ui-test-junit4:1.6.6"
 
 //    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
 //    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
