@@ -4,6 +4,7 @@ stable class PlaygroundActivity {
 stable class RoundedTicketShape {
   stable val cornerRadius: CornerRadius
   stable val remainingTextLayoutSize: IntSize
+  stable val remainingTextLayoutHorizontalPadding: Dp
   stable val punchholeRadius: Dp
   <runtime stability> = Stable
 }

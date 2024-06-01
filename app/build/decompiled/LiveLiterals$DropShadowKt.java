@@ -19,45 +19,37 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$DropShadowKt {
    @NotNull
    public static final LiveLiterals$DropShadowKt INSTANCE = new LiveLiterals$DropShadowKt();
-   private static float Float$param-scale$fun-dropShadow = 1.1F;
-   @Nullable
-   private static State State$Float$param-scale$fun-dropShadow;
    private static int Int$$$this$call-$get-dp$$param-spreadRadius$fun-dropShadow = 3;
    @Nullable
    private static State State$Int$$$this$call-$get-dp$$param-spreadRadius$fun-dropShadow;
    private static float Float$arg-0$call-copy$param-color$fun-dropShadow = 0.1F;
    @Nullable
    private static State State$Float$arg-0$call-copy$param-color$fun-dropShadow;
-   @NotNull
-   private static String String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow = "Only Outline.Generic is supported";
+   private static int Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow;
    @Nullable
-   private static State State$String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
-   private static float Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow = 30.0F;
+   private static State State$Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow;
+   private static int Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow;
    @Nullable
-   private static State State$Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
-
-   @LiveLiteralInfo(
-      key = "Float$param-scale$fun-dropShadow",
-      offset = 711
-   )
-   public final float Float$param_scale$fun_dropShadow/* $FF was: Float$param-scale$fun-dropShadow*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Float$param-scale$fun-dropShadow;
-      } else {
-         State var10000 = State$Float$param-scale$fun-dropShadow;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Float$param-scale$fun-dropShadow", Float$param-scale$fun-dropShadow);
-            State$Float$param-scale$fun-dropShadow = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).floatValue();
-      }
-   }
+   private static State State$Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow;
+   private static int Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow;
+   @Nullable
+   private static State State$Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow;
+   private static int Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow;
+   @Nullable
+   private static State State$Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow;
+   private static int Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+   @Nullable
+   private static State State$Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+   private static float Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+   @Nullable
+   private static State State$Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+   private static float Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+   @Nullable
+   private static State State$Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
 
    @LiveLiteralInfo(
       key = "Int$$$this$call-$get-dp$$param-spreadRadius$fun-dropShadow",
-      offset = 738
+      offset = 530
    )
    public final int Int$$$this$call_$get_dp$$param_spreadRadius$fun_dropShadow/* $FF was: Int$$$this$call-$get-dp$$param-spreadRadius$fun-dropShadow*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
@@ -76,7 +68,7 @@ public final class LiveLiterals$DropShadowKt {
 
    @LiveLiteralInfo(
       key = "Float$arg-0$call-copy$param-color$fun-dropShadow",
-      offset = 822
+      offset = 614
    )
    public final float Float$arg_0$call_copy$param_color$fun_dropShadow/* $FF was: Float$arg-0$call-copy$param-color$fun-dropShadow*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
@@ -94,37 +86,131 @@ public final class LiveLiterals$DropShadowKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow",
-      offset = 952
+      key = "Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow",
+      offset = 640
    )
-   @NotNull
-   public final String String$fun_$anonymous$$arg_1$call_require$fun_$anonymous$$arg_0$call_drawBehind$fun_dropShadow/* $FF was: String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow*/() {
+   public final int Int$$$this$call_$get_dp$$param_offsetLeft$fun_dropShadow/* $FF was: Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+         return Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow;
       } else {
-         State var10000 = State$String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+         State var10000 = State$Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow", String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow);
-            State$String$fun-$anonymous$$arg-1$call-require$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow", Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow);
+            State$Int$$$this$call-$get-dp$$param-offsetLeft$fun-dropShadow = var1;
             var10000 = var1;
          }
 
-         return (String)var10000.getValue();
+         return ((Number)var10000.getValue()).intValue();
       }
    }
 
    @LiveLiteralInfo(
-      key = "Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow",
-      offset = 1255
+      key = "Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow",
+      offset = 664
    )
-   public final float Float$arg_0$call_setStrokeWidth$fun_$anonymous$$arg_0$call_apply$val_paint$fun_$anonymous$$arg_0$call_drawIntoCanvas$fun_$anonymous$$arg_0$call_drawBehind$fun_dropShadow/* $FF was: Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow*/() {
+   public final int Int$$$this$call_$get_dp$$param_offsetTop$fun_dropShadow/* $FF was: Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+         return Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow;
       } else {
-         State var10000 = State$Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+         State var10000 = State$Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow", Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow);
-            State$Float$arg-0$call-setStrokeWidth$fun-$anonymous$$arg-0$call-apply$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow", Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow);
+            State$Int$$$this$call-$get-dp$$param-offsetTop$fun-dropShadow = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).intValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow",
+      offset = 691
+   )
+   public final int Int$$$this$call_$get_dp$$param_offsetBottom$fun_dropShadow/* $FF was: Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow;
+      } else {
+         State var10000 = State$Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow", Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow);
+            State$Int$$$this$call-$get-dp$$param-offsetBottom$fun-dropShadow = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).intValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow",
+      offset = 717
+   )
+   public final int Int$$$this$call_$get_dp$$param_offsetRight$fun_dropShadow/* $FF was: Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow;
+      } else {
+         State var10000 = State$Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow", Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow);
+            State$Int$$$this$call-$get-dp$$param-offsetRight$fun-dropShadow = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).intValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow",
+      offset = 911
+   )
+   public final int Int$$$this$call_$get_dp$$arg_1$call_EQEQ$$this$call_not$cond$if$fun_$anonymous$$arg_0$call_apply$fun_$anonymous$$arg_0$call_also$val_paint$fun_$anonymous$$arg_0$call_drawIntoCanvas$fun_$anonymous$$arg_0$call_drawBehind$fun_dropShadow/* $FF was: Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+      } else {
+         State var10000 = State$Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow", Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow);
+            State$Int$$$this$call-$get-dp$$arg-1$call-EQEQ$$this$call-not$cond$if$fun-$anonymous$$arg-0$call-apply$fun-$anonymous$$arg-0$call-also$val-paint$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).intValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow",
+      offset = 1125
+   )
+   public final float Float$$this$call_minus$$this$call_plus$val_leftPx$fun_$anonymous$$arg_0$call_drawIntoCanvas$fun_$anonymous$$arg_0$call_drawBehind$fun_dropShadow/* $FF was: Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+      } else {
+         State var10000 = State$Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow", Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow);
+            State$Float$$this$call-minus$$this$call-plus$val-leftPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow = var1;
+            var10000 = var1;
+         }
+
+         return ((Number)var10000.getValue()).floatValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow",
+      offset = 1177
+   )
+   public final float Float$$this$call_minus$$this$call_plus$val_topPx$fun_$anonymous$$arg_0$call_drawIntoCanvas$fun_$anonymous$$arg_0$call_drawBehind$fun_dropShadow/* $FF was: Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+      } else {
+         State var10000 = State$Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow", Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow);
+            State$Float$$this$call-minus$$this$call-plus$val-topPx$fun-$anonymous$$arg-0$call-drawIntoCanvas$fun-$anonymous$$arg-0$call-drawBehind$fun-dropShadow = var1;
             var10000 = var1;
          }
 
