@@ -48,7 +48,6 @@ android {
     }
 
     buildFeatures {
-        // dataBinding true
         compose true
     }
 
@@ -62,78 +61,9 @@ android {
     }
 }
 
-configurations {
-    myConf
-}
-
-tasks.register('myConf') {
-    configurations.myConf.dependencies.forEach {
-        println(it.name)
-    }
-}
-
 dependencies {
-    // android
-//    implementation "androidx.core:core-ktx:1.10.0"
-//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
-//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
-//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
-//    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
-    implementation "com.google.android.material:material:1.11.0"
-
-    myConf "org.jetbrains.kotlin:kotlin-reflect:1.9.23"
-    myConf 'com.naver.maps:map-sdk:3.18.0'
-    myConf 'io.github.classgraph:classgraph:4.8.170'
-
-//    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.12-SNAPSHOT")
-//    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.13-SNAPSHOT")
-
-//    add("kotlinCompilerPluginClasspath", "land.sungbin.kotlin:kotlin-compiler-ir-dump:0.2.1")
-
-    // implementation 'team.duckie.quackquack.ui:ui:internal-2.0.0-test02'
-
-//    add("kotlinCompilerPluginClasspath", "land.sungbin.composeinvestigator:composeinvestigator-compiler:0.1.0-SNAPSHOT")
-//    add("implementation", "land.sungbin.composeinvestigator:composeinvestigator-runtime:0.1.0-SNAPSHOT")
-
-    // compose
-//    implementation "androidx.compose.ui:ui-util:1.4.3"
-//    implementation "androidx.compose.runtime:runtime:1.4.3"
+    implementation "com.google.android.material:material:1.12.0"
     implementation "androidx.activity:activity-compose:1.9.0"
-    implementation "androidx.compose.material:material:1.6.6"
+    implementation "androidx.compose.material:material:1.6.7"
     implementation "androidx.compose.material3:material3:1.2.1"
-    implementation "androidx.compose.ui:ui-test-junit4:1.6.6"
-
-//    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-//    implementation "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5"
-//
-//    // hilt
-//    implementation 'com.google.dagger:hilt-android:2.44.2'
-//    kapt 'com.google.dagger:hilt-compiler:2.44.2'
-//
-//    // local
-//    implementation project(':test01')
-//    implementation project(':app02')
-
-//    // quackquack
-    // implementation platform("team.duckie.quackquack.bom:bom:2023.07.08")
-//
-//    implementation "team.duckie.quackquack.runtime:runtime"
-//    implementation "team.duckie.quackquack.material:material"
-//    implementation "team.duckie.quackquack.animation:animation"
-    // implementation "team.duckie.quackquack.ui:ui"
-//
-//    // add("kotlinCompilerPluginClasspath", "team.duckie.quackquack.sugar:sugar-processor:2.0.0-alpha01")
-//    implementation "team.duckie.quackquack.sugar:sugar-material"
-//
-//    lintChecks "team.duckie.quackquack.aide:aide:2.0.0-alpha01"
-//    implementation "team.duckie.quackquack.aide:aide-annotation"
-//    ksp "team.duckie.quackquack.aide:aide-processor:2.0.0-alpha01"
-//
-//    implementation "team.duckie.quackquack.casa:casa-ui"
-//    implementation "team.duckie.quackquack.casa:casa-annotation"
-//    implementation "team.duckie.quackquack.casa:casa-material"
-//    // ksp "team.duckie.quackquack.casa:casa-processor:2.0.0-alpha01"
-//
-//    implementation "team.duckie.quackquack.util:util"
 }
