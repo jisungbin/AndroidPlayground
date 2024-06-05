@@ -9,13 +9,11 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onPlaced
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.ViewRootForTest
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.semantics.getAllSemanticsNodes
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.util.fastFirstOrNull
-import androidx.compose.ui.util.fastForEach
 
 @Suppress("VisibleForTests")
 class PlaygroundActivity : ComponentActivity() {
@@ -23,16 +21,8 @@ class PlaygroundActivity : ComponentActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    ViewRootForTest.onViewCreatedCallback = { root ->
-      this.root = root
-//      val textNode = allNodes.firstOrNull { node -> node.config.contains(SemanticsProperties.Text) }
-//
-//      print("Found text nodes: ")
-//      println(textNode.config[SemanticsProperties.Text].joinToString())
-    }
+    ViewRootForTest.onViewCreatedCallback = { root -> this.root = root }
     setContent {
-      val view = LocalView.current
-
       Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -50,11 +40,11 @@ class PlaygroundActivity : ComponentActivity() {
               if (!result) return@onPlaced println("Failed to get text layout result!")
             }
 
-            println("Found text layout for text \"${textLayouts.first().layoutInput.text}\":")
-            textLayouts.fastForEach { layout ->
-              println("- style: ${layout.layoutInput.style}")
-              println("- constraints: ${layout.layoutInput.constraints}")
-              println("- density: ${layout.layoutInput.density.density}")
+            textLayouts.first().layoutInput.let { layout ->
+              println("Found text layout for text \"${layout.text}\":")
+              println("- style: ${layout.style}")
+              println("- constraints: ${layout.constraints}")
+              println("- density: ${layout.density.density}")
             }
           },
           text = "Hello my text!",
