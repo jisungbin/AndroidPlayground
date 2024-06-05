@@ -1,5 +1,6 @@
 unstable class PlaygroundActivity {
   unstable var root: ViewRootForTest
-  stable val debugBounds: SnapshotStateMap<Int, Rect>
+  stable val debugNodes: SnapshotStateMap<Int, SemanticsNode>
+  stable var debugData$delegate: MutableState<Pair<Rect, List<String>>?>
   <runtime stability> = Unstable
 }
