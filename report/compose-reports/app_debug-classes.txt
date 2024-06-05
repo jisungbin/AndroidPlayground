@@ -1,10 +1,4 @@
-stable class PlaygroundActivity {
-  <runtime stability> = Stable
-}
-stable class RoundedTicketShape {
-  stable val cornerRadius: CornerRadius
-  stable val remainingTextLayoutSize: IntSize
-  stable val remainingTextLayoutHorizontalPadding: Dp
-  stable val punchholeRadius: Dp
-  <runtime stability> = Stable
+unstable class PlaygroundActivity {
+  unstable var root: ViewRootForTest
+  <runtime stability> = Unstable
 }
