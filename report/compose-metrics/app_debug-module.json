@@ -1,16 +1,16 @@
 {
  "skippableComposables": 1,
- "restartableComposables": 3,
+ "restartableComposables": 4,
  "readonlyComposables": 0,
- "totalComposables": 3,
- "restartGroups": 3,
- "totalGroups": 5,
+ "totalComposables": 4,
+ "restartGroups": 4,
+ "totalGroups": 6,
  "staticArguments": 0,
  "certainArguments": 0,
- "knownStableArguments": 61,
+ "knownStableArguments": 44,
  "knownUnstableArguments": 0,
  "unknownStableArguments": 0,
- "totalArguments": 61,
+ "totalArguments": 44,
  "markedStableClasses": 0,
  "inferredStableClasses": 0,
  "inferredUnstableClasses": 1,
@@ -21,5 +21,5 @@
  "singletonLambdas": 0,
  "singletonComposableLambdas": 0,
  "composableLambdas": 1,
- "totalLambdas": 6
+ "totalLambdas": 3
 }

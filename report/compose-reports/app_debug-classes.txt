@@ -1,7 +1,9 @@
-unstable class PlaygroundActivity {
+unstable class DebugComposeView {
   unstable var root: ViewRootForTest
   stable val debugNodes: SnapshotStateMap<Int, SemanticsNode>
   stable val debugData: MutableState<Pair<Rect, List<String>>?>
   stable val debugPopupDraggedOffset: MutableState<Offset>
+  stable val content: MutableState<@[Composable] Function0<Unit>?>
+  stable var shouldCreateCompositionOnAttachedToWindow: Boolean
   <runtime stability> = Unstable
 }
