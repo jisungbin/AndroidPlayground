@@ -5,12 +5,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.compose.foundation.BackgroundKt;
+import androidx.compose.foundation.BorderKt;
 import androidx.compose.foundation.CanvasKt;
 import androidx.compose.foundation.layout.BoxKt;
 import androidx.compose.foundation.layout.BoxScope;
 import androidx.compose.foundation.layout.BoxScopeInstance;
 import androidx.compose.foundation.layout.OffsetKt;
 import androidx.compose.foundation.layout.SizeKt;
+import androidx.compose.material3.TextKt;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.Composable;
 import androidx.compose.runtime.ComposableInferredTarget;
@@ -48,6 +50,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope;
 import androidx.compose.ui.graphics.drawscope.DrawStyle;
 import androidx.compose.ui.graphics.drawscope.Stroke;
 import androidx.compose.ui.layout.LayoutCoordinates;
+import androidx.compose.ui.layout.LayoutCoordinatesKt;
 import androidx.compose.ui.layout.LayoutKt;
 import androidx.compose.ui.layout.MeasurePolicy;
 import androidx.compose.ui.layout.OnPlacedModifierKt;
@@ -71,6 +74,7 @@ import androidx.compose.ui.text.font.FontFamily.Resolver;
 import androidx.compose.ui.text.intl.LocaleList;
 import androidx.compose.ui.text.style.BaselineShift;
 import androidx.compose.ui.text.style.LineHeightStyle;
+import androidx.compose.ui.text.style.TextAlign;
 import androidx.compose.ui.text.style.TextDecoration;
 import androidx.compose.ui.text.style.TextGeometricTransform;
 import androidx.compose.ui.text.style.TextIndent;
@@ -129,13 +133,13 @@ import org.jetbrains.annotations.Nullable;
    mv = {1, 9, 0},
    k = 1,
    xi = 48,
-   d1 = {"\u0000\u0096\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\"\n\u0002\u0010\u0000\n\u0002\b\u0002\b\u0007\u0018\u0000 B2\u00020\u0001:\u0001BB#\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\r\u0010(\u001a\u00020\fH\u0017¢\u0006\u0002\u0010)J*\u0010*\u001a\u00020\u00142\u0006\u0010+\u001a\u00020,2\u0006\u0010-\u001a\u00020.2\u0006\u0010/\u001a\u00020\u0017H\u0002ø\u0001\u0000¢\u0006\u0004\b0\u00101J\b\u00102\u001a\u00020\fH\u0002J\u0010\u00103\u001a\u00020\u001c2\u0006\u00104\u001a\u000205H\u0016J\b\u00106\u001a\u000207H\u0016J\b\u00108\u001a\u000209H\u0002J\b\u0010:\u001a\u00020\fH\u0014J\t\u0010;\u001a\u00020\u001aH\u0082\bJ\u001e\u0010<\u001a\u00020\f2\u0011\u0010\t\u001a\r\u0012\u0004\u0012\u00020\f0\u000b¢\u0006\u0002\b\r¢\u0006\u0002\u0010=J\f\u0010>\u001a\u00020\u001c*\u00020\u0012H\u0002J\u0013\u0010?\u001a\u00020\u001c*\b\u0012\u0004\u0012\u00020A0@H\u0082\bR!\u0010\t\u001a\u0015\u0012\u0011\u0012\u000f\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b¢\u0006\u0002\b\r0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0010\u001a\u000e\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\u00120\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0013\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00140\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00170\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00170\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R$\u0010\u001d\u001a\u00020\u001c2\u0006\u0010\u001b\u001a\u00020\u001c@RX\u0094\u000e¢\u0006\u000e\n\u0000\u0012\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!R\u001b\u0010\"\u001a\u00020#8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010'\u001a\u0004\b$\u0010%\u0082\u0002\u0007\n\u0005\b¡\u001e0\u0001¨\u0006C"},
-   d2 = {"Lland/sungbin/androidplayground/DebugComposeView;", "Landroidx/compose/ui/platform/AbstractComposeView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "content", "Landroidx/compose/runtime/MutableState;", "Lkotlin/Function0;", "", "Landroidx/compose/runtime/Composable;", "debugNodeCollectorThread", "Ljava/lang/Thread;", "debugNodes", "Landroidx/compose/runtime/snapshots/SnapshotStateMap;", "Landroidx/compose/ui/semantics/SemanticsNode;", "debugUi", "Lland/sungbin/androidplayground/DebugUiCache;", "debugUiConstraints", "Landroidx/compose/ui/node/Ref;", "Landroidx/compose/ui/unit/Constraints;", "debugUiTextConstraints", "owner", "Landroidx/compose/ui/node/Owner;", "<set-?>", "", "shouldCreateCompositionOnAttachedToWindow", "getShouldCreateCompositionOnAttachedToWindow$annotations", "()V", "getShouldCreateCompositionOnAttachedToWindow", "()Z", "textMeasurer", "Landroidx/compose/ui/text/TextMeasurer;", "getTextMeasurer", "()Landroidx/compose/ui/text/TextMeasurer;", "textMeasurer$delegate", "Lkotlin/Lazy;", "Content", "(Landroidx/compose/runtime/Composer;I)V", "calculateUi", "bounds", "Landroidx/compose/ui/geometry/Rect;", "data", "Lland/sungbin/androidplayground/DebugData;", "textConstraints", "calculateUi-3p2s80s", "(Landroidx/compose/ui/geometry/Rect;Lland/sungbin/androidplayground/DebugData;J)Lland/sungbin/androidplayground/DebugUiCache;", "collectDebugNodesOrClearIfDestroyed", "dispatchTouchEvent", "event", "Landroid/view/MotionEvent;", "getAccessibilityClassName", "", "layoutBoundsDrawingModifier", "Landroidx/compose/ui/Modifier;", "onAttachedToWindow", "requireOwner", "setContent", "(Lkotlin/jvm/functions/Function2;)V", "isInDebugView", "isRealChanged", "", "", "Companion", "app_debug"}
+   d1 = {"\u0000\u0098\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\"\n\u0002\u0010\u0000\n\u0002\b\u0002\b\u0007\u0018\u0000 C2\u00020\u0001:\u0001CB#\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\r\u0010*\u001a\u00020\fH\u0017¢\u0006\u0002\u0010+J*\u0010,\u001a\u00020\u00142\u0006\u0010-\u001a\u00020)2\u0006\u0010.\u001a\u00020/2\u0006\u00100\u001a\u00020\u0017H\u0002ø\u0001\u0000¢\u0006\u0004\b1\u00102J\b\u00103\u001a\u00020\fH\u0002J\u0010\u00104\u001a\u00020\u001c2\u0006\u00105\u001a\u000206H\u0016J\b\u00107\u001a\u000208H\u0016J\b\u00109\u001a\u00020:H\u0002J\b\u0010;\u001a\u00020\fH\u0014J\t\u0010<\u001a\u00020\u001aH\u0082\bJ\u001e\u0010=\u001a\u00020\f2\u0011\u0010\t\u001a\r\u0012\u0004\u0012\u00020\f0\u000b¢\u0006\u0002\b\r¢\u0006\u0002\u0010>J\f\u0010?\u001a\u00020\u001c*\u00020\u0012H\u0002J\u0013\u0010@\u001a\u00020\u001c*\b\u0012\u0004\u0012\u00020B0AH\u0082\bR!\u0010\t\u001a\u0015\u0012\u0011\u0012\u000f\u0012\u0004\u0012\u00020\f\u0018\u00010\u000b¢\u0006\u0002\b\r0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0010\u001a\u000e\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\u00120\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0013\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00140\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00170\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00170\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R$\u0010\u001d\u001a\u00020\u001c2\u0006\u0010\u001b\u001a\u00020\u001c@RX\u0094\u000e¢\u0006\u000e\n\u0000\u0012\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!R\u001b\u0010\"\u001a\u00020#8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010'\u001a\u0004\b$\u0010%R\u0014\u0010(\u001a\b\u0012\u0004\u0012\u00020)0\u0016X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0007\n\u0005\b¡\u001e0\u0001¨\u0006D"},
+   d2 = {"Lland/sungbin/androidplayground/DebugComposeView;", "Landroidx/compose/ui/platform/AbstractComposeView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "content", "Landroidx/compose/runtime/MutableState;", "Lkotlin/Function0;", "", "Landroidx/compose/runtime/Composable;", "debugNodeCollectorThread", "Ljava/lang/Thread;", "debugNodes", "Landroidx/compose/runtime/snapshots/SnapshotStateMap;", "Landroidx/compose/ui/semantics/SemanticsNode;", "debugUi", "Lland/sungbin/androidplayground/DebugUiCache;", "debugUiConstraints", "Landroidx/compose/ui/node/Ref;", "Landroidx/compose/ui/unit/Constraints;", "debugUiTextConstraints", "owner", "Landroidx/compose/ui/node/Owner;", "<set-?>", "", "shouldCreateCompositionOnAttachedToWindow", "getShouldCreateCompositionOnAttachedToWindow$annotations", "()V", "getShouldCreateCompositionOnAttachedToWindow", "()Z", "textMeasurer", "Landroidx/compose/ui/text/TextMeasurer;", "getTextMeasurer", "()Landroidx/compose/ui/text/TextMeasurer;", "textMeasurer$delegate", "Lkotlin/Lazy;", "toggleDebugViewBounds", "Landroidx/compose/ui/geometry/Rect;", "Content", "(Landroidx/compose/runtime/Composer;I)V", "calculateUi", "bounds", "data", "Lland/sungbin/androidplayground/DebugData;", "textConstraints", "calculateUi-3p2s80s", "(Landroidx/compose/ui/geometry/Rect;Lland/sungbin/androidplayground/DebugData;J)Lland/sungbin/androidplayground/DebugUiCache;", "collectDebugNodesOrClearIfDestroyed", "dispatchTouchEvent", "event", "Landroid/view/MotionEvent;", "getAccessibilityClassName", "", "layoutBoundsDrawingModifier", "Landroidx/compose/ui/Modifier;", "onAttachedToWindow", "requireOwner", "setContent", "(Lkotlin/jvm/functions/Function2;)V", "isInDebugView", "isRealChanged", "", "", "Companion", "app_debug"}
 )
 @StabilityInferred(
    parameters = 0
 )
-@SourceDebugExtension({"SMAP\nDebugComposeView.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DebugComposeView.kt\nland/sungbin/androidplayground/DebugComposeView\n+ 2 ListUtils.kt\nandroidx/compose/ui/util/ListUtilsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 4 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 5 DebugData.kt\nland/sungbin/androidplayground/DebugDataKt\n+ 6 Dp.kt\nandroidx/compose/ui/unit/DpKt\n*L\n1#1,368:1\n285#1:380\n151#2,3:369\n33#2,4:372\n154#2,2:376\n38#2:378\n156#2:379\n317#2,8:382\n132#2,3:391\n33#2,4:394\n135#2,2:398\n38#2:400\n137#2:401\n33#2,6:405\n1#3:381\n1#3:390\n288#4,2:402\n20#5:404\n154#6:411\n154#6:412\n*S KotlinDebug\n*F\n+ 1 DebugComposeView.kt\nland/sungbin/androidplayground/DebugComposeView\n*L\n194#1:380\n190#1:369,3\n190#1:372,4\n190#1:376,2\n190#1:378\n190#1:379\n198#1:382,8\n203#1:391,3\n203#1:394,4\n203#1:398,2\n203#1:400\n203#1:401\n297#1:405,6\n194#1:381\n264#1:402,2\n267#1:404\n318#1:411\n319#1:412\n*E\n"})
+@SourceDebugExtension({"SMAP\nDebugComposeView.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DebugComposeView.kt\nland/sungbin/androidplayground/DebugComposeView\n+ 2 ListUtils.kt\nandroidx/compose/ui/util/ListUtilsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 4 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 5 DebugData.kt\nland/sungbin/androidplayground/DebugDataKt\n+ 6 Dp.kt\nandroidx/compose/ui/unit/DpKt\n*L\n1#1,392:1\n309#1:404\n151#2,3:393\n33#2,4:396\n154#2,2:400\n38#2:402\n156#2:403\n317#2,8:406\n132#2,3:415\n33#2,4:418\n135#2,2:422\n38#2:424\n137#2:425\n33#2,6:429\n1#3:405\n1#3:414\n288#4,2:426\n20#5:428\n154#6:435\n154#6:436\n*S KotlinDebug\n*F\n+ 1 DebugComposeView.kt\nland/sungbin/androidplayground/DebugComposeView\n*L\n208#1:404\n204#1:393,3\n204#1:396,4\n204#1:400,2\n204#1:402\n204#1:403\n212#1:406,8\n217#1:415,3\n217#1:418,4\n217#1:422,2\n217#1:424\n217#1:425\n321#1:429,6\n208#1:405\n288#1:426,2\n291#1:428\n342#1:435\n343#1:436\n*E\n"})
 public final class DebugComposeView extends AbstractComposeView {
    @NotNull
    private static final DebugComposeView.Companion Companion = new DebugComposeView.Companion((DefaultConstructorMarker)null);
@@ -153,6 +157,8 @@ public final class DebugComposeView extends AbstractComposeView {
    private final Ref debugUiTextConstraints;
    @NotNull
    private final MutableState content;
+   @NotNull
+   private final Ref toggleDebugViewBounds;
    @Nullable
    private Thread debugNodeCollectorThread;
    private boolean shouldCreateCompositionOnAttachedToWindow;
@@ -192,6 +198,7 @@ public final class DebugComposeView extends AbstractComposeView {
       this.debugUiConstraints = new Ref();
       this.debugUiTextConstraints = new Ref();
       this.content = SnapshotStateKt.mutableStateOf$default((Object)null, (SnapshotMutationPolicy)null, 2, (Object)null);
+      this.toggleDebugViewBounds = new Ref();
    }
 
    // $FF: synthetic method
@@ -224,9 +231,9 @@ public final class DebugComposeView extends AbstractComposeView {
    @Composable
    public void Content(@Nullable Composer $composer, final int $changed) {
       $composer = $composer.startRestartGroup(-503666316);
-      ComposerKt.sourceInformation($composer, "C(Content)98@3902L8:DebugComposeView.kt#qshby3");
+      ComposerKt.sourceInformation($composer, "C(Content)104@4175L8:DebugComposeView.kt#qshby3");
       if (ComposerKt.isTraceInProgress()) {
-         ComposerKt.traceEventStart(-503666316, $changed, -1, "land.sungbin.androidplayground.DebugComposeView.Content (DebugComposeView.kt:97)");
+         ComposerKt.traceEventStart(-503666316, $changed, -1, "land.sungbin.androidplayground.DebugComposeView.Content (DebugComposeView.kt:103)");
       }
 
       Function2 var10000 = (Function2)this.content.getValue();
@@ -268,16 +275,16 @@ public final class DebugComposeView extends AbstractComposeView {
             applier = "androidx.compose.ui.UiComposable"
          )
          public final void invoke(@Nullable Composer $composer, int $changed) {
-            ComposerKt.sourceInformation($composer, "C110@4314L1987:DebugComposeView.kt#qshby3");
+            ComposerKt.sourceInformation($composer, "C116@4587L2302:DebugComposeView.kt#qshby3");
             if (($changed & 11) == 2 && $composer.getSkipping()) {
                $composer.skipToGroupEnd();
             } else {
                if (ComposerKt.isTraceInProgress()) {
-                  ComposerKt.traceEventStart(1384190133, $changed, -1, "land.sungbin.androidplayground.DebugComposeView.setContent.<anonymous> (DebugComposeView.kt:107)");
+                  ComposerKt.traceEventStart(1384190133, $changed, -1, "land.sungbin.androidplayground.DebugComposeView.setContent.<anonymous> (DebugComposeView.kt:113)");
                }
 
-               $composer.startReplaceableGroup(264345604);
-               ComposerKt.sourceInformation($composer, "107@4257L7");
+               $composer.startReplaceableGroup(264345877);
+               ComposerKt.sourceInformation($composer, "113@4530L7");
                boolean $i$f$requireOwner;
                boolean propagateMinConstraints$iv;
                if (DebugComposeView.this.owner == null) {
@@ -295,14 +302,14 @@ public final class DebugComposeView extends AbstractComposeView {
                $composer.endReplaceableGroup();
                DebugComposeView this_$iv = DebugComposeView.this;
                $i$f$requireOwner = false;
-               Owner var49 = this_$iv.owner;
-               if (var49 == null) {
+               Owner var51 = this_$iv.owner;
+               if (var51 == null) {
                   propagateMinConstraints$iv = false;
-                  String var47 = LiveLiterals$DebugComposeViewKt.INSTANCE.String$fun-$anonymous$$arg-1$call-checkNotNull$fun-requireOwner$class-DebugComposeView();
-                  throw new IllegalStateException(var47.toString());
+                  String var49 = LiveLiterals$DebugComposeViewKt.INSTANCE.String$fun-$anonymous$$arg-1$call-checkNotNull$fun-requireOwner$class-DebugComposeView();
+                  throw new IllegalStateException(var49.toString());
                }
 
-               final Owner owner = var49;
+               final Owner owner = var51;
                Modifier modifier$iv = OnPlacedModifierKt.onPlaced(SizeKt.fillMaxSize$default((Modifier)Modifier.Companion, 0.0F, 1, (Object)null), (Function1)(new Function1() {
                   public final void invoke(@NotNull LayoutCoordinates coordinates) {
                      Intrinsics.checkNotNullParameter(coordinates, "coordinates");
@@ -313,16 +320,16 @@ public final class DebugComposeView extends AbstractComposeView {
 
                   }
                })).then(DebugViewOptions.INSTANCE.getEnabled() ? DebugComposeView.this.layoutBoundsDrawingModifier() : (Modifier)Modifier.Companion);
-               Function2 var48 = content;
-               DebugComposeView var8 = DebugComposeView.this;
-               int $changed$ivx = 0;
+               Function2 var50 = content;
+               final DebugComposeView var8 = DebugComposeView.this;
+               int $changed$iv = 0;
                int $i$f$Box = false;
                $composer.startReplaceableGroup(733328855);
                ComposerKt.sourceInformation($composer, "CC(Box)P(2,1,3)71@3309L67,72@3381L130:Box.kt#2w3rfo");
                Alignment contentAlignment$iv = Alignment.Companion.getTopStart();
                propagateMinConstraints$iv = false;
-               MeasurePolicy measurePolicy$iv = BoxKt.rememberBoxMeasurePolicy(contentAlignment$iv, propagateMinConstraints$iv, $composer, 14 & $changed$ivx >> 3 | 112 & $changed$ivx >> 3);
-               int $changed$iv$iv = 112 & $changed$ivx << 3;
+               MeasurePolicy measurePolicy$iv = BoxKt.rememberBoxMeasurePolicy(contentAlignment$iv, propagateMinConstraints$iv, $composer, 14 & $changed$iv >> 3 | 112 & $changed$iv >> 3);
+               int $changed$iv$iv = 112 & $changed$iv << 3;
                int $i$f$Layout = false;
                $composer.startReplaceableGroup(-1323940314);
                ComposerKt.sourceInformation($composer, "CC(Layout)P(!1,2)77@3132L23,79@3222L420:Layout.kt#80mrfh");
@@ -357,39 +364,49 @@ public final class DebugComposeView extends AbstractComposeView {
 
                skippableUpdate$iv$iv$iv.invoke(SkippableUpdater.box-impl(SkippableUpdater.constructor-impl($composer)), $composer, 112 & $changed$iv$iv$iv >> 3);
                $composer.startReplaceableGroup(2058660585);
-               int $changed$iv = 14 & $changed$iv$iv$iv >> 9;
+               int $changed$ivx = 14 & $changed$iv$iv$iv >> 9;
                int var28 = false;
                ComposerKt.sourceInformationMarkerStart($composer, -1253629263, "C73@3426L9:Box.kt#2w3rfo");
-               int var29 = 6 | 112 & $changed$ivx >> 6;
-               BoxScope var50 = (BoxScope)BoxScopeInstance.INSTANCE;
+               int var29 = 6 | 112 & $changed$iv >> 6;
+               BoxScope $this$invoke_u24lambda_u243 = (BoxScope)BoxScopeInstance.INSTANCE;
                int var32 = false;
-               ComposerKt.sourceInformationMarkerStart($composer, -339437644, "C126@5002L9:DebugComposeView.kt#qshby3");
-               var48.invoke($composer, 0);
-               final DebugUiCache var33 = (DebugUiCache)var8.debugUi.getValue();
-               $composer.startReplaceableGroup(264346420);
-               ComposerKt.sourceInformation($composer, "*128@5057L1174");
-               if (var33 != null) {
-                  int var35 = false;
-                  Modifier var51 = DebugViewOptionsKt.debugView((Modifier)Modifier.Companion);
-                  Object var10001 = var8.debugUiConstraints.getValue();
-                  Intrinsics.checkNotNull(var10001);
-                  long $this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241 = ((Constraints)var10001).unbox-impl();
-                  Modifier var38 = var51;
-                  int var39 = false;
-                  long resolved = androidx.compose.ui.geometry.SizeKt.Size(RangesKt.coerceAtMost(Size.getWidth-impl(var33.getSize-NH-jbRc()), (float)Constraints.getMaxWidth-impl($this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241)), RangesKt.coerceAtMost(Size.getHeight-impl(var33.getSize-NH-jbRc()), (float)Constraints.getMaxHeight-impl($this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241)));
+               ComposerKt.sourceInformationMarkerStart($composer, -339437371, "C132@5275L9,133@5293L306:DebugComposeView.kt#qshby3");
+               var50.invoke($composer, 0);
+               Modifier var10001 = SizeKt.wrapContentSize$default((Modifier)Modifier.Companion, (Alignment)null, false, 3, (Object)null);
+               double $this$dp$iv = LiveLiterals$DebugComposeViewKt.INSTANCE.Double$$$this$call-$get-dp$$arg-0$call-border$$$this$call-align$$$this$call-onPlaced$val-tmp0_modifier$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView();
+               int $i$f$getDp = false;
+               Modifier var36 = OnPlacedModifierKt.onPlaced($this$invoke_u24lambda_u243.align(BorderKt.border-xT4_qwU$default(var10001, Dp.constructor-impl((float)$this$dp$iv), Color.Companion.getGray-0d7_KjU(), (Shape)null, 4, (Object)null), Alignment.Companion.getTopEnd()), (Function1)(new Function1() {
+                  public final void invoke(@NotNull LayoutCoordinates coordinates) {
+                     Intrinsics.checkNotNullParameter(coordinates, "coordinates");
+                     var8.toggleDebugViewBounds.setValue(LayoutCoordinatesKt.boundsInRoot(coordinates));
+                  }
+               }));
+               TextKt.Text--4IGK_g(LiveLiterals$DebugComposeViewKt.INSTANCE.String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView(), var36, 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 0, 0, 131068);
+               final DebugUiCache var54 = (DebugUiCache)var8.debugUi.getValue();
+               $composer.startReplaceableGroup(264347008);
+               ComposerKt.sourceInformation($composer, "*142@5645L1174");
+               if (var54 != null) {
+                  int var37 = false;
+                  Modifier var52 = DebugViewOptionsKt.debugView((Modifier)Modifier.Companion);
+                  Object var53 = var8.debugUiConstraints.getValue();
+                  Intrinsics.checkNotNull(var53);
+                  long $this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241 = ((Constraints)var53).unbox-impl();
+                  Modifier var40 = var52;
+                  int var41 = false;
+                  long resolved = androidx.compose.ui.geometry.SizeKt.Size(RangesKt.coerceAtMost(Size.getWidth-impl(var54.getSize-NH-jbRc()), (float)Constraints.getMaxWidth-impl($this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241)), RangesKt.coerceAtMost(Size.getHeight-impl(var54.getSize-NH-jbRc()), (float)Constraints.getMaxHeight-impl($this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241)));
                   Density $this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241_u24lambda_u240 = owner.getDensity();
-                  int var43 = false;
-                  CanvasKt.Canvas(BackgroundKt.background-bw27NRU$default(OffsetKt.offset(SizeKt.size-6HolHcs(var38, DpSize.box-impl($this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241_u24lambda_u240.toDpSize-k-rfVVM(resolved)).unbox-impl()), (Function1)(new Function1() {
+                  int var45 = false;
+                  CanvasKt.Canvas(BackgroundKt.background-bw27NRU$default(OffsetKt.offset(SizeKt.size-6HolHcs(var40, DpSize.box-impl($this$invoke_u24lambda_u243_u24lambda_u242_u24lambda_u241_u24lambda_u240.toDpSize-k-rfVVM(resolved)).unbox-impl()), (Function1)(new Function1() {
                      public final long invoke_Bjo55l4/* $FF was: invoke-Bjo55l4*/(@NotNull Density $this$offset) {
                         Intrinsics.checkNotNullParameter($this$offset, "$this$offset");
-                        return var33.positionInRoot-5SAbXVA(IntSizeKt.IntSize(owner.getRoot().getWidth(), owner.getRoot().getHeight()), owner.getDensity());
+                        return var54.positionInRoot-5SAbXVA(IntSizeKt.IntSize(owner.getRoot().getWidth(), owner.getRoot().getHeight()), owner.getDensity());
                      }
                   })), DebugComposeView.Companion.getDEFAULT_BACKGROUND_COLOR-0d7_KjU(), (Shape)null, 2, (Object)null), (Function1)(new Function1() {
                      public final void invoke(@NotNull DrawScope $this$Canvas) {
                         Intrinsics.checkNotNullParameter($this$Canvas, "$this$Canvas");
                         float left$iv = $this$Canvas.toPx-0680j_4(DebugComposeView.Companion.getDEBUG_VIEW_PADDING-D9Ej5fM());
                         float top$iv = $this$Canvas.toPx-0680j_4(DebugComposeView.Companion.getDEBUG_VIEW_PADDING-D9Ej5fM());
-                        DebugUiCache var5 = var33;
+                        DebugUiCache var5 = var54;
                         int $i$f$translate = false;
                         $this$Canvas.getDrawContext().getTransform().translate(left$iv, top$iv);
                         DrawScope $this$invoke_u24lambda_u242 = $this$Canvas;
@@ -760,65 +777,77 @@ public final class DebugComposeView extends AbstractComposeView {
 
    public boolean dispatchTouchEvent(@NotNull MotionEvent event) {
       Intrinsics.checkNotNullParameter(event, "event");
+      long offset = androidx.compose.ui.geometry.OffsetKt.Offset(event.getX(), event.getY());
       if (event.getAction() == 0) {
-         long offset = androidx.compose.ui.geometry.OffsetKt.Offset(event.getX(), event.getY());
-         Iterable $this$firstOrNull$iv = (Iterable)this.debugNodes.values();
-         int $i$f$firstOrNull = false;
-         Iterator var7 = $this$firstOrNull$iv.iterator();
-
-         Object var10000;
-         while(true) {
-            if (!var7.hasNext()) {
-               var10000 = null;
-               break;
-            }
-
-            Object element$iv = var7.next();
-            SemanticsNode node = (SemanticsNode)element$iv;
-            int var10 = false;
-            if (node.getBoundsInRoot().contains-k-4lQ0M(offset)) {
-               var10000 = element$iv;
-               break;
-            }
-         }
-
-         SemanticsNode target = (SemanticsNode)var10000;
-         DebugData data = null;
-         if (target != null) {
-            SemanticsNode var16;
-            label35: {
-               DebugUiCache var14 = (DebugUiCache)this.debugUi.getValue();
-               if (var14 != null) {
-                  DebugData var15 = var14.getSource();
-                  if (var15 != null) {
-                     var16 = var15.getRaw$app_debug();
-                     break label35;
-                  }
-               }
-
-               var16 = null;
-            }
-
-            if (!Intrinsics.areEqual(var16, target)) {
-               DebugData.Resolver $this$invoke$iv = DebugViewOptions.INSTANCE.getResolver();
-               int $i$f$invoke = false;
-               data = $this$invoke$iv.resolve(target);
-            }
-         }
-
-         if (data != null) {
-            MutableState var17 = this.debugUi;
-            Intrinsics.checkNotNull(target);
-            Rect var10002 = target.getBoundsInRoot();
-            Object var10004 = this.debugUiTextConstraints.getValue();
-            Intrinsics.checkNotNull(var10004);
-            var17.setValue(this.calculateUi-3p2s80s(var10002, data, ((Constraints)var10004).unbox-impl()));
-         } else if (target == null) {
-            this.debugUi.setValue((Object)null);
+         Rect var10000 = (Rect)this.toggleDebugViewBounds.getValue();
+         if (var10000 != null ? var10000.contains-k-4lQ0M(offset) == LiveLiterals$DebugComposeViewKt.INSTANCE.Boolean$arg-1$call-EQEQ$cond$if$branch$if$fun-dispatchTouchEvent$class-DebugComposeView() : false) {
+            DebugViewOptions.INSTANCE.setEnabled(!DebugViewOptions.INSTANCE.getEnabled());
+            return LiveLiterals$DebugComposeViewKt.INSTANCE.Boolean$branch$if$branch$if$fun-dispatchTouchEvent$class-DebugComposeView();
          }
       }
 
-      return DebugViewOptions.INSTANCE.getEnabled() ? LiveLiterals$DebugComposeViewKt.INSTANCE.Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView() : super.dispatchTouchEvent(event);
+      if (!DebugViewOptions.INSTANCE.getEnabled()) {
+         return super.dispatchTouchEvent(event);
+      } else {
+         if (event.getAction() == 0) {
+            Iterable $this$firstOrNull$iv = (Iterable)this.debugNodes.values();
+            int $i$f$firstOrNull = false;
+            Iterator var7 = $this$firstOrNull$iv.iterator();
+
+            Object var14;
+            while(true) {
+               if (!var7.hasNext()) {
+                  var14 = null;
+                  break;
+               }
+
+               Object element$iv = var7.next();
+               SemanticsNode node = (SemanticsNode)element$iv;
+               int var10 = false;
+               if (node.getBoundsInRoot().contains-k-4lQ0M(offset)) {
+                  var14 = element$iv;
+                  break;
+               }
+            }
+
+            SemanticsNode target = (SemanticsNode)var14;
+            DebugData data = null;
+            if (target != null) {
+               SemanticsNode var17;
+               label50: {
+                  DebugUiCache var15 = (DebugUiCache)this.debugUi.getValue();
+                  if (var15 != null) {
+                     DebugData var16 = var15.getSource();
+                     if (var16 != null) {
+                        var17 = var16.getRaw$app_debug();
+                        break label50;
+                     }
+                  }
+
+                  var17 = null;
+               }
+
+               if (!Intrinsics.areEqual(var17, target)) {
+                  DebugData.Resolver $this$invoke$iv = DebugViewOptions.INSTANCE.getResolver();
+                  int $i$f$invoke = false;
+                  data = $this$invoke$iv.resolve(target);
+               }
+            }
+
+            if (data != null) {
+               MutableState var18 = this.debugUi;
+               Intrinsics.checkNotNull(target);
+               Rect var10002 = target.getBoundsInRoot();
+               Object var10004 = this.debugUiTextConstraints.getValue();
+               Intrinsics.checkNotNull(var10004);
+               var18.setValue(this.calculateUi-3p2s80s(var10002, data, ((Constraints)var10004).unbox-impl()));
+            } else if (target == null) {
+               this.debugUi.setValue((Object)null);
+            }
+         }
+
+         return LiveLiterals$DebugComposeViewKt.INSTANCE.Boolean$fun-dispatchTouchEvent$class-DebugComposeView();
+      }
    }
 
    private final Owner requireOwner() {

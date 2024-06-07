@@ -6,6 +6,7 @@ unstable class DebugComposeView {
   runtime val debugUiConstraints: Ref<Constraints>
   runtime val debugUiTextConstraints: Ref<Constraints>
   stable val content: MutableState<@[Composable] Function0<Unit>?>
+  runtime val toggleDebugViewBounds: Ref<Rect>
   unstable var debugNodeCollectorThread: Thread?
   stable var shouldCreateCompositionOnAttachedToWindow: Boolean
   <runtime stability> = Unstable

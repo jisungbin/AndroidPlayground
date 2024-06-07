@@ -9,10 +9,13 @@ import android.view.ViewGroup
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionContext
 import androidx.compose.runtime.mutableStateMapOf
@@ -20,6 +23,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshots.ObserverHandle
 import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.runtime.snapshots.StateObject
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
@@ -28,6 +32,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onPlaced
 import androidx.compose.ui.node.Owner
 import androidx.compose.ui.node.Ref
@@ -88,6 +93,7 @@ class DebugComposeView(
   private val debugUiTextConstraints = Ref<Constraints>()
 
   private val content = mutableStateOf<(@Composable () -> Unit)?>(null)
+  private val toggleDebugViewBounds = Ref<Rect>()
   private var debugNodeCollectorThread: Thread? = null
 
   @Suppress("RedundantVisibilityModifier")
@@ -125,6 +131,14 @@ class DebugComposeView(
           .then(if (DebugViewOptions.enabled) layoutBoundsDrawingModifier() else Modifier),
       ) {
         content()
+        Text(
+          modifier = Modifier
+            .wrapContentSize()
+            .border(width = (0.5).dp, color = Color.Gray)
+            .align(Alignment.TopEnd)
+            .onPlaced { coordinates -> toggleDebugViewBounds.value = coordinates.boundsInRoot() },
+          text = "ToggleDebugView",
+        )
         debugUi.value?.let { ui ->
           Canvas(
             modifier = Modifier
@@ -259,8 +273,18 @@ class DebugComposeView(
 
   // TODO testing multi-window supports
   override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+    val offset = Offset(x = event.x, y = event.y)
+
     if (event.action == MotionEvent.ACTION_DOWN) {
-      val offset = Offset(x = event.x, y = event.y)
+      if (toggleDebugViewBounds.value?.contains(offset) == true) {
+        DebugViewOptions.enabled = !DebugViewOptions.enabled
+        return true
+      }
+    }
+
+    if (!DebugViewOptions.enabled) return super.dispatchTouchEvent(event)
+
+    if (event.action == MotionEvent.ACTION_DOWN) {
       val target = debugNodes.values.firstOrNull { node -> offset in node.boundsInRoot }
       var data: DebugData? = null
 
@@ -277,7 +301,7 @@ class DebugComposeView(
       }
     }
 
-    return if (DebugViewOptions.enabled) true else super.dispatchTouchEvent(event)
+    return true
   }
 
   @Suppress("NOTHING_TO_INLINE")
