@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.PopupWindow
 import androidx.annotation.MainThread
 import androidx.compose.runtime.snapshots.ObserverHandle
@@ -16,7 +17,6 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.CanvasDrawScope
 import androidx.compose.ui.graphics.drawscope.translate
-import androidx.compose.ui.graphics.toComposeIntRect
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
@@ -37,7 +37,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import kotlin.math.max
 import kotlin.math.roundToInt
-import android.graphics.Rect as AndroidRect
 import androidx.compose.ui.graphics.Canvas as DslCanvas
 
 class DebugPopupWindow internal constructor() : PopupWindow() {
@@ -60,31 +59,36 @@ class DebugPopupWindow internal constructor() : PopupWindow() {
 
   @MainThread
   fun start(host: DebugComposeView) {
-    this.anchor = host
-    contentView = DebugPopupView(host)
+    anchor = host
+    contentView = DebugPopupView(host).also(::setContentView)
+
     currentWatcherDisposeHandle = Snapshot.registerApplyObserver { changes, _ ->
       val contentView = contentView ?: return@registerApplyObserver
       if (changes.isRealChanged()) {
         target = host.debugData.value
         val target = target
+        println("Detect target $target")
         if (target != null) {
           val previousUiSize = contentView.current?.size
           val ui = contentView.calculateUi(target)
+          println("ui result: $ui, previousUiSize: $previousUiSize")
+          contentView.layoutParams = ViewGroup.LayoutParams(ui.size.width, ui.size.height)
           if (previousUiSize != ui.size) contentView.requestLayout() else contentView.invalidate()
+          println("content size is ${contentView.width}x${contentView.height}")
+          println("content visiblility is ${contentView.visibility}")
+          println("contet willNotDraw is ${contentView.willNotDraw()}")
           ui.popupPosition.let { pos ->
-            if (isShowing) {
-              update(pos.x, pos.y, ui.size.width, ui.size.height, /* force = */ true)
-            } else {
-              showAtLocation(/* parent = */ host, Gravity.NO_GRAVITY, pos.x, pos.y)
-            }
+            if (isShowing) update(pos.x, pos.y, ui.size.width, ui.size.height, /* force = */ true)
+            else showAtLocation(/* parent = */ host, Gravity.NO_GRAVITY, pos.x, pos.y)
           }
+          println("show! $isShowing, content ${getContentView()}")
         } else {
+          println("dismiss!")
           dismiss()
         }
       }
     }
 
-    windowSize = AndroidRect().apply { host.getWindowVisibleDisplayFrame(this) }.toComposeIntRect().size
     host.findViewTreeLifecycleOwner()!!.lifecycle.addObserver(object : DefaultLifecycleObserver {
       // Clean up DebugView to match when Recomposer cancel.
       // https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/platform/WindowRecomposer.android.kt;l=417-419;drc=dcaa116fbfda77e64a319e1668056ce3b032469f
@@ -92,7 +96,6 @@ class DebugPopupWindow internal constructor() : PopupWindow() {
         release()
       }
     })
-    setContentView(contentView!!)
   }
 
   private fun release() {
@@ -106,7 +109,8 @@ class DebugPopupWindow internal constructor() : PopupWindow() {
   private inline fun requireOwner() =
     checkNotNull(anchor?.owner) { "DebugPopupWindow is not started" }
 
-  private fun Set<Any>.isRealChanged() = anchor!!.debugData as StateObject in this
+  @Suppress("NOTHING_TO_INLINE")
+  private inline fun Set<Any>.isRealChanged() = anchor!!.debugData as StateObject in this
 
   private inner class UiCache(
     val size: IntSize,
@@ -126,6 +130,14 @@ class DebugPopupWindow internal constructor() : PopupWindow() {
         layoutDirection = requireOwner().layoutDirection,
         popupContentSize = size,
       )
+
+    override fun toString() =
+      "UiCache(" +
+        "size=$size, " +
+        "anchorBounds=$anchorBounds, " +
+        "popupPosition=$popupPosition, " +
+        "title=${title?.layoutInput?.text}" +
+        ")"
   }
 
   private inner class DebugPopupView(host: DebugComposeView) :
@@ -134,7 +146,7 @@ class DebugPopupWindow internal constructor() : PopupWindow() {
     private val drawScope = CanvasDrawScope()
 
     @Volatile
-    private var current: UiCache? = null
+    var current: UiCache? = null
 
     init {
       var startX = 0
@@ -160,12 +172,48 @@ class DebugPopupWindow internal constructor() : PopupWindow() {
       }
     }
 
+    override fun requestLayout() {
+      println("requestLayout!")
+      super.requestLayout()
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+      println("onLayout: $changed, $left, $top, $right, $bottom")
+      super.onLayout(changed, left, top, right, bottom)
+    }
+
+    override fun invalidate() {
+      println("invalidate!")
+      println("content size is ${width}x${height}")
+      println("content visiblility is $visibility (VISIBLE = ${VISIBLE})")
+      println("contet willNotDraw is ${willNotDraw()}")
+      super.invalidate()
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+      println("onSizeChanged: $w, $h, $oldw, $oldh")
+      if (oldw == 0 || oldh == 0) invalidate()
+      super.onSizeChanged(w, h, oldw, oldh)
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
       val size = current?.size ?: IntSize.Zero
+      println("onMeasure: $size")
       setMeasuredDimension(size.width, size.height)
     }
 
+    override fun draw(canvas: Canvas) {
+      println("draw!")
+      super.draw(canvas)
+    }
+
+    override fun dispatchDraw(canvas: Canvas) {
+      println("dispatchDraw!")
+      super.dispatchDraw(canvas)
+    }
+
     override fun onDraw(canvas: Canvas) {
+      println("onDraw: $current")
       val current = current ?: return
       drawScope.draw(
         density = this,

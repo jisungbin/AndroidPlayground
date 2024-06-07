@@ -1,9 +1,9 @@
-unstable class DebugComposeView {
-  unstable var root: ViewRootForTest
-  stable val debugNodes: SnapshotStateMap<Int, SemanticsNode>
-  stable val debugData: MutableState<Pair<Rect, List<String>>?>
-  stable val debugPopupDraggedOffset: MutableState<Offset>
-  stable val content: MutableState<@[Composable] Function0<Unit>?>
-  stable var shouldCreateCompositionOnAttachedToWindow: Boolean
+unstable class DebugPopupWindow {
+  runtime var anchor: DebugComposeView?
+  stable var contentView: DebugPopupView?
+  unstable var currentWatcherDisposeHandle: ObserverHandle?
+  unstable val textMeasurer$delegate: Lazy<TextMeasurer>
+  stable var windowSize: IntSize
+  runtime var target: Pair<Rect, DebugData>?
   <runtime stability> = Unstable
 }

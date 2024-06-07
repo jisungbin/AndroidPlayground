@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewTreeLifecycleOwner;
 import androidx.lifecycle.ViewTreeViewModelStoreOwner;
 import androidx.savedstate.SavedStateRegistryOwner;
 import androidx.savedstate.ViewTreeSavedStateRegistryOwner;
-import java.util.UUID;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -26,14 +25,12 @@ import org.jetbrains.annotations.Nullable;
    mv = {1, 9, 0},
    k = 2,
    xi = 48,
-   d1 = {"\u0000*\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a.\u0010\u0004\u001a\u00020\u0005*\u00020\u00062\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b2\u0011\u0010\t\u001a\r\u0012\u0004\u0012\u00020\u00050\n¢\u0006\u0002\b\u000b¢\u0006\u0002\u0010\f\u001a\f\u0010\r\u001a\u00020\u0005*\u00020\u0006H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000e"},
-   d2 = {"DEBUG_POPUP_ID", "", "DefaultActivityContentLayoutParams", "Landroid/view/ViewGroup$LayoutParams;", "setDebugContent", "", "Landroidx/activity/ComponentActivity;", "parent", "Landroidx/compose/runtime/CompositionContext;", "content", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "(Landroidx/activity/ComponentActivity;Landroidx/compose/runtime/CompositionContext;Lkotlin/jvm/functions/Function2;)V", "setOwners", "app_debug"}
+   d1 = {"\u0000$\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a.\u0010\u0002\u001a\u00020\u0003*\u00020\u00042\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u00062\u0011\u0010\u0007\u001a\r\u0012\u0004\u0012\u00020\u00030\b¢\u0006\u0002\b\t¢\u0006\u0002\u0010\n\u001a\f\u0010\u000b\u001a\u00020\u0003*\u00020\u0004H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\f"},
+   d2 = {"DefaultActivityContentLayoutParams", "Landroid/view/ViewGroup$LayoutParams;", "setDebugContent", "", "Landroidx/activity/ComponentActivity;", "parent", "Landroidx/compose/runtime/CompositionContext;", "content", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "(Landroidx/activity/ComponentActivity;Landroidx/compose/runtime/CompositionContext;Lkotlin/jvm/functions/Function2;)V", "setOwners", "app_debug"}
 )
 public final class DebugComposeViewKt {
    @NotNull
-   private static final String DEBUG_POPUP_ID;
-   @NotNull
-   private static final LayoutParams DefaultActivityContentLayoutParams;
+   private static final LayoutParams DefaultActivityContentLayoutParams = new LayoutParams(-1, -1);
 
    @ComposableInferredTarget(
       scheme = "[androidx.compose.ui.UiComposable[androidx.compose.ui.UiComposable]]"
@@ -83,17 +80,5 @@ public final class DebugComposeViewKt {
          ViewTreeSavedStateRegistryOwner.set(decorView, (SavedStateRegistryOwner)$this$setOwners);
       }
 
-   }
-
-   // $FF: synthetic method
-   public static final String access$getDEBUG_POPUP_ID$p() {
-      return DEBUG_POPUP_ID;
-   }
-
-   static {
-      String var10000 = UUID.randomUUID().toString();
-      Intrinsics.checkNotNullExpressionValue(var10000, "toString(...)");
-      DEBUG_POPUP_ID = var10000;
-      DefaultActivityContentLayoutParams = new LayoutParams(-2, -2);
    }
 }

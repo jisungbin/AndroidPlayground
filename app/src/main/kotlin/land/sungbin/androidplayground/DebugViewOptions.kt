@@ -15,11 +15,8 @@ object DebugViewOptions {
   var resolver = DebugData.Resolver { node ->
     DebugData(
       name = node.id.toString(),
-      contents = listOf(
-        "id: ${node.id}",
-        "size: ${node.size}",
-        "position: ${node.positionInRoot}",
-      ),
+      contents = listOf("id: ${node.id}", "size: ${node.size}", "position: ${node.positionInRoot}"),
+      raw = node,
     )
   }
 

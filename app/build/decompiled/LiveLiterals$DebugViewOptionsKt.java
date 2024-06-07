@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$DebugViewOptionsKt {
    @NotNull
    public static final LiveLiterals$DebugViewOptionsKt INSTANCE = new LiveLiterals$DebugViewOptionsKt();
-   private static int Int$class-DebugViewOptions;
+   private static int Int$class-DebugViewOptions = 8;
    @Nullable
    private static State State$Int$class-DebugViewOptions;
 

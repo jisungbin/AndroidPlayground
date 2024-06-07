@@ -2,7 +2,11 @@ package land.sungbin.androidplayground
 
 import androidx.compose.ui.semantics.SemanticsNode
 
-data class DebugData(val name: String = "", val contents: List<String>) {
+data class DebugData(
+  val name: String = "",
+  val contents: List<String>,
+  internal val raw: SemanticsNode,
+) {
   init {
     require(contents.isNotEmpty()) { "debug contents must not be empty" }
   }

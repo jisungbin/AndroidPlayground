@@ -29,9 +29,11 @@ import androidx.compose.ui.semantics.getAllSemanticsNodes
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.compose.ui.util.fastForEach
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.lifecycle.setViewTreeViewModelStoreOwner
 import androidx.savedstate.findViewTreeSavedStateRegistryOwner
@@ -42,7 +44,7 @@ import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
 @Suppress("VisibleForTests")
-class DebugComposeView @JvmOverloads constructor(
+class DebugComposeView(
   context: Context,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = 0,
@@ -54,6 +56,7 @@ class DebugComposeView @JvmOverloads constructor(
   internal val debugData = mutableStateOf<Pair<Rect, DebugData>?>(null)
 
   private val content = mutableStateOf<(@Composable () -> Unit)?>(null)
+  private var debugNodeCollectorThread: Thread? = null
 
   @Suppress("RedundantVisibilityModifier")
   protected override var shouldCreateCompositionOnAttachedToWindow: Boolean = false
@@ -94,42 +97,53 @@ class DebugComposeView @JvmOverloads constructor(
     }
 
   override fun onAttachedToWindow() {
+    if (debugNodeCollectorThread != null) debugNodeCollectorThread!!.interrupt()
     var debugNodeCollectorDisposeHandle: ObserverHandle? = null
-    thread(
+    debugNodeCollectorThread = thread(
       name = "DebugNodeCollector",
       isDaemon = true,
       priority = Thread.NORM_PRIORITY,
     ) {
-      try {
-        findViewTreeLifecycleOwner()!!.lifecycleScope.launch {
-          while (true) {
-            awaitFrame()
-            // TODO "===" -> "=="
-            if (owner === null) {
-              println("'root' is not initialized yet!")
-              continue
+      findViewTreeLifecycleOwner()!!.run {
+        lifecycleScope.launch {
+          println("onAttachedToWindow started!")
+          try {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+              println("onAttachedToWindow started! - 2")
+              while (true) {
+                awaitFrame()
+                // TODO "===" -> "=="
+                if (owner === null) {
+                  println("'owner' is not initialized yet!")
+                  continue
+                }
+
+                collectDebugNodesOrClearIfDestroyed()
+                println("Collected ${debugNodes.size} debug nodes")
+                break
+              }
+
+              debugNodeCollectorDisposeHandle = Snapshot.registerApplyObserver { changes, _ ->
+                println("DebugComposeView registerApplyObserver: $changes")
+                if (!changes.isRealChanged()) return@registerApplyObserver
+                collectDebugNodesOrClearIfDestroyed()
+                println("Re-collected ${debugNodes.size} debug nodes")
+              }
+
+              println("debugPopup start!")
+              debugPopup?.start(host = this@DebugComposeView)
+
+              awaitCancellation()
             }
-
-            collectDebugNodesOrClearIfDestroyed()
-            println("Collected ${debugNodes.size} debug nodes")
-            break
+          } finally {
+            debugNodeCollectorDisposeHandle?.dispose()
+            debugData.value = null
+            debugNodes.clear()
+            debugPopup = null
+            owner = null
+            println("onAttachedToWindow finished!")
           }
-
-          debugNodeCollectorDisposeHandle = Snapshot.registerApplyObserver { changes, _ ->
-            if (!changes.isRealChanged()) return@registerApplyObserver
-            collectDebugNodesOrClearIfDestroyed()
-            println("Re-collected ${debugNodes.size} debug nodes")
-          }
-          debugPopup?.start(host = this@DebugComposeView)
-
-          awaitCancellation()
         }
-      } finally {
-        debugNodeCollectorDisposeHandle?.dispose()
-        debugData.value = null
-        debugNodes.clear()
-        debugPopup = null
-        owner = null
       }
     }
     super.onAttachedToWindow()
@@ -140,11 +154,12 @@ class DebugComposeView @JvmOverloads constructor(
     val offset = Offset(x = ev.x, y = ev.y)
 
     val target = debugNodes.values.firstOrNull { node -> offset in node.boundsInRoot }
-    if (target != null) {
+    if (target != null && debugData.value?.second?.raw != target) {
       debugData.value = target.boundsInRoot to DebugViewOptions.resolver(target)
-    } else {
+    } else if (target == null) {
       debugData.value = null
     }
+    println("Dispatched touch event at $offset to ${debugData.value}")
 
     return if (DebugViewOptions.enabled) true else super.dispatchTouchEvent(ev)
   }

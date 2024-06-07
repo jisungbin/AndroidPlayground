@@ -25,116 +25,76 @@ public final class LiveLiterals$DebugComposeViewKt {
    private static boolean Boolean$arg-0$call-$set-shouldCreateCompositionOnAttachedToWindow$$fun-setContent$class-DebugComposeView = true;
    @Nullable
    private static State State$Boolean$arg-0$call-$set-shouldCreateCompositionOnAttachedToWindow$$fun-setContent$class-DebugComposeView;
-   private static int Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   @Nullable
-   private static State State$Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   private static int Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   @Nullable
-   private static State State$Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   private static int Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = 150;
-   @Nullable
-   private static State State$Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   private static float Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = 0.8F;
-   @Nullable
-   private static State State$Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   private static int Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = 8;
-   @Nullable
-   private static State State$Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   private static int Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = 4;
-   @Nullable
-   private static State State$Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   @NotNull
-   private static String String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = "[#ComposableId] - TestId";
-   @Nullable
-   private static State State$String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-   @NotNull
-   private static String String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = "- ";
-   @Nullable
-   private static State State$String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
    private static int Int$$$this$call-$get-dp$$$$this$call-toPx$arg-0$call-$init$$arg-4$call-drawRect$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-drawWithContent$fun-layoutBoundsDrawingModifier$class-DebugComposeView = 1;
    @Nullable
    private static State State$Int$$$this$call-$get-dp$$$$this$call-toPx$arg-0$call-$init$$arg-4$call-drawRect$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-drawWithContent$fun-layoutBoundsDrawingModifier$class-DebugComposeView;
-   private static boolean Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView = true;
+   private static boolean Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = true;
    @Nullable
-   private static State State$Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView = "DebugNodeCollector";
+   private static String String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "DebugNodeCollector";
    @Nullable
-   private static State State$String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = "'root' is not initialized yet!";
+   private static String String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "onAttachedToWindow started!";
    @Nullable
-   private static State State$String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = "Collected ";
+   private static String String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "onAttachedToWindow started! - 2";
    @Nullable
-   private static State State$String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = " debug nodes";
+   private static String String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "'owner' is not initialized yet!";
    @Nullable
-   private static State State$String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = "  - #";
+   private static String String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "Collected ";
    @Nullable
-   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = " node at ";
+   private static String String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = " debug nodes";
    @Nullable
-   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = " (";
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "DebugComposeView registerApplyObserver: ";
    @Nullable
-   private static State State$String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = ")";
+   private static String String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "Re-collected ";
    @Nullable
-   private static State State$String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = "Re-collected ";
+   private static String String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = " debug nodes";
    @Nullable
-   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = " debug nodes";
+   private static String String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "debugPopup start!";
    @Nullable
-   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = "  - #";
+   private static String String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = "onAttachedToWindow finished!";
    @Nullable
-   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+   private static State State$String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
    @NotNull
-   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = " node at ";
-   @Nullable
-   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-   @NotNull
-   private static String String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = " (";
-   @Nullable
-   private static State State$String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-   @NotNull
-   private static String String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = ")";
-   @Nullable
-   private static State State$String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-   @NotNull
-   private static String String$0$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = "dispatchTouchEvent: ";
+   private static String String$0$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = "Dispatched touch event at ";
    @Nullable
    private static State State$String$0$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
-   private static float Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = -1.0F;
+   @NotNull
+   private static String String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = " to ";
    @Nullable
-   private static State State$Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
-   private static float Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = -1.0F;
+   private static State State$String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
+   private static boolean Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView = true;
    @Nullable
-   private static State State$Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
-   private static boolean Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView = true;
+   private static State State$Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView;
+   private static boolean Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView;
    @Nullable
-   private static State State$Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView;
-   private static boolean Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView;
+   private static State State$Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView;
+   private static boolean Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView = true;
    @Nullable
-   private static State State$Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView;
-   private static boolean Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView = true;
+   private static State State$Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView;
+   private static boolean Boolean$fun-isInDebugView$class-DebugComposeView;
    @Nullable
-   private static State State$Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView;
-   private static boolean Boolean$fun-isInDebugPopup$class-DebugComposeView;
-   @Nullable
-   private static State State$Boolean$fun-isInDebugPopup$class-DebugComposeView;
+   private static State State$Boolean$fun-isInDebugView$class-DebugComposeView;
    private static int Int$class-DebugComposeView = 8;
    @Nullable
    private static State State$Int$class-DebugComposeView;
@@ -144,7 +104,7 @@ public final class LiveLiterals$DebugComposeViewKt {
 
    @LiveLiteralInfo(
       key = "Int$param-defStyleAttr$class-DebugComposeView",
-      offset = 2829
+      offset = 2044
    )
    public final int Int$param_defStyleAttr$class_DebugComposeView/* $FF was: Int$param-defStyleAttr$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
@@ -163,7 +123,7 @@ public final class LiveLiterals$DebugComposeViewKt {
 
    @LiveLiteralInfo(
       key = "Boolean$arg-0$call-$set-shouldCreateCompositionOnAttachedToWindow$$fun-setContent$class-DebugComposeView",
-      offset = 3604
+      offset = 2860
    )
    public final boolean Boolean$arg_0$call_$set_shouldCreateCompositionOnAttachedToWindow$$fun_setContent$class_DebugComposeView/* $FF was: Boolean$arg-0$call-$set-shouldCreateCompositionOnAttachedToWindow$$fun-setContent$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
@@ -181,162 +141,8 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 4231
-   )
-   public final int Int$arg_0$call_copy$val_looseConstraints$fun_$anonymous$$arg_0$call_layout$$$this$call_heightIn$$$this$call_background$$$this$call_padding$arg_0$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$Int$arg-0$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 4246
-   )
-   public final int Int$arg_2$call_copy$val_looseConstraints$fun_$anonymous$$arg_0$call_layout$$$this$call_heightIn$$$this$call_background$$$this$call_padding$arg_0$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$Int$arg-2$call-copy$val-looseConstraints$fun-$anonymous$$arg-0$call-layout$$$this$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 4982
-   )
-   public final int Int$$$this$call_$get_dp$$arg_1$call_heightIn$$$this$call_background$$$this$call_padding$arg_0$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$Int$$$this$call-$get-dp$$arg-1$call-heightIn$$$this$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 5048
-   )
-   public final float Float$arg_0$call_copy$arg_0$call_background$$$this$call_padding$arg_0$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$Float$arg-0$call-copy$arg-0$call-background$$$this$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).floatValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 5084
-   )
-   public final int Int$$$this$call_$get_dp$$arg_0$call_padding$arg_0$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$Int$$$this$call-$get-dp$$arg-0$call-padding$arg-0$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 5154
-   )
-   public final int Int$$$this$call_$get_dp$$arg_0$call_spacedBy$arg_1$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$Int$$$this$call-$get-dp$$arg-0$call-spacedBy$arg-1$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 5193
-   )
-   @NotNull
-   public final String String$arg_0$call_Text$fun_$anonymous$$arg_3$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$String$arg-0$call-Text$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView",
-      offset = 5346
-   )
-   @NotNull
-   public final String String$0$str$arg_0$call_Text$fun_$anonymous$$arg_0$call_fastForEach$fun_$anonymous$$arg_3$call_Column$fun_$anonymous$$arg_0$call_let$else$when$fun_$anonymous$$arg_3$call_Box$fun_$anonymous$$arg_0$call_$set_value$$fun_setContent$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-      } else {
-         State var10000 = State$String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView", String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView);
-            State$String$0$str$arg-0$call-Text$fun-$anonymous$$arg-0$call-fastForEach$fun-$anonymous$$arg-3$call-Column$fun-$anonymous$$arg-0$call-let$else$when$fun-$anonymous$$arg-3$call-Box$fun-$anonymous$$arg-0$call-$set-value$$fun-setContent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
       key = "Int$$$this$call-$get-dp$$$$this$call-toPx$arg-0$call-$init$$arg-4$call-drawRect$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-drawWithContent$fun-layoutBoundsDrawingModifier$class-DebugComposeView",
-      offset = 5966
+      offset = 3580
    )
    public final int Int$$$this$call_$get_dp$$$$this$call_toPx$arg_0$call_$init$$arg_4$call_drawRect$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_drawWithContent$fun_layoutBoundsDrawingModifier$class_DebugComposeView/* $FF was: Int$$$this$call-$get-dp$$$$this$call-toPx$arg-0$call-$init$$arg-4$call-drawRect$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-drawWithContent$fun-layoutBoundsDrawingModifier$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
@@ -354,17 +160,17 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6171
+      key = "Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 3893
    )
-   public final boolean Boolean$arg_1$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final boolean Boolean$arg_1$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView", Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$Boolean$arg-1$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$Boolean$arg-1$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -373,18 +179,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6133
+      key = "String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 3855
    )
    @NotNull
-   public final String String$arg_3$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$arg_3$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$arg-3$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$arg-3$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -393,18 +199,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6413
+      key = "String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4040
    )
    @NotNull
-   public final String String$arg_0$call_println$branch$if$body$loop$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$arg_0$call_println$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$arg-0$call-println$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -413,18 +219,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6537
+      key = "String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4166
    )
    @NotNull
-   public final String String$0$str$arg_0$call_println$body$loop$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$arg_0$call_println$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$arg-0$call-println$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -433,18 +239,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6565
+      key = "String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4361
    )
    @NotNull
-   public final String String$2$str$arg_0$call_println$body$loop$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$arg_0$call_println$branch$if$body$loop$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$arg-0$call-println$branch$if$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -453,18 +259,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6651
+      key = "String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4520
    )
    @NotNull
-   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$body$loop$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$0$str$arg_0$call_println$body$loop$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$0$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -473,18 +279,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6666
+      key = "String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4548
    )
    @NotNull
-   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$body$loop$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$2$str$arg_0$call_println$body$loop$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$2$str$arg-0$call-println$body$loop$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -493,18 +299,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6697
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4722
    )
    @NotNull
-   public final String String$4$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$body$loop$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -513,18 +319,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6723
+      key = "String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4927
    )
    @NotNull
-   public final String String$6$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$body$loop$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$0$str$arg_0$call_println_1$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$body$loop$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$0$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -533,18 +339,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 6987
+      key = "String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 4958
    )
    @NotNull
-   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$2$str$arg_0$call_println_1$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$2$str$arg-0$call-println-1$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -553,18 +359,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 7018
+      key = "String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 5013
    )
    @NotNull
-   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$arg_0$call_println_1$fun_$anonymous$$arg_1$call_repeatOnLifecycle$try$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$arg-0$call-println-1$fun-$anonymous$$arg-1$call-repeatOnLifecycle$try$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -573,78 +379,18 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 7104
+      key = "String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView",
+      offset = 5363
    )
    @NotNull
-   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
+   public final String String$arg_0$call_println$finally$fun_$anonymous$$arg_2$call_launch$fun_$anonymous$$arg_0$call_run$fun_$anonymous$$arg_5$call_thread$arg_0$call_$set_debugNodeCollectorThread$$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         return String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
       } else {
-         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
+         State var10000 = State$String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 7119
-   )
-   @NotNull
-   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-      } else {
-         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 7150
-   )
-   @NotNull
-   public final String String$4$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-      } else {
-         State var10000 = State$String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$4$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return (String)var10000.getValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView",
-      offset = 7176
-   )
-   @NotNull
-   public final String String$6$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_registerApplyObserver$set_debugNodeCollectorDisposeHandle$fun_$anonymous$$arg_2$call_launch$try$fun_$anonymous$$arg_5$call_thread$fun_onAttachedToWindow$class_DebugComposeView/* $FF was: String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-      } else {
-         State var10000 = State$String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView", String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView);
-            State$String$6$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-registerApplyObserver$set-debugNodeCollectorDisposeHandle$fun-$anonymous$$arg-2$call-launch$try$fun-$anonymous$$arg-5$call-thread$fun-onAttachedToWindow$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView", String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView);
+            State$String$arg-0$call-println$finally$fun-$anonymous$$arg-2$call-launch$fun-$anonymous$$arg-0$call-run$fun-$anonymous$$arg-5$call-thread$arg-0$call-$set-debugNodeCollectorThread$$fun-onAttachedToWindow$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -654,7 +400,7 @@ public final class LiveLiterals$DebugComposeViewKt {
 
    @LiveLiteralInfo(
       key = "String$0$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView",
-      offset = 7442
+      offset = 5929
    )
    @NotNull
    public final String String$0$str$arg_0$call_println$fun_dispatchTouchEvent$class_DebugComposeView/* $FF was: String$0$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView*/() {
@@ -673,55 +419,37 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView",
-      offset = 7484
+      key = "String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView",
+      offset = 5962
    )
-   public final float Float$branch$when$arg_0$call_Offset$1$str$arg_0$call_println$fun_dispatchTouchEvent$class_DebugComposeView/* $FF was: Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView*/() {
+   @NotNull
+   public final String String$2$str$arg_0$call_println$fun_dispatchTouchEvent$class_DebugComposeView/* $FF was: String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
+         return String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
       } else {
-         State var10000 = State$Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
+         State var10000 = State$String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView", Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView);
-            State$Float$branch$when$arg-0$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView", String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView);
+            State$String$2$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
-         return ((Number)var10000.getValue()).floatValue();
+         return (String)var10000.getValue();
       }
    }
 
    @LiveLiteralInfo(
-      key = "Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView",
-      offset = 7502
+      key = "Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView",
+      offset = 6029
    )
-   public final float Float$branch$when$arg_1$call_Offset$1$str$arg_0$call_println$fun_dispatchTouchEvent$class_DebugComposeView/* $FF was: Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView*/() {
+   public final boolean Boolean$branch$if_1$fun_dispatchTouchEvent$class_DebugComposeView/* $FF was: Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
+         return Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView;
       } else {
-         State var10000 = State$Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView;
+         State var10000 = State$Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView", Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView);
-            State$Float$branch$when$arg-1$call-Offset$1$str$arg-0$call-println$fun-dispatchTouchEvent$class-DebugComposeView = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).floatValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView",
-      offset = 8325
-   )
-   public final boolean Boolean$branch$if$fun_dispatchTouchEvent$class_DebugComposeView/* $FF was: Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView;
-      } else {
-         State var10000 = State$Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView", Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView);
-            State$Boolean$branch$if$fun-dispatchTouchEvent$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView", Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView);
+            State$Boolean$branch$if-1$fun-dispatchTouchEvent$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -730,17 +458,17 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView",
-      offset = 8723
+      key = "Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView",
+      offset = 6452
    )
-   public final boolean Boolean$arg_0$call_getAllSemanticsNodes$$$this$call_fastForEach$fun_collectDebugNodes$class_DebugComposeView/* $FF was: Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView*/() {
+   public final boolean Boolean$arg_0$call_getAllSemanticsNodes$$$this$call_fastForEach$fun_collectDebugNodesOrClearIfDestroyed$class_DebugComposeView/* $FF was: Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView;
+         return Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView;
       } else {
-         State var10000 = State$Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView;
+         State var10000 = State$Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView", Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView);
-            State$Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodes$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView", Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView);
+            State$Boolean$arg-0$call-getAllSemanticsNodes$$$this$call-fastForEach$fun-collectDebugNodesOrClearIfDestroyed$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -749,17 +477,17 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView",
-      offset = 9057
+      key = "Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView",
+      offset = 6764
    )
-   public final boolean Boolean$branch$if$body$loop$fun_isInDebugPopup$class_DebugComposeView/* $FF was: Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView*/() {
+   public final boolean Boolean$branch$if$body$loop$fun_isInDebugView$class_DebugComposeView/* $FF was: Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView;
+         return Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView;
       } else {
-         State var10000 = State$Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView;
+         State var10000 = State$Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView", Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView);
-            State$Boolean$branch$if$body$loop$fun-isInDebugPopup$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView", Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView);
+            State$Boolean$branch$if$body$loop$fun-isInDebugView$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -768,17 +496,17 @@ public final class LiveLiterals$DebugComposeViewKt {
    }
 
    @LiveLiteralInfo(
-      key = "Boolean$fun-isInDebugPopup$class-DebugComposeView",
-      offset = 9159
+      key = "Boolean$fun-isInDebugView$class-DebugComposeView",
+      offset = 6866
    )
-   public final boolean Boolean$fun_isInDebugPopup$class_DebugComposeView/* $FF was: Boolean$fun-isInDebugPopup$class-DebugComposeView*/() {
+   public final boolean Boolean$fun_isInDebugView$class_DebugComposeView/* $FF was: Boolean$fun-isInDebugView$class-DebugComposeView*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Boolean$fun-isInDebugPopup$class-DebugComposeView;
+         return Boolean$fun-isInDebugView$class-DebugComposeView;
       } else {
-         State var10000 = State$Boolean$fun-isInDebugPopup$class-DebugComposeView;
+         State var10000 = State$Boolean$fun-isInDebugView$class-DebugComposeView;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Boolean$fun-isInDebugPopup$class-DebugComposeView", Boolean$fun-isInDebugPopup$class-DebugComposeView);
-            State$Boolean$fun-isInDebugPopup$class-DebugComposeView = var1;
+            State var1 = LiveLiteralKt.liveLiteral("Boolean$fun-isInDebugView$class-DebugComposeView", Boolean$fun-isInDebugView$class-DebugComposeView);
+            State$Boolean$fun-isInDebugView$class-DebugComposeView = var1;
             var10000 = var1;
          }
 
@@ -807,7 +535,7 @@ public final class LiveLiterals$DebugComposeViewKt {
 
    @LiveLiteralInfo(
       key = "Int$arg-0$call-getChildAt$val-existingDebugView$fun-setDebugContent",
-      offset = 9398
+      offset = 7105
    )
    public final int Int$arg_0$call_getChildAt$val_existingDebugView$fun_setDebugContent/* $FF was: Int$arg-0$call-getChildAt$val-existingDebugView$fun-setDebugContent*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
