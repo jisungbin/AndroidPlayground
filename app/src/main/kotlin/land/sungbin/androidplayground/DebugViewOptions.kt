@@ -19,6 +19,7 @@ object DebugViewOptions {
       raw = node,
     )
   }
+  var positionProvider: PopupPositionProvider = DebugPopupPositionProvider
 
   val Semantics = SemanticsPropertyKey<Unit>("DebugView")
 }
