@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 @StabilityInferred(
    parameters = 0
 )
-@SourceDebugExtension({"SMAP\nDebugViewOptions.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DebugViewOptions.kt\nland/sungbin/androidplayground/DebugViewOptions\n+ 2 SnapshotState.kt\nandroidx/compose/runtime/SnapshotStateKt__SnapshotStateKt\n*L\n1#1,29:1\n81#2:30\n107#2,2:31\n*S KotlinDebug\n*F\n+ 1 DebugViewOptions.kt\nland/sungbin/androidplayground/DebugViewOptions\n*L\n13#1:30\n13#1:31,2\n*E\n"})
+@SourceDebugExtension({"SMAP\nDebugViewOptions.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DebugViewOptions.kt\nland/sungbin/androidplayground/DebugViewOptions\n+ 2 SnapshotState.kt\nandroidx/compose/runtime/SnapshotStateKt__SnapshotStateKt\n*L\n1#1,28:1\n81#2:29\n107#2,2:30\n*S KotlinDebug\n*F\n+ 1 DebugViewOptions.kt\nland/sungbin/androidplayground/DebugViewOptions\n*L\n13#1:29\n13#1:30,2\n*E\n"})
 public final class DebugViewOptions {
    @NotNull
    public static final DebugViewOptions INSTANCE = new DebugViewOptions();

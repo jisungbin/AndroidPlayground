@@ -3,7 +3,8 @@ unstable class DebugComposeView {
   unstable val textMeasurer$delegate: Lazy<TextMeasurer>
   stable val debugNodes: SnapshotStateMap<Int, SemanticsNode>
   stable val debugUi: MutableState<DebugUiCache?>
-  stable val debugUiOffset: MutableState<IntOffset>
+  runtime val debugUiConstraints: Ref<Constraints>
+  runtime val debugUiTextConstraints: Ref<Constraints>
   stable val content: MutableState<@[Composable] Function0<Unit>?>
   unstable var debugNodeCollectorThread: Thread?
   stable var shouldCreateCompositionOnAttachedToWindow: Boolean

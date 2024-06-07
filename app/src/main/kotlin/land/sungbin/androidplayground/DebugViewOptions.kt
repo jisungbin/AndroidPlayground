@@ -24,5 +24,4 @@ object DebugViewOptions {
   val Semantics = SemanticsPropertyKey<Unit>("DebugView")
 }
 
-@Suppress("unused")
 fun Modifier.debugView() = semantics { this[DebugViewOptions.Semantics] = Unit }

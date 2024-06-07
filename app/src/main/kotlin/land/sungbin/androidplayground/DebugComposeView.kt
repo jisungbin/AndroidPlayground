@@ -28,7 +28,9 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.layout.onPlaced
 import androidx.compose.ui.node.Owner
+import androidx.compose.ui.node.Ref
 import androidx.compose.ui.platform.AbstractComposeView
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.semantics.SemanticsNode
@@ -37,6 +39,7 @@ import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.roundToIntRect
@@ -59,6 +62,7 @@ import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 import kotlin.math.max
+import kotlin.math.roundToInt
 
 @Suppress("VisibleForTests")
 class DebugComposeView(
@@ -79,6 +83,9 @@ class DebugComposeView(
 
   private val debugNodes = mutableStateMapOf<Int, SemanticsNode>()
   private val debugUi = mutableStateOf<DebugUiCache?>(null)
+
+  private val debugUiConstraints = Ref<Constraints>()
+  private val debugUiTextConstraints = Ref<Constraints>()
 
   private val content = mutableStateOf<(@Composable () -> Unit)?>(null)
   private var debugNodeCollectorThread: Thread? = null
@@ -104,17 +111,37 @@ class DebugComposeView(
       Box(
         modifier = Modifier
           .fillMaxSize()
+          .onPlaced { coordinates ->
+            if (debugUiConstraints.value == null || debugUiTextConstraints.value == null) {
+              debugUiConstraints.value = Constraints(
+                maxWidth = (coordinates.size.width * 0.8f).roundToInt(),
+                maxHeight = (coordinates.size.height * 0.8f).roundToInt(),
+              )
+              debugUiTextConstraints.value = Constraints(
+                maxWidth = (coordinates.size.width * 0.6f).roundToInt(),
+              )
+            }
+          }
           .then(if (DebugViewOptions.enabled) layoutBoundsDrawingModifier() else Modifier),
       ) {
         content()
         debugUi.value?.let { ui ->
           Canvas(
             modifier = Modifier
-              .size(with(requireOwner().density) { ui.size.toDpSize() })
+              .debugView()
+              .size(
+                with(debugUiConstraints.value!!) {
+                  val resolved = Size(
+                    width = ui.size.width.coerceAtMost(maxWidth.toFloat()),
+                    height = ui.size.height.coerceAtMost(maxHeight.toFloat()),
+                  )
+                  with(owner.density) { resolved.toDpSize() }
+                },
+              )
               .offset {
                 ui.positionInRoot(
                   rootSize = IntSize(owner.root.width, owner.root.height),
-                  density = requireOwner().density,
+                  density = owner.density,
                 )
               }
               .background(color = DEFAULT_BACKGROUND_COLOR),
@@ -148,9 +175,21 @@ class DebugComposeView(
       }
     }
 
-  private fun calculateUi(bounds: Rect, data: DebugData): DebugUiCache {
-    val title = if (data.name.isNotBlank()) textMeasurer.measure(text = data.name, style = DEBUG_TITLE_STYLE) else null
-    val contents = data.contents.fastMap { textMeasurer.measure(text = it, style = DEBUG_CONTENT_STYLE) }
+  private fun calculateUi(
+    bounds: Rect,
+    data: DebugData,
+    textConstraints: Constraints,
+  ): DebugUiCache {
+    val title = run {
+      if (data.name.isNotBlank()) {
+        textMeasurer.measure(text = data.name, style = DEBUG_TITLE_STYLE, constraints = textConstraints)
+      } else {
+        null
+      }
+    }
+    val contents = data.contents.fastMap {
+      textMeasurer.measure(text = it, style = DEBUG_CONTENT_STYLE, constraints = textConstraints)
+    }
 
     val size = with(requireOwner().density) {
       Size(
@@ -188,28 +227,20 @@ class DebugComposeView(
     ) {
       findViewTreeLifecycleOwner()!!.run {
         lifecycleScope.launch {
-          println("onAttachedToWindow started!")
           try {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-              println("onAttachedToWindow started! - 2")
               while (true) {
                 awaitFrame()
                 // TODO "===" -> "=="
-                if (owner === null) {
-                  println("'owner' is not initialized yet!")
-                  continue
-                }
+                if (owner === null) continue
 
                 collectDebugNodesOrClearIfDestroyed()
-                println("Collected ${debugNodes.size} debug nodes")
                 break
               }
 
               debugNodeCollectorDisposeHandle = Snapshot.registerApplyObserver { changes, _ ->
-                println("DebugComposeView registerApplyObserver: $changes")
                 if (!changes.isRealChanged()) return@registerApplyObserver
                 collectDebugNodesOrClearIfDestroyed()
-                println("Re-collected ${debugNodes.size} debug nodes")
               }
 
               awaitCancellation()
@@ -219,7 +250,6 @@ class DebugComposeView(
             debugNodes.clear()
             debugUi.value = null
             owner = null
-            println("onAttachedToWindow finished!")
           }
         }
       }
@@ -227,9 +257,8 @@ class DebugComposeView(
     super.onAttachedToWindow()
   }
 
-  // TODO testing multi-window support
+  // TODO testing multi-window supports
   override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-    println("action is ${event.action}")
     if (event.action == MotionEvent.ACTION_DOWN) {
       val offset = Offset(x = event.x, y = event.y)
       val target = debugNodes.values.firstOrNull { node -> offset in node.boundsInRoot }
@@ -238,12 +267,14 @@ class DebugComposeView(
       if (target != null && debugUi.value?.source?.raw != target) data = DebugViewOptions.resolver(target)
 
       if (data != null) {
-        debugUi.value = calculateUi(bounds = target!!.boundsInRoot, data = data)
+        debugUi.value = calculateUi(
+          bounds = target!!.boundsInRoot,
+          data = data,
+          textConstraints = debugUiTextConstraints.value!!,
+        )
       } else if (target == null) {
         debugUi.value = null
       }
-
-      println("Dispatched touch event ${debugUi.value}")
     }
 
     return if (DebugViewOptions.enabled) true else super.dispatchTouchEvent(event)
