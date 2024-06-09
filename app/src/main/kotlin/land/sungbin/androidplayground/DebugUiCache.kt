@@ -23,12 +23,13 @@ internal data class DebugUiCache(
   private var positionInRoot: IntOffset? = null
   fun positionInRoot(rootSize: IntSize, density: Density): IntOffset {
     if (positionInRoot == null) {
-      positionInRoot = DebugViewOptions.positionProvider.calculatePosition(
-        rootSize = rootSize,
-        anchorBounds = anchorBounds,
-        popupContentSize = IntSize(size.width.roundToInt(), size.height.roundToInt()),
-        density = density,
-      )
+      positionInRoot = with(DebugViewOptions.positionProvider) {
+        density.calculatePosition(
+          rootSize = rootSize,
+          anchorBounds = anchorBounds,
+          popupContentSize = IntSize(size.width.roundToInt(), size.height.roundToInt()),
+        )
+      }
     }
     return positionInRoot!!
   }

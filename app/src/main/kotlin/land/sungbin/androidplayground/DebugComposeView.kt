@@ -170,9 +170,9 @@ class DebugComposeView(
             }
           }
         }
-        if (isAttachedToWindow) createComposition()
       }
     }
+    if (isAttachedToWindow) createComposition()
   }
 
   @Suppress("ModifierFactoryExtensionFunction")

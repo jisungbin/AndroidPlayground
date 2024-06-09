@@ -7,15 +7,12 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 
 object DebugPopupPositionProvider : PopupPositionProvider {
-  override fun calculatePosition(
+  override fun Density.calculatePosition(
     rootSize: IntSize,
     anchorBounds: IntRect,
     popupContentSize: IntSize,
-    density: Density,
-  ) = with(density) {
-    IntOffset(
-      x = (rootSize.width - popupContentSize.width - 30.dp.roundToPx()).coerceAtLeast(0),
-      y = 30.dp.roundToPx(),
-    )
-  }
+  ) = IntOffset(
+    x = (rootSize.width - popupContentSize.width - 30.dp.roundToPx()).coerceAtLeast(0),
+    y = 30.dp.roundToPx(),
+  )
 }

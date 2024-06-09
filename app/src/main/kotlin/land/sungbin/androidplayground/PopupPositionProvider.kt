@@ -6,10 +6,9 @@ import androidx.compose.ui.unit.IntRect
 import androidx.compose.ui.unit.IntSize
 
 interface PopupPositionProvider {
-  fun calculatePosition(
+  fun Density.calculatePosition(
     rootSize: IntSize,
     anchorBounds: IntRect,
     popupContentSize: IntSize,
-    density: Density,
   ): IntOffset
 }
