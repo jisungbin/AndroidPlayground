@@ -1,3 +1,0 @@
-restartable fun Content(
-  unstable <this>: DebugComposeView
-)
