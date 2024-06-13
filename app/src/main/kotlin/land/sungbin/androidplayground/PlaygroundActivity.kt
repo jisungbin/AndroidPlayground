@@ -67,11 +67,21 @@ class PlaygroundActivity : ComponentActivity() {
               offset = size.center,
               size = Size(width = 50.dp.toPx(), height = 50.dp.toPx()),
             )
+            val clickableArea2 = Rect(
+              offset = size.center,
+              size = Size(width = 100.dp.toPx(), height = 100.dp.toPx()),
+            )
 
             drawRect(
-              color = Color.Blue,
+              color = Color.Green,
               topLeft = clickableArea.topLeft,
               size = clickableArea.size,
+              alpha = 0.8f,
+            )
+            drawRect(
+              color = Color.Blue,
+              topLeft = clickableArea2.topLeft,
+              size = clickableArea2.size,
               alpha = 0.8f,
             )
 
@@ -90,6 +100,21 @@ class PlaygroundActivity : ComponentActivity() {
               Rect(
                 offset = size.center,
                 size = Size(width = 50.dp.toPx(), height = 50.dp.toPx()),
+              )
+            },
+            onClick = { offset ->
+              Toast
+                .makeText(applicationContext, "$offset was clicked.", Toast.LENGTH_SHORT)
+                .show()
+              recomposeScope.invalidate()
+            },
+          )
+          .clickableBoundingRect(
+            semanticsEnabled = true,
+            rect = { size ->
+              Rect(
+                offset = size.center,
+                size = Size(width = 100.dp.toPx(), height = 100.dp.toPx()),
               )
             },
             onClick = { offset ->
