@@ -1,13 +1,3 @@
-unstable class DebugComposeView {
-  unstable var owner: Owner?
-  unstable val textMeasurer$delegate: Lazy<TextMeasurer>
-  stable val debugNodes: SnapshotStateMap<Int, SemanticsNode>
-  stable val debugUi: MutableState<DebugUiCache?>
-  runtime val debugUiConstraints: Ref<Constraints>
-  runtime val debugUiTextConstraints: Ref<Constraints>
-  stable val content: MutableState<@[Composable] Function0<Unit>?>
-  runtime val toggleDebugViewBounds: Ref<Rect>
-  unstable var debugNodeCollectorThread: Thread?
-  stable var shouldCreateCompositionOnAttachedToWindow: Boolean
-  <runtime stability> = Unstable
+stable class PlaygroundActivity {
+  <runtime stability> = Stable
 }

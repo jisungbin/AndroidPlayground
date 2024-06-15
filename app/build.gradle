@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
-        minSdk 23
+        minSdk 30
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -69,7 +69,7 @@ repositories {
 
 dependencies {
     implementation "androidx.activity:activity-compose:1.9.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.2"
     implementation "androidx.compose.material3:material3:1.2.1"
     implementation "org.jetbrains.kotlin:kotlin-compose-compiler-plugin:2.0.20-dev-6176"
 }
