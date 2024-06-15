@@ -61,15 +61,8 @@ android {
     }
 }
 
-repositories {
-    maven {
-        url "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev"
-    }
-}
-
 dependencies {
     implementation "androidx.activity:activity-compose:1.9.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.2"
     implementation "androidx.compose.material3:material3:1.2.1"
-    implementation "org.jetbrains.kotlin:kotlin-compose-compiler-plugin:2.0.20-dev-6176"
 }
