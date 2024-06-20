@@ -23,7 +23,7 @@ public final class PlaygroundActivity extends ComponentActivity {
 
    protected void onCreate(@Nullable Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      ComponentActivityKt.setContent$default((ComponentActivity)this, (CompositionContext)null, ComposableSingletons$PlaygroundActivityKt.INSTANCE.getLambda-1$app_debug(), 1, (Object)null);
+      ComponentActivityKt.setContent$default((ComponentActivity)this, (CompositionContext)null, ComposableSingletons$PlaygroundActivityKt.INSTANCE.getLambda-4$app_debug(), 1, (Object)null);
    }
 
    static {
