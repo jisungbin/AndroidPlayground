@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -44,8 +46,15 @@ class PlaygroundActivity : ComponentActivity() {
             .clickable { expanded = !expanded }
             .background(color = Color.Cyan),
         ) {
-          Text("Text")
-          Box(Modifier.weight(1f, fill = true))
+          Column(
+            modifier = Modifier
+              .verticalScroll(rememberScrollState())
+              .weight(1f, fill = false),
+          ) {
+            repeat(20) {
+              Text("Item $it")
+            }
+          }
         }
       }
     }
