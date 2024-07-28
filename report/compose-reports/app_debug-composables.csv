@@ -1,5 +1,1 @@
 package,name,composable,skippable,restartable,readonly,inline,isLambda,hasDefaults,defaultsGroup,groups,calls,
-land.sungbin.androidplayground.PlaygroundActivity.HomeScreen,HomeScreen,1,1,1,0,0,0,0,0,1,1,
-land.sungbin.androidplayground.PlaygroundActivity.TopAppBar,TopAppBar,1,1,1,0,0,0,0,0,1,1,
-land.sungbin.androidplayground.PlaygroundActivity.BottomNavigationBar,BottomNavigationBar,1,0,1,0,0,0,0,0,1,1,
-land.sungbin.androidplayground.PlaygroundActivity.MainContent,MainContent,1,1,1,0,0,0,0,0,1,1,

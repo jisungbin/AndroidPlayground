@@ -19,65 +19,103 @@ import org.jetbrains.annotations.Nullable;
 public final class LiveLiterals$PlaygroundActivityKt {
    @NotNull
    public static final LiveLiterals$PlaygroundActivityKt INSTANCE = new LiveLiterals$PlaygroundActivityKt();
-   private static int Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity;
-   @Nullable
-   private static State State$Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity;
    @NotNull
-   private static String String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity = "Home";
+   private static String String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity = "::StatusBarNotification::";
    @Nullable
-   private static State State$String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+   private static State State$String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity;
    @NotNull
-   private static String String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity = "Favorites";
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = "M[";
    @Nullable
-   private static State State$String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
    @NotNull
-   private static String String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity = "Profile";
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = "] ";
    @Nullable
-   private static State State$String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
    @NotNull
-   private static String String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity = "App Title";
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = "F[";
    @Nullable
-   private static State State$String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity;
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
    @NotNull
-   private static String String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity = "Content goes here";
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = "] ";
    @Nullable
-   private static State State$String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity;
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity = "::Notification::";
+   @Nullable
+   private static State State$String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = "M[";
+   @Nullable
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = "] ";
+   @Nullable
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = "F[";
+   @Nullable
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = "] ";
+   @Nullable
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity = "::Notification.Action::";
+   @Nullable
+   private static State State$String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = "M[";
+   @Nullable
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = "] ";
+   @Nullable
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = "F[";
+   @Nullable
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = "] ";
+   @Nullable
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity = "::RemoteViews::";
+   @Nullable
+   private static State State$String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = "M[";
+   @Nullable
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = "] ";
+   @Nullable
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = "F[";
+   @Nullable
+   private static State State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+   @NotNull
+   private static String String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = "] ";
+   @Nullable
+   private static State State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
    private static int Int$class-PlaygroundActivity;
    @Nullable
    private static State State$Int$class-PlaygroundActivity;
 
    @LiveLiteralInfo(
-      key = "Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity",
-      offset = 1272
-   )
-   public final int Int$arg_0$call_mutableIntStateOf$fun_$anonymous$$arg_0$call_remember$val_selectedItem$delegate$fun_HomeScreen$class_PlaygroundActivity/* $FF was: Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity*/() {
-      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity;
-      } else {
-         State var10000 = State$Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity;
-         if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity", Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity);
-            State$Int$arg-0$call-mutableIntStateOf$fun-$anonymous$$arg-0$call-remember$val-selectedItem$delegate$fun-HomeScreen$class-PlaygroundActivity = var1;
-            var10000 = var1;
-         }
-
-         return ((Number)var10000.getValue()).intValue();
-      }
-   }
-
-   @LiveLiteralInfo(
-      key = "String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity",
-      offset = 1301
+      key = "String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity",
+      offset = 389
    )
    @NotNull
-   public final String String$0$vararg$arg_0$call_listOf$val_items$fun_HomeScreen$class_PlaygroundActivity/* $FF was: String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity*/() {
+   public final String String$arg_0$call_println$fun_onCreate$class_PlaygroundActivity/* $FF was: String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+         return String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity;
       } else {
-         State var10000 = State$String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+         State var10000 = State$String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity", String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity);
-            State$String$0$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity", String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity);
+            State$String$arg-0$call-println$fun-onCreate$class-PlaygroundActivity = var1;
             var10000 = var1;
          }
 
@@ -86,18 +124,18 @@ public final class LiveLiterals$PlaygroundActivityKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity",
-      offset = 1309
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity",
+      offset = 512
    )
    @NotNull
-   public final String String$1$vararg$arg_0$call_listOf$val_items$fun_HomeScreen$class_PlaygroundActivity/* $FF was: String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity*/() {
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
       } else {
-         State var10000 = State$String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity", String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity);
-            State$String$1$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = var1;
             var10000 = var1;
          }
 
@@ -106,18 +144,18 @@ public final class LiveLiterals$PlaygroundActivityKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity",
-      offset = 1322
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity",
+      offset = 528
    )
    @NotNull
-   public final String String$2$vararg$arg_0$call_listOf$val_items$fun_HomeScreen$class_PlaygroundActivity/* $FF was: String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity*/() {
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
       } else {
-         State var10000 = State$String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity;
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity", String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity);
-            State$String$2$vararg$arg-0$call-listOf$val-items$fun-HomeScreen$class-PlaygroundActivity = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = var1;
             var10000 = var1;
          }
 
@@ -126,18 +164,18 @@ public final class LiveLiterals$PlaygroundActivityKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity",
-      offset = 1409
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity",
+      offset = 609
    )
    @NotNull
-   public final String String$arg_0$call_Text$fun_$anonymous$$arg_0$call_TopAppBar$fun_$anonymous$$arg_1$call_Scaffold$fun_HomeScreen$class_PlaygroundActivity/* $FF was: String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity*/() {
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity;
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
       } else {
-         State var10000 = State$String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity;
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity", String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity);
-            State$String$arg-0$call-Text$fun-$anonymous$$arg-0$call-TopAppBar$fun-$anonymous$$arg-1$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = var1;
             var10000 = var1;
          }
 
@@ -146,18 +184,318 @@ public final class LiveLiterals$PlaygroundActivityKt {
    }
 
    @LiveLiteralInfo(
-      key = "String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity",
-      offset = 1639
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity",
+      offset = 624
    )
    @NotNull
-   public final String String$arg_1$call_MainContent$fun_$anonymous$$arg_9$call_Scaffold$fun_HomeScreen$class_PlaygroundActivity/* $FF was: String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity*/() {
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity*/() {
       if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
-         return String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity;
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
       } else {
-         State var10000 = State$String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity;
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity;
          if (var10000 == null) {
-            State var1 = LiveLiteralKt.liveLiteral("String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity", String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity);
-            State$String$arg-1$call-MainContent$fun-$anonymous$$arg-9$call-Scaffold$fun-HomeScreen$class-PlaygroundActivity = var1;
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity",
+      offset = 684
+   )
+   @NotNull
+   public final String String$arg_0$call_println_2$fun_onCreate$class_PlaygroundActivity/* $FF was: String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity", String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity);
+            State$String$arg-0$call-println-2$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity",
+      offset = 789
+   )
+   @NotNull
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run_1$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity",
+      offset = 805
+   )
+   @NotNull
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run_1$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity",
+      offset = 886
+   )
+   @NotNull
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run_1$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity",
+      offset = 901
+   )
+   @NotNull
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run_1$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-1$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity",
+      offset = 961
+   )
+   @NotNull
+   public final String String$arg_0$call_println_4$fun_onCreate$class_PlaygroundActivity/* $FF was: String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity", String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity);
+            State$String$arg-0$call-println-4$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity",
+      offset = 1080
+   )
+   @NotNull
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run_2$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity",
+      offset = 1096
+   )
+   @NotNull
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run_2$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity",
+      offset = 1177
+   )
+   @NotNull
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run_2$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity",
+      offset = 1192
+   )
+   @NotNull
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run_2$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-2$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity",
+      offset = 1237
+   )
+   @NotNull
+   public final String String$arg_0$call_println_5$fun_onCreate$class_PlaygroundActivity/* $FF was: String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity", String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity);
+            State$String$arg-0$call-println-5$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity",
+      offset = 1340
+   )
+   @NotNull
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run_3$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity",
+      offset = 1356
+   )
+   @NotNull
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach$fun_$anonymous$$arg_0$call_run_3$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity",
+      offset = 1437
+   )
+   @NotNull
+   public final String String$0$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run_3$fun_onCreate$class_PlaygroundActivity/* $FF was: String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity", String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity);
+            State$String$0$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = var1;
+            var10000 = var1;
+         }
+
+         return (String)var10000.getValue();
+      }
+   }
+
+   @LiveLiteralInfo(
+      key = "String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity",
+      offset = 1452
+   )
+   @NotNull
+   public final String String$2$str$arg_0$call_println$fun_$anonymous$$arg_0$call_forEach_1$fun_$anonymous$$arg_0$call_run_3$fun_onCreate$class_PlaygroundActivity/* $FF was: String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity*/() {
+      if (!LiveLiteralKt.isLiveLiteralsEnabled()) {
+         return String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+      } else {
+         State var10000 = State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity;
+         if (var10000 == null) {
+            State var1 = LiveLiteralKt.liveLiteral("String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity", String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity);
+            State$String$2$str$arg-0$call-println$fun-$anonymous$$arg-0$call-forEach-1$fun-$anonymous$$arg-0$call-run-3$fun-onCreate$class-PlaygroundActivity = var1;
             var10000 = var1;
          }
 
