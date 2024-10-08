@@ -257,14 +257,13 @@ public final class PlaygroundActivityKt {
    private static final Modifier surfacing_bw27NRU/* $FF was: surfacing-bw27NRU*/(Modifier $this$surfacing_u2dbw27NRU, long color, boolean inColumn) {
       Modifier var10000 = BackgroundKt.background-bw27NRU$default(ClipKt.clip($this$surfacing_u2dbw27NRU, (Shape)RoundedCornerShapeKt.RoundedCornerShape(15)), color, (Shape)null, 2, (Object)null);
       float var10001;
-      byte $this$dp$iv;
       boolean $i$f$getDp;
       if (inColumn) {
-         $this$dp$iv = 100;
+         int $this$dp$iv = 150;
          $i$f$getDp = false;
          var10001 = Dp.constructor-impl((float)$this$dp$iv);
       } else {
-         $this$dp$iv = 50;
+         int $this$dp$iv = 50;
          $i$f$getDp = false;
          var10001 = Dp.constructor-impl((float)$this$dp$iv);
       }

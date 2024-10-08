@@ -152,4 +152,4 @@ private fun Modifier.surfacing(color: Color, inColumn: Boolean): Modifier =
   this
     .clip(RoundedCornerShape(percent = 15))
     .background(color = color)
-    .size(size = if (inColumn) 100.dp else 50.dp)
+    .size(size = if (inColumn) 150.dp else 50.dp)
