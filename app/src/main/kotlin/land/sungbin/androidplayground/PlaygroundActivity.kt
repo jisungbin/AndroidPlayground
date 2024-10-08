@@ -29,7 +29,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.LookaheadScope
 import androidx.compose.ui.layout.approachLayout
@@ -45,22 +44,22 @@ class PlaygroundActivity : ComponentActivity() {
     setContent {
       LookaheadScope {
         var isColumn by remember { mutableStateOf(true) }
-        val surfaces = remember {
+        val items = remember {
           movableContentOf {
             Box(
               Modifier
                 .animating(lookaheadScope = this)
-                .surfacing(color = Color.Yellow, isColumn = isColumn),
+                .surfacing(color = Color.Yellow, inColumn = isColumn),
             )
             Box(
               Modifier
                 .animating(lookaheadScope = this)
-                .surfacing(color = Color.Green, isColumn = isColumn),
+                .surfacing(color = Color.Green, inColumn = isColumn),
             )
             Box(
               Modifier
                 .animating(lookaheadScope = this)
-                .surfacing(color = Color.Blue, isColumn = isColumn),
+                .surfacing(color = Color.Blue, inColumn = isColumn),
             )
           }
         }
@@ -73,7 +72,7 @@ class PlaygroundActivity : ComponentActivity() {
             verticalArrangement = Arrangement.SpaceAround,
             horizontalAlignment = Alignment.CenterHorizontally,
           ) {
-            surfaces()
+            items()
           }
         } else {
           Row(
@@ -83,7 +82,7 @@ class PlaygroundActivity : ComponentActivity() {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround,
           ) {
-            surfaces()
+            items()
           }
         }
       }
@@ -137,7 +136,7 @@ private fun Modifier.animating(lookaheadScope: LookaheadScope): Modifier = compo
           animationSpec = spring(stiffness = Spring.StiffnessVeryLow),
         )
         val placementOffset = with(lookaheadScope) {
-          lookaheadScopeCoordinates.localPositionOf(coordinates, relativeToSource = Offset.Zero)
+          lookaheadScopeCoordinates.localPositionOf(coordinates)
         }
 
         val (x, y) = animatedOffset - placementOffset.round()
@@ -149,8 +148,8 @@ private fun Modifier.animating(lookaheadScope: LookaheadScope): Modifier = compo
   }
 }
 
-private fun Modifier.surfacing(color: Color, isColumn: Boolean): Modifier =
+private fun Modifier.surfacing(color: Color, inColumn: Boolean): Modifier =
   this
     .clip(RoundedCornerShape(percent = 15))
     .background(color = color)
-    .size(size = if (isColumn) 100.dp else 50.dp)
+    .size(size = if (inColumn) 100.dp else 50.dp)
