@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id "com.github.takahirom.decomposer"
     id 'kotlin-parcelize'
+    id 'org.jetbrains.kotlin.plugin.compose'
     // id 'kotlin-kapt'
     // id 'dagger.hilt.android.plugin'
     // id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
@@ -16,7 +17,8 @@ android {
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
         minSdk 30
-        targetSdk 34
+        // noinspection EditedTargetSdkVersion
+        targetSdk 35
         versionCode 1
         versionName "1.0"
     }
@@ -47,10 +49,6 @@ android {
         // ]
     }
 
-    buildFeatures {
-        compose true
-    }
-
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin/'
         main.kotlin.srcDirs += 'build/generated/ksp/main/kotlin'
@@ -58,7 +56,7 @@ android {
 }
 
 dependencies {
-    implementation "androidx.activity:activity-compose:1.9.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.4"
-    implementation "androidx.compose.material:material:1.7.0-beta07"
+    implementation "androidx.activity:activity-compose:1.9.2"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.6"
+    implementation "androidx.compose.material:material:1.7.3"
 }
