@@ -1,155 +1,194 @@
-@file:OptIn(ExperimentalAnimatableApi::class)
+@file:Suppress("INVISIBLE_REFERENCE", "INVISIBLE_MEMBER")
 
 package land.sungbin.androidplayground
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.core.DeferredTargetAnimation
-import androidx.compose.animation.core.ExperimentalAnimatableApi
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.VectorConverter
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.material.RadioButton
+import androidx.compose.material.Text
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.LookaheadScope
-import androidx.compose.ui.layout.approachLayout
-import androidx.compose.ui.unit.Constraints
-import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontVariation
+import androidx.compose.ui.text.font.FontVariation.slant
+import androidx.compose.ui.text.font.FontVariation.weight
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.round
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.util.fastFlatMap
+import androidx.compose.ui.util.fastForEach
+import androidx.compose.ui.util.fastMap
 
 class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
-      LookaheadScope {
-        var isColumn by remember { mutableStateOf(true) }
-        val items = remember {
-          movableContentOf {
-            Box(
-              Modifier
-                .animating(lookaheadScope = this)
-                .surfacing(color = Color.Yellow, inColumn = isColumn),
-            )
-            Box(
-              Modifier
-                .animating(lookaheadScope = this)
-                .surfacing(color = Color.Green, inColumn = isColumn),
-            )
-            Box(
-              Modifier
-                .animating(lookaheadScope = this)
-                .surfacing(color = Color.Blue, inColumn = isColumn),
-            )
-          }
-        }
+      val fonts = remember { pretendardVariables() }
+      val fontFamily = remember(fonts) { FontFamily(fonts) }
 
-        if (isColumn) {
-          Column(
-            modifier = Modifier
-              .fillMaxSize()
-              .clickable { isColumn = !isColumn },
-            verticalArrangement = Arrangement.SpaceAround,
-            horizontalAlignment = Alignment.CenterHorizontally,
-          ) {
-            items()
-          }
-        } else {
-          Row(
-            modifier = Modifier
-              .fillMaxSize()
-              .clickable { isColumn = !isColumn },
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround,
-          ) {
-            items()
-          }
-        }
-      }
-    }
-  }
-}
+      var selectedFontWeight by remember { mutableStateOf(fonts.first().weight) }
+      var selectedFontStyle by remember { mutableStateOf(fonts.first().style) }
+      var selectedTextDecoration by remember { mutableStateOf(TextDecoration.None) }
 
-private fun Modifier.animating(lookaheadScope: LookaheadScope): Modifier = composed {
-  val coroutineScope = rememberCoroutineScope()
-  val sizeAnimation = remember { DeferredTargetAnimation(IntSize.VectorConverter) }
-  val offsetAnimation = remember { DeferredTargetAnimation(IntOffset.VectorConverter) }
+      val inputs = remember { TextFieldState("Hello, World!, 안녕, 세상!, こんにちは、世界!") }
 
-  approachLayout(
-    isMeasurementApproachInProgress = { lookaheadSize ->
-      sizeAnimation.updateTarget(
-        lookaheadSize,
-        coroutineScope = coroutineScope,
-        animationSpec = spring(stiffness = Spring.StiffnessVeryLow)
-      )
-      !sizeAnimation.isIdle
-    },
-    isPlacementApproachInProgress = { lookaheadCoordinates ->
-      val target = with(lookaheadScope) {
-        lookaheadScopeCoordinates.localLookaheadPositionOf(lookaheadCoordinates)
-      }
-      offsetAnimation.updateTarget(
-        target.round(),
-        coroutineScope = coroutineScope,
-        animationSpec = spring(stiffness = Spring.StiffnessVeryLow),
-      )
-      !offsetAnimation.isIdle
-    },
-  ) { measurable, constraints ->
-    val (targetWidth, targetHeight) = sizeAnimation.updateTarget(
-      lookaheadSize,
-      coroutineScope = coroutineScope,
-      animationSpec = spring(stiffness = Spring.StiffnessVeryLow),
-    )
-    val animatedConstraints = Constraints.fixed(targetWidth, targetHeight)
-    val placeable = measurable.measure(animatedConstraints)
-
-    layout(placeable.width, placeable.height) {
-      val coordinates = coordinates
-      if (coordinates != null) {
-        val target = with(lookaheadScope) {
-          lookaheadScopeCoordinates.localLookaheadPositionOf(coordinates)
-        }
-        val animatedOffset = offsetAnimation.updateTarget(
-          target.round(),
-          coroutineScope = coroutineScope,
-          animationSpec = spring(stiffness = Spring.StiffnessVeryLow),
+      Column(
+        modifier = Modifier
+          .fillMaxSize()
+          .background(color = Color.White),
+      ) {
+        BasicTextField(
+          inputs,
+          modifier = Modifier
+            .weight(1f)
+            .fillMaxWidth()
+            .padding(all = 30.dp)
+            .wrapContentHeight(),
+          textStyle = TextStyle(
+            color = Color.Black,
+            fontSize = 20.sp,
+            fontWeight = selectedFontWeight,
+            fontStyle = selectedFontStyle,
+            fontFamily = fontFamily,
+            textDecoration = selectedTextDecoration,
+            textAlign = TextAlign.Center,
+          ),
         )
-        val placementOffset = with(lookaheadScope) {
-          lookaheadScopeCoordinates.localPositionOf(coordinates)
-        }
+        Column(
+          modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 30.dp, bottom = 30.dp),
+          verticalArrangement = Arrangement.spacedBy(15.dp),
+        ) {
+          val fontWeights = remember(fonts) { fonts.fastMap(Font::weight).distinct() }
+          val fontStyles = remember(fonts) { fonts.fastMap(Font::style).distinct() }
+          val textDecorations = remember { listOf(TextDecoration.None, TextDecoration.Underline, TextDecoration.LineThrough) }
 
-        val (x, y) = animatedOffset - placementOffset.round()
-        placeable.place(x, y)
-      } else {
-        placeable.place(0, 0)
+          Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(15.dp),
+            verticalAlignment = Alignment.CenterVertically,
+          ) {
+            Text("Weight", fontWeight = FontWeight.ExtraBold)
+            LazyRow(
+              modifier = Modifier.fillMaxWidth(),
+              contentPadding = PaddingValues(start = 15.dp, end = 30.dp),
+              horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+              items(fontWeights) { weight ->
+                Column(
+                  horizontalAlignment = Alignment.CenterHorizontally,
+                  verticalArrangement = Arrangement.spacedBy(2.dp, alignment = Alignment.CenterVertically),
+                ) {
+                  RadioButton(
+                    selected = weight == selectedFontWeight,
+                    onClick = { selectedFontWeight = weight },
+                  )
+                  Text(weight.weight.toString())
+                }
+              }
+            }
+          }
+
+          Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(15.dp),
+            verticalAlignment = Alignment.CenterVertically,
+          ) {
+            Text("Style", fontWeight = FontWeight.ExtraBold)
+            Row(
+              modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 30.dp),
+              horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+              fontStyles.fastForEach { style ->
+                Column(
+                  horizontalAlignment = Alignment.CenterHorizontally,
+                  verticalArrangement = Arrangement.spacedBy(2.dp, alignment = Alignment.CenterVertically),
+                ) {
+                  RadioButton(
+                    selected = style == selectedFontStyle,
+                    onClick = { selectedFontStyle = style },
+                  )
+                  Text(style.value.toString())
+                }
+              }
+            }
+          }
+
+          Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(15.dp),
+            verticalAlignment = Alignment.CenterVertically,
+          ) {
+            Text("Decoration", fontWeight = FontWeight.ExtraBold)
+            Row(
+              modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 15.dp),
+              horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+              textDecorations.fastForEach { decoration ->
+                Column(
+                  horizontalAlignment = Alignment.CenterHorizontally,
+                  verticalArrangement = Arrangement.spacedBy(2.dp, alignment = Alignment.CenterVertically),
+                ) {
+                  RadioButton(
+                    selected = decoration == selectedTextDecoration,
+                    onClick = { selectedTextDecoration = decoration },
+                  )
+                  Text(decoration.toString().substringAfter('.'))
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 }
 
-private fun Modifier.surfacing(color: Color, inColumn: Boolean): Modifier =
-  this
-    .clip(RoundedCornerShape(percent = 15))
-    .background(color = color)
-    .size(size = if (inColumn) 150.dp else 50.dp)
+@OptIn(ExperimentalTextApi::class)
+private fun pretendardVariables(): List<Font> =
+  FontWeight.values
+    .fastFlatMap { weight -> FontStyle.values().fastMap { style -> weight to style } }
+    .fastMap { (weight, style) ->
+      Font(
+        R.font.pretendard_jp_variable,
+        weight = weight,
+        style = style,
+        variationSettings = FontVariation.Settings(weight, style),
+      )
+    }
