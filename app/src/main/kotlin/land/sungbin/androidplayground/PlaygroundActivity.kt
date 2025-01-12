@@ -73,10 +73,10 @@ class PlaygroundActivity : ComponentActivity() {
             Text("Remove icon")
           }
           Button(onClick = { iconPainter = heartPainter }) {
-            Text("Add Heart icon")
+            Text("Show Heart icon")
           }
           Button(onClick = { iconPainter = robotPainter }) {
-            Text("Add Robot icon")
+            Text("Show Robot icon")
           }
         }
       }
