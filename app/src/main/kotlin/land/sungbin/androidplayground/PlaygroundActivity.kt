@@ -70,7 +70,7 @@ class PlaygroundActivity : ComponentActivity() {
           val robotPainter = painterResource(R.drawable.ic_round_android_24)
 
           Button(onClick = { iconPainter = null }) {
-            Text("Remove icon")
+            Text("Hide icon")
           }
           Button(onClick = { iconPainter = heartPainter }) {
             Text("Show Heart icon")
