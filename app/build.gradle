@@ -11,26 +11,24 @@ plugins {
 }
 
 android {
-    compileSdk 34
+    compileSdk 35
     namespace 'land.sungbin.androidplayground'
 
     defaultConfig {
         applicationId "land.sungbin.androidplayground"
         minSdk 30
-        // noinspection EditedTargetSdkVersion
         targetSdk 35
         versionCode 1
         versionName "1.0"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '21'
         freeCompilerArgs += [
                 "-opt-in=kotlin.RequiresOptIn",
                 "-Xjvm-default=all",
@@ -57,9 +55,7 @@ android {
 }
 
 dependencies {
-    implementation "androidx.activity:activity-compose:1.9.3"
+    implementation "androidx.activity:activity-compose:1.10.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
-    implementation "androidx.compose.material:material:1.7.4"
-    implementation "global.unni.cell:cell-android:2.0.0-internal-dev04"
-    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.1.2"
+    implementation "androidx.compose.material:material:1.7.8"
 }

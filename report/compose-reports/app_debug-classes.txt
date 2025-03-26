@@ -3,8 +3,5 @@ stable class DebugLayoutUtil {
   <runtime stability> = Stable
 }
 unstable class PlaygroundActivity {
-  unstable val clazz: @[FlexibleNullability] Class<*>?
-  unstable val getLocalContext: @[FlexibleNullability] Method?
-  stable val result: CompositionLocal<Context>
   <runtime stability> = Unstable
 }

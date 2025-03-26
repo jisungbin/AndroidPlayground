@@ -1,0 +1,3 @@
+unstable class PlaygroundActivity {
+  <runtime stability> = Unstable
+}
