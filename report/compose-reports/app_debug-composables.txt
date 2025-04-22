@@ -1,0 +1,4 @@
+restartable skippable fun invoke(
+  stable p1: Modifier
+  stable <this>: ComposableClass
+)
