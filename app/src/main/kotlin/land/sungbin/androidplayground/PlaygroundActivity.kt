@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
@@ -20,4 +21,9 @@ class PlaygroundActivity : ComponentActivity() {
       }
     }
   }
+}
+
+interface Test {
+  @Composable
+  fun a()
 }
