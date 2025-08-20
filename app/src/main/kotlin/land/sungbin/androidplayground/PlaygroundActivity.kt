@@ -16,7 +16,8 @@ class PlaygroundActivity : ComponentActivity() {
 }
 
 @Composable
-fun Test(a: Any = 1) {
+fun Test(a: Int = 1) {
+  println(a)
 }
 
 @Composable
