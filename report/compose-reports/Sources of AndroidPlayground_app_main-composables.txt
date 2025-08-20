@@ -1,0 +1,4 @@
+restartable skippable fun Test(
+  unused unstable a: Any? = @static 1
+)
+restartable skippable fun A()
