@@ -1,4 +1,6 @@
-restartable skippable fun Test(
-  stable a: Int = @static 1
+readonly fun <get-aaa>()
+restartable skippable fun getValue(
+  unused stable <this>: Unit
+  unused unstable thisRef: Any?
+  unstable property: KProperty<*>
 )
-restartable skippable fun A()

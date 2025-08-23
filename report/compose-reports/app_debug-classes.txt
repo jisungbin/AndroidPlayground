@@ -1,7 +1,3 @@
-stable class DebugLayoutUtil {
-  stable val DEBUG_LAYOUT_PROPERTY: String
-  <runtime stability> = Stable
-}
 unstable class PlaygroundActivity {
   <runtime stability> = Unstable
 }

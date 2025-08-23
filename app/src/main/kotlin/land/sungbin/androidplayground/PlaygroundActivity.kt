@@ -3,24 +3,21 @@ package land.sungbin.androidplayground
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DontMemoize
+import kotlin.reflect.KProperty
 
 class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContent @DontMemoize {
-      A()
+    setContent {
+      val aaa by Unit
+      aaa
     }
   }
 }
 
 @Composable
-fun Test(a: Int = 1) {
-  println(a)
-}
-
-@Composable
-fun A() {
-  Test()
+operator fun Unit.getValue(thisRef: Any?, property: KProperty<*>) {
+  BasicText(property.name)
 }
