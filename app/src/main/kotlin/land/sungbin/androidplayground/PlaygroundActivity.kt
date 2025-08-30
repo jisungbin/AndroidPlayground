@@ -7,6 +7,7 @@ import androidx.annotation.WorkerThread
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.annotation.FrequentlyChangingValue
 import kotlin.reflect.KProperty
 
 class PlaygroundActivity : ComponentActivity() {
@@ -18,6 +19,7 @@ class PlaygroundActivity : ComponentActivity() {
   }
 }
 
+@FrequentlyChangingValue
 @Composable fun Main() {
   val aaa by Unit
   aaa

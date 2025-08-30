@@ -1,4 +1,5 @@
 readonly fun <get-aaa>()
+restartable skippable fun Main()
 restartable skippable fun getValue(
   unused stable <this>: Unit
   unused unstable thisRef: Any?

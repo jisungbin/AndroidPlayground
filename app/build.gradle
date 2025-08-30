@@ -15,7 +15,7 @@ android {
     namespace 'land.sungbin.androidplayground'
 
     defaultConfig {
-        minSdk 30
+        minSdk 24
         targetSdk 36
         versionCode 1
         versionName "1.0"
@@ -54,6 +54,9 @@ android {
 
 dependencies {
     implementation "androidx.activity:activity-compose:1.10.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.9.2"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.9.3"
     implementation "androidx.compose.material:material:1.9.0"
+
+    // https://mvnrepository.com/artifact/androidx.compose.runtime/runtime-annotation
+    implementation 'androidx.compose.runtime:runtime-annotation:1.9.0'
 }
