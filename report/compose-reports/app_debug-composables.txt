@@ -1,7 +1,4 @@
-readonly fun <get-aaa>()
-restartable skippable fun Main()
-restartable skippable fun getValue(
-  unused stable <this>: Unit
-  unused unstable thisRef: Any?
-  unstable property: KProperty<*>
-)
+scheme("[androidx.compose.ui.UiComposable]") fun A(
+  unused stable <this>: AA
+): Int
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun a()
