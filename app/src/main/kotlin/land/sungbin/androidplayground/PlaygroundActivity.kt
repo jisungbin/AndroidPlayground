@@ -47,6 +47,7 @@ object TestImpl : Test {
   context(a: Any)
   @Composable
   override fun Content() { // final
+    used(a)
     val r = currentRecomposeScope
     Text("$r with ${System.currentTimeMillis()}", modifier = Modifier.clickable { r.invalidate() })
   }
@@ -56,6 +57,7 @@ open class Test2 : Test {
   context(a: Any)
   @Composable
   override fun Content() { // open
+    used(a)
     val r = currentRecomposeScope
     Text("$r with ${System.currentTimeMillis()}", modifier = Modifier.clickable { r.invalidate() })
   }
@@ -63,5 +65,4 @@ open class Test2 : Test {
   companion object : Test2()
 }
 
-
-
+fun used(a: Any) {}

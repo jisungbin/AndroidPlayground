@@ -1,8 +1,8 @@
 restartable skippable fun Content(
-  unused unstable a: Any
+  unstable a: Any
   unused stable <this>: TestImpl
 )
 fun Content(
-  unused unstable a: Any
+  unstable a: Any
   unused stable <this>: Test2
 )

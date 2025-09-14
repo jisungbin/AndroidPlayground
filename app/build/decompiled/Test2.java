@@ -36,7 +36,7 @@ import org.jetbrains.annotations.Nullable;
 @StabilityInferred(
    parameters = 1
 )
-@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/Test2\n+ 2 Composer.kt\nandroidx/compose/runtime/ComposerKt\n*L\n1#1,68:1\n1282#2,6:69\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/Test2\n*L\n60#1:69,6\n*E\n"})
+@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/Test2\n+ 2 Composer.kt\nandroidx/compose/runtime/ComposerKt\n*L\n1#1,69:1\n1282#2,6:70\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/Test2\n*L\n62#1:70,6\n*E\n"})
 public class Test2 implements Test {
    @NotNull
    public static final Test2.Companion Companion = new Test2.Companion((DefaultConstructorMarker)null);
@@ -46,18 +46,19 @@ public class Test2 implements Test {
    public void Content(@NotNull Object a, @Nullable Composer $composer, int $changed) {
       Intrinsics.checkNotNullParameter(a, "a");
       $composer.startReplaceGroup(-1910753456);
-      ComposerKt.sourceInformation($composer, "C(Content)N(a)58@1619L21,59@1721L18,59@1645L95:PlaygroundActivity.kt#qshby3");
+      ComposerKt.sourceInformation($composer, "C(Content)N(a)60@1643L21,61@1745L18,61@1669L95:PlaygroundActivity.kt#qshby3");
       if (ComposerKt.isTraceInProgress()) {
-         ComposerKt.traceEventStart(-1910753456, $changed, -1, "land.sungbin.androidplayground.Test2.Content (PlaygroundActivity.kt:57)");
+         ComposerKt.traceEventStart(-1910753456, $changed, -1, "land.sungbin.androidplayground.Test2.Content (PlaygroundActivity.kt:58)");
       }
 
+      PlaygroundActivityKt.used(a);
       RecomposeScope r = ComposablesKt.getCurrentRecomposeScope($composer, 0);
       String var10000 = r + " with " + System.currentTimeMillis();
       Modifier var10001 = (Modifier)Modifier.Companion;
       boolean var10002 = false;
       Object var10003 = null;
       Object var10004 = null;
-      ComposerKt.sourceInformationMarkerStart($composer, 2011937218, "CC(remember):PlaygroundActivity.kt#9igjgp");
+      ComposerKt.sourceInformationMarkerStart($composer, 2011937602, "CC(remember):PlaygroundActivity.kt#9igjgp");
       boolean var7 = $composer.changedInstance(r);
       int var8 = false;
       Object var9 = $composer.rememberedValue();

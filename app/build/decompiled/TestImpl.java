@@ -37,7 +37,7 @@ import org.jetbrains.annotations.Nullable;
 @StabilityInferred(
    parameters = 1
 )
-@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/TestImpl\n+ 2 Composer.kt\nandroidx/compose/runtime/ComposerKt\n*L\n1#1,68:1\n1282#2,6:69\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/TestImpl\n*L\n51#1:69,6\n*E\n"})
+@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/TestImpl\n+ 2 Composer.kt\nandroidx/compose/runtime/ComposerKt\n*L\n1#1,69:1\n1282#2,6:70\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/TestImpl\n*L\n52#1:70,6\n*E\n"})
 public final class TestImpl implements Test {
    @NotNull
    public static final TestImpl INSTANCE = new TestImpl();
@@ -50,46 +50,52 @@ public final class TestImpl implements Test {
    public void Content(@NotNull Object a, @Nullable Composer $composer, int $changed) {
       Intrinsics.checkNotNullParameter(a, "a");
       $composer = $composer.startRestartGroup(1021075470);
-      ComposerKt.sourceInformation($composer, "C(Content)N(a)49@1385L21,50@1487L18,50@1411L95:PlaygroundActivity.kt#qshby3");
-      if ($composer.shouldExecute(($changed & 1) != 0, $changed & 1)) {
+      ComposerKt.sourceInformation($composer, "C(Content)N(a)50@1397L21,51@1499L18,51@1423L95:PlaygroundActivity.kt#qshby3");
+      int $dirty = $changed;
+      if (($changed & 6) == 0) {
+         $dirty = $changed | ($composer.changedInstance(a) ? 4 : 2);
+      }
+
+      if ($composer.shouldExecute(($dirty & 3) != 2, $dirty & 1)) {
          if (ComposerKt.isTraceInProgress()) {
-            ComposerKt.traceEventStart(1021075470, $changed, -1, "land.sungbin.androidplayground.TestImpl.Content (PlaygroundActivity.kt:48)");
+            ComposerKt.traceEventStart(1021075470, $dirty, -1, "land.sungbin.androidplayground.TestImpl.Content (PlaygroundActivity.kt:48)");
          }
 
+         PlaygroundActivityKt.used(a);
          RecomposeScope r = ComposablesKt.getCurrentRecomposeScope($composer, 0);
          String var10000 = r + " with " + System.currentTimeMillis();
          Modifier var10001 = (Modifier)Modifier.Companion;
          boolean var10002 = false;
          Object var10003 = null;
          Object var10004 = null;
-         ComposerKt.sourceInformationMarkerStart($composer, 2000988960, "CC(remember):PlaygroundActivity.kt#9igjgp");
-         boolean var7 = $composer.changedInstance(r);
-         int var8 = false;
-         Object var9 = $composer.rememberedValue();
-         int var10 = false;
+         ComposerKt.sourceInformationMarkerStart($composer, 2000989344, "CC(remember):PlaygroundActivity.kt#9igjgp");
+         boolean var8 = $composer.changedInstance(r);
+         int var9 = false;
+         Object var10 = $composer.rememberedValue();
+         int var11 = false;
          Object var10005;
-         if (!var7 && var9 != Composer.Companion.getEmpty()) {
-            var10005 = var9;
+         if (!var8 && var10 != Composer.Companion.getEmpty()) {
+            var10005 = var10;
          } else {
+            Object var18 = null;
             Object var17 = null;
-            Object var16 = null;
-            boolean var15 = false;
-            Modifier var14 = var10001;
-            String var13 = var10000;
-            int var11 = false;
-            Function0 var18 = TestImpl::Content$lambda$1$lambda$0;
-            var10000 = var13;
-            var10001 = var14;
-            var10002 = var15;
-            var10003 = var16;
-            var10004 = var17;
-            $composer.updateRememberedValue(var18);
-            var10005 = var18;
+            boolean var16 = false;
+            Modifier var15 = var10001;
+            String var14 = var10000;
+            int var12 = false;
+            Function0 var19 = TestImpl::Content$lambda$1$lambda$0;
+            var10000 = var14;
+            var10001 = var15;
+            var10002 = var16;
+            var10003 = var17;
+            var10004 = var18;
+            $composer.updateRememberedValue(var19);
+            var10005 = var19;
          }
 
-         Function0 var5 = (Function0)var10005;
+         Function0 var6 = (Function0)var10005;
          ComposerKt.sourceInformationMarkerEnd($composer);
-         TextKt.Text--4IGK_g(var10000, ClickableKt.clickable-XHw0xAI$default(var10001, var10002, (String)var10003, (Role)var10004, var5, 7, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 0, 0, 131068);
+         TextKt.Text--4IGK_g(var10000, ClickableKt.clickable-XHw0xAI$default(var10001, var10002, (String)var10003, (Role)var10004, var6, 7, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 0, 0, 131068);
          if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
          }
@@ -97,9 +103,9 @@ public final class TestImpl implements Test {
          $composer.skipToGroupEnd();
       }
 
-      ScopeUpdateScope var19 = $composer.endRestartGroup();
-      if (var19 != null) {
-         var19.updateScope(TestImpl::Content$lambda$2);
+      ScopeUpdateScope var20 = $composer.endRestartGroup();
+      if (var20 != null) {
+         var20.updateScope(TestImpl::Content$lambda$2);
       }
 
    }
