@@ -38,11 +38,13 @@ class PlaygroundActivity : ComponentActivity() {
 }
 
 fun interface Test {
+  context(a: Any)
   @Composable
   fun Content()
 }
 
 object TestImpl : Test {
+  context(a: Any)
   @Composable
   override fun Content() { // final
     val r = currentRecomposeScope
@@ -51,6 +53,7 @@ object TestImpl : Test {
 }
 
 open class Test2 : Test {
+  context(a: Any)
   @Composable
   override fun Content() { // open
     val r = currentRecomposeScope

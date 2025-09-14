@@ -1,6 +1,8 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun Content(
+restartable skippable fun Content(
+  unused unstable a: Any
   unused stable <this>: TestImpl
 )
-scheme("[androidx.compose.ui.UiComposable]") fun Content(
+fun Content(
+  unused unstable a: Any
   unused stable <this>: Test2
 )

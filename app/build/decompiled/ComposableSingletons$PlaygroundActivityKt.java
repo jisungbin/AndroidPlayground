@@ -48,7 +48,7 @@ import org.jetbrains.annotations.NotNull;
    k = 3,
    xi = 48
 )
-@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n+ 2 Column.kt\nandroidx/compose/foundation/layout/ColumnKt\n+ 3 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 4 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 5 Composer.kt\nandroidx/compose/runtime/Updater\n+ 6 Dp.kt\nandroidx/compose/ui/unit/DpKt\n+ 7 Composer.kt\nandroidx/compose/runtime/ComposerKt\n*L\n1#1,65:1\n87#2:66\n83#2,10:67\n94#2:116\n79#3,6:77\n86#3,3:92\n89#3,2:101\n93#3:115\n347#4,9:83\n356#4:103\n357#4,2:113\n4206#5,6:95\n113#6:104\n113#6:111\n113#6:112\n1282#7,6:105\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n*L\n21#1:66\n21#1:67,10\n21#1:116\n21#1:77,6\n21#1:92,3\n21#1:101,2\n21#1:115\n21#1:83,9\n21#1:103\n21#1:113,2\n21#1:95,6\n23#1:104\n28#1:111\n32#1:112\n26#1:105,6\n*E\n"})
+@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n+ 2 Column.kt\nandroidx/compose/foundation/layout/ColumnKt\n+ 3 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 4 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 5 Composer.kt\nandroidx/compose/runtime/Updater\n+ 6 Dp.kt\nandroidx/compose/ui/unit/DpKt\n+ 7 Composer.kt\nandroidx/compose/runtime/ComposerKt\n*L\n1#1,68:1\n87#2:69\n83#2,10:70\n94#2:119\n79#3,6:80\n86#3,3:95\n89#3,2:104\n93#3:118\n347#4,9:86\n356#4:106\n357#4,2:116\n4206#5,6:98\n113#6:107\n113#6:114\n113#6:115\n1282#7,6:108\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n*L\n21#1:69\n21#1:70,10\n21#1:119\n21#1:80,6\n21#1:95,3\n21#1:104,2\n21#1:118\n21#1:86,9\n21#1:106\n21#1:116,2\n21#1:98,6\n23#1:107\n28#1:114\n32#1:115\n26#1:108,6\n*E\n"})
 public final class ComposableSingletons$PlaygroundActivityKt {
    @NotNull
    public static final ComposableSingletons$PlaygroundActivityKt INSTANCE = new ComposableSingletons$PlaygroundActivityKt();
@@ -121,22 +121,22 @@ public final class ComposableSingletons$PlaygroundActivityKt {
          int var26 = false;
          ComposerKt.sourceInformationMarkerStart($composer, -384672921, "C89@4556L9:Column.kt#2w3rfo");
          int var27 = 6 | 112 & var6 >> 6;
-         ColumnScope var10000 = (ColumnScope)ColumnScopeInstance.INSTANCE;
+         ColumnScope var29 = (ColumnScope)ColumnScopeInstance.INSTANCE;
          int var30 = false;
          ComposerKt.sourceInformationMarkerStart($composer, 182746728, "C21@794L47,22@850L40,24@908L21,25@1014L18,25@938L95,27@1043L40,29@1102L9,31@1121L40,33@1177L9:PlaygroundActivity.kt#qshby3");
          SpacerKt.Spacer(WindowInsetsPadding_androidKt.statusBarsPadding((Modifier)Modifier.Companion), $composer, 0);
-         Modifier var46 = (Modifier)Modifier.Companion;
+         Modifier var10000 = (Modifier)Modifier.Companion;
          int var31 = 4;
          int var32 = false;
-         SpacerKt.Spacer(SizeKt.height-3ABfNKs(var46, Dp.constructor-impl((float)var31)), $composer, 6);
-         RecomposeScope var48 = ComposablesKt.getCurrentRecomposeScope($composer, 0);
-         String var47 = var48 + " with " + System.currentTimeMillis();
+         SpacerKt.Spacer(SizeKt.height-3ABfNKs(var10000, Dp.constructor-impl((float)var31)), $composer, 6);
+         RecomposeScope var47 = ComposablesKt.getCurrentRecomposeScope($composer, 0);
+         String var46 = var47 + " with " + System.currentTimeMillis();
          Modifier var10001 = (Modifier)Modifier.Companion;
          boolean var10002 = false;
          Object var10003 = null;
          Object var10004 = null;
          ComposerKt.sourceInformationMarkerStart($composer, -686834939, "CC(remember):PlaygroundActivity.kt#9igjgp");
-         boolean var34 = $composer.changedInstance(var48);
+         boolean var34 = $composer.changedInstance(var47);
          int var35 = false;
          Object var36 = $composer.rememberedValue();
          int var37 = false;
@@ -148,10 +148,10 @@ public final class ComposableSingletons$PlaygroundActivityKt {
             Object var39 = null;
             boolean var40 = false;
             Modifier var41 = var10001;
-            String var42 = var47;
+            String var42 = var46;
             int var43 = false;
             Function0 var44 = ComposableSingletons$PlaygroundActivityKt::lambda_2023832317$lambda$3$lambda$2$lambda$1$lambda$0;
-            var47 = var42;
+            var46 = var42;
             var10001 = var41;
             var10002 = var40;
             var10003 = var39;
@@ -160,19 +160,19 @@ public final class ComposableSingletons$PlaygroundActivityKt {
             var10005 = var44;
          }
 
-         Function0 var49 = (Function0)var10005;
+         Function0 var48 = (Function0)var10005;
          ComposerKt.sourceInformationMarkerEnd($composer);
-         TextKt.Text--4IGK_g(var47, ClickableKt.clickable-XHw0xAI$default(var10001, var10002, (String)var10003, (Role)var10004, var49, 7, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 0, 0, 131068);
-         var46 = (Modifier)Modifier.Companion;
-         int var50 = 4;
+         TextKt.Text--4IGK_g(var46, ClickableKt.clickable-XHw0xAI$default(var10001, var10002, (String)var10003, (Role)var10004, var48, 7, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 0, 0, 131068);
+         var10000 = (Modifier)Modifier.Companion;
+         int var49 = 4;
          int var33 = false;
-         SpacerKt.Spacer(SizeKt.height-3ABfNKs(var46, Dp.constructor-impl((float)var50)), $composer, 6);
-         TestImpl.INSTANCE.Content($composer, 6);
-         var46 = (Modifier)Modifier.Companion;
-         var50 = 4;
+         SpacerKt.Spacer(SizeKt.height-3ABfNKs(var10000, Dp.constructor-impl((float)var49)), $composer, 6);
+         TestImpl.INSTANCE.Content(var29, $composer, 48 | 14 & var27);
+         var10000 = (Modifier)Modifier.Companion;
+         var49 = 4;
          var33 = false;
-         SpacerKt.Spacer(SizeKt.height-3ABfNKs(var46, Dp.constructor-impl((float)var50)), $composer, 6);
-         Test2.Companion.Content($composer, 6);
+         SpacerKt.Spacer(SizeKt.height-3ABfNKs(var10000, Dp.constructor-impl((float)var49)), $composer, 6);
+         Test2.Companion.Content(var29, $composer, 48 | 14 & var27);
          ComposerKt.sourceInformationMarkerEnd($composer);
          ComposerKt.sourceInformationMarkerEnd($composer);
          $composer.endNode();
