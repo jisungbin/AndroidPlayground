@@ -1,7 +1,8 @@
-readonly fun <get-aaa>()
-restartable skippable fun Main()
-restartable fun getValue(
-  unused stable <this>: Unit
-  unused unstable thisRef: Any?
-  unstable property: KProperty<*>
+restartable fun Content(
+  unstable a: Any
+  unused stable <this>: TestImpl
+)
+fun Content(
+  unstable a: Any
+  unused stable <this>: Test2
 )
