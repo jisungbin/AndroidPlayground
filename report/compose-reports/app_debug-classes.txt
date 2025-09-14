@@ -1,6 +1,9 @@
 unstable class PlaygroundActivity {
   <runtime stability> = Unstable
 }
-stable class AA {
+stable class TestImpl {
+  <runtime stability> = Stable
+}
+stable class Test2 {
   <runtime stability> = Stable
 }
