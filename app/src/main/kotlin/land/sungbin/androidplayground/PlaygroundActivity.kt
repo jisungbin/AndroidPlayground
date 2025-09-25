@@ -8,8 +8,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
@@ -23,9 +27,10 @@ class PlaygroundActivity : ComponentActivity() {
     enableEdgeToEdge()
     super.onCreate(savedInstanceState)
     setContent {
-      Box(
+      Column(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
       ) {
         LazyRow(
           modifier = Modifier
@@ -37,8 +42,24 @@ class PlaygroundActivity : ComponentActivity() {
           items(count = 2) {
             Box(
               Modifier
-                .size(100.dp)
+                .size(80.dp)
                 .background(color = Color.Red),
+            )
+          }
+        }
+        Spacer(Modifier.height(100.dp))
+        LazyRow(
+          modifier = Modifier
+            .width(150.dp)
+            .border(width = 1.dp, color = Color.Black)
+            .padding(horizontal = 30.dp),
+          horizontalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+          items(count = 2) {
+            Box(
+              Modifier
+                .size(80.dp)
+                .background(color = Color.Blue),
             )
           }
         }
