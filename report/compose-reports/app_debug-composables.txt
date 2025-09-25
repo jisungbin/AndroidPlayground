@@ -1,8 +1,0 @@
-restartable skippable fun Content(
-  unstable a: Any
-  unused stable <this>: TestImpl
-)
-fun Content(
-  unstable a: Any
-  unused stable <this>: Test2
-)
