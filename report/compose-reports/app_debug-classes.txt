@@ -1,7 +1,3 @@
-stable class land.sungbin.androidplayground.DebugLayoutUtil {
-  stable val DEBUG_LAYOUT_PROPERTY: String
-  <runtime stability> = Stable
-}
 unstable class land.sungbin.androidplayground.PlaygroundActivity {
   <runtime stability> = Unstable
 }

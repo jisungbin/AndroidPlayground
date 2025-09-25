@@ -2,6 +2,8 @@ package land.sungbin.androidplayground;
 
 import android.os.Bundle;
 import androidx.activity.ComponentActivity;
+import androidx.activity.EdgeToEdge;
+import androidx.activity.SystemBarStyle;
 import androidx.activity.compose.ComponentActivityKt;
 import androidx.compose.runtime.CompositionContext;
 import androidx.compose.runtime.internal.StabilityInferred;
@@ -22,6 +24,7 @@ public final class PlaygroundActivity extends ComponentActivity {
    public static final int $stable = 8;
 
    protected void onCreate(@Nullable Bundle savedInstanceState) {
+      EdgeToEdge.enable$default((ComponentActivity)this, (SystemBarStyle)null, (SystemBarStyle)null, 3, (Object)null);
       super.onCreate(savedInstanceState);
       ComponentActivityKt.setContent$default((ComponentActivity)this, (CompositionContext)null, ComposableSingletons$PlaygroundActivityKt.INSTANCE.getLambda$2023832317$app_debug(), 1, (Object)null);
    }
