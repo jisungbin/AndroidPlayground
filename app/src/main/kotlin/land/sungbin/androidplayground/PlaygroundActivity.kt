@@ -29,22 +29,22 @@ class PlaygroundActivity : ComponentActivity() {
           .border(width = 2.dp, color = Color.Black)
           .padding(all = 50.dp)
           .size(300.dp)
-          .border(width = 2.dp, color = Color.Black)
+//          .border(width = 2.dp, color = Color.Black)
           .background(Color.Gray),
         contentAlignment = Alignment.Center,
       ) {
         Box(
           Modifier
             .size(200.dp)
-            .border(width = 2.dp, color = Color.Black)
-            .background(Color.Blue),
+//            .border(width = 2.dp, color = Color.Black)
+            .background(Color(0xFF5F5FFF)),
           contentAlignment = Alignment.Center,
         ) {
           Box(
             Modifier
               .size(100.dp)
-              .border(width = 2.dp, color = Color.Black)
-              .background(Color.Green),
+//              .border(width = 2.dp, color = Color.Black)
+              .background(Color(0xFF00B700)),
           )
         }
       }
