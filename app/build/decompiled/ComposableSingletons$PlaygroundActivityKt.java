@@ -55,7 +55,7 @@ public final class ComposableSingletons$PlaygroundActivityKt {
       applier = "androidx.compose.ui.UiComposable"
    )
    private static final Unit lambda_2023832317$lambda$0(Composer $composer, int $changed) {
-      ComposerKt.sourceInformation($composer, "C23@877L809:PlaygroundActivity.kt#qshby3");
+      ComposerKt.sourceInformation($composer, "C23@877L808:PlaygroundActivity.kt#qshby3");
       if ($composer.shouldExecute(($changed & 3) != 2, $changed & 1)) {
          if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.ComposableSingletons$PlaygroundActivityKt.lambda$2023832317.<anonymous> (PlaygroundActivity.kt:23)");
@@ -120,7 +120,7 @@ public final class ComposableSingletons$PlaygroundActivityKt {
          int var27 = 6 | 112 & var6 >> 6;
          BoxScope var65 = (BoxScope)BoxScopeInstance.INSTANCE;
          int var30 = false;
-         ComposerKt.sourceInformationMarkerStart($composer, -1620981948, "C35@1266L412:PlaygroundActivity.kt#qshby3");
+         ComposerKt.sourceInformationMarkerStart($composer, -1620981979, "C35@1266L411:PlaygroundActivity.kt#qshby3");
          var10000 = (Modifier)Modifier.Companion;
          int var31 = 200;
          int var32 = false;
@@ -171,9 +171,9 @@ public final class ComposableSingletons$PlaygroundActivityKt {
          int var56 = 6 | 112 & var34 >> 6;
          var65 = (BoxScope)BoxScopeInstance.INSTANCE;
          int var59 = false;
-         ComposerKt.sourceInformationMarkerStart($composer, -1081023574, "C42@1492L176:PlaygroundActivity.kt#qshby3");
+         ComposerKt.sourceInformationMarkerStart($composer, -1081023605, "C42@1492L175:PlaygroundActivity.kt#qshby3");
          var10000 = (Modifier)Modifier.Companion;
-         int var60 = 100;
+         int var60 = 50;
          int var61 = false;
          BoxKt.Box(BackgroundKt.background-bw27NRU$default(SizeKt.size-3ABfNKs(var10000, Dp.constructor-impl((float)var60)), ColorKt.Color(4278236928L), (Shape)null, 2, (Object)null), $composer, 6);
          ComposerKt.sourceInformationMarkerEnd($composer);

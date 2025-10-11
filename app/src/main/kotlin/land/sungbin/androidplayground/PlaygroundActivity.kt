@@ -42,7 +42,7 @@ class PlaygroundActivity : ComponentActivity() {
         ) {
           Box(
             Modifier
-              .size(100.dp)
+              .size(50.dp)
 //              .border(width = 2.dp, color = Color(0xFF7A7E85))
               .background(Color(0xFF00B700)),
           )
