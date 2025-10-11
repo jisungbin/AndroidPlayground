@@ -5,7 +5,6 @@ import androidx.compose.foundation.BorderKt;
 import androidx.compose.foundation.layout.BoxKt;
 import androidx.compose.foundation.layout.BoxScope;
 import androidx.compose.foundation.layout.BoxScopeInstance;
-import androidx.compose.foundation.layout.PaddingKt;
 import androidx.compose.foundation.layout.SizeKt;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.Composable;
@@ -38,7 +37,7 @@ import org.jetbrains.annotations.NotNull;
    k = 3,
    xi = 48
 )
-@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n+ 2 Dp.kt\nandroidx/compose/ui/unit/DpKt\n+ 3 Box.kt\nandroidx/compose/foundation/layout/BoxKt\n+ 4 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 5 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 6 Composer.kt\nandroidx/compose/runtime/Updater\n*L\n1#1,54:1\n113#2:55\n113#2:56\n113#2:57\n113#2:58\n113#2:95\n113#2:132\n70#3:59\n68#3,8:60\n70#3:96\n68#3,8:97\n77#3:136\n77#3:140\n79#4,6:68\n86#4,3:83\n89#4,2:92\n79#4,6:105\n86#4,3:120\n89#4,2:129\n93#4:135\n93#4:139\n347#5,9:74\n356#5:94\n347#5,9:111\n356#5:131\n357#5,2:133\n357#5,2:137\n4206#6,6:86\n4206#6,6:123\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n*L\n29#1:55\n30#1:56\n31#1:57\n32#1:58\n38#1:95\n45#1:132\n24#1:59\n24#1:60,8\n36#1:96\n36#1:97,8\n36#1:136\n24#1:140\n24#1:68,6\n24#1:83,3\n24#1:92,2\n36#1:105,6\n36#1:120,3\n36#1:129,2\n36#1:135\n24#1:139\n24#1:74,9\n24#1:94\n36#1:111,9\n36#1:131\n36#1:133,2\n24#1:137,2\n24#1:86,6\n36#1:123,6\n*E\n"})
+@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n+ 2 Dp.kt\nandroidx/compose/ui/unit/DpKt\n+ 3 Box.kt\nandroidx/compose/foundation/layout/BoxKt\n+ 4 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 5 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 6 Composer.kt\nandroidx/compose/runtime/Updater\n*L\n1#1,51:1\n113#2:52\n113#2:53\n113#2:90\n113#2:91\n113#2:128\n113#2:129\n70#3:54\n68#3,8:55\n70#3:92\n68#3,8:93\n77#3:133\n77#3:137\n79#4,6:63\n86#4,3:78\n89#4,2:87\n79#4,6:101\n86#4,3:116\n89#4,2:125\n93#4:132\n93#4:136\n347#5,9:69\n356#5:89\n347#5,9:107\n356#5:127\n357#5,2:130\n357#5,2:134\n4206#6,6:81\n4206#6,6:119\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n*L\n28#1:52\n29#1:53\n35#1:90\n36#1:91\n42#1:128\n43#1:129\n23#1:54\n23#1:55,8\n33#1:92\n33#1:93,8\n33#1:133\n23#1:137\n23#1:63,6\n23#1:78,3\n23#1:87,2\n33#1:101,6\n33#1:116,3\n33#1:125,2\n33#1:132\n23#1:136\n23#1:69,9\n23#1:89\n33#1:107,9\n33#1:127\n33#1:130,2\n23#1:134,2\n23#1:81,6\n33#1:119,6\n*E\n"})
 public final class ComposableSingletons$PlaygroundActivityKt {
    @NotNull
    public static final ComposableSingletons$PlaygroundActivityKt INSTANCE = new ComposableSingletons$PlaygroundActivityKt();
@@ -55,25 +54,19 @@ public final class ComposableSingletons$PlaygroundActivityKt {
       applier = "androidx.compose.ui.UiComposable"
    )
    private static final Unit lambda_2023832317$lambda$0(Composer $composer, int $changed) {
-      ComposerKt.sourceInformation($composer, "C23@877L808:PlaygroundActivity.kt#qshby3");
+      ComposerKt.sourceInformation($composer, "C22@827L713:PlaygroundActivity.kt#qshby3");
       if ($composer.shouldExecute(($changed & 3) != 2, $changed & 1)) {
          if (ComposerKt.isTraceInProgress()) {
-            ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.ComposableSingletons$PlaygroundActivityKt.lambda$2023832317.<anonymous> (PlaygroundActivity.kt:23)");
+            ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.ComposableSingletons$PlaygroundActivityKt.lambda$2023832317.<anonymous> (PlaygroundActivity.kt:22)");
          }
 
          Modifier var10000 = SizeKt.wrapContentSize$default(BackgroundKt.background-bw27NRU$default(SizeKt.fillMaxSize$default((Modifier)Modifier.Companion, 0.0F, 1, (Object)null), ColorKt.Color(4294309365L), (Shape)null, 2, (Object)null), (Alignment)null, false, 3, (Object)null);
-         int var2 = 2;
+         int var2 = 300;
          int var3 = false;
-         var10000 = BorderKt.border-xT4_qwU$default(var10000, Dp.constructor-impl((float)var2), ColorKt.Color(4286217861L), (Shape)null, 4, (Object)null);
-         var2 = 50;
+         var10000 = SizeKt.size-3ABfNKs(var10000, Dp.constructor-impl((float)var2));
+         int var62 = 2;
          var3 = false;
-         var10000 = PaddingKt.padding-3ABfNKs(var10000, Dp.constructor-impl((float)var2));
-         int var62 = 300;
-         var3 = false;
-         var10000 = SizeKt.size-3ABfNKs(var10000, Dp.constructor-impl((float)var62));
-         var2 = 2;
-         var3 = false;
-         Modifier var63 = BackgroundKt.background-bw27NRU$default(BorderKt.border-xT4_qwU$default(var10000, Dp.constructor-impl((float)var2), ColorKt.Color(4292795904L), (Shape)null, 4, (Object)null), Color.Companion.getGray-0d7_KjU(), (Shape)null, 2, (Object)null);
+         Modifier var63 = BackgroundKt.background-bw27NRU$default(BorderKt.border-xT4_qwU$default(var10000, Dp.constructor-impl((float)var62), ColorKt.Color(4292795904L), (Shape)null, 4, (Object)null), Color.Companion.getGray-0d7_KjU(), (Shape)null, 2, (Object)null);
          Alignment var64 = Alignment.Companion.getCenter();
          int var6 = 54;
          int var7 = false;
@@ -120,23 +113,26 @@ public final class ComposableSingletons$PlaygroundActivityKt {
          int var27 = 6 | 112 & var6 >> 6;
          BoxScope var65 = (BoxScope)BoxScopeInstance.INSTANCE;
          int var30 = false;
-         ComposerKt.sourceInformationMarkerStart($composer, -1620981979, "C35@1266L411:PlaygroundActivity.kt#qshby3");
+         ComposerKt.sourceInformationMarkerStart($composer, -1620982103, "C32@1125L407:PlaygroundActivity.kt#qshby3");
          var10000 = (Modifier)Modifier.Companion;
          int var31 = 200;
          int var32 = false;
-         Modifier var66 = BackgroundKt.background-bw27NRU$default(SizeKt.size-3ABfNKs(var10000, Dp.constructor-impl((float)var31)), ColorKt.Color(4284440575L), (Shape)null, 2, (Object)null);
-         Alignment var67 = Alignment.Companion.getCenter();
+         var10000 = SizeKt.size-3ABfNKs(var10000, Dp.constructor-impl((float)var31));
+         int var66 = 2;
+         var32 = false;
+         Modifier var67 = BackgroundKt.background-bw27NRU$default(BorderKt.border-xT4_qwU$default(var10000, Dp.constructor-impl((float)var66), ColorKt.Color(4292795904L), (Shape)null, 4, (Object)null), ColorKt.Color(4284440575L), (Shape)null, 2, (Object)null);
+         Alignment var68 = Alignment.Companion.getCenter();
          int var34 = 54;
          int var35 = false;
          ComposerKt.sourceInformationMarkerStart($composer, 733328855, "CC(Box)P(2,1,3)71@3423L130:Box.kt#2w3rfo");
          boolean var36 = false;
-         MeasurePolicy var37 = BoxKt.maybeCachedBoxMeasurePolicy(var67, var36);
+         MeasurePolicy var37 = BoxKt.maybeCachedBoxMeasurePolicy(var68, var36);
          int var39 = 112 & var34 << 3;
          int var40 = false;
          ComposerKt.sourceInformationMarkerStart($composer, -1323940314, "CC(Layout)P(!1,2)79@3206L23,82@3357L359:Layout.kt#80mrfh");
          int var41 = ComposablesKt.getCurrentCompositeKeyHash($composer, 0);
          CompositionLocalMap var42 = $composer.getCurrentCompositionLocalMap();
-         Modifier var43 = ComposedModifierKt.materializeModifier($composer, var66);
+         Modifier var43 = ComposedModifierKt.materializeModifier($composer, var67);
          Function0 var44 = ComposeUiNode.Companion.getConstructor();
          int var45 = 6 | 896 & var39 << 6;
          int var46 = false;
@@ -171,11 +167,14 @@ public final class ComposableSingletons$PlaygroundActivityKt {
          int var56 = 6 | 112 & var34 >> 6;
          var65 = (BoxScope)BoxScopeInstance.INSTANCE;
          int var59 = false;
-         ComposerKt.sourceInformationMarkerStart($composer, -1081023605, "C42@1492L175:PlaygroundActivity.kt#qshby3");
+         ComposerKt.sourceInformationMarkerStart($composer, -1081023667, "C39@1349L173:PlaygroundActivity.kt#qshby3");
          var10000 = (Modifier)Modifier.Companion;
          int var60 = 50;
          int var61 = false;
-         BoxKt.Box(BackgroundKt.background-bw27NRU$default(SizeKt.size-3ABfNKs(var10000, Dp.constructor-impl((float)var60)), ColorKt.Color(4278236928L), (Shape)null, 2, (Object)null), $composer, 6);
+         var10000 = SizeKt.size-3ABfNKs(var10000, Dp.constructor-impl((float)var60));
+         var60 = 2;
+         var61 = false;
+         BoxKt.Box(BackgroundKt.background-bw27NRU$default(BorderKt.border-xT4_qwU$default(var10000, Dp.constructor-impl((float)var60), ColorKt.Color(4292795904L), (Shape)null, 4, (Object)null), ColorKt.Color(4278236928L), (Shape)null, 2, (Object)null), $composer, 6);
          ComposerKt.sourceInformationMarkerEnd($composer);
          ComposerKt.sourceInformationMarkerEnd($composer);
          $composer.endNode();

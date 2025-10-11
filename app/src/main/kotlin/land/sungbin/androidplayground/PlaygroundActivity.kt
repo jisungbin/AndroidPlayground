@@ -8,7 +8,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.ui.Alignment
@@ -26,8 +25,6 @@ class PlaygroundActivity : ComponentActivity() {
           .fillMaxSize()
           .background(Color(0xFFF5F5F5))
           .wrapContentSize()
-          .border(width = 2.dp, color = Color(0xFF7A7E85))
-          .padding(all = 50.dp)
           .size(300.dp)
           .border(width = 2.dp, color = Color(0xFFDEDE00))
           .background(Color.Gray),
@@ -36,14 +33,14 @@ class PlaygroundActivity : ComponentActivity() {
         Box(
           Modifier
             .size(200.dp)
-//            .border(width = 2.dp, color = Color(0xFFDBD357))
+            .border(width = 2.dp, color = Color(0xFFDEDE00))
             .background(Color(0xFF5F5FFF)),
           contentAlignment = Alignment.Center,
         ) {
           Box(
             Modifier
               .size(50.dp)
-//              .border(width = 2.dp, color = Color(0xFF7A7E85))
+              .border(width = 2.dp, color = Color(0xFFDEDE00))
               .background(Color(0xFF00B700)),
           )
         }
