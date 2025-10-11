@@ -26,24 +26,24 @@ class PlaygroundActivity : ComponentActivity() {
           .fillMaxSize()
           .background(Color(0xFFF5F5F5))
           .wrapContentSize()
-          .border(width = 2.dp, color = Color.Black)
+          .border(width = 2.dp, color = Color(0xFF7A7E85))
           .padding(all = 50.dp)
           .size(300.dp)
-//          .border(width = 2.dp, color = Color.Black)
+          .border(width = 2.dp, color = Color(0xFFDEDE00))
           .background(Color.Gray),
         contentAlignment = Alignment.Center,
       ) {
         Box(
           Modifier
             .size(200.dp)
-//            .border(width = 2.dp, color = Color.Black)
+//            .border(width = 2.dp, color = Color(0xFFDBD357))
             .background(Color(0xFF5F5FFF)),
           contentAlignment = Alignment.Center,
         ) {
           Box(
             Modifier
               .size(100.dp)
-//              .border(width = 2.dp, color = Color.Black)
+//              .border(width = 2.dp, color = Color(0xFF7A7E85))
               .background(Color(0xFF00B700)),
           )
         }
