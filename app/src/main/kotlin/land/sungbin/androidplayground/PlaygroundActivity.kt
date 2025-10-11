@@ -5,11 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,30 +21,32 @@ class PlaygroundActivity : ComponentActivity() {
     enableEdgeToEdge()
     super.onCreate(savedInstanceState)
     setContent {
-      Column(
-        modifier = Modifier
-          .fillMaxWidth()
-          .height(300.dp)
-          .background(color = Color.LightGray),
+      Box(
+        Modifier
+          .fillMaxSize()
+          .background(Color(0xFFF5F5F5))
+          .wrapContentSize()
+          .border(width = 2.dp, color = Color.Black)
+          .padding(all = 50.dp)
+          .size(300.dp)
+          .border(width = 2.dp, color = Color.Black)
+          .background(Color.Gray),
+        contentAlignment = Alignment.Center,
       ) {
         Box(
           Modifier
-            .size(50.dp)
-            .background(Color.Red)
-            .align(Alignment.Start),
-        )
-        Box(
-          Modifier
-            .size(50.dp)
-            .background(Color.Red)
-            .align(Alignment.CenterHorizontally),
-        )
-        Box(
-          Modifier
-            .size(50.dp)
-            .background(Color.Red)
-            .align(Alignment.End),
-        )
+            .size(200.dp)
+            .border(width = 2.dp, color = Color.Black)
+            .background(Color.Blue),
+          contentAlignment = Alignment.Center,
+        ) {
+          Box(
+            Modifier
+              .size(100.dp)
+              .border(width = 2.dp, color = Color.Black)
+              .background(Color.Green),
+          )
+        }
       }
     }
   }
