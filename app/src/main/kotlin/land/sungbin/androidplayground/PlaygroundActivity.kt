@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -37,17 +38,20 @@ class PlaygroundActivity : ComponentActivity() {
           Modifier
             .size(250.dp)
             .background(
-              brush = Brush.horizontalGradient(
-                colors = listOf(
-                  Color.Red,
-                  Color.Yellow,
-                  Color.Green,
-                  Color.Cyan,
-                  Color.Blue,
-                  Color.Magenta,
-                  Color.Red,
+              brush =
+                Brush.linearGradient(
+                  colors = listOf(
+                    Color.Red,
+                    Color.Yellow,
+                    Color.Green,
+                    Color.Cyan,
+                    Color.Blue,
+                    Color.Magenta,
+                    Color.Red,
+                  ),
+                  start = Offset(0f, 0f),
+                  end = Offset(250f, 250f),
                 )
-              )
             ),
         )
       }
