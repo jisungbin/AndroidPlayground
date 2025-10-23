@@ -1,5 +1,3 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.RainbowAnimatedText(
-  stable text: String
-  stable modifier: Modifier? = @static <expression>
-)
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.RainbowTextPreview()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.FirstBox()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.SecondBox()
+restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.ThirdBox()
