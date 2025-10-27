@@ -1,3 +1,0 @@
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.FirstBox()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.SecondBox()
-restartable skippable scheme("[androidx.compose.ui.UiComposable]") fun land.sungbin.androidplayground.ThirdBox()

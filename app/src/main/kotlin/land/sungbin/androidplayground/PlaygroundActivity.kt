@@ -4,12 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -20,42 +23,18 @@ class PlaygroundActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center,
+        modifier = Modifier
+          .statusBarsPadding()
+          .width(100.dp)
+          // .padding(start = 50.dp)
+          .horizontalScroll(rememberScrollState())
+          .border(0.5.dp, Color.Black)
       ) {
-        FirstBox()
+        Row(modifier = Modifier.width(50.dp)/*.border(2.dp, Color.Red)*/) {
+          Text("1", modifier = Modifier.width(300.dp).border(1.dp, Color.Blue))
+          Text("2", modifier = Modifier.width(100.dp).border(1.dp, Color.Green))
+        }
       }
     }
   }
-}
-
-@Composable fun FirstBox() {
-  Box(
-    Modifier
-      .size(300.dp)
-      .background(Color.Gray),
-    contentAlignment = Alignment.Center,
-  ) {
-    SecondBox()
-  }
-}
-
-
-@Composable fun SecondBox() {
-  Box(
-    Modifier
-      .size(200.dp)
-      .background(Color.Blue),
-    contentAlignment = Alignment.Center,
-  ) {
-    ThirdBox()
-  }
-}
-
-@Composable fun ThirdBox() {
-  Box(
-    Modifier
-      .size(100.dp)
-      .background(Color.Green),
-  )
 }
