@@ -8,7 +8,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -25,14 +24,23 @@ class PlaygroundActivity : ComponentActivity() {
       Box(
         modifier = Modifier
           .statusBarsPadding()
-          .width(100.dp)
-          // .padding(start = 50.dp)
+          .width(50.dp)
           .horizontalScroll(rememberScrollState())
           .border(0.5.dp, Color.Black)
       ) {
-        Row(modifier = Modifier.width(50.dp)/*.border(2.dp, Color.Red)*/) {
-          Text("1", modifier = Modifier.width(300.dp).border(1.dp, Color.Blue))
-          Text("2", modifier = Modifier.width(100.dp).border(1.dp, Color.Green))
+        Row {
+          Text(
+            "1",
+            modifier = Modifier
+              .width(300.dp)
+              .border(1.dp, Color.Blue)
+          )
+          Text(
+            "2",
+            modifier = Modifier
+              .width(100.dp)
+              .border(1.dp, Color.Green)
+          )
         }
       }
     }

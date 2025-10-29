@@ -52,7 +52,7 @@ import org.jetbrains.annotations.NotNull;
    k = 3,
    xi = 48
 )
-@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n+ 2 Dp.kt\nandroidx/compose/ui/unit/DpKt\n+ 3 Box.kt\nandroidx/compose/foundation/layout/BoxKt\n+ 4 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 5 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 6 Composer.kt\nandroidx/compose/runtime/Updater\n+ 7 Row.kt\nandroidx/compose/foundation/layout/RowKt\n*L\n1#1,41:1\n113#2:42\n118#2:43\n113#2:81\n113#2:119\n113#2:120\n70#3:44\n67#3,9:45\n77#3:128\n79#4,6:54\n86#4,3:69\n89#4,2:78\n79#4,6:92\n86#4,3:107\n89#4,2:116\n93#4:123\n93#4:127\n347#5,9:60\n356#5:80\n347#5,9:98\n356#5:118\n357#5,2:121\n357#5,2:125\n4206#6,6:72\n4206#6,6:110\n99#7:82\n96#7,9:83\n106#7:124\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n*L\n28#1:42\n31#1:43\n33#1:81\n34#1:119\n35#1:120\n25#1:44\n25#1:45,9\n25#1:128\n25#1:54,6\n25#1:69,3\n25#1:78,2\n33#1:92,6\n33#1:107,3\n33#1:116,2\n33#1:123\n25#1:127\n25#1:60,9\n25#1:80\n33#1:98,9\n33#1:118\n33#1:121,2\n25#1:125,2\n25#1:72,6\n33#1:110,6\n33#1:82\n33#1:83,9\n33#1:124\n*E\n"})
+@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n+ 2 Dp.kt\nandroidx/compose/ui/unit/DpKt\n+ 3 Box.kt\nandroidx/compose/foundation/layout/BoxKt\n+ 4 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 5 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 6 Composer.kt\nandroidx/compose/runtime/Updater\n+ 7 Row.kt\nandroidx/compose/foundation/layout/RowKt\n*L\n1#1,49:1\n113#2:50\n118#2:51\n113#2:127\n113#2:128\n113#2:129\n113#2:130\n70#3:52\n67#3,9:53\n77#3:138\n79#4,6:62\n86#4,3:77\n89#4,2:86\n79#4,6:100\n86#4,3:115\n89#4,2:124\n93#4:133\n93#4:137\n347#5,9:68\n356#5:88\n347#5,9:106\n356#5:126\n357#5,2:131\n357#5,2:135\n4206#6,6:80\n4206#6,6:118\n99#7:89\n95#7,10:90\n106#7:134\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/ComposableSingletons$PlaygroundActivityKt\n*L\n27#1:50\n29#1:51\n35#1:127\n36#1:128\n41#1:129\n42#1:130\n24#1:52\n24#1:53,9\n24#1:138\n24#1:62,6\n24#1:77,3\n24#1:86,2\n31#1:100,6\n31#1:115,3\n31#1:124,2\n31#1:133\n24#1:137\n24#1:68,9\n24#1:88\n31#1:106,9\n31#1:126\n31#1:131,2\n24#1:135,2\n24#1:80,6\n31#1:118,6\n31#1:89\n31#1:90,10\n31#1:134\n*E\n"})
 public final class ComposableSingletons$PlaygroundActivityKt {
    @NotNull
    public static final ComposableSingletons$PlaygroundActivityKt INSTANCE = new ComposableSingletons$PlaygroundActivityKt();
@@ -69,14 +69,14 @@ public final class ComposableSingletons$PlaygroundActivityKt {
       applier = "androidx.compose.ui.UiComposable"
    )
    private static final Unit lambda_2023832317$lambda$0(Composer $composer, int $changed) {
-      ComposerKt.sourceInformation($composer, "C29@1088L21,24@934L480:PlaygroundActivity.kt#qshby3");
+      ComposerKt.sourceInformation($composer, "C27@1000L21,23@884L512:PlaygroundActivity.kt#qshby3");
       if ($composer.shouldExecute(($changed & 3) != 2, $changed & 1)) {
          if (ComposerKt.isTraceInProgress()) {
-            ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.ComposableSingletons$PlaygroundActivityKt.lambda$2023832317.<anonymous> (PlaygroundActivity.kt:24)");
+            ComposerKt.traceEventStart(2023832317, $changed, -1, "land.sungbin.androidplayground.ComposableSingletons$PlaygroundActivityKt.lambda$2023832317.<anonymous> (PlaygroundActivity.kt:23)");
          }
 
          Modifier var10000 = WindowInsetsPadding_androidKt.statusBarsPadding((Modifier)Modifier.Companion);
-         int var2 = 100;
+         int var2 = 50;
          int var3 = false;
          var10000 = ScrollKt.horizontalScroll$default(SizeKt.width-3ABfNKs(var10000, Dp.constructor-impl((float)var2)), ScrollKt.rememberScrollState(0, $composer, 0, 1), false, (FlingBehavior)null, false, 14, (Object)null);
          double var62 = 0.5D;
@@ -128,23 +128,20 @@ public final class ComposableSingletons$PlaygroundActivityKt {
          int var27 = 6 | 112 & var6 >> 6;
          BoxScope var65 = (BoxScope)BoxScopeInstance.INSTANCE;
          int var30 = false;
-         ComposerKt.sourceInformationMarkerStart($composer, -1620987342, "C32@1168L238:PlaygroundActivity.kt#qshby3");
-         var10000 = (Modifier)Modifier.Companion;
-         int var31 = 50;
-         int var32 = false;
-         Modifier var67 = SizeKt.width-3ABfNKs(var10000, Dp.constructor-impl((float)var31));
-         int var34 = 6;
-         int var35 = false;
+         ComposerKt.sourceInformationMarkerStart($composer, -1620985172, "C30@1080L308:PlaygroundActivity.kt#qshby3");
+         int var32 = 0;
+         int var33 = false;
          ComposerKt.sourceInformationMarkerStart($composer, 693286680, "CC(Row)P(2,1,3)99@5124L58,100@5187L130:Row.kt#2w3rfo");
-         Horizontal var68 = Arrangement.INSTANCE.getStart();
+         Modifier var34 = (Modifier)Modifier.Companion;
+         Horizontal var35 = Arrangement.INSTANCE.getStart();
          Vertical var36 = Alignment.Companion.getTop();
-         MeasurePolicy var37 = RowKt.rowMeasurePolicy(var68, var36, $composer, 14 & var34 >> 3 | 112 & var34 >> 3);
-         int var39 = 112 & var34 << 3;
+         MeasurePolicy var37 = RowKt.rowMeasurePolicy(var35, var36, $composer, 14 & var32 >> 3 | 112 & var32 >> 3);
+         int var39 = 112 & var32 << 3;
          int var40 = false;
          ComposerKt.sourceInformationMarkerStart($composer, -1323940314, "CC(Layout)P(!1,2)79@3206L23,82@3357L359:Layout.kt#80mrfh");
          int var41 = ComposablesKt.getCurrentCompositeKeyHash($composer, 0);
          CompositionLocalMap var42 = $composer.getCurrentCompositionLocalMap();
-         Modifier var43 = ComposedModifierKt.materializeModifier($composer, var67);
+         Modifier var43 = ComposedModifierKt.materializeModifier($composer, var34);
          Function0 var44 = ComposeUiNode.Companion.getConstructor();
          int var45 = 6 | 896 & var39 << 6;
          int var46 = false;
@@ -176,24 +173,24 @@ public final class ComposableSingletons$PlaygroundActivityKt {
          int var53 = 14 & var45 >> 6;
          int var55 = false;
          ComposerKt.sourceInformationMarkerStart($composer, -407735110, "C101@5232L9:Row.kt#2w3rfo");
-         int var56 = 6 | 112 & var34 >> 6;
+         int var56 = 6 | 112 & var32 >> 6;
          RowScope var66 = (RowScope)RowScopeInstance.INSTANCE;
          int var59 = false;
-         ComposerKt.sourceInformationMarkerStart($composer, -1484778394, "C33@1246L69,34@1326L70:PlaygroundActivity.kt#qshby3");
+         ComposerKt.sourceInformationMarkerStart($composer, -1484774302, "C31@1096L135,37@1242L136:PlaygroundActivity.kt#qshby3");
          Modifier var10001 = (Modifier)Modifier.Companion;
          int var60 = 300;
          int var61 = false;
          var10001 = SizeKt.width-3ABfNKs(var10001, Dp.constructor-impl((float)var60));
-         int var69 = 1;
+         int var67 = 1;
          var61 = false;
-         TextKt.Text--4IGK_g("1", BorderKt.border-xT4_qwU$default(var10001, Dp.constructor-impl((float)var69), Color.Companion.getBlue-0d7_KjU(), (Shape)null, 4, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 54, 0, 131068);
+         TextKt.Text--4IGK_g("1", BorderKt.border-xT4_qwU$default(var10001, Dp.constructor-impl((float)var67), Color.Companion.getBlue-0d7_KjU(), (Shape)null, 4, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 54, 0, 131068);
          var10001 = (Modifier)Modifier.Companion;
-         var69 = 100;
+         var67 = 100;
          var61 = false;
-         var10001 = SizeKt.width-3ABfNKs(var10001, Dp.constructor-impl((float)var69));
-         var69 = 1;
+         var10001 = SizeKt.width-3ABfNKs(var10001, Dp.constructor-impl((float)var67));
+         var67 = 1;
          var61 = false;
-         TextKt.Text--4IGK_g("2", BorderKt.border-xT4_qwU$default(var10001, Dp.constructor-impl((float)var69), Color.Companion.getGreen-0d7_KjU(), (Shape)null, 4, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 54, 0, 131068);
+         TextKt.Text--4IGK_g("2", BorderKt.border-xT4_qwU$default(var10001, Dp.constructor-impl((float)var67), Color.Companion.getGreen-0d7_KjU(), (Shape)null, 4, (Object)null), 0L, 0L, (FontStyle)null, (FontWeight)null, (FontFamily)null, 0L, (TextDecoration)null, (TextAlign)null, 0L, 0, false, 0, 0, (Function1)null, (TextStyle)null, $composer, 54, 0, 131068);
          ComposerKt.sourceInformationMarkerEnd($composer);
          ComposerKt.sourceInformationMarkerEnd($composer);
          $composer.endNode();
