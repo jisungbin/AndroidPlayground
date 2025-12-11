@@ -5,14 +5,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.dropShadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.shadow.Shadow
+import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 
 class PlaygroundActivity : ComponentActivity() {
@@ -23,28 +25,29 @@ class PlaygroundActivity : ComponentActivity() {
       Box(
         Modifier
           .fillMaxSize()
-          .background(Color(0xFFF5F5F5))
+          .background(color = Color.White)
           .wrapContentSize()
-          .size(300.dp)
-          .border(width = 2.dp, color = Color.Black)
-          .background(Color.Gray),
-        contentAlignment = Alignment.Center,
-      ) {
-        Box(
-          Modifier
-            .size(250.dp)
-            .border(width = 2.dp, color = Color.Black)
-            .background(Color(0xFF5F5FFF)),
-          contentAlignment = Alignment.Center,
-        ) {
-          Box(
-            Modifier
-              .size(100.dp)
-              .border(width = 2.dp, color = Color.Black)
-              .background(Color(0xFF00B700)),
+          .size(80.dp)
+          .dropShadow(
+            shape = RoundedCornerShape(12.dp),
+            shadow = Shadow(
+              offset = DpOffset(0.dp, 6.dp),
+              radius = 12.dp,
+              spread = 3.dp,
+              color = Color.Black.copy(alpha = 0.08f),
+            )
           )
-        }
-      }
+          .dropShadow(
+            shape = RoundedCornerShape(12.dp),
+            shadow = Shadow(
+              offset = DpOffset(0.dp, 8.dp),
+              radius = 16.dp,
+              spread = 0.dp,
+              color = Color.Black.copy(alpha = 0.2f),
+            )
+          )
+          .background(color = Color.White, shape = RoundedCornerShape(12.dp)),
+      )
     }
   }
 }
