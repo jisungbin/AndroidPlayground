@@ -1,3 +1,9 @@
 unstable class land.sungbin.androidplayground.PlaygroundActivity {
   <runtime stability> = Unstable
 }
+stable class land.sungbin.androidplayground.FontScaleInspector {
+  stable val TAG: String
+  stable val MAX_SCALE_ANDROID_14: Float
+  stable val MAX_SCALE_LEGACY: Float
+  <runtime stability> = Stable
+}
