@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 @StabilityInferred(
    parameters = 1
 )
-@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/FontScaleInspector\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,114:1\n11879#2,9:115\n13805#2:124\n13806#2:126\n11888#2:127\n1#3:125\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/FontScaleInspector\n*L\n97#1:115,9\n97#1:124\n97#1:126\n97#1:127\n97#1:125\n*E\n"})
+@SourceDebugExtension({"SMAP\nPlaygroundActivity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/FontScaleInspector\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,119:1\n11879#2,9:120\n13805#2:129\n13806#2:131\n11888#2:132\n1#3:130\n*S KotlinDebug\n*F\n+ 1 PlaygroundActivity.kt\nland/sungbin/androidplayground/FontScaleInspector\n*L\n100#1:120,9\n100#1:129\n100#1:131\n100#1:132\n100#1:130\n*E\n"})
 public final class FontScaleInspector {
    @NotNull
    public static final FontScaleInspector INSTANCE = new FontScaleInspector();
