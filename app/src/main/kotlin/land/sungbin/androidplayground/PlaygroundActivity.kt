@@ -8,7 +8,10 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 @Suppress("PrivateApi")
 class PlaygroundActivity : ComponentActivity() {
@@ -16,21 +19,21 @@ class PlaygroundActivity : ComponentActivity() {
     enableEdgeToEdge()
     super.onCreate(savedInstanceState)
     setContent {
-      // Text(FontScaleInspector.getMaxUserSelectableFontScale(this).toString())
-      val targetPackage = "com.android.settings"
-
-      // 다른 패키지(Settings)의 Context를 생성하여 리소스 접근 권한 획득
-      val settingsContext = createPackageContext(
-        targetPackage,
-        Context.CONTEXT_IGNORE_SECURITY
+      Text(
+        modifier = Modifier.padding(50.dp),
+        text = getFontSizeResources().contentToString(),
       )
-      val res = settingsContext.resources
-
-      // AOSP 표준 리소스 이름: entryvalues_font_size
-      // 주의: 삼성 등 일부 제조사는 'sec_entryvalues_font_size' 등 다른 이름을 사용할 수 있음
-      val resId = res.getIdentifier("display_density_max_scale", "fraction", targetPackage)
-      Text(res.getFraction(resId, 1, 1).toString())
     }
+  }
+
+  @Suppress("DiscouragedApi")
+  private fun getFontSizeResources(): FloatArray {
+    val res = packageManager.getResourcesForApplication(SETTINGS_PACKAGE)
+    val resId = res.getIdentifier("entryvalues_font_size", "array", SETTINGS_PACKAGE)
+    if (resId == 0) return floatArrayOf()
+
+    val values = res.getStringArray(resId)
+    return FloatArray(values.size) { i -> values[i].toFloat() }
   }
 }
 
@@ -111,3 +114,5 @@ object FontScaleInspector {
     }
   }
 }
+
+private const val SETTINGS_PACKAGE = "com.android.settings"
