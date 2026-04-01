@@ -1,118 +1,150 @@
 package land.sungbin.androidplayground
 
-import android.content.Context
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import kotlin.math.max
 
-@Suppress("PrivateApi")
+/**
+ * 검증 항목: BasicTextField를 min=0, max=remainingWidth로 measure하면
+ * 텍스트 intrinsic width에 맞게 shrink되는가?
+ *
+ * - SHRUNK: width < maxAvailable → Layout에서 prefix 밀착 배치 가능
+ * - FILLED: width = maxAvailable → drawWithCache 필요 (현재 방식)
+ */
 class PlaygroundActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
-    enableEdgeToEdge()
     super.onCreate(savedInstanceState)
+    enableEdgeToEdge()
     setContent {
-      Text(
-        modifier = Modifier.padding(50.dp),
-        text = getFontSizeResources().contentToString(),
-      )
-    }
-  }
+      Column(
+        modifier = Modifier
+          .fillMaxSize()
+          .padding(horizontal = 24.dp, vertical = 56.dp),
+      ) {
+        BasicText(
+          text = "BasicTextField min=0 shrink 검증",
+          style = TextStyle(fontSize = 18.sp),
+        )
 
-  @Suppress("DiscouragedApi")
-  private fun getFontSizeResources(): FloatArray {
-    val res = packageManager.getResourcesForApplication(SETTINGS_PACKAGE)
-    val resId = res.getIdentifier("entryvalues_font_size", "array", SETTINGS_PACKAGE)
-    if (resId == 0) return floatArrayOf()
+        Spacer(Modifier.height(32.dp))
 
-    val values = res.getStringArray(resId)
-    return FloatArray(values.size) { i -> values[i].toFloat() }
-  }
-}
+        PrefixTextField(
+          label = "제안: min=0, max=remaining",
+          fixedWidth = false,
+        )
 
-object FontScaleInspector {
+        Spacer(Modifier.height(32.dp))
 
-  private const val TAG = "FontScaleInspector"
-
-  // 안드로이드 14 (API 34) 이상은 비선형 스케일링으로 200%까지 지원
-  private const val MAX_SCALE_ANDROID_14 = 2.0f
-
-  // 안드로이드 13 이하는 통상적으로 1.3배가 UI 안전 한계선 (Large Text)
-  private const val MAX_SCALE_LEGACY = 1.3f
-
-  /**
-   * 현재 기기에서 사용자가 설정 앱을 통해 선택할 수 있는 최대 Font Scale 값을 반환한다.
-   *
-   * 동작 원리:
-   * 1. 'com.android.settings' 패키지의 리소스에 접근을 시도한다.
-   * 2. 'entryvalues_font_size' 배열을 찾아 파싱한다.
-   * 3. 실패 시 OS 버전에 따른 휴리스틱 기본값을 반환한다.
-   */
-  fun getMaxUserSelectableFontScale(context: Context): Float {
-    // 1. 설정 앱 리소스에서 실제 값 추출 시도
-    val settingsMax = extractFromSettingsResources(context)
-    if (settingsMax != null) {
-      Log.i(TAG, "Detected precise max font scale from Settings app: $settingsMax")
-      return settingsMax
-    }
-
-    // 2. 실패 시 OS 버전에 따른 폴백 값 반환
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-      Log.i(TAG, "Using Android 14+ standard max scale: $MAX_SCALE_ANDROID_14")
-      MAX_SCALE_ANDROID_14
-    } else {
-      Log.i(TAG, "Using legacy standard max scale: $MAX_SCALE_LEGACY")
-      MAX_SCALE_LEGACY
-    }
-  }
-
-  private fun extractFromSettingsResources(context: Context): Float? {
-    val targetPackage = "com.android.settings"
-
-    return try {
-      // 다른 패키지(Settings)의 Context를 생성하여 리소스 접근 권한 획득
-      val settingsContext = context.createPackageContext(
-        targetPackage,
-        Context.CONTEXT_IGNORE_SECURITY
-      )
-      val res = settingsContext.resources
-
-      // AOSP 표준 리소스 이름: entryvalues_font_size
-      // 주의: 삼성 등 일부 제조사는 'sec_entryvalues_font_size' 등 다른 이름을 사용할 수 있음
-      val resId = res.getIdentifier("entryvalues_font_size", "array", targetPackage)
-
-      if (resId == 0) {
-        Log.w(TAG, "Resource 'entryvalues_font_size' not found in $targetPackage")
-        return null
+        PrefixTextField(
+          label = "기준선: min=max=remaining (현재 방식)",
+          fixedWidth = true,
+        )
       }
-
-      val values = res.getStringArray(resId)
-
-      // 문자열 배열을 Float로 변환하여 최댓값 탐색
-      // 예: ["0.85", "1.0", "1.15", "1.30"] -> 1.30 반환
-      values.mapNotNull {
-        try {
-          it.toFloat()
-        } catch (e: NumberFormatException) {
-          null
-        }
-      }.maxOrNull()
-
-    } catch (e: PackageManager.NameNotFoundException) {
-      Log.w(TAG, "Settings package not found: $targetPackage")
-      null
-    } catch (e: Exception) {
-      Log.e(TAG, "Failed to inspect settings resources", e)
-      null
     }
   }
 }
 
-private const val SETTINGS_PACKAGE = "com.android.settings"
+private val textStyle = TextStyle(fontSize = 18.sp)
+
+@Composable
+private fun PrefixTextField(label: String, fixedWidth: Boolean) {
+  val state = remember { TextFieldState("1000") }
+  var tfMeasuredWidth by remember { mutableIntStateOf(0) }
+  var maxAvailable by remember { mutableIntStateOf(0) }
+
+  Column {
+    BasicText(text = label, style = TextStyle(fontSize = 13.sp, color = Color.DarkGray))
+    Spacer(Modifier.height(6.dp))
+
+    Layout(
+      content = {
+        // [0] prefix — 초록 배경으로 영역 표시
+        BasicText(
+          text = "₩",
+          style = textStyle,
+          modifier = Modifier.background(Color(0x3000CC00)),
+        )
+        // [1] textField — 파랑 배경으로 영역 표시
+        Box(propagateMinConstraints = true) {
+          BasicTextField(
+            state = state,
+            textStyle = textStyle.copy(textAlign = TextAlign.End),
+            lineLimits = TextFieldLineLimits.SingleLine,
+            modifier = Modifier
+              .background(Color(0x300066FF)),
+          )
+        }
+      },
+      modifier = Modifier
+        .fillMaxWidth()
+        .border(width = 1.dp, color = Color.LightGray)
+        .padding(horizontal = 12.dp, vertical = 8.dp),
+    ) { measurables, constraints ->
+      val gapPx = 4.dp.roundToPx()
+      val prefix = measurables[0].measure(constraints.copy(minWidth = 0, minHeight = 0))
+      val remaining = max(0, constraints.maxWidth - prefix.width - gapPx)
+      maxAvailable = remaining
+
+      val tf = measurables[1].measure(
+        if (fixedWidth) constraints.copy(minWidth = remaining, maxWidth = remaining, minHeight = 0)
+        else constraints.copy(minWidth = 0, maxWidth = remaining, minHeight = 0),
+      )
+      tfMeasuredWidth = tf.width
+
+      val h = maxOf(prefix.height, tf.height)
+
+      layout(constraints.maxWidth, h) {
+        if (fixedWidth) {
+          // 현재 방식: prefix 왼쪽 고정, textField이 나머지 전체 차지
+          prefix.placeRelative(0, (h - prefix.height) / 2)
+          tf.placeRelative(prefix.width + gapPx, (h - tf.height) / 2)
+        } else {
+          // 제안 방식: textField을 오른쪽 끝에, prefix를 그 왼쪽에 밀착
+          val tfX = constraints.maxWidth - tf.width
+          val pX = tfX - gapPx - prefix.width
+          prefix.placeRelative(maxOf(0, pX), (h - prefix.height) / 2)
+          tf.placeRelative(tfX, (h - tf.height) / 2)
+        }
+      }
+    }
+
+    Spacer(Modifier.height(4.dp))
+
+    val shrunk = tfMeasuredWidth < maxAvailable
+    BasicText(
+      text = "measured: ${tfMeasuredWidth}px / max: ${maxAvailable}px → ${if (shrunk) "SHRUNK ✓" else "FILLED MAX"}",
+      style = TextStyle(
+        fontSize = 11.sp,
+        color = if (shrunk) Color(0xFF008800) else Color(0xFF880000),
+      ),
+    )
+  }
+}

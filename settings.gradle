@@ -3,17 +3,6 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
-        mavenLocal()
-    }
-
-    resolutionStrategy {
-        eachPlugin {
-            if(requested.id.toString() == "com.github.takahirom.decomposer"){
-                useModule("com.github.takahirom:decomposer:main-SNAPSHOT")
-            }
-        }
     }
 }
 
@@ -21,16 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://maven.pkg.jetbrains.space/public/p/compose/dev' }
-        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
-        maven { url 'https://repository.map.naver.com/archive/maven' }
-        mavenLocal()
     }
 }
 
 rootProject.name = "AndroidPlayground"
 include ':app'
-//include ':app02'
-//include ':test01'
-//include ':test02'
